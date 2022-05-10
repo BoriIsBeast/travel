@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.travel.Tfestival.TfestivalMapper">
+
+<select id="list" parameterType="TfestivalVO" resultType="TfestivalVO">
+	SELECT * FROM TFESTIVAL
+</select>
+
+<select id="detail" parameterType="TfestivalVO" resultType="TfestivalVO">
+SELECT * FROM TFESTIVAL WHERE NUM = #{num}
+</select>
+
+</mapper>
