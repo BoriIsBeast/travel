@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.travel.TNoticeMapper">
+	<select id="getList" resultType="TNoticeVO" parameterType="Pager">
+		SELECT * FROM TNOTICE
+		WHERE NUM >0 AND
+		
+		<choose>
+			<when test="kind == 'col1'">
+				TITLE
+			</when>
+			<when test="kind == 'col2'">
+				ID
+			</when>
+			<otherwise>
+				CONTENTS
+			</otherwise>
+		</choose>
+		LIKE concat('%', #{search},'%')
+		ORDER BY NUM DESC
+		LIMIT #{startRow}, #{perPage}
+	</select>
+
+</mapper>

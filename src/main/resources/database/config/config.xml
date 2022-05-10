@@ -5,6 +5,12 @@
   
   <configuration>
   	<typeAliases>
+  		<typeAlias type="com.project.travel.tNotice.TNoticeVO" alias="TNoticeVO"/>
+  		<typeAlias type="com.project.travel.tNotice.TNoticeFileVO" alias="TNoticeFileVO"/>
   		
+  		<typeAlias type="com.project.travel.util.Pager" alias="Pager"/>
+  		<typeAlias type="java.util.List" alias="List"/>
+  		
+  		<typeAlias type="java.util.Map" alias="Map"/>
   	</typeAliases>
   </configuration>
