@@ -8,6 +8,5 @@
 </head>
 <body>
 	성공
-	성공123
 </body>
 </html>
