@@ -36,5 +36,10 @@ public class TfestivalController {
 		mv.addObject("vo", tfestivalVO);
 		return mv;
 	}
+	@GetMapping("add")
+	public void add(TfestivalVO tfestivalVO)throws Exception{
+		
+	}
+
 
 }

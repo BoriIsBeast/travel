@@ -14,4 +14,9 @@
 SELECT * FROM TFESTIVAL WHERE NUM = #{num}
 </select>
 
+<insert id="add" parameterType="TfestivalVO">
+   INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
+   VALUES (NULL, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age} #{phone});
+</insert>
+
 </mapper>
