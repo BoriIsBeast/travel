@@ -13,5 +13,5 @@ public class TNoticeVO {
 	private Date regDate;
 	private String contents;
 	
-	private List<TNoticeFileVO> filesVOs;
+	private List<TNoticeFilesVO> filesVOs;
 }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.project.travel.TNoticeMapper">
+<mapper namespace="com.project.travel.tNotice.TNoticeMapper">
 	<select id="getList" resultType="TNoticeVO" parameterType="Pager">
 		SELECT * FROM TNOTICE
 		WHERE NUM >0 AND
@@ -23,6 +22,71 @@
 		LIKE concat('%', #{search},'%')
 		ORDER BY NUM DESC
 		LIMIT #{startRow}, #{perPage}
+	</select>
+	
+	<select id="getTotalCount" resultType="java.lang.Long" parameterType="Pager">
+		SELECT COUNT(NUM) FROM TNOTICE
+		WHERE
+		<choose>
+			<when test="kind == 'col1'">
+				TITLE
+			</when>
+			<when test="kind == 'col2'">
+				ID
+			</when>
+			<otherwise>
+				CONTENTS
+			</otherwise>
+		</choose>
+		LIKE concat('%',#{search},'%')
+	</select>
+	
+	<insert id="setAdd" parameterType="TNoticeVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO TNOTICE(NUM, ID, TITLE, REGDATE, CONTENTS)
+		VALUES (#{num}, #{id}, #{title}, now(), #{contents})
+	</insert>
+	
+	<update id="setUpdate" parameterType="TNoticeVO">
+		UPDATE TNOTICE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+	</update>
+	
+	<delete id="setDelete" parameterType="TNoticeVO">
+		DELETE FROM TNOTICE WHERE NUM=#{num}
+	</delete>
+	
+	<select id="getDetail" parameterType="TNoticeVO" resultMap="getDetailResult">
+		SELECT N.*, F.*
+		FROM TNOTICE N
+			LEFT JOIN
+			TNOTICEFILE F
+			USING(NUM)
+		WHERE NUM=#{num}
+	</select>
+	
+	<resultMap type="TNoticeVO" id="getDetailResult">
+		<id column="num" property="num"/>
+		<result column="id" property="id"/>
+		<result column="title" property="title"/>
+		<result column="contents" property="contents"/>
+		<result column="regDate" property="regDate"/>
+		<collection property="filesVOs" javaType="java.util.List" ofType="TNoticeFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
+	
+	<insert id="setFileAdd" parameterType="TNoticeFilesVO">
+		INSERT INTO TNOTICEFILE (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES (NULL, #{num}, #{fileName}, #{oriName})
+	</insert>
+	
+	<select id="getFileList" parameterType="TNoticeVO" resultType="TNoticeFilesVO">
+		SELECT*FROM TNOTICEFILE WHERE NUM=#{num}
+	</select>
+	
+	<select id="getFileDetail" parameterType="TNoticeFilesVO" resultType="TNoticeFilesVO">
+		SELECT * FROM TNOTICEFILE WHERE FILENUM = #{fileNum}
 	</select>
 
 </mapper>

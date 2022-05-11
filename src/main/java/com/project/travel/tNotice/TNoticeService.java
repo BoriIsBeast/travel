@@ -44,7 +44,7 @@ public class TNoticeService {
 				String fileName = fileManager.fileSave(mf, "resources/upload/TNotice/");
 				System.out.println(fileName);
 				// 2. 저장된 정보를 DB에 저장
-				TNoticeFileVO tNoticeFileVO = new TNoticeFileVO();
+				TNoticeFilesVO tNoticeFileVO = new TNoticeFilesVO();
 				tNoticeFileVO.setNum(tNoticeVO.getNum());
 				tNoticeFileVO.setFileName(fileName);
 				tNoticeFileVO.setOriName(mf.getOriginalFilename());
@@ -69,16 +69,16 @@ public class TNoticeService {
 	
 	public int setDelete(TNoticeVO tNoticeVO) throws Exception{
 		
-		List<TNoticeFileVO> ar = tNoticeMapper.getFileList(tNoticeVO);
+		List<TNoticeFilesVO> ar = tNoticeMapper.getFileList(tNoticeVO);
 		int result = tNoticeMapper.setDelete(tNoticeVO);
 		System.out.println("file size : "+ar.size());
-		for(TNoticeFileVO f : ar) {
+		for(TNoticeFilesVO f : ar) {
 			fileManager.fileDelete(f.getFileName(),"resources/upload/TNotice");
 		}
 		return result;
 	}
 	
-	public TNoticeFileVO getFileDetail(TNoticeFileVO tNoticeFileVO) throws Exception{
+	public TNoticeFilesVO getFileDetail(TNoticeFilesVO tNoticeFileVO) throws Exception{
 		return tNoticeMapper.getFileDetail(tNoticeFileVO);		
 	}
 	

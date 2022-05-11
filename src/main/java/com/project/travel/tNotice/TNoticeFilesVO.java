@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TNoticeFileVO extends FileVO{
+public class TNoticeFilesVO extends FileVO{
 		
 	private Long num;
 

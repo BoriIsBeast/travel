@@ -29,15 +29,15 @@ public interface TNoticeMapper {
 	
 	
 	//list : getFileList
-	public List<TNoticeFileVO> getFileList(TNoticeVO tNoticeVO) throws Exception;
+	public List<TNoticeFilesVO> getFileList(TNoticeVO tNoticeVO) throws Exception;
 	
 	//insert : setFileAdd
-	public int setFileAdd(TNoticeFileVO tNoticeFileVO) throws Exception;
+	public int setFileAdd(TNoticeFilesVO tNoticeFileVO) throws Exception;
 	
 	//detail : getFileDetail
-	public TNoticeFileVO getFileDetail(TNoticeFileVO tNoticeFileVO) throws Exception;
+	public TNoticeFilesVO getFileDetail(TNoticeFilesVO tNoticeFileVO) throws Exception;
 	
 	//delete : setFileDelete
-	public int setFileDelete(TNoticeFileVO tNoticeFileVO) throws Exception;
+	public int setFileDelete(TNoticeFilesVO tNoticeFileVO) throws Exception;
 
 }
