@@ -17,7 +17,7 @@
   <div class="card-body">
     <h5 class="card-title">${vo.name}</h5>
     <p class="card-text">${vo.location}</p>
-    <a href="./detail" class="btn btn-primary">더보기..</a>
+    <a href="./detail?num=${vo.num}" class="btn btn-primary">더보기..</a>
     <div class="card-footer">
    	${vo.startDate} ~ ${vo.finishDate}
   </div>

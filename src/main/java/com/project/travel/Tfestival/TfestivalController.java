@@ -22,7 +22,7 @@ public class TfestivalController {
 	@GetMapping("list")
 	public ModelAndView list(TfestivalVO tfestivalVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		java.util.List<TfestivalVO> ar = tfestivalService.list();
+		java.util.List<TfestivalVO> ar = tfestivalService.list(tfestivalVO);
 		mv.setViewName("Tfestival/list");
 		mv.addObject("list", ar);
 		return mv;
@@ -32,7 +32,7 @@ public class TfestivalController {
 	public ModelAndView detail(TfestivalVO tfestivalVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Tfestival/detail");
-		tfestivalVO = tfestivalService.detail();
+		tfestivalVO = tfestivalService.detail(tfestivalVO);
 		mv.addObject("vo", tfestivalVO);
 		return mv;
 	}

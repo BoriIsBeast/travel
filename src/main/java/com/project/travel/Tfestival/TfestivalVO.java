@@ -13,5 +13,8 @@ public class TfestivalVO {
 	private Date finishDate;
 	private String location;
 	private String detail;
+	private String homePage;
+	private String age;
+	private String phone;
 
 }

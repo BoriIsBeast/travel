@@ -14,28 +14,28 @@ public class TfestivalService {
 	private TfestivalMapper tfestivalMapper;
 	
 	//List
-	public List<TfestivalVO> list()throws Exception{
-		return tfestivalMapper.list();
+	public List<TfestivalVO> list(TfestivalVO tfestivalVO)throws Exception{
+		return tfestivalMapper.list(tfestivalVO);
 	}
 	
 	//detail
-	public TfestivalVO detail()throws Exception{
-		return tfestivalMapper.detail();
+	public TfestivalVO detail(TfestivalVO tfestivalVO)throws Exception{
+		return tfestivalMapper.detail(tfestivalVO);
 	}
 	
 	//add
 	public int add(TfestivalVO tfestivalVO)throws Exception {
-		return tfestivalMapper.add();
+		return tfestivalMapper.add(tfestivalVO);
 	}
 	
 	//delete
 	public int delete(TfestivalVO tfestivalVO)throws Exception{
-		return tfestivalMapper.delete();
+		return tfestivalMapper.delete(tfestivalVO);
 	}
 	
 	//update
 	public int update(TfestivalVO tfestivalVO)throws Exception{
-		return tfestivalMapper.update();
+		return tfestivalMapper.update(tfestivalVO);
 	}
 
 }

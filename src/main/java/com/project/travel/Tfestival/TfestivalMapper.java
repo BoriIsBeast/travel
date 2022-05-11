@@ -8,18 +8,18 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TfestivalMapper {
 	
 	//list
-	public List<TfestivalVO> list() throws Exception;
+	public List<TfestivalVO> list(TfestivalVO tfestivalVO) throws Exception;
 	
 	//detail
-	public TfestivalVO detail() throws Exception;
+	public TfestivalVO detail(TfestivalVO tfestivalVO) throws Exception;
 	
 	//add
-	public int add() throws Exception;
+	public int add(TfestivalVO tfestivalVO) throws Exception;
 	
 	//delete
-	public int delete() throws Exception;
+	public int delete(TfestivalVO tfestivalVO) throws Exception;
 	
 	//update
-	public int update() throws Exception;
+	public int update(TfestivalVO tfestivalVO) throws Exception;
 
 }
