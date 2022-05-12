@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>공지 사항</h3>
+	
 	<div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-primary" role="alert">
