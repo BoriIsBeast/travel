@@ -8,15 +8,31 @@
 
 <select id="list" parameterType="TfestivalVO" resultType="TfestivalVO">
 	SELECT * FROM TFESTIVAL
+	<!-- WHERE NUM > 0 AND
+	<choose>
+			<when test="kind == 'col1'">
+				NAME
+			</when>
+			<otherwise>
+				LOCATION
+			</otherwise>
+		</choose>
+		LIKE concat('%', #{search},'%')
+		ORDER BY NUM DESC
+		LIMIT #{startRow}, #{perPage} -->
 </select>
 
 <select id="detail" parameterType="TfestivalVO" resultType="TfestivalVO">
-SELECT * FROM TFESTIVAL WHERE NUM = #{num}
+	SELECT * FROM TFESTIVAL WHERE NUM = #{num}
 </select>
 
 <insert id="add" parameterType="TfestivalVO">
-   INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
-   VALUES (NULL, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age} #{phone});
+   INSERT INTO TFESTIVAL(NAME, DETAIL)
+   VALUES (#{name}, #{detail})
 </insert>
+
+<delete id="delete" parameterType="TfestivalVO">
+ 	DELETE FROM TFESTIVAL WHERE NUM = #{num}
+</delete>
 
 </mapper>

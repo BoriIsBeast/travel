@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.project.travel.util.Pager;
+
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class TfestivalService {
@@ -14,8 +16,8 @@ public class TfestivalService {
 	private TfestivalMapper tfestivalMapper;
 	
 	//List
-	public List<TfestivalVO> list(TfestivalVO tfestivalVO)throws Exception{
-		return tfestivalMapper.list(tfestivalVO);
+	public List<TfestivalVO> list(Pager pager)throws Exception{
+		return tfestivalMapper.list(pager);
 	}
 	
 	//detail

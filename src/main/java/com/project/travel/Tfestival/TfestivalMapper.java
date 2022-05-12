@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.travel.util.Pager;
+
 @Mapper
 public interface TfestivalMapper {
 	
 	//list
-	public List<TfestivalVO> list(TfestivalVO tfestivalVO) throws Exception;
+	public List<TfestivalVO> list(Pager pager) throws Exception;
 	
 	//detail
 	public TfestivalVO detail(TfestivalVO tfestivalVO) throws Exception;
