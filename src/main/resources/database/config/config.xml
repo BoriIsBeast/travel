@@ -5,6 +5,11 @@
   
   <configuration>
   	<typeAliases>
+  		<typeAlias type="com.project.travel.product.ProductVO" alias="ProductVO"/>
+  		<typeAlias type="com.project.travel.product.ProductFilesVO" alias="ProductFilesVO"/>
+  		<typeAlias type="com.project.travel.util.Pager" alias="Pager"/>
+  		<typeAlias type = "java.lang.Long" alias="Long" />
+  		<typeAlias type="java.util.List" alias="List"/>
   		
   	</typeAliases>
   </configuration>
