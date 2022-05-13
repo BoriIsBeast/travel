@@ -35,4 +35,8 @@
  	DELETE FROM TFESTIVAL WHERE NUM = #{num}
 </delete>
 
+<update id="update" parameterType="TfestivalVO">
+	 UPDATE TFESTIVAL SET NAME = #{name}, STARTDATE = #{startDate}, FINISHDATE = #{finishDate}, LOCATION = #{location}, DETAIL = #{detail}, HOMEPAGE = #{homePage}, AGE = #{age}, PHONE = #{phone} WHERE NUM = #{num}
+</update>
+
 </mapper>
