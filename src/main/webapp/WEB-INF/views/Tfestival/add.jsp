@@ -9,25 +9,54 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>add page</h1>
-	
-	<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">축제이름</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex) 곡성 세계장미축제 ">
+
+<div class="alert alert-success" role="alert">
+ 	<h1>축제 등록</h1>
+</div>
+
+<form action="./add" method="post">
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">축제이름</label>
+<input class="form-control" name="name" type="text" aria-label="default input example">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">축제 시작일</label>
+  <input class="form-control" name="startDate" type="text" aria-label="default input example">
 </div>
 <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">축제설명</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <label for="exampleFormControlTextarea1" class="form-label">축제 종료일</label>
+  <input class="form-control" name="finishDate" type="text" aria-label="default input example">
+</div>
+ <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">장소</label>
+<input class="form-control" name="location" type="text" aria-label="default input example">
 </div>
 <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">상세정보</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <label for="exampleFormControlTextarea1" class="form-label">상세 정보</label>
+  <textarea class="form-control" name="detail" id="exampleFormControlTextarea1" rows="3" ></textarea>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">홈페이지</label>
+<input class="form-control" name="homePage" type="text" aria-label="default input example">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">관람가능 연령</label>
+<input class="form-control" name="age" type="text" aria-label="default input example">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">전화번호</label>
+ <input class="form-control" name="phone" type="text" aria-label="default input example">
 </div>
 <div class="mb-3">
   <label for="formFile" class="form-label">파일 추가</label>
   <input class="form-control" type="file" id="formFile">
 </div>	
+
+<button type="submit" class="btn btn-outline-secondary">등록</button>
 	
+</form>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>	
 </body>
 </html>

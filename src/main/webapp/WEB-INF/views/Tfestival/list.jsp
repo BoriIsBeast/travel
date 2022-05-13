@@ -19,7 +19,7 @@
     <p class="card-text">${vo.location}</p>
     <a href="./detail?num=${vo.num}" class="btn btn-primary">더보기..</a>
     <div class="card-footer">
-   	${vo.startDate} ~ ${vo.finishDate}
+<%--    	${vo.startDate} ~ ${vo.finishDate} --%>
   </div>
   </div>
 </div>

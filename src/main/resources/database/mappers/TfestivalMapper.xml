@@ -27,8 +27,8 @@
 </select>
 
 <insert id="add" parameterType="TfestivalVO">
-   INSERT INTO TFESTIVAL(NAME, DETAIL)
-   VALUES (#{name}, #{detail})
+      INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
+  	  VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age}, #{phone})
 </insert>
 
 <delete id="delete" parameterType="TfestivalVO">
