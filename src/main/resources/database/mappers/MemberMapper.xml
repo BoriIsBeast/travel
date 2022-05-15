@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.travel.member.MemberMapper">
+
+		<update id="updatePw" parameterType="MemberVO">
+			UPDATE TMEMBER SET PW=#{pw} WHERE ID = #{id}
+		</update>
+
+		<update id="setUpdate" parameterType="MemberVO">
+			UPDATE TMEMBER 
+				SET NAME=#{name}, BIRTH=#{birth}, PHONE=#{phone},address=#{address}, EMAIL=#{email}
+		</update>
+		
+		<select id="getFindId" parameterType="MemberVO" resultType="MemberVO">
+			SELECT ID FROM TMEMBER 
+				WHERE EMAIL=#{email}
+		</select>
+		
+		<insert id="setJoin" parameterType="MemberVO">
+			INSERT INTO TMEMBER(ID, PW, NAME, REGDATE, BIRTH, PHONE, EMAIL, TPOINT, TTYPE, ZIPCODE, ADDRESS)
+				VALUES (#{id}, #{pw}, #{name}, now() ,#{birth}, #{phone}, #{email}, 0, 0, #{zipCode}, #{address})
+		</insert>
+		
+		<select id="getMypage" parameterType="MemberVO" resultType="MemberVO">
+			SELECT * FROM TMEMBER 
+				WHERE ID =#{id}
+		</select>
+		
+		<select id="login" parameterType="MemberVO" resultType="MemberVO">
+			SELECT ID,NAME FROM TMEMBER 
+				WHERE ID=#{id} and PW=#{pw}
+		</select>
+		
+		
+
+</mapper>

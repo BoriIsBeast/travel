@@ -5,6 +5,6 @@
   
   <configuration>
   	<typeAliases>
-  		
+  		<typeAlias type="com.project.travel.member.MemberVO" alias="MemberVO"/>
   	</typeAliases>
   </configuration>
