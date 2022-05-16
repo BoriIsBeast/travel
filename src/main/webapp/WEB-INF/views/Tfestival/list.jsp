@@ -19,11 +19,30 @@
     <p class="card-text">${vo.location}</p>
     <a href="./detail?num=${vo.num}" class="btn btn-primary">더보기..</a>
     <div class="card-footer">
-<%--    	${vo.startDate} ~ ${vo.finishDate} --%>
+    ${vo.startDate} ~ ${vo.finishDate}
   </div>
   </div>
 </div>
 	</c:forEach>
+	
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="./list?pn=${pager.pre?pager.startNum-1:1}&kind=${pager.kind}$search=${pager.search}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+    <li class="page-item"><a class="page-link" href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+    </c:forEach>
+
+    <li class="page-item">
+      <a class="page-link" href="href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&nind=${pager.kind}&search=${pager.search}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 	
 	<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
 	
