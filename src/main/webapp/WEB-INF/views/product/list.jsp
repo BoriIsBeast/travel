@@ -1,55 +1,177 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- 부트스트랩  -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-	crossorigin="anonymous"></script>
-<!-- jQuery -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
+<link href="../resources/css/listCategory.css" rel="stylesheet">
+<c:import url="../temp/header_script.jsp"></c:import>
+<c:import url="../temp/header_css.jsp"></c:import>
+
 <style type="text/css">
 .card-img-top {
-	height:30rem;
- 	object-fit: cover;
+	height: 30rem;
+	object-fit: cover;
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-<h1>ListPage</h1>
-	<div class="row row-cols-5 row-cols-md-5 g-4">
-		<c:forEach items="${vo}" var="list" >
-			<div class="col">
-				<div class="card">
-					<img src="/resources/upload/product/${list.filesVOs[0].fileName}" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title"><a href="./detail?productNum=${list.productNum}">${list.name}</a></h5>
-						<p class="card-text">${list.address}</p>
-						<p class="card-text">${list.price}</p>
-					</div>
+
+	<div class="container">
+		<h1>ListPage</h1>
+
+		<!-- 검색 -->
+		<div class="d-flex justify-content-end">
+			<form class="d-flex col-4 mb-3 ">
+				<select name="kind">
+					<option value="col1">지역(도)</option>
+					<option value="col2">지역(시)</option>
+					<option value="col3">여행지 이름</option>
+
+				</select> <input class="form-control me-2" type="search" placeholder="입력하세요."
+					aria-label="Search" name="search">
+				<button class="btn btn-outline-primary" type="submit">Search</button>
+			</form>
+		</div>
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="./list">지역 List - </a></li>
+
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=서울">서울</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=경기">경기</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=강원">강원</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=경상">경상</a> 
+						<!-- <ul class="submenu">
+							<li class="sub1"><a href="./list?kind=col2&search=부산">부산</a></li>
+							<li class="sub1"><a href="./list?kind=col2&search=경주">경주</a></li>
+							<li class="sub1"><a href="./list?kind=col2&search=문경">문경</a></li>
+						</ul> --></li>
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=전라">전라</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=충청">충청</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							href="./list?kind=col1&search=제주">제주</a></li>
+
+					</ul>
 				</div>
 			</div>
-		</c:forEach>
-		</div>
-	<div class="row mt-4">
-		<a href="/product/add">Add</a>
+		</nav>
+
+		<!-- 카테고리 -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="./list">카테고리 - </a></li>
+						<li class="nav-item"><a class="nav-link active category"
+							aria-current="page" href="./list?kind=col4&search=가족과 함께" data-cat="가족과 함께">#가족과
+								함께</a></li>
+						<li class="nav-item"><a class="nav-link active category"
+							aria-current="page" href="./list?kind=col4&search=연인과 함께" data-cat="연인과 함께">#연인과
+								함께</a></li>
+						<li class="nav-item"><a class="nav-link active category"
+							aria-current="page" href="./list?kind=col4&search=나홀로 여행" data-cat="나홀로 여행">#나홀로
+								여행</a></li>
+						<li class="nav-item"><a class="nav-link active category"
+							aria-current="page" href="./list?kind=col4&search=자연친화적인" data-cat="자연친화적인">#자연친화적인</a>
+						</li>
+						<li class="nav-item"><a class="nav-link active category"
+							aria-current="page" href="./list?kind=col4&search=힐링 여행" data-cat="힐링 여행">#힐링
+								여행</a></li>
+						<li class="nav-item"><a class="nav-link active category"
+							aria-current="page" href="./list?kind=col4&search=기타" data-cat="기타">#기타</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+
+	<div id="categoryResult">
+	
+
+	
 	</div>
 
-</div>
 
+		<!-- card list -->
+		<div class="row row-cols-5 row-cols-md-5 g-4">
+			<c:forEach items="${vo}" var="list">
+				<div class="col">
+					<div class="card listDetail" data-num="${list.productNum}">
+						<img src="/resources/upload/product/${list.filesVOs[0].fileName}"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">${list.name}</h5>
+							<p class="card-text">${list.address}</p>
+							<fmt:formatNumber type="currency" value="${list.price}" />
+							원
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+
+		<!-- pager -->
+		<div class="col-4">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination align-self-center">
+					<li class="page-item"><a class="page-link"
+						href="./list?pn=${pager.pre?pager.startNum-1:1}&kind=${pager.kind}&search=${pager.search}"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
+
+					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+						<li class="page-item"><a class="page-link"
+							href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+					</c:forEach>
+
+					<li class="page-item"><a class="page-link"
+						href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&kind=${pager.kind}&search=${pager.search}"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<!-- add 버튼 -->
+		<div class="row mt-4">
+			<a href="/product/add">Add</a>
+		</div>
+
+	</div>
+
+	<!-- <script type="text/javascript" src="../resources/js/listSearch.js"></script> -->
+	<script type="text/javascript">
+		$(".listDetail").click(function(){
+			let productNum=$(this).attr("data-num");
+			location.href=href="./detail?productNum="+productNum;
+		})
+		
+		
+		$(".category").click(function(){
+			let cat=$(this).attr("data-cat");
+			let f='<h4>#'+cat+'</h4>'
+			
+			$("#categoryResult").prepend(f)
+		})
+		
+		
+	</script>
 </body>
 </html>

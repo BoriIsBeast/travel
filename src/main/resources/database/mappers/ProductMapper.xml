@@ -9,9 +9,28 @@
 		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage})
 	</insert>
 	
-	<select id="getList" parameterType="ProductVO" resultMap="productResult">
-		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, PF.*
-		FROM TPRODUCT P
+	<select id="getList" parameterType="PAGER" resultMap="productResult">
+		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.LARGECATEGORY, PF.*
+		FROM (SELECT * FROM TPRODUCT
+		WHERE PRODUCTNUM>0 AND
+		<choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<when test="kind=='col3'">
+       			NAME
+       		</when>
+       		<otherwise>
+       			SMALLCATEGORY
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%')
+       	ORDER BY PRODUCTNUM DESC
+       	LIMIT #{startRow},#{perPage}
+       	) P
 		LEFT JOIN 
 		TPRODUCTFILE PF
 		USING(PRODUCTNUM)
@@ -45,7 +64,26 @@
 		WHERE PRODUCTNUM=#{productNum}
 	</select>
 	
-	
+	<select id="getTotal" parameterType="Pager" resultType="Long">
+		SELECT COUNT(PRODUCTNUM) FROM TPRODUCT
+		WHERE 
+		 <choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<when test="kind=='col3'">
+       			NAME
+       		</when>
+       		<otherwise>
+       			SMALLCATEGORY
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%') 
+		
+	</select>
 	
 	<update id="setUpdate" parameterType="ProductVO">
 		UPDATE TPRODUCT SET NAME=#{name},PRICE=#{price},CONTENTS=#{contents},HOMEPAGE=#{homePage} 

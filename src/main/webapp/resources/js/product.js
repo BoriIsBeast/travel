@@ -7,7 +7,7 @@ function mediumCategorySelect(){
         if(this.value == '서울'){
             $("#mediumCategoryResult").empty();
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option>선택해주세요</option>';
             f=f+'<option value="마포구">마포구</option>';
             f=f+'<option value="강남구">강남구</option>';
@@ -22,7 +22,7 @@ function mediumCategorySelect(){
             
             $("#mediumCategoryResult").empty();
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option>선택해주세요</option>';
             f=f+'<option value="인천">인천</option>';
             f=f+'<option value="수원">수원</option>';
@@ -36,7 +36,7 @@ function mediumCategorySelect(){
         if(this.value == '강원'){
             $("#mediumCategoryResult").empty();
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option>선택해주세요</option>';
             f=f+'<option value="강릉">강릉</option>';
             f=f+'<option value="동해">동해</option>';
@@ -49,7 +49,7 @@ function mediumCategorySelect(){
             $("#mediumCategoryResult").empty();
 
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option>선택해주세요</option>';
             f=f+'<option value="부산">부산</option>';
             f=f+'<option value="경주">경주</option>';
@@ -62,7 +62,7 @@ function mediumCategorySelect(){
             $("#mediumCategoryResult").empty();
 
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option>선택해주세요</option>';
             f=f+'<option value="광주">광주</option>';
             f=f+'<option value="목포">목포</option>';
@@ -75,7 +75,7 @@ function mediumCategorySelect(){
             $("#mediumCategoryResult").empty();
 
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option>선택해주세요</option>';
             f=f+'<option value="대전">대전</option>';
             f=f+'<option value="단양">단양</option>';
@@ -87,7 +87,7 @@ function mediumCategorySelect(){
         if(this.value == '제주'){
             $("#mediumCategoryResult").empty();
             let f = '<label for="exampleInputPassword1" class="form-label">중분류</label>';
-            f=f+'<select name="mediumCategory" id="mediumCategory">';
+            f=f+'<select class="form-select" aria-label="Default select example" name="mediumCategory" id="mediumCategory">';
             f=f+'<option value="제주시">제주시</option>';
             f=f+'<option value="서귀포시">서귀포시</option>';
             f=f+'</select>'
@@ -99,7 +99,7 @@ function mediumCategorySelect(){
        
         $("#smallCategoryResult").empty();
         let f = '<label for="exampleInputPassword1" class="form-label">소분류</label>';
-        f=f+'<select name="smallCategory">';
+        f=f+'<select class="form-select" aria-label="Default select example" name="smallCategory">';
         f=f+'<option>선택해주세요</option>';
         f=f+'<option value="가족과 함께">#가족과 함께</option>';
         f=f+'<option value="연인과 함께">#연인과 함께</option>';

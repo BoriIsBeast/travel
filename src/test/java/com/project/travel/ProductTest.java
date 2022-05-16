@@ -10,36 +10,41 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.project.travel.product.ProductMapper;
 import com.project.travel.product.ProductVO;
+import com.project.travel.util.Pager;
 @SpringBootTest
 class ProductTest {
 	@Autowired
 	private ProductMapper productMapper;
 
-	//@Test
+	@Test
 	void setAdd()throws Exception{
 		ProductVO productVO = new ProductVO();
 		
+		for(int i=3;i<51;i++) {
 		productVO.setId("master");
-//		productVO.setLargeCategory(0L);
-//		productVO.setMediumCategory(3L);
-		productVO.setSmallCategory("연인과 함께");
-		productVO.setName("안압지");
+		productVO.setLargeCategory("test"+i);
+		productVO.setMediumCategory("test"+i);
+		productVO.setSmallCategory("test"+i);
+		productVO.setName("test"+i);
 		productVO.setPrice(5000L);
-		productVO.setContents("신라시대");
+		productVO.setContents("test"+i);
+		productVO.setAddress("test"+i);
+		productVO.setHomePage("test"+i);
 		
-		//int result = productMapper.setAdd(productVO);
-		
+		int result = productMapper.setAdd(productVO);
+		}
+		System.out.println("add finish");
 		//assertEquals(1, result);
 	}
 	//@Test
-	void getList() throws Exception{
-		ProductVO productVO = new ProductVO();
-		
-		List<ProductVO> ar=productMapper.getList();
-        
-        System.out.println(ar);
-        assertEquals(2,ar.size());
-	}
+//	void getList() throws Exception{
+//		ProductVO productVO = new ProductVO();
+//		
+//		List<ProductVO> ar=productMapper.getList(Pager);
+//        
+//        System.out.println(ar);
+//        assertEquals(2,ar.size());
+//	}
 	
 	//@Test
 	void setUpdate() throws Exception{

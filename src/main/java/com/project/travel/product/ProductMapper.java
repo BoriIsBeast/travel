@@ -5,18 +5,23 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.project.travel.util.Pager;
+
 @Mapper
 public interface ProductMapper {
 	//add
 	public int setAdd(ProductVO productVO) throws Exception;
 	//list
-	public List<ProductVO> getList() throws Exception;
+	public List<ProductVO> getList(Pager pager) throws Exception;
 	//detail
 	public ProductVO getDetail(ProductVO productVO) throws Exception;
 	//update
 	public int setUpdate(ProductVO productVO) throws Exception;
 	//delete
 	public int setDelete(ProductVO productVO) throws Exception;
+	//totalCount
+	public Long getTotal(Pager pager) throws Exception;
+	
 	
 	//fileAdd
 	public int setFileAdd(ProductFilesVO productFilesVO) throws Exception;

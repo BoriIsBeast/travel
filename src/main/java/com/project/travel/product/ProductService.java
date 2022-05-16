@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.travel.util.FileManager;
+import com.project.travel.util.Pager;
 
 @Service
 public class ProductService {
@@ -45,8 +46,10 @@ public class ProductService {
 		return result;
 	}
 	
-	public List<ProductVO> getList() throws Exception{
-		return productMapper.getList();
+	public List<ProductVO> getList(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.makeNum(productMapper.getTotal(pager));
+		return productMapper.getList(pager);
 	}
 	public ProductVO getDetail(ProductVO productVO)throws Exception{
 		return productMapper.getDetail(productVO);

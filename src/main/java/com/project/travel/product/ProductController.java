@@ -2,6 +2,7 @@ package com.project.travel.product;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import com.project.travel.util.Pager;
 
 @Controller
 @RequestMapping("/product/*")
@@ -30,8 +32,8 @@ public class ProductController {
 	}
 	
 	@GetMapping("list")
-	public ModelAndView getList(ProductVO productVO,ModelAndView mv)throws Exception{
-		List<ProductVO> ar=productService.getList();
+	public ModelAndView getList(Pager pager,ModelAndView mv)throws Exception{
+		List<ProductVO> ar=productService.getList(pager);
 		
 		mv.addObject("vo",ar);
 		mv.setViewName("product/list");
@@ -43,7 +45,7 @@ public class ProductController {
 		 ModelAndView mv = new ModelAndView();
 		 
 		 productVO=productService.getDetail(productVO);
-		 
+
 		 mv.addObject("vo",productVO);
 		 mv.setViewName("product/detail");
 		 
@@ -85,5 +87,7 @@ public class ProductController {
 		
 		return mv;
 	}
+	
+	
 	
 }

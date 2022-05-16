@@ -6,20 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- 부트스트랩  -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-	crossorigin="anonymous"></script>
-<!-- jQuery -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
+<c:import url="../temp/header_script.jsp"></c:import>
+<c:import url="../temp/header_css.jsp"></c:import>
+<c:import url="../temp/summernote.jsp"></c:import>
 </head>
 <body>
 
@@ -37,7 +26,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="exampleInputPassword1" class="form-label">Contents</label>
-					<input type="text" class="form-control" id="contents" name="contents" value="${vo.contents}">
+					<textarea class="form-control" id="contents" name="contents"> ${vo.contents}</textarea>
 				</div>
 				<div class="mb-3">
 					<label for="exampleInputPassword1" class="form-label">Homepage</label>
@@ -62,9 +51,11 @@
 	</form>
 
 	<script type="text/javascript" src="../resources/js/fileAdd.js"></script>
+	<script type="text/javascript" src="../resources/js/summernote.js"></script>
 	<script type="text/javascript">
 		fileAdd(${vo.filesVOs.size()});
 		fileDelete();
+		summernote("contents","");
 	</script>
 </body>
 </html>
