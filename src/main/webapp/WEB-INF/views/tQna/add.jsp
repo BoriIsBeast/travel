@@ -18,11 +18,10 @@
 </head>
 <body>
 
-
 <div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">${board} Write</h4>
+	  		<h4 style="text-transform: uppercase;">문의</h4>
 		</div>
 	</div>
 	
@@ -65,9 +64,7 @@
 <script type="text/javascript" src="../js/summernote.js"></script>
 
 <script type="text/javascript">
-summernoteInit("contents","");
-
-	
+summernoteInit("contents","");	
 </script>
 </body>
 </html>

@@ -11,11 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<div class="container mt-4">
+		<div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-primary" role="alert">
-	  		<h4 class="text-center" style="text-transform: uppercase;">${board} List</h4>
+	  		<h4 class="text-center" style="text-transform: uppercase;">F A Q</h4>
 		</div>
 	</div>
 	
@@ -27,6 +26,8 @@
 					<th>Title</th>
 					<th>Writer</th>
 					<th>Date</th>
+					<th>HIT</th>
+					<th>추천</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,6 +39,8 @@
 					
 					<td>${vo.id}</td>				
 					<td>${vo.regDate}</td>
+					<td>${vo.hit}</td>
+					<td>${vo.rec}</td>
 				</tr>
 			</c:forEach>	
 			</tbody>
@@ -94,9 +97,7 @@
 	</div>
 
 </div>
-
-
-
+	
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -13,7 +13,7 @@
 <body>
 
 <div class="container">
-	<h1>Detail Page</h1>
+	<h1>질문 내용</h1>
 	
 	<div class="row">
 		<div class="card">
