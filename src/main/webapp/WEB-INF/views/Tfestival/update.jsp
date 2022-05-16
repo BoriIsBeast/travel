@@ -16,6 +16,7 @@
 
 <form action="./update" method="post">
 <div class="mb-3">
+<input class="form-control" name="num" value="${vo.num}" type="hidden" aria-label="default input example">
   <label for="exampleFormControlTextarea1" class="form-label">축제이름</label>
 <input class="form-control" name="name" type="text" aria-label="default input example">
 </div>

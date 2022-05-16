@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.travel.util.Pager;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class TfestivalService {
 	
 	@Autowired
