@@ -70,7 +70,7 @@ public class TfestivalController {
 	}
 	
 	@PostMapping("update")
-	public ModelAndView update(TfestivalVO tfestivalVO, ModelAndView mv)throws Exception{
+	public ModelAndView update (TfestivalVO tfestivalVO, ModelAndView mv)throws Exception{
 		int result = tfestivalService.update(tfestivalVO);
 		System.out.println(tfestivalVO.getName());
 		mv.setViewName("redirect:./list");
