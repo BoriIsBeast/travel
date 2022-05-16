@@ -28,6 +28,7 @@ public class TfestivalController {
 		java.util.List<TfestivalVO> ar = tfestivalService.list(pager);
 		mv.setViewName("Tfestival/list");
 		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
 		return mv;
 	}
 	

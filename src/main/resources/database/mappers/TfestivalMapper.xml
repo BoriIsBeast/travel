@@ -6,21 +6,36 @@
 
 <mapper namespace="com.project.travel.Tfestival.TfestivalMapper">
 
-<select id="list" parameterType="TfestivalVO" resultType="TfestivalVO">
+<select id="list" parameterType="Pager" resultType="TfestivalVO">
 	SELECT * FROM TFESTIVAL
-	<!-- WHERE NUM > 0 AND
+	WHERE NUM > 0 AND
 	<choose>
-			<when test="kind == 'col1'">
-				NAME
-			</when>
-			<otherwise>
-				LOCATION
-			</otherwise>
-		</choose>
-		LIKE concat('%', #{search},'%')
-		ORDER BY NUM DESC
-		LIMIT #{startRow}, #{perPage} -->
+		<when test="kind == 'col1'">
+			NAME
+		</when>
+		<otherwise>
+			LOCATION
+		</otherwise>
+	</choose>
+	LIKE concat('%', #{search}, '%')
+	
+	ORDER BY NUM DESC
+	LIMIT #{startRow}, #{perPage}	
 </select>
+
+<!-- <select id="totalCount" parameterType="Pager" resultType="java.lang.Long">
+SELECT * FROM TFESTIVAL
+	WHERE
+	<choose>
+		<when test="kind == 'col1'">
+			NAME
+		</when>
+		<otherwise>
+			LOCATION
+		</otherwise>
+	</choose>
+	LIKE concat('%', #{search}, '%')
+</select> -->
 
 <select id="detail" parameterType="TfestivalVO" resultType="TfestivalVO">
 	SELECT * FROM TFESTIVAL WHERE NUM = #{num}
