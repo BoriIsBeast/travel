@@ -17,7 +17,7 @@ public class TfestivalService {
 	//List
 	public List<TfestivalVO> list(Pager pager)throws Exception{
 		pager.makeRow();
-//		pager.makeNum(tfestivalMapper.totalCount(pager));
+		pager.makeNum(tfestivalMapper.totalCount(pager));
 		System.out.println("start : " + pager.getStartNum());
 		System.out.println("perPer : " + pager.getPerPage());
 		return tfestivalMapper.list(pager);

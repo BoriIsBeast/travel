@@ -23,8 +23,8 @@
 	LIMIT #{startRow}, #{perPage}	
 </select>
 
-<!-- <select id="totalCount" parameterType="Pager" resultType="java.lang.Long">
-SELECT * FROM TFESTIVAL
+ <select id="totalCount" parameterType="Pager" resultType="java.lang.Long">
+SELECT COUNT(NUM) FROM TFESTIVAL
 	WHERE
 	<choose>
 		<when test="kind == 'col1'">
@@ -35,7 +35,7 @@ SELECT * FROM TFESTIVAL
 		</otherwise>
 	</choose>
 	LIKE concat('%', #{search}, '%')
-</select> -->
+</select>
 
 <select id="detail" parameterType="TfestivalVO" resultType="TfestivalVO">
 	SELECT * FROM TFESTIVAL WHERE NUM = #{num}

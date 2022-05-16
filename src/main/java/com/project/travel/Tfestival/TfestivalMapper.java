@@ -13,7 +13,7 @@ public interface TfestivalMapper {
 	public List<TfestivalVO> list(Pager pager) throws Exception;
 	
 	//totalCount
-	//public Long totalCount(Pager pager)throws Exception;
+	public Long totalCount(Pager pager)throws Exception;
 	
 	//detail
 	public TfestivalVO detail(TfestivalVO tfestivalVO) throws Exception;
