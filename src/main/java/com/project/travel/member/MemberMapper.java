@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MemberMapper {
 	
-	public int updatePw(MemberVO memberVO)throws Exception;
+	public int setUpdatePw(MemberVO memberVO)throws Exception;
 	
 	public int setUpdate(MemberVO memberVO)throws Exception;
 	

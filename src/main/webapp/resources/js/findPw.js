@@ -3,8 +3,9 @@
  */
  
  $("#findBtn").click(function(){
+			console.log("click");
 			$.ajax({
-				url : "/member/findPw",
+				url : "./findPw",
 				type : "POST",
 				data : {
 					id : $("#id").val(),

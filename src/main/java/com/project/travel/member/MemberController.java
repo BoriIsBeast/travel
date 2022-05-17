@@ -20,6 +20,25 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@PostMapping("checkPw")
+	public ModelAndView checkPw(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		return mv;
+	}
+	
+	@GetMapping("checkPw")
+	public void checkPw(HttpSession session)throws Exception{
+		
+	}
+	
+	@GetMapping("updatePw")
+	public void updatePw()throws Exception{
+		
+	}
+	
 	@GetMapping("kakaoLogin")
 	public void kakaoLogin()throws Exception{
 		
@@ -52,7 +71,7 @@ public class MemberController {
 	public ModelAndView getFindPw(MemberVO memberVO, HttpServletResponse response)throws Exception{
 		ModelAndView mv = new ModelAndView();
 			
-		//memberService.findPw(response, memberVO);
+		memberService.findPw(response, memberVO);
 		return mv;
 	}
 	

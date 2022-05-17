@@ -49,7 +49,7 @@
         <div class="container-fluid bg-dark px-0">
             <div class="row gx-0">
                 <div class="col-lg-3 bg-dark d-none d-lg-block">
-                    <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <a href="./" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                         <h1 class="m-0 text-primary text-uppercase">Traveler</h1>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="row gx-0 bg-white d-none d-lg-flex">
                         <div class="col-lg-7 px-5 text-start">
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
-                                <i class="fa fa-envelope text-primary me-2"></i>
+                                <i class="fa text-primary me-2"></i>
                                 <c:if test="${not empty member}">
 	                                <p class="mb-0">${member.name}님 반갑습니다</p>
 	                            </c:if>
@@ -94,19 +94,19 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="./index.html" class="nav-item nav-link active">Home</a>
-                                <a href="./about.html" class="nav-item nav-link">About</a>
-                                <a href="./service.html" class="nav-item nav-link">Services</a>
-                                <a href="./room.html" class="nav-item nav-link">Rooms</a>
+                                <a href="./" class="nav-item nav-link active">Home</a>
+                                <a href="./about" class="nav-item nav-link">About</a>
+                                <a href="./service" class="nav-item nav-link">Services</a>
+                                <a href="./room" class="nav-item nav-link">Rooms</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="./booking.html" class="dropdown-item">Booking</a>
-                                        <a href="./team.html" class="dropdown-item">Our Team</a>
-                                        <a href="./testimonial.html" class="dropdown-item">Testimonial</a>
+                                        <a href="./booking" class="dropdown-item">Booking</a>
+                                        <a href="./team" class="dropdown-item">Our Team</a>
+                                        <a href="./testimonial" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div>
-                                <a href="./contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="./contact" class="nav-item nav-link">Contact</a>
                             </div>
                             <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">관리자<i class="fa fa-arrow-right ms-3"></i></a>
                             
@@ -219,7 +219,7 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                        <h2 class="mb-1" data-toggle="counter-up">123</h2>
                                         <p class="mb-0">Rooms</p>
                                     </div>
                                 </div>
@@ -228,7 +228,7 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                        <h2 class="mb-1" data-toggle="counter-up">456</h2>
                                         <p class="mb-0">Staffs</p>
                                     </div>
                                 </div>
@@ -237,7 +237,7 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-users fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                        <h2 class="mb-1" data-toggle="counter-up">789</h2>
                                         <p class="mb-0">Clients</p>
                                     </div>
                                 </div>

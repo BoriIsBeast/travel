@@ -1,11 +1,22 @@
 package com.project.travel.util;
 
 import org.apache.commons.mail.HtmlEmail;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.project.travel.member.MemberVO;
-
+@Component
 public class SendEmail {
+	
+	@Value("${admin.SMTP.id}")
+	private String hoswId;
+	@Value("${admin.SMTP.pw}")
+	private String hostPw;
+	
 	public void sendEmail(MemberVO memberVO, String div) throws Exception {
+		
+		
+		
 		// Mail Server 설정
 		
 		//네이버 
@@ -14,17 +25,17 @@ public class SendEmail {
 		
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.gmail.com"; //네이버 이용시 smtp.naver.com
-		String hostSMTPid = "서버 이메일 주소(보내는 사람 이메일 주소)";
-		String hostSMTPpwd = "서버 이메일 비번(보내는 사람 이메일 비번)";
+		String hostSMTPid = hoswId;//보내는사람 이메일주소 ==================== properties 에 등록해놨음 ! 반드시 등록하고 실행 =======
+		String hostSMTPpwd = hostPw;//보내는사람 이메일 비번 ==================== properties 에 등록해놨음 ! 반드시 등록하고 실행 =======
 
 		// 보내는 사람 EMail, 제목, 내용
-		String fromEmail = "보내는 사람 이메일주소(받는 사람 이메일에 표시됨)";
-		String fromName = "프로젝트이름 또는 보내는 사람 이름";
+		String fromEmail = "jinu743211@gmail.com";// 보내는 사람 이메일 주소
+		String fromName = "Traveler 관리자"; // 보내는사람 이름
 		String subject = "";
 		String msg = "";
 
 		if(div.equals("findpw")) {
-			subject = "베프마켓 임시 비밀번호 입니다.";
+			subject = "Traveler 임시 비밀번호 입니다.";
 			msg += "<div align='center' style='border:1px solid black; font-family:verdana'>";
 			msg += "<h3 style='color: blue;'>";
 			msg += memberVO.getId() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.</h3>";

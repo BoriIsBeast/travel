@@ -6,7 +6,9 @@
 
 <mapper namespace="com.project.travel.member.MemberMapper">
 
-		<update id="updatePw" parameterType="MemberVO">
+		
+
+		<update id="setUpdatePw" parameterType="MemberVO">
 			UPDATE TMEMBER SET PW=#{pw} WHERE ID = #{id}
 		</update>
 

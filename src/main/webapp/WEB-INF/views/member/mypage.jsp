@@ -16,6 +16,7 @@
 	</div>
 	
 	<a href="./update?id=${vo.id}">회원정보 수정</a>
+	<a href="./checkPw">비밀번호 변경</a>
 	
 	
 </body>
