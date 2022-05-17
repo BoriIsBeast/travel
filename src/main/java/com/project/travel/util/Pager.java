@@ -20,6 +20,11 @@ public class Pager {
 	
 	//검색어
 	private String search;
+
+	private String search1;
+	private String search2;
+	private String category;
+
 	
 	//jsp
 	private Long startNum;
@@ -93,6 +98,26 @@ public class Pager {
 		}
 		return this.search;
 	}
+
+	public String getSearch1() {
+		if(this.search1==null) {
+			this.search1="";
+		}
+		return this.search1;
+	}
+	public String getSearch2() {
+		if(this.search2==null) {
+			this.search2="";
+		}
+		return this.search2;
+	}
+	public String getCategory() {
+		if(this.category==null) {
+			this.category="";
+		}
+		return this.category;
+	}
+	
 	
 }
 

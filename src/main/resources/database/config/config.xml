@@ -5,8 +5,16 @@
   
   <configuration>
   	<typeAliases>
+
   		<typeAlias type="com.project.travel.tNotice.TNoticeVO" alias="TNoticeVO"/>
   		<typeAlias type="com.project.travel.tNotice.TNoticeFilesVO" alias="TNoticeFilesVO"/>
+
+  		<typeAlias type="com.project.travel.product.ProductVO" alias="ProductVO"/>
+  		<typeAlias type="com.project.travel.product.ProductFilesVO" alias="ProductFilesVO"/>
+  		
+  		<typeAlias type = "java.lang.Long" alias="Long" />
+  		
+
   		
   		<typeAlias type="com.project.travel.tQna.TQnaVO" alias="TQnaVO"/>
   		<typeAlias type="com.project.travel.tQna.TQnaFilesVO" alias="TQnaFilesVO"/>

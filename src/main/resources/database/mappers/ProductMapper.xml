@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.project.travel.product.ProductMapper">
+	<insert id="setAdd" parameterType="ProductVO" useGeneratedKeys="true" keyProperty="productNum">
+		INSERT INTO TPRODUCT
+		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage})
+	</insert>
+	
+	<select id="getList" parameterType="PAGER" resultMap="productResult">
+		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.LARGECATEGORY, PF.*
+		FROM (SELECT * FROM TPRODUCT
+		WHERE PRODUCTNUM>0 AND
+		<choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<otherwise>
+       			NAME
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%')
+       	AND LARGECATEGORY LIKE CONCAT('%',#{search1},'%')
+       	AND MEDIUMCATEGORY LIKE CONCAT('%',#{search2},'%')
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
+       	ORDER BY PRODUCTNUM DESC
+       	LIMIT #{startRow},#{perPage}
+       	) P
+		LEFT JOIN 
+		TPRODUCTFILE PF
+		USING(PRODUCTNUM)
+		ORDER BY PF.FILENUM ASC
+	</select>
+	
+	<resultMap type="ProductVO" id="productResult">
+		<id column="productNum" property="productNum"/>
+		<result column="id" property="id"/>
+		<result column="largeCategory" property="largeCategory"/>
+		<result column="mediumCategory" property="mediumCategory"/>
+		<result column="smallCategory" property="smallCategory"/>
+		<result column="name" property="name"/>
+		<result column="price" property="price"/>
+		<result column="contents" property="contents"/>
+		<result column="address" property="address"/>
+		<result column="homePage" property="homePage"/>
+		<collection property="filesVOs" javaType="java.util.List" ofType="ProductFilesVO">
+ 			<id column="fileNum" property="fileNum"/>
+ 			<result column="fileName" property="fileName"/>
+ 			<result column="oriName" property="oriName"/>
+ 		</collection>
+		</resultMap>
+		
+	<select id="getDetail" parameterType="ProductVO" resultMap="productResult"> 
+		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.ADDRESS, P.HOMEPAGE, PF.*
+		FROM TPRODUCT P
+		LEFT JOIN 
+		TPRODUCTFILE PF
+		USING(PRODUCTNUM)
+		WHERE PRODUCTNUM=#{productNum}
+	</select>
+	
+	<select id="getTotal" parameterType="Pager" resultType="Long">
+		SELECT COUNT(PRODUCTNUM) FROM TPRODUCT
+		WHERE 
+		 <choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<otherwise>
+       			NAME
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%') 
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
+		
+	</select>
+	
+	<update id="setUpdate" parameterType="ProductVO">
+		UPDATE TPRODUCT SET NAME=#{name},PRICE=#{price},CONTENTS=#{contents},HOMEPAGE=#{homePage} 
+		WHERE PRODUCTNUM=#{productNum}
+	</update>
+	
+	<delete id="setDelete" parameterType="ProductVO">
+		DELETE FROM TPRODUCT WHERE PRODUCTNUM=#{productNum}
+	</delete>
+	
+	<select id="getFileList" parameterType="ProductVO" resultType="ProductFilesVO">
+		SELECT * FROM TPRODUCTFILE WHERE PRODUCTNUM=#{productNum}
+	</select>
+	<select id="getFileDetail"  parameterType="ProductFilesVO" resultType="ProductFilesVO">
+		SELECT * FROM TPRODUCTFILE WHERE FILENUM=#{fileNum}
+	</select>
+	<delete id="setFileDelete" parameterType="productFilesVO">
+		DELETE FROM TPRODUCTFILE WHERE FILENUM=#{fileNum}
+	</delete>
+	<insert id="setFileAdd" parameterType="ProductFilesVO">
+		INSERT INTO TPRODUCTFILE
+		VALUES(NULL,#{productNum},#{fileName},#{oriName})
+	</insert>
+
+</mapper>
