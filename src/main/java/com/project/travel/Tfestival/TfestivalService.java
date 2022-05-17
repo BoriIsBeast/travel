@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.project.travel.util.FileManager;
 import com.project.travel.util.Pager;
 
@@ -31,8 +33,15 @@ public class TfestivalService {
 	}
 	
 	//add
-	public int add(TfestivalVO tfestivalVO)throws Exception {
-		return tfestivalMapper.add(tfestivalVO);
+	public int add(TfestivalVO tfestivalVO, MultipartFile[] files)throws Exception {
+		
+		// 1. File을 HDD에 저장
+		String fileName = fileManager.fileSave(files[0], "resources/upload/festival");
+		System.out.println(fileName);
+		// 2. 저장된 정보를 DB에 저장
+		
+		
+		return 0;//tfestivalMapper.add(tfestivalVO);
 	}
 	
 	//delete

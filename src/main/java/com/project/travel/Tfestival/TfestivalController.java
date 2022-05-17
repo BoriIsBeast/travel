@@ -53,12 +53,13 @@ public class TfestivalController {
 	@PostMapping("add")
 	public ModelAndView add(TfestivalVO tfestivalVO, MultipartFile[] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		//업로드시 파일명을 출력
 		
-		for(MultipartFile f : files) {
-			System.out.println(f.getOriginalFilename());
-		}
+		//for(MultipartFile f : files) {
+		//	System.out.println(f.getOriginalFilename());
+		//}
 		
-		// int result = tfestivalService.add(tfestivalVO);
+		int result = tfestivalService.add(tfestivalVO, files);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
