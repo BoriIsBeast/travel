@@ -18,12 +18,7 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-	<!-- geocode -->
-		<dependency>
-  			<groupId>com.google.code.geocoder-java</groupId>
-  			<artifactId>geocoder-java</artifactId>
- 		 	<version>0.16</version>
-		</dependency>
+	
 	
 	
 		<!--  ============================================추가 ======================================= -->
