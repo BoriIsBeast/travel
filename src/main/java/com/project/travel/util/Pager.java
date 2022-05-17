@@ -94,6 +94,5 @@ public class Pager {
 		return this.search;
 	}
 	
-	
 }
 
