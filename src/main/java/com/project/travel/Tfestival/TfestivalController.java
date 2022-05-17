@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.travel.util.FileManager;
 import com.project.travel.util.Pager;
 
 @Controller
@@ -16,6 +18,9 @@ public class TfestivalController {
 	
 	@Autowired
 	private TfestivalService tfestivalService;
+	
+	@Autowired
+	private FileManager fileManager;
 	
 	@ModelAttribute("Tfestival")
 	public String getTfestival() {
@@ -46,9 +51,14 @@ public class TfestivalController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView add(TfestivalVO tfestivalVO)throws Exception{
+	public ModelAndView add(TfestivalVO tfestivalVO, MultipartFile[] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = tfestivalService.add(tfestivalVO);
+		
+		for(MultipartFile f : files) {
+			System.out.println(f.getOriginalFilename());
+		}
+		
+		// int result = tfestivalService.add(tfestivalVO);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

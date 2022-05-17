@@ -1,5 +1,7 @@
 package com.project.travel.Tfestival;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -14,5 +16,7 @@ public class TfestivalVO {
 	private String homePage;
 	private String age;
 	private String phone;
+	
+	private List<TfestivalVO> tfilesVOs;
 
 }

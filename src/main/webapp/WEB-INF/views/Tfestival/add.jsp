@@ -14,7 +14,7 @@
  	<h1>축제 등록</h1>
 </div>
 
-<form action="./add" method="post">
+<form action="./add" method="post" enctype="multipart/form-data">
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">축제이름</label>
 <input class="form-control" name="name" type="text" aria-label="default input example">
@@ -49,8 +49,8 @@
  <input class="form-control" name="phone" type="text" aria-label="default input example">
 </div>
 <div class="mb-3">
-  <label for="formFile" class="form-label">파일 추가</label>
-  <input class="form-control" type="file" id="formFile">
+  <label for="files" class="form-label">파일 추가</label>
+  <input class="form-control" type="file" id="files" name="files">
 </div>	
 
 <button type="submit" class="btn btn-outline-secondary">등록</button>
