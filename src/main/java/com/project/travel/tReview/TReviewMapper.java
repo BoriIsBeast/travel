@@ -29,7 +29,7 @@ public interface TReviewMapper {
 	public int setDelete(TReviewVO tReviewVO) throws Exception;
 	
 	//fileList
-	public List<TReviewVO> getFileList(TQnaVO tQnaVO) throws Exception;
+	public List<TReviewFilesVO> getFileList(TReviewVO tReviewVO) throws Exception;
 
 	//fileAdd
 	public int setFileAdd(TReviewFilesVO tReviewFilesVO) throws Exception;

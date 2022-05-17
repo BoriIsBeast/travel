@@ -1,6 +1,7 @@
 package com.project.travel.tReview;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -19,4 +20,5 @@ public class TReviewVO {
 	private Long step;
 	private Long depth;
 
+	private List<TReviewFilesVO> filesVOs;
 }

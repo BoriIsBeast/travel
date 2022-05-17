@@ -18,15 +18,35 @@
 		</div>
 	</div>
 	
+		<div class="row justify-content-between">
+		<div class="col-5">
+			<form class="d-flex" action="./list" method="get">
+				<div class="col-4 me-2">
+				<select name="kind" class="form-select " aria-label="Default select example">
+				  <option value="col1">제 목</option>
+				  <option value="col2">내 용</option>
+				  <option value="col3">작 성 자</option>
+				</select>
+				</div>
+				<div class="col-6 me-2">
+	        	<input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+	        	</div>
+	        	<div class="col-2">
+	        	<button class="btn btn-outline-success" type="submit">Search</button>
+	        	</div>
+	      </form>
+		</div>
+	</div>
+	
 	<div class="row mt-4">
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>Num</th>
-					<th>Title</th>
-					<th>Writer</th>
-					<th>Date</th>
-					<th>HIT</th>
+					<th>No.</th>
+					<th>제 목</th>
+					<th>작 성 자</th>
+					<th>작 성 일</th>
+					<th>조 회 수</th>
 					<th>추천</th>
 				</tr>
 			</thead>
@@ -73,28 +93,10 @@
 	
 	
 	
-	<div class="row justify-content-between">
-		<div class="col-5">
-			<form class="d-flex" action="./list" method="get">
-				<div class="col-4 me-2">
-				<select name="kind" class="form-select " aria-label="Default select example">
-				  <option value="col1">Title</option>
-				  <option value="col2">Contents</option>
-				  <option value="col3">ID</option>
-				</select>
-				</div>
-				<div class="col-6 me-2">
-	        	<input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-	        	</div>
-	        	<div class="col-2">
-	        	<button class="btn btn-outline-success" type="submit">Search</button>
-	        	</div>
-	      </form>
-		</div>
+
 		<div class="col-1">
 			<a href="./add" type="button" class="btn btn-outline-primary">WRITE</a>
 		</div>
-	</div>
 
 </div>
 	
