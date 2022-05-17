@@ -20,14 +20,14 @@
        		<when test="kind=='col2'">
        			 MEDIUMCATEGORY
        		</when>
-       		<when test="kind=='col3'">
-       			NAME
-       		</when>
        		<otherwise>
-       			SMALLCATEGORY
+       			NAME
        		</otherwise>
        	</choose>
        	LIKE CONCAT('%', #{search},'%')
+       	AND LARGECATEGORY LIKE CONCAT('%',#{search1},'%')
+       	AND MEDIUMCATEGORY LIKE CONCAT('%',#{search2},'%')
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
        	ORDER BY PRODUCTNUM DESC
        	LIMIT #{startRow},#{perPage}
        	) P
@@ -74,14 +74,12 @@
        		<when test="kind=='col2'">
        			 MEDIUMCATEGORY
        		</when>
-       		<when test="kind=='col3'">
-       			NAME
-       		</when>
        		<otherwise>
-       			SMALLCATEGORY
+       			NAME
        		</otherwise>
        	</choose>
        	LIKE CONCAT('%', #{search},'%') 
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
 		
 	</select>
 	

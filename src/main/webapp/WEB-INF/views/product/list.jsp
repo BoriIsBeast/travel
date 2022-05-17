@@ -47,18 +47,28 @@
 							aria-current="page" href="./list">지역 List - </a></li>
 
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=서울">서울</a></li>
+							href="./list?kind=col1&search=서울">서울</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?kind=col2&search=마포구">마포구</a></li>
+								<li class="sub1"><a href="./list?kind=col2&search=강남구">강남구</a></li>
+								<li class="sub1"><a href="./list?kind=col2&search=동대문구">동대문구</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=경기">경기</a></li>
+							href="./list?search1=경기">경기</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?search1=경기&search2=인천">인천</a></li>
+								<li class="sub1"><a href="./list?search1=경기&search2=수원">수원</a></li>
+								<li class="sub1"><a href="./list?search1=경기&search2=파주">파주</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=강원">강원</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=경상">경상</a> 
-						<!-- <ul class="submenu">
-							<li class="sub1"><a href="./list?kind=col2&search=부산">부산</a></li>
-							<li class="sub1"><a href="./list?kind=col2&search=경주">경주</a></li>
-							<li class="sub1"><a href="./list?kind=col2&search=문경">문경</a></li>
-						</ul> --></li>
+							href="./list?search1=경상">경상</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?search1=경상&search2=부산">부산</a></li>
+								<li class="sub1"><a href="./list?search1=경상&search2=경주">경주</a></li>
+								<li class="sub1"><a href="./list?search1=경상&search2=문경">문경</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=전라">전라</a></li>
 						<li class="nav-item"><a class="nav-link active"
@@ -79,22 +89,29 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="./list">카테고리 - </a></li>
 						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page" href="./list?kind=col4&search=가족과 함께" data-cat="가족과 함께">#가족과
-								함께</a></li>
+							aria-current="page"
+							href="./list?search1=${param.search1}&search2=${param.search2}&category=가족과 함께"
+							data-cat="가족과 함께">#가족과 함께</a></li>
 						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page" href="./list?kind=col4&search=연인과 함께" data-cat="연인과 함께">#연인과
-								함께</a></li>
+							aria-current="page"
+							href="./list?search1=${param.search1}&search2=${param.search2}&category=연인과 함께"
+							data-cat="연인과 함께">#연인과 함께</a></li>
 						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page" href="./list?kind=col4&search=나홀로 여행" data-cat="나홀로 여행">#나홀로
-								여행</a></li>
+							aria-current="page"
+							href="./list?search1=${param.search1}&search2=${param.search2}&category=나홀로 여행"
+							data-cat="나홀로 여행">#나홀로 여행</a></li>
 						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page" href="./list?kind=col4&search=자연친화적인" data-cat="자연친화적인">#자연친화적인</a>
-						</li>
+							aria-current="page"
+							href="./list?search1=${param.search1}&search2=${param.search2}&category=자연친화적인"
+							data-cat="자연친화적인">#자연친화적인</a></li>
 						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page" href="./list?kind=col4&search=힐링 여행" data-cat="힐링 여행">#힐링
-								여행</a></li>
+							aria-current="page"
+							href="./list?search1=${param.search1}&search2=${param.search2}&category=힐링 여행"
+							data-cat="힐링 여행">#힐링 여행</a></li>
 						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page" href="./list?kind=col4&search=기타" data-cat="기타">#기타</a></li>
+							aria-current="page"
+							href="./list?search1=${param.search1}&search2=${param.search2}&category=기타"
+							data-cat="기타">#기타</a></li>
 
 					</ul>
 				</div>
@@ -102,12 +119,20 @@
 		</nav>
 
 
-	<div id="categoryResult">
-	
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<h4>${param.search1}</h4>
+					<h4>${param.search2}</h4>
+					<h4>${param.category}</h4>
 
-	
-	</div>
+					<c:if test="${param.search ne null}">
+						검색어 : <h4>${param.search}</h4>
+					</c:if>
 
+				</div>
+			</div>
+		</nav>
 
 		<!-- card list -->
 		<div class="row row-cols-5 row-cols-md-5 g-4">
@@ -156,22 +181,12 @@
 
 	</div>
 
-	<!-- <script type="text/javascript" src="../resources/js/listSearch.js"></script> -->
+
 	<script type="text/javascript">
-		$(".listDetail").click(function(){
-			let productNum=$(this).attr("data-num");
-			location.href=href="./detail?productNum="+productNum;
+		$(".listDetail").click(function() {
+			let productNum = $(this).attr("data-num");
+			location.href = href = "./detail?productNum=" + productNum;
 		})
-		
-		
-		$(".category").click(function(){
-			let cat=$(this).attr("data-cat");
-			let f='<h4>#'+cat+'</h4>'
-			
-			$("#categoryResult").prepend(f)
-		})
-		
-		
 	</script>
 </body>
 </html>
