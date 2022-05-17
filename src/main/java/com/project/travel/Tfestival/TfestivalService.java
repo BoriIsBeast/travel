@@ -39,6 +39,8 @@ public class TfestivalService {
 		int result = tfestivalMapper.add(tfestivalVO);
 		System.out.println("Insert 후 :" + tfestivalVO.getNum());
 
+		if(files != null & result > 0) {
+		
 		for (MultipartFile mf : files) {
 
 			if (mf.isEmpty()) {
@@ -58,6 +60,7 @@ public class TfestivalService {
 				throw new SQLException();
 			}
 		}
+	}
 		
 		return result;
 
@@ -65,7 +68,15 @@ public class TfestivalService {
 
 	// delete
 	public int delete(TfestivalVO tfestivalVO) throws Exception {
-		return tfestivalMapper.delete(tfestivalVO);
+
+		List<TfestivalFilesVO> ar = tfestivalMapper.fileList(tfestivalVO);
+		int result = tfestivalMapper.delete(tfestivalVO);
+		System.out.println("file size :" + ar.size());
+		for (TfestivalFilesVO f : ar) {
+			fileManager.fileDelete(f.getFileName(), "resources/upload/festival");
+		}
+
+		return result;
 	}
 
 	// update

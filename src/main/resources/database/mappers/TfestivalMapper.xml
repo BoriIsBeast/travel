@@ -6,6 +6,10 @@
 
 <mapper namespace="com.project.travel.Tfestival.TfestivalMapper">
 
+<select id="fileList" parameterType="TfestivalVO" resultType="TfestivalFilesVO">
+	SELECT * FROM TFESTIVALFILE WHERE NUM = #{num}
+</select>
+
 <insert id="fileAdd" parameterType="TfestivalFilesVO">
 	INSERT INTO TFESTIVALFILE (FILENUM, NUM, FILENAME, ORINAME)
 	VALUES (NULL, #{num}, #{fileName}, #{oriName})
