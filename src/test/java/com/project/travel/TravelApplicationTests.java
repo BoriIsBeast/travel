@@ -1,6 +1,7 @@
 package com.project.travel;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ class TravelApplicationTests {
 	private TfestivalMapper tfestivalMapper;
 
 	//list
-	@Test
+	//@Test
 	void listTest() throws Exception {
 	Pager pager = new Pager();
 	pager.makeRow();
@@ -27,7 +28,14 @@ class TravelApplicationTests {
 	System.out.println(ar.get(0).getName());
 	System.out.println(ar.get(9).getName());
 	assertEquals(10, ar.size());
+	}
 	
+	@Test
+	void detailTest()throws Exception{
+		TfestivalVO tfestivalVO = new TfestivalVO();
+		tfestivalVO.setNum(21L);
+		tfestivalVO = tfestivalMapper.detail(tfestivalVO);
+		assertNotNull(tfestivalVO);
 	}
 
 }

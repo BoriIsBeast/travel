@@ -42,9 +42,32 @@ SELECT COUNT(NUM) FROM TFESTIVAL
 	LIKE concat('%', #{search}, '%')
 </select>
 
-<select id="detail" parameterType="TfestivalVO" resultType="TfestivalVO">
-	SELECT * FROM TFESTIVAL WHERE NUM = #{num}
+<select id="detail" parameterType="TfestivalVO" resultMap="detailResult">
+	SELECT F.* , FF.*
+	FROM TFESTIVAL F
+	LEFT JOIN
+	TFESTIVALFILE FF
+	USING(NUM)
+	WHERE NUM= #{num}
 </select>
+
+<resultMap type="TfestivalVO" id="detailResult">
+	<id column="num" property="num"/>
+	<result column="name" property="name"/>
+	<result column="startDate" property="startDate"/>
+	<result column="finishDate" property="finishDate"/>
+	<result column="location" property="location"/>
+	<result column="detail" property="detail"/>
+	<result column="homePage" property="homePage"/>
+	<result column="age" property="age"/>
+	<result column="phone" property="phone"/>
+	<collection property="filesVOs" javaType="java.util.List" ofType="TfestivalFilesVO">
+	<id column="fileNum" property="fileNum"/>
+	<result column="fileName" property="fileName"/>
+	<result column="oriName" property="fileName"/>
+	</collection>
+	
+</resultMap>
 
 <insert id="add" parameterType="TfestivalVO" useGeneratedKeys="true" keyProperty="num">
       INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
