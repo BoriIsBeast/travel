@@ -8,5 +8,6 @@
   		<typeAlias type="com.project.travel.Tfestival.TfestivalVO" alias="TfestivalVO"/>
   		<typeAlias type="com.project.travel.util.Pager" alias="Pager"/>
   		<typeAlias type="java.util.List" alias="List"/>
+  		<typeAlias type="com.project.travel.Tfestival.TfestivalFilesVO" alias="TfestivalFilesVO"/>
   	</typeAliases>
   </configuration>

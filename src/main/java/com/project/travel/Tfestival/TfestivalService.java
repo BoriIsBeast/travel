@@ -34,14 +34,28 @@ public class TfestivalService {
 	
 	//add
 	public int add(TfestivalVO tfestivalVO, MultipartFile[] files)throws Exception {
+		System.out.println("Insert 전 :" + tfestivalVO.getNum());
+		int result = tfestivalMapper.add(tfestivalVO);
+		System.out.println("Insert 후 :" + tfestivalVO.getNum());
 		
+		for(MultipartFile mf : files) {	
+			
+			if(mf.isEmpty()) {
+				continue;
+			}
+			
 		// 1. File을 HDD에 저장
-		String fileName = fileManager.fileSave(files[0], "resources/upload/festival");
+		String fileName = fileManager.fileSave(mf,"resources/upload/festival");
 		System.out.println(fileName);
 		// 2. 저장된 정보를 DB에 저장
+		TfestivalFilesVO tfestivalFilesVO = new TfestivalFilesVO();
+		tfestivalFilesVO.setNum(tfestivalVO.getNum());
+		tfestivalFilesVO.setFileName(fileName);
+		tfestivalFilesVO.setOriName(mf.getOriginalFilename());
+		tfestivalMapper.fileAdd(tfestivalFilesVO);
+		}
+		return result;
 		
-		
-		return 0;//tfestivalMapper.add(tfestivalVO);
 	}
 	
 	//delete
