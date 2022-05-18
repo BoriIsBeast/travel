@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.travel.tNotice.TNoticeVO;
 import com.project.travel.util.Pager;
 
 @Controller
@@ -39,13 +40,12 @@ public class TQnaController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(TQnaVO tQnaVO, MultipartFile [] files) throws Exception{
+	public ModelAndView setAdd(TQnaVO tQnaVO, MultipartFile[] files) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = tQnaService.setAdd(tQnaVO, files);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
-	
 	@GetMapping("detail")
 	public ModelAndView getDetail(TQnaVO tQnaVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -80,24 +80,23 @@ public class TQnaController {
 		return mv;
 	}
 	
-	@PostMapping("summerFileUpload")
-	public ModelAndView setSummerFileUpload(MultipartFile file) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		String fileName = tQnaService.setSummerFileUpload(file);
-		System.out.println("fileName :"+fileName);
-		mv.setViewName("common/result");
-		mv.addObject("result", fileName);
-		return mv;
-	}
-	
-	@GetMapping("summerFileDelete")
-	public ModelAndView setSummerFileDelete(String fileName) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		System.out.println("fileName : "+fileName);
-		boolean result = tQnaService.setSummerFileDelete(fileName);
-		mv.setViewName("common/result");
-		mv.addObject("result",result);
-		return mv;
-	}
+	  @PostMapping("summerFileUpload") 
+	  public ModelAndView setSummerFileUpload(MultipartFile file) throws Exception{ 
+		  ModelAndView mv= new ModelAndView(); 
+		  String fileName = tQnaService.setSummerFileUpload(file); 
+		  System.out.println(fileName);
+		  mv.setViewName("common/result");
+		  mv.addObject("result", fileName); 
+		  return mv;
+	  }
+	  @GetMapping("summerFileDelete") 
+	  public ModelAndView setSummerFileDelete(String fileName) throws Exception{ 
+		  ModelAndView mv = new ModelAndView(); 
+		  System.out.println(fileName); 
+		  boolean result = tQnaService.setSummerFileDelete(fileName);
+		  mv.setViewName("common/result"); 
+		  mv.addObject("result",result); 
+		  return mv; 
+		  }
 	
 }

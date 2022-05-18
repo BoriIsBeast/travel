@@ -38,7 +38,7 @@
 		  <div class="row mb-3">
 		    <label for="id" class="col-sm-2 col-form-label">작성자</label>
 		    <div class="col-sm-10">
-		      <input type="text" name="id" value="${member.id}"  class="form-control" id="id">
+		      <input type="text" name="id" value="${member.id}" readonly class="form-control" id="id">
 		    </div>
 		  </div>
 		 <div class="row mb-3">

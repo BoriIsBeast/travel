@@ -43,7 +43,7 @@
 	</select>
 
 	<insert id="setAdd" parameterType="TQnaVO" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO TQNA(NUM, ID, TITLE, CONTENTS, REGDATE, HIT, 'REF', REC, STEP, 'DEPTH')
+		INSERT INTO TQNA(NUM, ID, TITLE, CONTENTS, REGDATE, HIT, REC, `REF`, STEP, `DEPTH`)
 		VALUES (#{num}, #{id}, #{title}, #{contents}, now(), 0, 0, 0, 0, 1);
 	</insert>
 	
