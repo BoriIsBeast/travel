@@ -119,3 +119,26 @@ function mediumCategorySelect(){
 
 
 }
+
+function priceSelect(){
+    // <input type="text" class="form-control" id="price" name="price"></input>
+    // <label for="exampleInputPassword1" class="form-label">판매 수량</label>
+	// 		<input type="number" class="form-control" id="maxCount" name="maxCount"></input>
+     $('#price').change(function(){
+        let p = $(this).val();
+
+       if(p==1){
+           let f = '<label for="exampleInputPassword1" class="form-label">가격</label>'
+           f=f+'<input type="text" class="form-control" id="price" name="price" ></input>'
+           f=f+'<label for="exampleInputPassword1" class="form-label">판매 수량</label>'
+           f=f+'<input type="number" class="form-control" id="maxCount" name="maxCount"></input>'
+
+           $("#priceResult").append(f);
+       }
+       else{
+        let f ='<input type="hidden" class="form-control" id="price" name="price" value="0" ></input>'
+         $("#priceResult").append(f);
+       }
+     })
+
+}

@@ -98,6 +98,7 @@
                                 <a href="./about" class="nav-item nav-link">About</a>
                                 <a href="./service" class="nav-item nav-link">Services</a>
                                 <a href="./room" class="nav-item nav-link">Rooms</a>
+                                <a href="./product/list" class="nav-item nav-link">Product</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">

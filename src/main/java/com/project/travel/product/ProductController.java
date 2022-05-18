@@ -2,6 +2,7 @@ package com.project.travel.product;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.project.travel.member.MemberVO;
 import com.project.travel.util.Pager;
 
 @Controller
@@ -26,8 +29,10 @@ public class ProductController {
 		return mv;	
 	}
 	@PostMapping("add")
-	public String setAdd(ProductVO productVO,MultipartFile[] files)throws Exception{
+	public String setAdd(ProductVO productVO,MultipartFile[] files,HttpSession session)throws Exception{
 		int result = productService.setAdd(productVO,files);
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		productVO.setId(memberVO.getId());
 		return "redirect:./list";
 	}
 	

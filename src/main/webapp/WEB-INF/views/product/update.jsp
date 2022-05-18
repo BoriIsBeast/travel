@@ -33,6 +33,12 @@
 					<input type="text" class="form-control" id="homePage" name="homePage" value="${vo.homePage}">
 				</div>
 				
+				<c:if test="${vo.maxCount ne null }">
+				<div class="mb-3 col-2">
+					<label for="exampleInputPassword1" class="form-label">판매 수량</label>
+					<input type="text" class="form-control" id="maxCount" name="maxCount" value="${vo.maxCount}">
+				</div>
+				</c:if>
 				<div>
 					<c:forEach items="${vo.filesVOs}" var="fileVO">
 						<h4>${fileVO.oriName}<button type="button" class="btn btn-primary del"  data-num="${fileVO.fileNum}">X</button></h4>

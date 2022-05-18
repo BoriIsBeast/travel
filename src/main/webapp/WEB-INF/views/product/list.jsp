@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="../resources/css/listCategory.css" rel="stylesheet">
+
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
 
@@ -37,6 +37,8 @@
 				<button class="btn btn-outline-primary" type="submit">Search</button>
 			</form>
 		</div>
+		
+			
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
@@ -45,13 +47,14 @@
 
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="./list">지역 List - </a></li>
+						
 
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=서울">서울</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?kind=col2&search=마포구">마포구</a></li>
-								<li class="sub1"><a href="./list?kind=col2&search=강남구">강남구</a></li>
-								<li class="sub1"><a href="./list?kind=col2&search=동대문구">동대문구</a></li>
+								<li class="sub1"><a href="./list?search1=서울&search2=마포구">마포구</a></li>
+								<li class="sub1"><a href="./list?search1=서울&search2=강남구">강남구</a></li>
+								<li class="sub1"><a href="./list?search1=서울&search2=동대문구">동대문구</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?search1=경기">경기</a>
@@ -61,7 +64,13 @@
 								<li class="sub1"><a href="./list?search1=경기&search2=파주">파주</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=강원">강원</a></li>
+							href="./list?kind=col1&search=강원">강원</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?search1=강원&search2=강릉">강릉</a></li>
+								<li class="sub1"><a href="./list?search1=강원&search2=동해">동해</a></li>
+								<li class="sub1"><a href="./list?search1=강원&search2=속초">속초</a></li>
+							</ul>
+						</li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?search1=경상">경상</a>
 							<ul class="submenu">
@@ -70,11 +79,29 @@
 								<li class="sub1"><a href="./list?search1=경상&search2=문경">문경</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=전라">전라</a></li>
+							href="./list?kind=col1&search=전라">전라</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?search1=전라&search2=광주">광주</a></li>
+								<li class="sub1"><a href="./list?search1=전라&search2=목포">목포</a></li>
+								<li class="sub1"><a href="./list?search1=전라&search2=여수">여수</a></li>	
+							</ul>
+						</li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=충청">충청</a></li>
+							href="./list?kind=col1&search=충청">충청</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?search1=충청&search2=대전">대전</a></li>
+								<li class="sub1"><a href="./list?search1=충청&search2=단양">단양</a></li>
+								<li class="sub1"><a href="./list?search1=충청&search2=제천">제천</a></li>	
+							</ul>	
+						</li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=제주">제주</a></li>
+							href="./list?kind=col1&search=제주">제주</a>
+							<ul class="submenu">
+								<li class="sub1"><a href="./list?search1=제주&search2=광주">제주시</a></li>
+								<li class="sub1"><a href="./list?search1=제주&search2=목포">서귀포시</a></li>
+								
+							</ul>	
+						</li>
 
 					</ul>
 				</div>

@@ -5,8 +5,8 @@
     
 <mapper namespace="com.project.travel.product.ProductMapper">
 	<insert id="setAdd" parameterType="ProductVO" useGeneratedKeys="true" keyProperty="productNum">
-		INSERT INTO TPRODUCT
-		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage})
+		INSERT INTO TPRODUCT(PRODUCTNUM, ID, LARGECATEGORY, MEDIUMCATEGORY, SMALLCATEGORY, NAME, PRICE, CONTENTS, ADDRESS, HOMEPAGE, MAXCOUNT)
+		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage},#{maxCount})
 	</insert>
 	
 	<select id="getList" parameterType="PAGER" resultMap="productResult">
@@ -48,6 +48,7 @@
 		<result column="contents" property="contents"/>
 		<result column="address" property="address"/>
 		<result column="homePage" property="homePage"/>
+		<result column="maxCount" property="maxCount"/>
 		<collection property="filesVOs" javaType="java.util.List" ofType="ProductFilesVO">
  			<id column="fileNum" property="fileNum"/>
  			<result column="fileName" property="fileName"/>
@@ -56,7 +57,7 @@
 		</resultMap>
 		
 	<select id="getDetail" parameterType="ProductVO" resultMap="productResult"> 
-		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.ADDRESS, P.HOMEPAGE, PF.*
+		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.ADDRESS, P.HOMEPAGE,P.MAXCOUNT, PF.*
 		FROM TPRODUCT P
 		LEFT JOIN 
 		TPRODUCTFILE PF
@@ -79,12 +80,14 @@
        		</otherwise>
        	</choose>
        	LIKE CONCAT('%', #{search},'%') 
+       	AND LARGECATEGORY LIKE CONCAT('%',#{search1},'%')
+       	AND MEDIUMCATEGORY LIKE CONCAT('%',#{search2},'%')
        	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
 		
 	</select>
 	
 	<update id="setUpdate" parameterType="ProductVO">
-		UPDATE TPRODUCT SET NAME=#{name},PRICE=#{price},CONTENTS=#{contents},HOMEPAGE=#{homePage} 
+		UPDATE TPRODUCT SET NAME=#{name},PRICE=#{price},CONTENTS=#{contents},HOMEPAGE=#{homePage}, MAXCOUNT=#{maxCount}
 		WHERE PRODUCTNUM=#{productNum}
 	</update>
 	

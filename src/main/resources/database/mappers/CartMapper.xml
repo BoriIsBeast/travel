@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.project.travel.cart.CartMapper">
+	<insert id="setAdd" parameterType="CartVO">
+		INSERT INTO TCART(CARTNUM, ID, PRODUCTNUM, AMOUNT, PAYCHECK, REGDATE, TOTAL)
+		VALUES(NULL, #{id}, #{productNum},#{amount},#{payCheck},#{regDate},#{total})
+	</insert>
+	
+	<select id="getList" parameterType="CartVO" resultType="CartVO">
+		SELECT PRODUCTNUM, AMOUNT, REGDATE, TOTAL, PAYCHECK FROM TCART
+	</select>
+	
+</mapper>
