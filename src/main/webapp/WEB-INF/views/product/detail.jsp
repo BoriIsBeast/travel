@@ -27,6 +27,7 @@
 			<h4>입장권 구매</h4>
 					<div class="carousel-inner" >
 						<div id="datepicker1"></div>
+						 <input type="hidden" id="${member.id}" readonly/>
 						선택날짜 : <input type="date" id="dateResult" readonly/>
 						<div>
 							입장료 : <fmt:formatNumber type="currency" value="${vo.price}" />원
@@ -48,7 +49,7 @@
 								style="margin-left: 0.5rem;width: 85px;" />원
 						</div>
 						<div>
-							<button type="button" class="btn btn-primary" id="cartBtn" data-num="${vo.productNum}">장바구니</button>
+							<button type="button" class="btn btn-primary" id="cartBtn" data-id="${member.id}" data-num="${vo.productNum}">장바구니</button>
 							<button type="button" class="btn btn-primary">바로결제</button>
 						</div>
 					</div>

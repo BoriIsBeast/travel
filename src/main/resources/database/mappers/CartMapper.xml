@@ -9,8 +9,35 @@
 		VALUES(NULL, #{id}, #{productNum},#{amount},#{payCheck},#{regDate},#{total})
 	</insert>
 	
-	<select id="getList" parameterType="CartVO" resultType="CartVO">
-		SELECT PRODUCTNUM, AMOUNT, REGDATE, TOTAL, PAYCHECK FROM TCART
+	<select id="getList" parameterType="MemberVO" resultMap="cartResult">
+		SELECT C.*,P.NAME  
+		FROM (SELECT * FROM TCART WHERE ID=#{id}) C
+		LEFT JOIN 
+		TPRODUCT P 
+		USING (PRODUCTNUM)
 	</select>
+	
+	<resultMap type="cartVO" id="cartResult">
+		<id column="cartNum" property="cartNum"/>
+ 		<result column="id" property="id"/>
+ 		<result column="productNum" property="productNum"/>
+ 		<result column="amount" property="amount"/>
+ 		<result column="payCheck" property="payCheck"/>
+ 		<result column="regDate" property="regDate"/>
+ 		<result column="total" property="total"/>
+ 		
+		<collection property="productVOs" javaType="ProductVO" ofType="ProductVO">
+	 		<id column="productNum" property="productNum"/>
+			<result column="largeCategory" property="largeCategory"/>
+			<result column="mediumCategory" property="mediumCategory"/>
+			<result column="smallCategory" property="smallCategory"/>
+			<result column="name" property="name"/>
+			<result column="price" property="price"/>
+			<result column="contents" property="contents"/>
+			<result column="address" property="address"/>
+			<result column="homePage" property="homePage"/>
+			<result column="maxCount" property="maxCount"/>
+ 		</collection>
+		</resultMap>
 	
 </mapper>

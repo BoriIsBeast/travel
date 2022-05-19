@@ -22,11 +22,10 @@ public class CartController {
 
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(CartVO cartVO,HttpSession session) throws Exception{
+	public ModelAndView setAdd(CartVO cartVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		cartVO.setId(memberVO.getId());
+		
 		cartVO.setPayCheck(0L);
 		
 		int result = cartService.setAdd(cartVO);
@@ -39,9 +38,11 @@ public class CartController {
 	}
 	
 	@GetMapping("list")
-	public ModelAndView getList() throws Exception{
+	public ModelAndView getList(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<CartVO> ar = cartService.getList();
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		List<CartVO> ar = cartService.getList(memberVO);
 		
 		mv.addObject("vo",ar);
 		mv.setViewName("cart/list");

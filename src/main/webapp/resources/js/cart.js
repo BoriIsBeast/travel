@@ -42,6 +42,8 @@
 
 function cartAdd(){
     $("#cartBtn").click(function(){
+        // let id=cartBtn.getAttribute("data-id")
+        // console.log(id);
         let productNum = cartBtn.getAttribute("data-num")
         console.log(productNum);
            
@@ -51,11 +53,13 @@ function cartAdd(){
         console.log(date);
         let totalPrice = $("#total").val();
         console.log(totalPrice);
+       
 
         $.ajax({
             type:"POST",
             url:"../cart/add",
             data:{
+                // id:id,
                 productNum:productNum,
                 amount:amount,
                 regDate:date,
@@ -82,4 +86,17 @@ function cartAdd(){
 
     })
 }		
-   		
+
+
+
+ $('#minus').click(function(){
+      
+        let v = Number($('#amount').val())-1;
+        $('#amount').val(v);
+})
+    
+$('#plus').click(function(){
+    console.log( $('#amount').val());
+    let v = Number($('#amount').val())+1;
+    console.log(v);
+})

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.travel.member.MemberVO;
+
 @Service
 public class CartService {
 	
@@ -16,7 +18,7 @@ public class CartService {
 		return result;
 	}
 
-	public List<CartVO> getList() throws Exception{
-		return cartMapper.getList();
+	public List<CartVO> getList(MemberVO memberVO) throws Exception{
+		return cartMapper.getList(memberVO);
 	}
 }

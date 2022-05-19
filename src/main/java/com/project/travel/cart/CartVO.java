@@ -1,6 +1,9 @@
 package com.project.travel.cart;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.project.travel.product.ProductVO;
 
 import lombok.Data;
 
@@ -14,5 +17,7 @@ public class CartVO {
 	private Long payCheck;
 	private Date regDate;
 	private Long total;
+	
+	private ProductVO productVOs;
 
 }
