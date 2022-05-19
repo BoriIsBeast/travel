@@ -178,7 +178,8 @@
 		<div class="row mt-4">
 			<a href="/product/add">Add</a>
 		</div>
-
+	
+		
 	</div>
 
 

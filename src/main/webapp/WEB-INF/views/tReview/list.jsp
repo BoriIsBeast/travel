@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:import url="../temp/header.jsp"></c:import>
 	<div class="container mt-4">
 		<div class="row mt-4">
 			<div class="alert alert-primary" role="alert">
@@ -64,8 +64,8 @@
 							<td><a class="link-success text-decoration-none"
 								href="./detail?num=${vo.num}">${vo.title}</a></td>
 
-							<td>${vo.id}</td>
-							<td>${vo.productNum}</td>
+							<td>${vo.id}</td>						
+							<td>${vo.productNum}</td>							
 							<td>${vo.regDate}</td>
 							<td>${vo.hit}</td>
 							<td>${vo.rec}</td>

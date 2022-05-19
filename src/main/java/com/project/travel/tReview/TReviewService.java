@@ -76,7 +76,7 @@ public class TReviewService {
 	
 	public String setSummerFileUpload(MultipartFile files)throws Exception{
 		String fileName = fileManager.fileSave(files, "resources/upload/TReview");
-		fileName = "resources/upload/TReview/"+fileName;
+		fileName = "/resources/upload/TReview/"+fileName;
 		return fileName;
 	}
 	

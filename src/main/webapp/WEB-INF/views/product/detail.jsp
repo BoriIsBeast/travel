@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
 <div class="container">
 
 	
@@ -105,10 +106,11 @@
 			<!-- 지도생성 -->
 			<div id="map" style="width: 100%; height: 400px;"></div>
 
-			<a href="/product/list">List</a> <a
-				href="./update?productNum=${vo.productNum}">Update</a> <a
-				href="./delete?productNum=${vo.productNum}">Delete</a>
-
+			<a href="/product/list">List</a> 
+			<a	href="./update?productNum=${vo.productNum}">Update</a> 
+			<a	href="./delete?productNum=${vo.productNum}">Delete</a>	
+			<a href="../tReview/add">리뷰 쓰기</a>
+		
 
 		</div>
 	</div>

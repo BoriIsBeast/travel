@@ -42,8 +42,8 @@
 	</select>
 	
 	<insert id="setAdd" parameterType="TReviewVO" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO TREVIEW(NUM, ID, PRODUCTNUM, TITLE, REGDATE, CONTENTS, HIT, REC, 'REF', STEP, 'DEPTH')
-		VALUES(#{num}, #{id}, #{productNum}, #{title}, now(), #{contents},0,0,0,0,1)
+		INSERT INTO TREVIEW(NUM, ID, PRODUCTNUM, TITLE, REGDATE, CONTENTS, HIT, REC, `REF`, STEP, `DEPTH`)
+		VALUES(#{num}, #{id}, #{productNum}, #{title}, now(), #{contents}, 0, 0, 0, 0, 1)
 	</insert>
 	
 	<update id="setUpdate" parameterType="TReviewVO">

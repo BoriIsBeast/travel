@@ -19,18 +19,16 @@
 	<div class="row">
 		<div class="card">
 			<ul class="list-group list-group-flush">
-			   	<li class="list-group-item">제 목 : ${vo.title}</li>
+			   	<li class="list-group-item">제 목: ${vo.title}</li>
 		   		<li class="list-group-item">작 성 자 : ${vo.id} </li>
 			</ul>
 		  
 			<div class="card-body">
 				${vo.contents}
-	    	</div>
-	    	
-	    	
+	    	</div>    	
+	    	    			
 
-    	 
-		</div>
+    	 </div>
 	
 	</div>
 	

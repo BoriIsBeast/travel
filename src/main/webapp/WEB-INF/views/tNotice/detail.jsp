@@ -11,31 +11,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:import url="../temp/header.jsp"></c:import>
 <div class="container">
 	<h1>Detail Page</h1>
 	
 	<div class="row">
 		<div class="card">
 			<ul class="list-group list-group-flush">
-			   	<li class="list-group-item">${vo.title}</li>
-		   		<li class="list-group-item">${vo.id} </li>
+			   	<li class="list-group-item">제 목 : ${vo.title}</li>
+		   		<li class="list-group-item">작 성 자 : ${vo.id} </li>
 			</ul>
 		  
 			<div class="card-body">
 				${vo.contents}
 	    	</div>
 	    	
-	    	<hr class="my-6">
-	    		<h6>첨부파일</h6>
 	    	
-				<ul class="list-group list-group-flush">
-				   	<c:forEach items="${vo.filesVOs}" var="f">
-				   	<li class="list-group-item">
-				   		<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a>
-				   	</li>
-				   	</c:forEach>
-				</ul>
 
     	 
 		</div>

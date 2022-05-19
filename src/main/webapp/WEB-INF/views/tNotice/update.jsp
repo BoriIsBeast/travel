@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="../temp/header.jsp"></c:import>
 <div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-light" role="alert">

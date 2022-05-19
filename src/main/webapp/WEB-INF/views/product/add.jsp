@@ -12,6 +12,7 @@
 	
 </head>
 <body>
+
 <div class="container mt-4">
 		<div class="mb-3">
 		<h4>여행지 add</h4>
@@ -20,7 +21,7 @@
 	<form action="./add" method="post" enctype="multipart/form-data">
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">id</label>
-			<input type="text" class="form-control" id="id" name="id" value="master" readonly>
+			<input type="text" class="form-control" id="id" name="id" value="${member.id}" readonly>
 		</div>
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">대분류</label>

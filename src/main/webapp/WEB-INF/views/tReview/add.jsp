@@ -19,6 +19,7 @@
 <body>
 <c:import url="../temp/header.jsp"></c:import>
 
+
 <div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-light" role="alert">
@@ -30,7 +31,7 @@
 	<div class="row mt-4">
 		<form action="add" method="post" enctype="multipart/form-data">
 		  <div class="row mb-3">
-		    <label for="title" class="col-sm-2 col-form-label">Title</label>
+		    <label for="title" class="col-sm-2 col-form-label">제 목</label>
 		    <div class="col-sm-10">
 		      <input type="text" name="title" class="form-control" id="title">
 		    </div>
@@ -40,9 +41,15 @@
 		    <div class="col-sm-10">
 		      <input type="text" name="id" value="${member.id}" readonly class="form-control" id="id">
 		    </div>
-		  </div>
+		  </div>		  
+		  <div class="row mb-3">
+		    <label for="productNum" class="col-sm-2 col-form-label">여행지 이름</label>
+		    <div class="col-sm-10">
+		      <input type="text" name="productNum" value="${vo.productNum}" readonly class="form-control" id="productNum">
+		    </div>
+		  </div>		
 		 <div class="row mb-3">
-		    <label for="contents" class="col-sm-2 col-form-label">Contents</label>
+		    <label for="contents" class="col-sm-2 col-form-label">내 용</label>
 		    <div class="col-sm-10">
 		      <textarea name="contents" class="form-control" id="contents"></textarea>
 		    </div>
