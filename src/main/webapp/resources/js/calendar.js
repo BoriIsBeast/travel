@@ -9,9 +9,10 @@ $.datepicker.setDefaults({
     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
     showMonthAfterYear: true,
     yearSuffix: '년',
-    minDate: 0
+    minDate: 0 //지난날 선택 불기
 });
 
+//여행지 detail 페이지에 달력 추가
 function calendar(){
     $("#datepicker1").datepicker();
     

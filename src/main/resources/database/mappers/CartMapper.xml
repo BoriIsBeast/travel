@@ -6,15 +6,16 @@
 <mapper namespace="com.project.travel.cart.CartMapper">
 	<insert id="setAdd" parameterType="CartVO">
 		INSERT INTO TCART(CARTNUM, ID, PRODUCTNUM, AMOUNT, PAYCHECK, REGDATE, TOTAL)
-		VALUES(NULL, #{id}, #{productNum},#{amount},#{payCheck},#{regDate},#{total})
+		VALUES(NULL, #{id}, #{productNum},#{amount},0,#{regDate},#{total})
 	</insert>
 	
 	<select id="getList" parameterType="MemberVO" resultMap="cartResult">
-		SELECT C.*,P.NAME  
+		SELECT C.*,P.NAME , P.PRICE 
 		FROM (SELECT * FROM TCART WHERE ID=#{id}) C
 		LEFT JOIN 
 		TPRODUCT P 
 		USING (PRODUCTNUM)
+		ORDER BY REGDATE ASC
 	</select>
 	
 	<resultMap type="cartVO" id="cartResult">
@@ -28,16 +29,19 @@
  		
 		<collection property="productVOs" javaType="ProductVO" ofType="ProductVO">
 	 		<id column="productNum" property="productNum"/>
-			<result column="largeCategory" property="largeCategory"/>
-			<result column="mediumCategory" property="mediumCategory"/>
-			<result column="smallCategory" property="smallCategory"/>
 			<result column="name" property="name"/>
 			<result column="price" property="price"/>
-			<result column="contents" property="contents"/>
-			<result column="address" property="address"/>
-			<result column="homePage" property="homePage"/>
-			<result column="maxCount" property="maxCount"/>
+
  		</collection>
-		</resultMap>
+	</resultMap>
+	
+	<update id="setUpdate" parameterType="CartVO">
+		UPDATE TCART SET AMOUNT=#{amount},TOTAL=#{total} WHERE CARTNUM=#{cartNum}
+	</update>
+	
+	<delete id="setDelete" parameterType="CartVO">
+		DELETE FROM TCART WHERE CARTNUM=#{cartNum}
+	</delete>
+	
 	
 </mapper>

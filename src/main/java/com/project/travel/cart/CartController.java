@@ -22,16 +22,25 @@ public class CartController {
 
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(CartVO cartVO) throws Exception{
+	public ModelAndView setAdd(CartVO cartVO,HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		
-		cartVO.setPayCheck(0L);
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
-		int result = cartService.setAdd(cartVO);
+		cartVO.setId(memberVO.getId());
+	
 		
-		mv.addObject("result",result);
+		if(memberVO != null) {
+			int result = cartService.setAdd(cartVO);
+			mv.addObject("result",result);
+			mv.setViewName("common/result");
+			
+		}
+	
+		
 		mv.setViewName("common/result");
+		
 		
 		return mv;
 
@@ -49,6 +58,29 @@ public class CartController {
 		return mv;	
 	}
 	
+	@PostMapping("update")
+	public ModelAndView setUpdate(CartVO cartVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = cartService.setUpdate(cartVO);
+		
+		mv.addObject("result",result);
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
+	@PostMapping("delete")
+	public ModelAndView setDelete(CartVO cartVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = cartService.setDelete(cartVO);
+		
+		mv.addObject("result",result);
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
 	
 
 }

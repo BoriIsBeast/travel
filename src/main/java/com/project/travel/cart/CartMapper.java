@@ -13,4 +13,8 @@ public interface CartMapper {
 	
 	public List<CartVO> getList(MemberVO memberVO) throws Exception;
 	
+	public int setUpdate(CartVO cartVO)throws Exception;
+	
+	public int setDelete(CartVO cartVO)throws Exception;
+	
 }
