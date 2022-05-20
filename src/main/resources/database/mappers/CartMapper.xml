@@ -9,13 +9,21 @@
 		VALUES(NULL, #{id}, #{productNum},#{amount},0,#{regDate},#{total})
 	</insert>
 	
-	<select id="getList" parameterType="MemberVO" resultMap="cartResult">
+	<select id="getTotal" parameterType="Pager" resultType="Long">
+		SELECT COUNT(CARTNUM) FROM TCART
+	</select>
+	
+	<select id="getList" parameterType="Pager" resultMap="cartResult">
 		SELECT C.*,P.NAME , P.PRICE 
-		FROM (SELECT * FROM TCART WHERE ID=#{id}) C
-		LEFT JOIN 
-		TPRODUCT P 
-		USING (PRODUCTNUM)
-		ORDER BY REGDATE ASC
+			FROM TCART C
+			LEFT JOIN 
+			TPRODUCT P 
+			USING (PRODUCTNUM)
+		WHERE C.ID=#{id}
+		
+		ORDER BY REGDATE ASC, CARTNUM DESC
+		LIMIT #{startRow} ,#{perPage}
+		
 	</select>
 	
 	<resultMap type="cartVO" id="cartResult">

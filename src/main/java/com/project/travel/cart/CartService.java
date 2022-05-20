@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.travel.member.MemberVO;
+import com.project.travel.util.Pager;
 
 @Service
 public class CartService {
@@ -17,8 +18,14 @@ public class CartService {
 		return  cartMapper.setAdd(cartVO);
 	}
 
-	public List<CartVO> getList(MemberVO memberVO) throws Exception{
-		return cartMapper.getList(memberVO);
+	public List<CartVO> getList(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.makeNum(cartMapper.getTotal(pager));
+		
+		
+		pager.setPerPage(5);
+		
+		return cartMapper.getList(pager);
 	}
 	
 	public int setUpdate(CartVO cartVO) throws Exception{

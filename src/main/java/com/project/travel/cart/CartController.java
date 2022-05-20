@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.member.MemberVO;
+import com.project.travel.util.Pager;
 
 @Controller
 @RequestMapping("/cart/*")
@@ -47,11 +48,11 @@ public class CartController {
 	}
 	
 	@GetMapping("list")
-	public ModelAndView getList(HttpSession session) throws Exception{
+	public ModelAndView getList(HttpSession session, Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
-		List<CartVO> ar = cartService.getList(memberVO);
+		List<CartVO> ar = cartService.getList(pager);
 		
 		mv.addObject("vo",ar);
 		mv.setViewName("cart/list");

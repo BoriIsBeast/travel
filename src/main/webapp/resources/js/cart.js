@@ -1,7 +1,7 @@
 //여행지 detail 페이지에서 장바구니에 추가할 때
 function cartAdd(){
     $("#cartBtn").click(function(){
-        // let id=cartBtn.getAttribute("data-id")
+         let id=cartBtn.getAttribute("data-id")
         // console.log(id);
         let productNum = cartBtn.getAttribute("data-num")
         //console.log(productNum); 
@@ -17,7 +17,7 @@ function cartAdd(){
             type:"POST",
             url:"../cart/add",
             data:{
-                // id:id,
+                id:id,
                 productNum:productNum,
                 amount:amount,
                 regDate:date,
@@ -27,7 +27,7 @@ function cartAdd(){
                 if(data.trim()=='1'){
                     let c = confirm("장바구니 추가 성공! 장바구니로 이동하시겠습니까?")
                         if(c){
-                            $(location).attr('href', '../cart/list');
+                            $(location).attr('href', '../cart/list?id='+id);
                         }
                    
                 }else {
@@ -178,35 +178,39 @@ for(b of btn){
         }
     })
     }
-
-    //전체 선택 기능
-    $("#totalCheckbox").click(function(){
-        $("#checkbox"+cartNum).prop("checked",$("#totalCheckbox").prop("checked"));
-    });
-
-    //전체 선택 된 상태에서 하나 해제 하면 전체선택도 해제
-    $("#checkbox"+cartNum).on("click",function(){
-        let check=true;
-        $("#checkbox"+cartNum).each(function(i,item){
-            if(!$(item).prop("checked")){
-                check=false; 
-                $("#totalCheckbox").prop("checked",check);
-            }
-        });
-    });
-   
-    
-    //각각 다 선택하면 전체선택
-    // $("#checkbox"+cartNum).on("click",function(){
-    //     let check=false;
-    //     $("#checkbox"+cartNum).each(function(i,item){
-    //         if($(item).prop("checked")){
-    //             check=true;
-    //             $("#totalCheckbox").prop("checked",check);
-    //         }
-                
-    //     });
-       
-    // });
 }
+
+
+
+
+$('#totalCheckbox').click(function(){
+    $('.checkbox').prop("checked", $('#totalCheckbox').prop("checked"));
+
+    $(".checkbox").each(function(idx,item){
+		if($(item).attr("data-check")){
+            console.log($(item).attr("data-check"));
+		} 
+	});
+   
+})
+
+$('.checkbox').on("click",function(){
+    let check = true;
+    console.log($(this).attr("data-check"));
+
+    $(".checkbox").each(function(idx,item){
+		if(!$(item).prop("checked")){
+			check=false;
+		} 
+	});
+    $("#totalCheckbox").prop("checked",check);
+});
+
+$('#payment').click(function(){
+    $(".checkbox").each(function(){
+		if($(this).prop("checked")){
+            console.log($(this).attr("data-check"));
+        }
+	});
+})
 

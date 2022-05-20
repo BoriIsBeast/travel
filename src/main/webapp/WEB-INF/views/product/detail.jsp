@@ -49,7 +49,7 @@
 								style="margin-left: 0.5rem;width: 85px;" />원
 						</div>
 						<div>
-							<button type="button" class="btn btn-primary" id="cartBtn" data-num="${vo.productNum}">장바구니</button>
+							<button type="button" class="btn btn-primary" id="cartBtn" data-id="${member.id}" data-num="${vo.productNum}">장바구니</button>
 							<button type="button" class="btn btn-primary">바로결제</button>
 						</div>
 					</div>

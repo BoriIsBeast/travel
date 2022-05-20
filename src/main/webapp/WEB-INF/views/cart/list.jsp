@@ -29,7 +29,7 @@
 			<c:forEach items="${vo}" var="list">
 				<tbody>
 					<tr>
-						<th><input type="checkbox" id="checkbox${list.cartNum}"></th>
+						<th><input type="checkbox" data-check="${list.cartNum}" class="checkbox"></th>
 						<th scope="row">${list.productVOs.name}</th>
 						<td><input type="date" id="date${list.cartNum}" value="${list.regDate}" readonly></td>
 						<td>
@@ -60,7 +60,28 @@
 					
 				</tbody>
 		</table>
-		<button type="button">결제</button>
+		<button type="button" id="payment">결제</button>
+		<!-- pager -->
+		<div class="col-4 mt-3">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination align-self-center">
+					<li class="page-item"><a class="page-link"
+						href="./list?id=${member.id}&pn=${pager.pre?pager.startNum-1:1}"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
+
+					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+						<li class="page-item"><a class="page-link"
+							href="./list?id=${member.id}&pn=${i}">${i}</a></li>
+					</c:forEach>
+
+					<li class="page-item"><a class="page-link"
+						href="./list?id=${member.id}&pn=${pager.next?pager.lastNum+1:pager.lastNum}"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 	
 	<script type="text/javascript" src="../resources/js/cart.js"></script> 
