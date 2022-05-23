@@ -35,14 +35,14 @@
 						<td>
 						
 						<div class="btnCart" data-num="${list.cartNum}">
-							<button type="button" id="minus${list.cartNum}" >-</button> 
+							<button type="button" class ="minus" data-num="${list.cartNum}" id="minus${list.cartNum}" >-</button> 
 							<input class ="col-2" id="amount${list.cartNum}"  type="number" value="${list.amount}" readonly>
-							<button type="button" id="plus${list.cartNum}">+</button>
+							<button type="button" class="plus" data-num="${list.cartNum}" id="plus${list.cartNum}">+</button>
 						</div>
 						</td>
 						
 						<td><%-- <fmt:formatNumber type="currency" id="total" value="${list.total}" /> --%>
-							<input type="hidden" id="price${list.cartNum}" value="${list.productVOs.price}">
+							<input type="hidden"  id="price${list.cartNum}" value="${list.productVOs.price}">
 							<input type="text" id="total${list.cartNum}" value="${list.total}"  readonly>
 							
 						</td>
