@@ -88,5 +88,16 @@ public class TfestivalService {
 	public TfestivalFilesVO fileDetail(TfestivalFilesVO tfestivalFilesVO) throws Exception {
 		return tfestivalMapper.fileDetail(tfestivalFilesVO);
 	}
+	
+	//fileDelete
+	public int fileDelete(TfestivalFilesVO tfestivalFilesVO)throws Exception{
+		tfestivalFilesVO = tfestivalMapper.fileDetail(tfestivalFilesVO);
+		
+		int check = tfestivalMapper.fileDelete(tfestivalFilesVO);
+		if(check > 0) {
+			boolean result = fileManager.fileDelete(tfestivalFilesVO.getFileName(), "/resources/upload/festival");
+		}
+		return check;
+	}
 
 }

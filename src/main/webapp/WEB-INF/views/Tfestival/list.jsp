@@ -11,9 +11,28 @@
 <body>
 	<h1>축제 정보</h1>
 	
+		<div class="row justify-content-between">
+		<div class="col-5">
+			<form class="d-flex" action="./list" method="get">
+				<div class="col-4 me-2">
+				<select name="kind" class="form-select " aria-label="Default select example">
+				  <option value="col1">축제이름</option>
+				  <option value="col2">장소</option>
+				</select>
+				</div>
+				<div class="col-6 me-2">
+	        	<input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+	        	</div>
+	        	<div class="col-2">
+	        	<button class="btn btn-outline-success" type="submit">Search</button>
+	        	</div>
+	        	 </form>
+		</div>
+	</div>
+	
 	<c:forEach items="${list}" var="vo">
-	<div class="card">
-  <img src="..." class="card-img-top" alt="...">
+	<div class="card col-3 detail" data-num="${vo.num}">
+  <img src="/resources/upload/festival/${vo.filesVOs[0].fileName}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${vo.name}</h5>
     <p class="card-text">${vo.location}</p>

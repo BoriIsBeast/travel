@@ -29,6 +29,8 @@
   		<typeAlias type="java.util.Map" alias="Map"/>
   		<typeAlias type="com.project.travel.Tfestival.TfestivalVO" alias="TfestivalVO"/>
   		<typeAlias type="com.project.travel.Tfestival.TfestivalFilesVO" alias="TfestivalFilesVO"/>
+  		
+  		<typeAlias type="com.project.travel.Tbest.TbestVO" alias="TbestVO"/>
 
 
   		<typeAlias type="com.project.travel.member.MemberVO" alias="MemberVO"/>

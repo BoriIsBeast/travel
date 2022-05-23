@@ -15,6 +15,10 @@
 	VALUES (NULL, #{num}, #{fileName}, #{oriName})
 </insert>
 
+<select id="fileDetail" parameterType="TfestivalFilesVO" resultType="TfestivalFilesVO">
+	SELECT * FROM TFESTIVALFILE WHERE FILENUM = #{fileNum}
+</select>
+
 <select id="list" parameterType="Pager" resultType="TfestivalVO">
 	SELECT * FROM TFESTIVAL
 	WHERE NUM > 0 AND
