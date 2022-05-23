@@ -10,6 +10,9 @@
 </head>
 <body>
 	<h1>축제 상세정보</h1>
+	<div class="col-sm-4">
+  <img src="../resources/upload/festival/${vo.filesVOs[0].fileName}" class="card-img-top" alt="...">	
+	</div>
 	
 	<div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
@@ -61,15 +64,13 @@
     </div>
   </div>
 </div>
-
-<h6>첨부파일</h6>
 	    	
-				<ul class="list-group list-group-flush">
+<%-- 				<ul class="list-group list-group-flush">
 				   	<c:forEach items="${vo.filesVOs}" var="f">
 				   	<li class="list-group-item">
 				   		<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a>
 				   	</li>
-				   	</c:forEach>
+				   	</c:forEach> --%>
 
 <a href="./delete?num=${vo.num}"><button type="button" class="btn btn-outline-danger">삭제</button></a>
 <a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>	

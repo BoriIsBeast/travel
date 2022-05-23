@@ -32,7 +32,7 @@
 	
 	<c:forEach items="${list}" var="vo">
 	<div class="card col-3 detail" data-num="${vo.num}">
-  <img src="/resources/upload/festival/${vo.filesVOs[0].fileName}}" class="card-img-top" alt="...">
+  <img src="../resources/upload/festival/${vo.filesVOs[0].fileName}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${vo.name}</h5>
     <p class="card-text">${vo.location}</p>

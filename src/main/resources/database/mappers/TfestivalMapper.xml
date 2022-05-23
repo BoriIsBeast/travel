@@ -19,8 +19,9 @@
 	SELECT * FROM TFESTIVALFILE WHERE FILENUM = #{fileNum}
 </select>
 
-<select id="list" parameterType="Pager" resultType="TfestivalVO">
-	SELECT * FROM TFESTIVAL
+<select id="list" parameterType="Pager" resultMap="festivalResult">
+	SELECT F.NUM, F.NAME, F.LOCATION, F.STARTDATE, F.FINISHDATE, FF.*
+	FROM (SELECT * FROM TFESTIVAL
 	WHERE NUM > 0 AND
 	<choose>
 		<when test="kind == 'col1'">
@@ -34,7 +35,29 @@
 	
 	ORDER BY NUM DESC
 	LIMIT #{startRow}, #{perPage}	
+	)F
+	LEFT JOIN
+	TFESTIVALFILE FF
+	USING(NUM)
+	ORDER BY FF.FILENUM ASC
 </select>
+
+<resultMap type="TfestivalVO" id="festivalResult">
+<id column="num" property="num"/>
+	<result column="name" property="name"/>
+	<result column="startDate" property="startDate"/>
+	<result column="finishDate" property="finishDate"/>
+	<result column="location" property="location"/>
+	<result column="detail" property="detail"/>
+	<result column="homePage" property="homePage"/>
+	<result column="age" property="age"/>
+	<result column="phone" property="phone"/>
+	<collection property="filesVOs" javaType="java.util.List" ofType="TfestivalFilesVO">
+	<id column="fileNum" property="fileNum"/>
+ 	<result column="fileName" property="fileName"/>
+ 	<result column="oriName" property="oriName"/>
+	</collection>
+</resultMap>
 
  <select id="totalCount" parameterType="Pager" resultType="java.lang.Long">
 SELECT COUNT(NUM) FROM TFESTIVAL
@@ -72,7 +95,7 @@ SELECT COUNT(NUM) FROM TFESTIVAL
 	<collection property="filesVOs" javaType="java.util.List" ofType="TfestivalFilesVO">
 	<id column="fileNum" property="fileNum"/>
 	<result column="fileName" property="fileName"/>
-	<result column="oriName" property="fileName"/>
+	<result column="oriName" property="oriName"/>
 	</collection>
 	
 </resultMap>
