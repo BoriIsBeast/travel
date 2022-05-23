@@ -49,6 +49,7 @@
 						<div>
 							<button type="button" class="btn btn-primary">장바구니</button>
 							<button type="button" class="btn btn-primary">바로결제</button>
+							<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
 						</div>
 					</div>
 					</div>
@@ -95,7 +96,8 @@
 				<h5 class="card-title" id="name" data-name="${vo.name}">${vo.name}</h5>
 				<p class="card-text">${vo.contents}</p>
 			</div>
-			<ul class="list-group list-group-flush">
+			<input type="hidden" readonly id="productNum" name="productNum" value="${vo.productNum}">
+			<ul class="list-group list-group-flush">				
 				<li class="list-group-item" id="address"
 					data-address="${vo.address}">주소 : ${vo.address}</li>
 				<li class="list-group-item">홈페이지 : <a href="${vo.homePage}">${vo.homePage}</a></li>
@@ -109,12 +111,17 @@
 			<a href="/product/list">List</a> 
 			<a	href="./update?productNum=${vo.productNum}">Update</a> 
 			<a	href="./delete?productNum=${vo.productNum}">Delete</a>	
-			<a href="../tReview/add">리뷰 쓰기</a>
+			
 		
 
 		</div>
 	</div>
 	<div id="map" style="width: 100%; height: 350px;"></div>
+	
+	<div class="row" id="list" style="width: 50%; height: 350px;">
+		<!-- 리뷰 ajax, 제목, 작성자, 내용, 여행지 이름 -->
+	</div>
+	
 
 	<!-- kakao map js -->
 	<script type="text/javascript"
@@ -124,6 +131,7 @@
 	<!--  제이쿼리 ui js -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="../resources/js/calendar.js"></script>
+
 	<script type="text/javascript">
 		calendar();
 		
@@ -133,7 +141,31 @@
 			console.log(totalPrice);
 			$('#total').val(totalPrice);
 			
-		})
+		});
+		
+	$("#list").on("click",".pager",function(){
+			let checkPn=$(this).attr("data-pn");
+			if(checkPn >0){
+				getList(checkPn);
+			}else{
+				alert("마지막 입니다")
+			}
+		});
+		getList(1);
+		function getList(pn){
+			console.log("start");
+			$.ajax({
+				type : "GET",
+				url : "./ajaxList",
+				data:{
+					pn:pn,
+					perPage:5
+				},
+				success:function(data){
+					$("#list").html(data.trim());
+				}
+			});
+		} 
 	
 	</script>
 

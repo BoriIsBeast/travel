@@ -18,7 +18,8 @@
 	<div class="row">
 		<div class="card">
 			<ul class="list-group list-group-flush">
-			   	<li class="list-group-item">제 목 : ${vo.title}</li>
+				<li class="list-group-item">글 번호 : ${vo.num}</li>
+			   	<li class="list-group-item">제 목 : ${vo.title}</li>			   
 		   		<li class="list-group-item">작 성 자 : ${vo.id} </li>
 			</ul>
 		  

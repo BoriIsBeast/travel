@@ -2,6 +2,8 @@ package com.project.travel.tReview;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.travel.member.MemberVO;
+import com.project.travel.product.ProductVO;
 import com.project.travel.tQna.TQnaVO;
 import com.project.travel.util.Pager;
 
@@ -30,14 +34,22 @@ public class TReviewController {
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<TReviewVO> ar = tReviewService.getList(pager);
+		mv.setViewName("product/detail");
 		mv.setViewName("tReview/list");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		return mv;
 	}
 
+
 	@GetMapping("add")
-	public void setAdd() throws Exception {
+	public ModelAndView setAdd(TReviewVO tReviewVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		tReviewVO = tReviewService.productDetail(tReviewVO);
+		mv.setViewName("tReview/add");
+		mv.addObject("vo", tReviewVO);
+		return mv;
+		
 	}
 
 	@PostMapping("add")
@@ -52,8 +64,7 @@ public class TReviewController {
 	public ModelAndView getDetail(TReviewVO tReviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		tReviewVO = tReviewService.getDetail(tReviewVO);
-		mv.setViewName("tReview/detail");
-		tReviewVO=tReviewService.getDetail(tReviewVO);
+		mv.setViewName("tReview/detail");		
 		mv.addObject("vo", tReviewVO);
 		return mv;		
 	}	
@@ -103,5 +114,18 @@ public class TReviewController {
 		return mv;
 	}
 	
+	@GetMapping("ajaxList")
+	public ModelAndView getAjaxList(Pager pager, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO=(MemberVO)session.getAttribute("member");
+		pager.setId(memberVO.getId());
+		List<TReviewVO> ar = tReviewService.getList(pager);
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+		mv.setViewName("common/tReviewList");
+		return mv;
+	} 
+
+
 	
 }

@@ -24,6 +24,7 @@
 		LIMIT #{startRow}, #{perPage}
 	</select>
 	
+
 	<select id="getTotalCount" resultType="java.lang.Long" parameterType="Pager">
 		SELECT COUNT(NUM) FROM TREVIEW
 		WHERE
@@ -42,8 +43,8 @@
 	</select>
 	
 	<insert id="setAdd" parameterType="TReviewVO" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO TREVIEW(NUM, ID, PRODUCTNUM, TITLE, REGDATE, CONTENTS, HIT, REC, `REF`, STEP, `DEPTH`)
-		VALUES(#{num}, #{id}, #{productNum}, #{title}, now(), #{contents}, 0, 0, 0, 0, 1)
+		INSERT INTO TREVIEW(NUM, ID, PRODUCTNUM, TITLE, REGDATE, CONTENTS, HIT, REC, `REF`, STEP, `DEPTH`, NAME)
+		VALUES(#{num}, #{id}, #{productNum}, #{title}, now(), #{contents}, 0, 0, 0, 0, 1, #{name})
 	</insert>
 	
 	<update id="setUpdate" parameterType="TReviewVO">
@@ -54,6 +55,11 @@
 		DELETE FROM TREVIEW WHERE NUM=#{num}
 	</delete>
 	
+	<select id="productDetail" parameterType="TReviewVO" resultType="TReviewVO">
+		SELECT *FROM TPRODUCT WHERE PRODUCTNUM=#{productNum}
+	</select>
+	
+		
 	<select id="getDetail" parameterType="TReviewVO" resultMap="getDetailResult">
 		SELECT R.*, F.*
 		FROM TREVIEW R

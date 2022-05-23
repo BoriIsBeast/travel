@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.project.travel.tReview.TReviewVO;
 import com.project.travel.util.Pager;
 
 @Mapper
@@ -31,6 +32,7 @@ public interface ProductMapper {
 	public ProductFilesVO getFileDetail(ProductFilesVO productFilesVO) throws Exception;
 	//fileDelete
 	public int setFileDelete(ProductFilesVO productFilesVO) throws Exception;
+	
 	
 	
 	

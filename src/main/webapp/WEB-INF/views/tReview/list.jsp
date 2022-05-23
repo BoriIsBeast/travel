@@ -48,24 +48,22 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>여행지 이름</th>
-						<th>Date</th>
+						<th>제 목</th>
+						<th>여 행 지</th>	
+						<th>작 성 자</th>						
+						<th>날 짜</th>
 						<th>HIT</th>
-						<th>추천</th>
+						<th>추 천</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="vo">
 						<tr>
 							<td>${vo.num}</td>
-
 							<td><a class="link-success text-decoration-none"
 								href="./detail?num=${vo.num}">${vo.title}</a></td>
-
-							<td>${vo.id}</td>						
-							<td>${vo.productNum}</td>							
+							<td><input type="hidden" name="productNum" value="${vo.productNum}" readonly class="form-control" id="productNum">${vo.name}</td>							
+							<td>${vo.id}</td>		
 							<td>${vo.regDate}</td>
 							<td>${vo.hit}</td>
 							<td>${vo.rec}</td>
@@ -101,9 +99,7 @@
 
 
 	
-			<div class="col-1">
-				<a href="./add" type="button" class="btn btn-outline-primary">WRITE</a>
-			</div>
+	
 		
 	</div>
 	<script

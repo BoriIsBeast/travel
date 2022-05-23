@@ -19,6 +19,7 @@ public class TReviewVO {
 	private Long ref;
 	private Long step;
 	private Long depth;
+	private String name;
 
 	private List<TReviewFilesVO> filesVOs;
 }
