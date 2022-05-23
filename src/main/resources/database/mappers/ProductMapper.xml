@@ -9,7 +9,7 @@
 		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage},#{maxCount})
 	</insert>
 	
-	<select id="getList" parameterType="PAGER" resultMap="productResult">
+	<select id="getList" parameterType="Pager" resultMap="productResult">
 		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.LARGECATEGORY, PF.*
 		FROM (SELECT * FROM TPRODUCT
 		WHERE PRODUCTNUM>0 AND

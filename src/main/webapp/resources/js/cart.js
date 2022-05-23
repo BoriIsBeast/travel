@@ -9,8 +9,8 @@ function cartAdd(){
         //console.log(amount);
         let date = $("#dateResult").val();
         //console.log(date);
-        let totalPrice = $("#total").val();
-        //console.log(totalPrice);
+        let total = $("#total").val();
+        //console.log(total);
        
 
         $.ajax({
@@ -21,7 +21,7 @@ function cartAdd(){
                 productNum:productNum,
                 amount:amount,
                 regDate:date,
-                total:totalPrice
+                total:total
             },
             success:function(data){
                 if(data.trim()=='1'){
@@ -54,7 +54,7 @@ for(b of btn){
     let cartNum=b.getAttribute("data-num");
     
     //장바구니 페이지에서 - + 버튼 클릭했을 때 수, 가격 변동 
-    let totalPrice;
+    let total;
     //- 버튼
     $('#minus'+cartNum).click(function(){   
         let amount = $('#amount'+cartNum).val()-1;
@@ -65,15 +65,22 @@ for(b of btn){
             amount=value;  
         }
         $('#amount'+cartNum).val(amount);
-        totalPrice = Number($('#price'+cartNum).val())*amount;
-        $('#total'+cartNum).val(totalPrice);
+        total = Number($('#price'+cartNum).val())*amount;
+        $('#total'+cartNum).val(total);
+
+       
+        //선택된 후 - 버튼으로 가격 변동시 총 금액도 변경
+        let tprice = $("#totalPrice").val() - Number($('#price'+cartNum).val())*1;
+        console.log(tprice);
+        $("#totalPrice").val(tprice);
+        
         
         $.ajax({
             type:"POST",
             url:"./update",
             data:{
                 amount:amount,
-                total:totalPrice,
+                total:total,
                 cartNum:cartNum
             },
             success:function(data){
@@ -89,24 +96,34 @@ for(b of btn){
    //+ 버튼
     $('#plus'+cartNum).click(function(){
         let amount = Number($('#amount'+cartNum).val())+1;
-        let totalPrice;
+        let total;
 
         if(amount>10){
             alert("최대 10매까지 구매가능합니다.")
             let value=10;
             $('#amount'+cartNum).val(value);
             amount=value;  
-          }
-            $('#amount'+cartNum).val(amount);
-            totalPrice = Number($('#price'+cartNum).val())*amount;
-            $('#total'+cartNum).val(totalPrice);
+        }
+        $('#amount'+cartNum).val(amount);
+        total = Number($('#price'+cartNum).val())*amount;
+        $('#total'+cartNum).val(total);
+        
+        $(".checkbox").each(function(idx,item){
+        if($(".checkbox").prop("checked")){
+            //선택된 후 + 버튼으로 가격 변동시 총 금액도 변경
+            let tprice = Number($("#totalPrice").val()) + Number(($('#price'+cartNum).val()*1));
+            console.log(tprice);
+            $("#totalPrice").val(tprice);
+        }
+        })
+     
       
         $.ajax({
             type:"POST",
             url:"./update",
             data:{
                 amount:amount,
-                total:totalPrice,
+                total:total,
                 cartNum:cartNum
             },
             success:function(data){
@@ -124,26 +141,26 @@ for(b of btn){
     //X 버튼으로 항목 삭제 구현 (checkbox로 여러개 삭제 구현해보기)
     $('#deleteBtn'+cartNum).click(function(){
         console.log("click")
-    let check = window.confirm("삭제하시겠습니까?");
-       if(!check){
+        let check = window.confirm("삭제하시겠습니까?");
+        if(!check){
           return;
-       }
-       let selector=$(this);
-    $.ajax({
-        type:"POST",
-        url:"./delete",
-        data:{
-            cartNum:cartNum
-        },
-        success:function(data){
-            if(data.trim()=='1'){
-                $(selector).parent().parent().remove();
-                alert("삭제 되었습니다.")
-            }
-        },
-        error:function(){
-            alert("실패")
         }
+       let selector=$(this);
+        $.ajax({
+            type:"POST",
+            url:"./delete",
+            data:{
+                cartNum:cartNum
+            },
+            success:function(data){
+                if(data.trim()=='1'){
+                    $(selector).parent().parent().remove();
+                    alert("삭제 되었습니다.")
+                }
+            },
+            error:function(){
+                alert("실패")
+            }
     })
     })
     //장바구니에 담겨 있는 목록 중 현재 날짜 보다 이전 날짜 삭제 (schedule 이용해보기)
@@ -180,37 +197,59 @@ for(b of btn){
     }
 }
 
+//---------------------------------checkbox-------------------------------------
 
-
-
+//전체선택, 가격
 $('#totalCheckbox').click(function(){
     $('.checkbox').prop("checked", $('#totalCheckbox').prop("checked"));
-
-    $(".checkbox").each(function(idx,item){
+    let sum=0;
+    $(".checkbox").each(function(idx,item){ 
 		if($(item).attr("data-check")){
-            console.log($(item).attr("data-check"));
-		} 
+            let cartNum=$(item).attr("data-check");
+            let totalPrice=$("#total"+cartNum).val();
+            sum+=parseInt(totalPrice);
+            $("#totalPrice").val(sum);
+        }
 	});
+    if(!$("#totalCheckbox").prop("checked")){
+        console.log("전체선택 해제")
+        sum=0;
+        $("#totalPrice").val(sum);
+    }
    
 })
 
+//각각선택, 가격
 $('.checkbox').on("click",function(){
     let check = true;
-    console.log($(this).attr("data-check"));
-
+    let sum=0;
     $(".checkbox").each(function(idx,item){
-		if(!$(item).prop("checked")){
+        if($(item).prop("checked")){ 
+            let cartNum=$(item).attr("data-check");
+            let totalPrice=$("#total"+cartNum).val();
+            sum+=parseInt(totalPrice);
+            $("#totalPrice").val(sum);
+            
+        }
+      
+        //전체 선택 해제, 선택해제되면 총 가격도 0
+		else if(!$(item).prop("checked")){
 			check=false;
-		} 
-	});
+            
+            $("#totalPrice").val(sum);
+		}  
+        
+	}); 
     $("#totalCheckbox").prop("checked",check);
 });
 
-$('#payment').click(function(){
-    $(".checkbox").each(function(){
-		if($(this).prop("checked")){
-            console.log($(this).attr("data-check"));
-        }
-	});
+$('#payment').click(function(){ 
+    let price=$("#totalPrice").val();
+    console.log(price)
+    if(price==0){
+        alert("결제할 내역이 없습니다.")
+    }else{
+        window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?")
+    }
 })
 

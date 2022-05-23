@@ -43,7 +43,7 @@
 						
 						<td><%-- <fmt:formatNumber type="currency" id="total" value="${list.total}" /> --%>
 							<input type="hidden" id="price${list.cartNum}" value="${list.productVOs.price}">
-							<input type="text" value="${list.total}" id="total${list.cartNum}" pattern = "###,###" readonly>
+							<input type="text" id="total${list.cartNum}" value="${list.total}"  readonly>
 							
 						</td>
 						<c:if test="${list.payCheck ne 1}">
@@ -56,6 +56,17 @@
 					</tr>
 						
 			</c:forEach>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				
+				<th>총 금액</th>
+				<td><input type="text" id="totalPrice" readonly></td>
+			</tr>
+			
+			
 			
 					
 				</tbody>
