@@ -14,10 +14,11 @@
 	<h1>update 페이지</h1>
 	
 	<form:form modelAttribute="memberVO" method="POST">
-	<form:hidden path="id" value="${vo.id}"/>
+	
+	
 	
 	<div>
-	<form:input path="name" value="${vo.name}"/>
+	이름<form:input path="name" value="${vo.name}"/>
 	</div>
 	
 	<div>

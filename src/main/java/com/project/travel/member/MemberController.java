@@ -30,13 +30,52 @@ public class MemberController {
 	}
 	
 	@GetMapping("checkPw")
-	public void checkPw(HttpSession session)throws Exception{
+	public ModelAndView checkPw(HttpSession session)throws Exception{
 		
+		ModelAndView mv = new ModelAndView();
+		
+		MemberVO memberVO=(MemberVO) session.getAttribute("member");
+		
+		memberVO = memberService.getMypage(memberVO);
+		
+		
+		mv.setViewName("member/checkPw");
+		mv.addObject("check", memberVO);
+		
+		return mv;
+	}
+	
+	@PostMapping("updatePw")
+	public ModelAndView updatePw(MemberVO memberVO,BindingResult bindingResult)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		int result = memberService.setUpdatePw(memberVO);
+		if(result == 0) {
+			mv.addObject("msg", "비밀번호 변경 실패");
+			mv.addObject("path", "./updatePw");
+			mv.setViewName("common/getResult");
+		}else {
+			mv.addObject("msg", "비밀번호 변경 성공");
+			mv.addObject("path", "/");
+			mv.setViewName("common/getResult");
+			
+		}
+		
+		return mv;
 	}
 	
 	@GetMapping("updatePw")
-	public void updatePw()throws Exception{
+	public void updatePw(@ModelAttribute MemberVO memberVO,HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberVO = (MemberVO) session.getAttribute("member");
 		
+		memberVO = memberService.getMypage(memberVO);
+		
+		
+		mv.setViewName("member/mypage");
+		mv.addObject("vo", memberVO);
 	}
 	
 	@GetMapping("kakaoLogin")
@@ -47,10 +86,20 @@ public class MemberController {
 	@PostMapping("update")
 	public ModelAndView setUpdate(MemberVO memberVO,BindingResult bindingResult)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		System.out.println(memberVO.getId());
 		
 		int result = memberService.setUpdate(memberVO);
+		if(result == 0) {
+			mv.addObject("msg", "회원정보 수정 실패");
+			mv.addObject("path", "./mypage");
+			mv.setViewName("common/getResult");
+		}else {
+			mv.addObject("msg", "회원정보 수정 성공");
+			mv.addObject("path", "../");
+			mv.setViewName("common/getResult");
+			
+		}
 		
-		mv.setViewName("redirect:../");
 		
 		return mv;
 	}
@@ -141,7 +190,7 @@ public class MemberController {
 	
 	
 	@PostMapping("join")
-	public ModelAndView setJoin(MemberVO memberVO,BindingResult bindingResult)throws Exception{// bindingResult 해야함
+	public ModelAndView setJoin(MemberVO memberVO,BindingResult bindingResult)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		int result = memberService.setJoin(memberVO);

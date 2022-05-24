@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.travel.admin.AdminMapper">
+
+<select id="getFestivalList" parameterType="Pager" resultType="TfestivalVO">
+	SELECT * FROM TFESTIVAL
+	WHERE NUM > 0 AND
+	<choose>
+		<when test="kind == 'col1'">
+			NAME
+		</when>
+		<otherwise>
+			LOCATION
+		</otherwise>
+	</choose>
+	LIKE concat('%', #{search}, '%')
+	
+	ORDER BY NUM DESC
+	LIMIT #{startRow}, #{perPage}	
+	</select>
+
+	<select id="getMemberDetail" parameterType="MemberVO" resultType="MemberVO">
+		SELECT * FROM TMEMBER WHERE ID =#{id}
+	</select>
+
+	<select id="getProductList" parameterType="PAGER" resultMap="productResult">
+		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.LARGECATEGORY, PF.*
+		FROM (SELECT * FROM TPRODUCT
+		WHERE ID=#{id} AND
+		<choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<otherwise>
+       			NAME
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%')
+       	AND LARGECATEGORY LIKE CONCAT('%',#{search1},'%')
+       	AND MEDIUMCATEGORY LIKE CONCAT('%',#{search2},'%')
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
+       	ORDER BY PRODUCTNUM DESC
+       	LIMIT #{startRow},#{perPage}
+       	) P
+		LEFT JOIN 
+		TPRODUCTFILE PF
+		USING(PRODUCTNUM)
+		ORDER BY PF.FILENUM ASC
+	</select>
+	
+	<resultMap type="ProductVO" id="productResult">
+		<id column="productNum" property="productNum"/>
+		<result column="id" property="id"/>
+		<result column="largeCategory" property="largeCategory"/>
+		<result column="mediumCategory" property="mediumCategory"/>
+		<result column="smallCategory" property="smallCategory"/>
+		<result column="name" property="name"/>
+		<result column="price" property="price"/>
+		<result column="contents" property="contents"/>
+		<result column="address" property="address"/>
+		<result column="homePage" property="homePage"/>
+		<collection property="filesVOs" javaType="java.util.List" ofType="ProductFilesVO">
+ 			<id column="fileNum" property="fileNum"/>
+ 			<result column="fileName" property="fileName"/>
+ 			<result column="oriName" property="oriName"/>
+ 		</collection>
+		</resultMap>
+
+	<select id="getMemberList" resultType="MemberVO">
+		SELECT * FROM TMEMBER
+	</select>
+</mapper>

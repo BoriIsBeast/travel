@@ -14,7 +14,8 @@
 
 		<update id="setUpdate" parameterType="MemberVO">
 			UPDATE TMEMBER 
-				SET NAME=#{name}, BIRTH=#{birth}, PHONE=#{phone},address=#{address}, EMAIL=#{email}
+				SET NAME=#{name}, BIRTH=#{birth}, PHONE=#{phone},ZIPCODE=#{zipCode},address=#{address}, EMAIL=#{email}
+				WHERE ID=#{id}
 		</update>
 		
 		<select id="getFindId" parameterType="MemberVO" resultType="MemberVO">
@@ -33,7 +34,7 @@
 		</select>
 		
 		<select id="login" parameterType="MemberVO" resultType="MemberVO">
-			SELECT ID,NAME FROM TMEMBER 
+			SELECT ID,NAME,TTYPE FROM TMEMBER 
 				WHERE ID=#{id} and PW=#{pw}
 		</select>
 		

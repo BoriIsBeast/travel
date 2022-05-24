@@ -25,6 +25,8 @@ public class Pager {
 	private String search1;
 	private String search2;
 	private String category;
+	
+	
 
 	
 	//jsp

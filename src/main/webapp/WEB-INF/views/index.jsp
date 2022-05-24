@@ -36,6 +36,7 @@
 </head>
 
 <body>
+
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -111,8 +112,10 @@
                                 </div>
                                 <a href="./contact" class="nav-item nav-link">Contact</a>
                             </div>
-                            <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">관리자<i class="fa fa-arrow-right ms-3"></i></a>
                             
+                            <c:if test="${member.getTType() == 1 || member.getTType() == 2}">
+                            	<a href="../admin/adminPage" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">관리자<i class="fa fa-arrow-right ms-3"></i></a>
+                            </c:if>
                         </div>
                     </nav>
                 </div>
@@ -558,7 +561,7 @@
                                 </div>
                             </div>
                             <div class="text-center p-4 mt-3">
-                                <h5 class="fw-bold mb-0">Full Name</h5>
+                                <h5 class="fw-bold mb-0">FULL Name</h5>
                                 <small>Designation</small>
                             </div>
                         </div>
@@ -705,6 +708,7 @@
             </div>
         </div>
         <!-- Footer End -->
+        
 
 
         <!-- Back to Top -->

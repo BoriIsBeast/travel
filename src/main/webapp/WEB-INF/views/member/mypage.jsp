@@ -16,8 +16,12 @@
 	</div>
 	
 	<a href="./update?id=${vo.id}">회원정보 수정</a>
-	<a href="./checkPw">비밀번호 변경</a>
+
+	
 	<a href="../cart/list?id=${member.id}">장바구니</a>
+
+	<a href="./updatePw?id=${vo.id}">비밀번호 변경</a>
+
 	
 	
 </body>
