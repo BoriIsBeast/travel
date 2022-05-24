@@ -92,6 +92,8 @@ public class Pager {
 		}
 		
 	}
+	
+
 	//GETTER : get+멤버변수명, 멤버변수명의 첫글자는 대문자
 	public String getSearch() {
 		if(this.search==null) {
