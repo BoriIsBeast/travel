@@ -27,8 +27,8 @@
 		<div class="row float-end" >
 			<h4>입장권 구매</h4>
 					<div class="carousel-inner" >
-						<div id="datepicker1"></div>
 						 <input type="hidden" id="${member.id}" readonly/>
+						<div id="datepicker1"></div>
 						선택날짜 : <input type="date" id="dateResult" readonly/>
 						<div>
 							입장료 : <fmt:formatNumber type="currency" value="${vo.price}" />원
@@ -172,11 +172,10 @@
 				}
 			});
 		} 
-=======
-		})
-		
+
+	
     	cartAdd();
->>>>>>> t_ProductCart
+
 	
 		
 	</script>
