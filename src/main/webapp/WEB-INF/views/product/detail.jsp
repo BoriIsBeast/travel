@@ -28,13 +28,16 @@
 			<h4>입장권 구매</h4>
 					<div class="carousel-inner" >
 						<div id="datepicker1"></div>
+						 <input type="hidden" id="${member.id}" readonly/>
 						선택날짜 : <input type="date" id="dateResult" readonly/>
 						<div>
-							입장료 : <fmt:formatNumber type="currency" value="${vo.price}" />원							
+							입장료 : <fmt:formatNumber type="currency" value="${vo.price}" />원
+														
 						</div>
 
 						<div>
-							구입 매수 : <select name="count" id="select" style="margin: 0 0.5rem 0 0.5rem">
+							구입 매수 : <select name="amount" id="amount" style="margin: 0 0.5rem 0 0.5rem">
+								<option>선택해주세요</option>
 								<option value="1">1매</option>
 								<option value="2">2매</option>
 								<option value="3">3매</option>
@@ -47,7 +50,7 @@
 								style="margin-left: 0.5rem;width: 85px;" />원
 						</div>
 						<div>
-							<button type="button" class="btn btn-primary">장바구니</button>
+							<button type="button" class="btn btn-primary" id="cartBtn" data-id="${member.id}" data-num="${vo.productNum}">장바구니</button>
 							<button type="button" class="btn btn-primary">바로결제</button>
 							<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
 						</div>
@@ -93,6 +96,7 @@
 			</div>
 
 			<div class="card-body">
+				
 				<h5 class="card-title" id="name" data-name="${vo.name}">${vo.name}</h5>
 				<p class="card-text">${vo.contents}</p>
 			</div>
@@ -116,11 +120,12 @@
 
 		</div>
 	</div>
-	<div id="map" style="width: 100%; height: 350px;"></div>
+
 	
 	<div class="row" id="list" style="width: 50%; height: 350px;">
 		<!-- 리뷰 ajax, 제목, 작성자, 내용, 여행지 이름 -->
 	</div>
+
 	
 
 	<!-- kakao map js -->
@@ -132,14 +137,15 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="../resources/js/calendar.js"></script>
 
+	 <script type="text/javascript" src="../resources/js/cart.js"></script> 
+
 	<script type="text/javascript">
 		calendar();
 		
-		$('#select').change(function(){
-			console.log($('#select').val());
-			let totalPrice=$('#select').val()*${vo.price};
-			console.log(totalPrice);
+		$('#amount').change(function(){
+			let totalPrice=$('#amount').val()*${vo.price};
 			$('#total').val(totalPrice);
+
 			
 		});
 		
@@ -166,7 +172,13 @@
 				}
 			});
 		} 
+=======
+		})
+		
+    	cartAdd();
+>>>>>>> t_ProductCart
 	
+		
 	</script>
 
 

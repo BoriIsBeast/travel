@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.project.travel.cart.CartMapper">
+	<insert id="setAdd" parameterType="CartVO">
+		INSERT INTO TCART(CARTNUM, ID, PRODUCTNUM, AMOUNT, PAYCHECK, REGDATE, TOTAL)
+		VALUES(NULL, #{id}, #{productNum},#{amount},0,#{regDate},#{total})
+	</insert>
+	
+	<select id="getTotal" parameterType="Pager" resultType="Long">
+		SELECT COUNT(CARTNUM) FROM TCART
+	</select>
+	
+	<select id="getList" parameterType="Pager" resultMap="cartResult">
+		SELECT C.*,P.NAME , P.PRICE 
+			FROM TCART C
+			LEFT JOIN 
+			TPRODUCT P 
+			USING (PRODUCTNUM)
+		WHERE C.ID=#{id}
+		
+		ORDER BY REGDATE ASC, CARTNUM DESC
+		LIMIT #{startRow} ,#{perPage}
+		
+	</select>
+	
+	<resultMap type="cartVO" id="cartResult">
+		<id column="cartNum" property="cartNum"/>
+ 		<result column="id" property="id"/>
+ 		<result column="productNum" property="productNum"/>
+ 		<result column="amount" property="amount"/>
+ 		<result column="payCheck" property="payCheck"/>
+ 		<result column="regDate" property="regDate"/>
+ 		<result column="total" property="total"/>
+ 		
+		<collection property="productVOs" javaType="ProductVO" ofType="ProductVO">
+	 		<id column="productNum" property="productNum"/>
+			<result column="name" property="name"/>
+			<result column="price" property="price"/>
+
+ 		</collection>
+	</resultMap>
+	
+	<update id="setUpdate" parameterType="CartVO">
+		UPDATE TCART SET AMOUNT=#{amount},TOTAL=#{total} WHERE CARTNUM=#{cartNum}
+	</update>
+	
+	<delete id="setDelete" parameterType="CartVO">
+		DELETE FROM TCART WHERE CARTNUM=#{cartNum}
+	</delete>
+	
+	<select id="getCheck" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM TCART 
+		WHERE ID=#{id} AND REGDATE=#{regDate} 
+		AND PRODUCTNUM=#{productNum} AND PAYCHECK=0
+	</select> 
+	
+	
+</mapper>

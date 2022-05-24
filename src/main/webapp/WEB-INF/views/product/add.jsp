@@ -53,8 +53,19 @@
 		</div>
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">Price</label>
-			<input type="text" class="form-control" id="price" name="price">
+			<select class="form-select" aria-label="Default select example" name="price1" id="price">
+				<option>선택해주세요</option>
+				<option class ="dataPrice" value="0">무료 입장</option>
+				<option class ="dataPrice" value="1">가격 직접 입력</option>
+			</select>
+			
+			
 		</div>
+		
+		<div id="priceResult">
+			
+		</div>
+		
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">Contents</label>
 			<textarea class="form-control" id="contents" name="contents"></textarea>
@@ -87,6 +98,7 @@
 		mediumCategorySelect();
 		fileAdd(0);
 		summernote("contents","");
+		priceSelect();
 	</script>
 	
 

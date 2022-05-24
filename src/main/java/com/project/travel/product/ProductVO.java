@@ -16,6 +16,7 @@ public class ProductVO {
 	private String contents;
 	private String address;
 	private String homePage;
+	private Long maxCount;
 	
 	private List<ProductFilesVO> filesVOs;
 

@@ -2,7 +2,10 @@ package com.project.travel.product;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpSession;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.member.MemberVO;
+
 import com.project.travel.tReview.TReviewService;
 import com.project.travel.tReview.TReviewVO;
+
 import com.project.travel.util.Pager;
 
 @Controller
@@ -31,14 +36,17 @@ public class ProductController {
 	public ModelAndView setAdd(ProductVO productVO, ModelAndView mv) throws Exception {
 
 		mv.setViewName("product/add");
-		return mv;
-	}
 
+		return mv;	
+	}
 	@PostMapping("add")
-	public String setAdd(ProductVO productVO, MultipartFile[] files) throws Exception {
-		int result = productService.setAdd(productVO, files);
+	public String setAdd(ProductVO productVO,MultipartFile[] files,HttpSession session)throws Exception{
+		int result = productService.setAdd(productVO,files);
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		productVO.setId(memberVO.getId());
 		return "redirect:./list";
 	}
+	
 
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager, ModelAndView mv) throws Exception {
@@ -101,6 +109,7 @@ public class ProductController {
 		return mv;
 	}
 	
+
 	@GetMapping("ajaxList")
 	public ModelAndView getAjaxList(Pager pager, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -113,5 +122,7 @@ public class ProductController {
 		return mv;
 	} 
 	 
+
+
 
 }

@@ -95,10 +95,12 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="./" class="nav-item nav-link active">Home</a>
+
                                 <a href="./tReview/list" class="nav-item nav-link">REVIEW</a>
                                 <a href="./tQna/list" class="nav-item nav-link">F A Q</a>
                                 <a href="./tNotice/list" class="nav-item nav-link">BOARD</a>
                                 <a href="./product/list" class="nav-item nav-link">여 행 지</a>
+
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
