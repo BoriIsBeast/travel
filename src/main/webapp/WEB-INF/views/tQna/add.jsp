@@ -17,11 +17,13 @@
 	<title>Insert title here</title>
 </head>
 <body>
+<c:import url="../temp/header.jsp"></c:import>
+
 
 <div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">문의</h4>
+	  		<h4 style="text-transform: uppercase;">${board} Write</h4>
 		</div>
 	</div>
 	
@@ -37,7 +39,7 @@
 		  <div class="row mb-3">
 		    <label for="id" class="col-sm-2 col-form-label">작성자</label>
 		    <div class="col-sm-10">
-		      <input type="text" name="id" value="${member.id}"  class="form-control" id="id">
+		      <input type="text" name="id" value="${member.id}" readonly class="form-control" id="id">
 		    </div>
 		  </div>
 		 <div class="row mb-3">
@@ -64,7 +66,9 @@
 <script type="text/javascript" src="../js/summernote.js"></script>
 
 <script type="text/javascript">
-summernoteInit("contents","");	
+summernoteInit("contents","");
+
+	
 </script>
 </body>
 </html>

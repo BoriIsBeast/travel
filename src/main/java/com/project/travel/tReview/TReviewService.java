@@ -1,13 +1,16 @@
 package com.project.travel.tReview;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.project.travel.product.ProductVO;
 import com.project.travel.util.FileManager;
 import com.project.travel.util.Pager;
 
@@ -21,11 +24,18 @@ public class TReviewService {
 	@Autowired
 	private FileManager fileManager;
 	
+	
+	public TReviewVO productDetail(TReviewVO tReviewVO) throws Exception{
+		return	tReviewMapper.productDetail(tReviewVO);
+	}
+
+	
 	public List<TReviewVO> getList(Pager pager) throws Exception{
 		pager.makeRow();
 		pager.makeNum(tReviewMapper.getTotalCount(pager));
 		return tReviewMapper.getList(pager);
 	}
+	
 	
 	public int setAdd(TReviewVO tReviewVO, MultipartFile[]files) throws Exception{
 		int result = tReviewMapper.setAdd(tReviewVO);
@@ -76,7 +86,7 @@ public class TReviewService {
 	
 	public String setSummerFileUpload(MultipartFile files)throws Exception{
 		String fileName = fileManager.fileSave(files, "resources/upload/TReview");
-		fileName = "resources/upload/TReview/"+fileName;
+		fileName = "/resources/upload/TReview/"+fileName;
 		return fileName;
 	}
 	

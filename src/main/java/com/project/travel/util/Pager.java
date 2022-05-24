@@ -6,6 +6,7 @@ import lombok.Data;
 public class Pager {
 	private String id;
 	
+	
 	//DB에서 몇개씩 조회
 	private Integer perPage;
 	//DB에서 조회할 시작 인덱스 번호

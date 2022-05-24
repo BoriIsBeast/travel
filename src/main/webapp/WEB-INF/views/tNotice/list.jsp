@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<c:import url="../temp/header.jsp"></c:import>
 	<div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-primary" role="alert">
@@ -20,22 +20,17 @@
 	</div>
 	
 		<div class="row justify-content-between">
-		<div class="col-5">
-			<form class="d-flex" action="./list" method="get">
-				<div class="col-4 me-2">
-				<select name="kind" class="form-select " aria-label="Default select example">
-				  <option value="col1">제 목</option>
-				  <option value="col2">내 용</option>
-				  <option value="col3">작 성 자</option>
-				</select>
-				</div>
-				<div class="col-6 me-2">
-	        	<input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-	        	</div>
-	        	<div class="col-2">
-	        	<button class="btn btn-outline-success" type="submit">Search</button>
-	        	</div>
-	      </form>
+		<div class="d-flex justify-content-end">
+			<form class="d-flex col-4 mb-3 ">
+				<select name="kind">
+					<option value="col1">제목</option>
+					<option value="col2">작 성 자</option>
+					<option value="col3">내용</option>
+
+				</select> <input class="form-control me-2" type="search" placeholder="입력하세요."
+					aria-label="Search" name="search">
+				<button class="btn btn-outline-primary" type="submit">Search</button>
+			</form>
 		</div>
 	</div>
 	
@@ -65,28 +60,26 @@
 		</table>
 	</div>
 	
-	<div class="row">
-		<nav aria-label="Page navigation example">
-		  <ul class="pagination">
-		    <li class="page-item">
-		      <a class="page-link" href="./list?pn=${pager.pre?pager.startNum-1:1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    
-		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-		    <li class="page-item"><a class="page-link" href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
-		    </c:forEach>
-		    
-		    <li class="page-item">
-		      <a class="page-link" href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
-	
-	</div>
+	<div class="col-4">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination align-self-center">
+					<li class="page-item"><a class="page-link"
+						href="./list?pn=${pager.pre?pager.startNum-1:1}&kind=${pager.kind}&search=${pager.search}"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
+
+					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+						<li class="page-item"><a class="page-link"
+							href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+					</c:forEach>
+
+					<li class="page-item"><a class="page-link"
+						href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&kind=${pager.kind}&search=${pager.search}"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
 	
 	
 	

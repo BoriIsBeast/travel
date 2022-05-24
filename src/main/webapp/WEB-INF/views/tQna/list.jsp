@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="../temp/header.jsp"></c:import>
 		<div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-primary" role="alert">
@@ -23,9 +24,9 @@
 			<form class="d-flex" action="./list" method="get">
 				<div class="col-4 me-2">
 				<select name="kind" class="form-select " aria-label="Default select example">
-				  <option value="col1">제 목</option>
-				  <option value="col2">내 용</option>
-				  <option value="col3">작 성 자</option>
+				 	<option value="col1">제목</option>
+					<option value="col2">작 성 자</option>
+					<option value="col3">내용</option>
 				</select>
 				</div>
 				<div class="col-6 me-2">

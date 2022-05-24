@@ -84,7 +84,7 @@ public class TNoticeController {
 
 	
 	  @PostMapping("summerFileUpload") 
-	  public ModelAndView  setSummerFileUpload(MultipartFile file) throws Exception{ 
+	  public ModelAndView setSummerFileUpload(MultipartFile file) throws Exception{ 
 		  ModelAndView mv= new ModelAndView(); 
 		  String fileName = tNoticeService.setSummerFileUpload(file); 
 		  System.out.println(fileName);

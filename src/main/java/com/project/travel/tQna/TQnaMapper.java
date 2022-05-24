@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.travel.tNotice.TNoticeVO;
 import com.project.travel.util.Pager;
 
 @Mapper

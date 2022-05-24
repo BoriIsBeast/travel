@@ -1,9 +1,11 @@
 package com.project.travel.tReview;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.travel.product.ProductVO;
 import com.project.travel.tQna.TQnaVO;
 import com.project.travel.util.Pager;
 
@@ -39,4 +41,11 @@ public interface TReviewMapper {
 	
 	//fileDelete
 	public int setFileDelete(TReviewFilesVO tReviewFilesVO) throws Exception;
+	
+	public TReviewVO productDetail(TReviewVO tReviewVO) throws Exception;
+	
+	
+	
+
+
 }
