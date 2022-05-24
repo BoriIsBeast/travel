@@ -111,10 +111,10 @@ public class ProductController {
 	
 
 	@GetMapping("ajaxList")
-	public ModelAndView getAjaxList(Pager pager, HttpSession session) throws Exception{
+	public ModelAndView getAjaxList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		MemberVO memberVO=(MemberVO)session.getAttribute("member");
-		pager.setId(memberVO.getId());
+//		MemberVO memberVO=(MemberVO)session.getAttribute("member");, HttpSession session
+//		pager.setId(memberVO.getId());
 		List<TReviewVO> ar = tReviewService.getList(pager);
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
