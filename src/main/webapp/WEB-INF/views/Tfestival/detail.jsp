@@ -64,13 +64,6 @@
     </div>
   </div>
 </div>
-	    	
-<%-- 				<ul class="list-group list-group-flush">
-				   	<c:forEach items="${vo.filesVOs}" var="f">
-				   	<li class="list-group-item">
-				   		<a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a>
-				   	</li>
-				   	</c:forEach> --%>
 
 <a href="./delete?num=${vo.num}"><button type="button" class="btn btn-outline-danger">삭제</button></a>
 <a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>	

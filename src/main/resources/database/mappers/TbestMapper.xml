@@ -10,5 +10,10 @@
 	SELECT * FROM TBEST WHERE NUM = #{num}
 </select>
 
+<insert id="add" parameterType="TbestVO" useGeneratedKeys="true" keyProperty="num">
+	INSERT INTO TBEST (NUM, PRODUCTNUM, ID, CATEGORY, TITLE, DETAIL)
+	VALUES(#{num}, #{productNum}, #{id}, #{category}, #{title}, #{detail})
+</insert>
+
 
 </mapper>
