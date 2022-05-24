@@ -59,7 +59,7 @@
 	</collection>
 </resultMap>
 
- <select id="totalCount" parameterType="Pager" resultType="java.lang.Long">
+ <select id="totalCount" parameterType="Pager" resultType="Long">
 SELECT COUNT(NUM) FROM TFESTIVAL
 	WHERE
 	<choose>
