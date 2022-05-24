@@ -15,8 +15,6 @@ public class SendEmail {
 	
 	public void sendEmail(MemberVO memberVO, String div) throws Exception {
 		
-		
-		
 		// Mail Server 설정
 		
 		//네이버 

@@ -5,8 +5,8 @@
     
 <mapper namespace="com.project.travel.product.ProductMapper">
 	<insert id="setAdd" parameterType="ProductVO" useGeneratedKeys="true" keyProperty="productNum">
-		INSERT INTO TPRODUCT
-		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage})
+		INSERT INTO TPRODUCT(PRODUCTNUM, ID, LARGECATEGORY, MEDIUMCATEGORY, SMALLCATEGORY, NAME, PRICE, CONTENTS, ADDRESS, HOMEPAGE)
+VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage})
 	</insert>
 	
 	<select id="getList" parameterType="PAGER" resultMap="productResult">

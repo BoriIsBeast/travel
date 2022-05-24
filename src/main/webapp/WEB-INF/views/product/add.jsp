@@ -20,7 +20,7 @@
 	<form action="./add" method="post" enctype="multipart/form-data">
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">id</label>
-			<input type="text" class="form-control" id="id" name="id" value="master" readonly>
+			<input type="text" class="form-control" id="id" name="id" value="ADMIN" readonly>
 		</div>
 		<div class="mb-3">
 			<label for="exampleInputPassword1" class="form-label">대분류</label>
