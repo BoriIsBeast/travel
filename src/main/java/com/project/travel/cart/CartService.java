@@ -15,13 +15,19 @@ public class CartService {
 	private CartMapper cartMapper;
 	
 	public int setAdd(CartVO cartVO) throws Exception{
+		
+		CartVO check = cartMapper.getCheck(cartVO);
+		
+		if(check!=null) {
+			return 3;
+		}
+		
 		return  cartMapper.setAdd(cartVO);
 	}
 
 	public List<CartVO> getList(Pager pager) throws Exception{
 		pager.makeRow();
 		pager.makeNum(cartMapper.getTotal(pager));
-		
 		
 		pager.setPerPage(5);
 		
@@ -35,6 +41,10 @@ public class CartService {
 	
 	public int setDelete(CartVO cartVO) throws Exception{
 		return cartMapper.setDelete(cartVO);
+	}
+	
+	public CartVO getCheck(CartVO cartVO) throws Exception{
+		return cartMapper.getCheck(cartVO);
 	}
 	
 }

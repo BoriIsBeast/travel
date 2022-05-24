@@ -51,5 +51,11 @@
 		DELETE FROM TCART WHERE CARTNUM=#{cartNum}
 	</delete>
 	
+	<select id="getCheck" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM TCART 
+		WHERE ID=#{id} AND REGDATE=#{regDate} 
+		AND PRODUCTNUM=#{productNum} AND PAYCHECK=0
+	</select> 
+	
 	
 </mapper>

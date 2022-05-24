@@ -20,4 +20,6 @@ public interface CartMapper {
 	
 	public Long getTotal(Pager pager) throws Exception;
 	
+	public CartVO getCheck(CartVO cartVO)throws Exception;
+	
 }

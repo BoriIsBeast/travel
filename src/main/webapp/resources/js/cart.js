@@ -1,9 +1,9 @@
 //여행지 detail 페이지에서 장바구니에 추가할 때
 function cartAdd(){
     $("#cartBtn").click(function(){
-         let id=cartBtn.getAttribute("data-id")
+        let id=cartBtn.getAttribute("data-id");
         // console.log(id);
-        let productNum = cartBtn.getAttribute("data-num")
+        let productNum = cartBtn.getAttribute("data-num");
         //console.log(productNum); 
         let amount = $("#amount").val();
         //console.log(amount);
@@ -25,26 +25,28 @@ function cartAdd(){
             },
             success:function(data){
                 if(data.trim()=='1'){
-                    let c = confirm("장바구니 추가 성공! 장바구니로 이동하시겠습니까?")
-                        if(c){
-                            $(location).attr('href', '../cart/list?id='+id);
-                        }
-                   
-                }else {
-                    
-                       alert("로그인이 필요합니다.");
-                      
-                       location.href="../member/login";
+                    let c = confirm("장바구니 추가 성공! 장바구니로 이동하시겠습니까?");
+                    if(c){
+                        $(location).attr('href', '../cart/list?id='+id);
                     }
+                   
+                }else if(data.trim()=='2'){
+                    alert("로그인이 필요합니다.");  
+                    location.href="../member/login";
+
+                }else if(data.trim()=='3'){
+                    let check=confirm("이미 장바구니에 담은 날짜입니다. 장바구니로 이동하시겠습니까?");
+                    if(check){
+                        $(location).attr('href', '../cart/list?id='+id);
+                    }
+                }
+
                 
             },
             error:function(){
                 alert("실패")
             }
-
         })
-
-
     })
 }
 
@@ -55,7 +57,7 @@ $(".minus").click(function(){
 
     let amount = $('#amount'+cartNum).val()-1;
     if(amount<1){
-        alert("1매 이상 구매가능합니다.")
+        alert("1매 이상 구매가능합니다.");
         let value=1;
         $('#amount'+cartNum).val(value);
         amount=value;  
@@ -93,7 +95,7 @@ $(".minus").click(function(){
             }
         },
         error:function(){
-            alert("실패")
+            alert("실패");
         }
     })
 })
@@ -105,7 +107,7 @@ $('.plus').click(function(){
     let amount = Number($('#amount'+cartNum).val())+1;
 
     if(amount>10){
-        alert("최대 10매까지 구매가능합니다.")
+        alert("최대 10매까지 구매가능합니다.");
         let value=10;
         $('#amount'+cartNum).val(value);
         amount=value;  
@@ -155,7 +157,7 @@ for(b of btn){
 
     //X 버튼으로 항목 삭제 구현 (checkbox로 여러개 삭제 구현해보기)
     $('#deleteBtn'+cartNum).click(function(){
-        console.log("click")
+        console.log("click");
         let check = window.confirm("삭제하시겠습니까?");
         if(!check){
           return;
@@ -170,7 +172,7 @@ for(b of btn){
             success:function(data){
                 if(data.trim()=='1'){
                     $(selector).parent().parent().remove();
-                    alert("삭제 되었습니다.")
+                    alert("삭제 되었습니다.");
                 }
             },
             error:function(){
@@ -187,12 +189,12 @@ for(b of btn){
     let date = today.getDate();  // 날짜
     let day= year + '-' +0 + month + '-' + date;
 
-    //console.log(day)
-    //console.log($('#date'+cartNum).val())
+    //console.log(day);
+    //console.log($('#date'+cartNum).val());
 
     if($('#date'+cartNum).val()<day){
-        //console.log($('#date'+cartNum).val())
-        //console.log("지난날짜")
+        //console.log($('#date'+cartNum).val());
+        //console.log("지난날짜");
 
        $.ajax({
         type:"POST",
@@ -203,11 +205,11 @@ for(b of btn){
         success:function(data){
             if(data.trim()=='1'){
                 $('#date'+cartNum).parent().parent().remove();
-                alert("이전 날짜가 삭제되었습니다.")
+                alert("이전 날짜가 삭제되었습니다.");
             }
         },
         error:function(){
-            alert("실패")
+            alert("실패");
         }
     })
     }
@@ -228,7 +230,7 @@ $('#totalCheckbox').click(function(){
         }
 	});
     if(!$("#totalCheckbox").prop("checked")){
-        console.log("전체선택 해제")
+        console.log("전체선택 해제");
         sum=0;
         $("#totalPrice").val(sum);
     }
@@ -259,13 +261,22 @@ $('.checkbox').on("click",function(){
     $("#totalCheckbox").prop("checked",check);
 });
 
+//결제 페이지 이동
 $('#payment').click(function(){ 
     let price=$("#totalPrice").val();
     console.log(price)
     if(price==0){
         alert("결제할 내역이 없습니다.")
     }else{
-        window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?")
+        $(".checkbox").each(function(idx,item){
+            if($(item).prop("checked")){
+    
+                let c = $(item).attr("data-check");
+                console.log(c);
+            }
+        })
+        window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?");
+
     }
 })
 

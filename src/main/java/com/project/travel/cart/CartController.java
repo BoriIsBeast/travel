@@ -28,22 +28,22 @@ public class CartController {
 		
 		
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
-		
-		cartVO.setId(memberVO.getId());
-	
-		
-		if(memberVO != null) {
-			int result = cartService.setAdd(cartVO);
-			mv.addObject("result",result);
+			
+		if(memberVO == null) {
+			mv.addObject("result",2);
 			mv.setViewName("common/result");
 			
+			return mv;
 		}
-	
 		
+		int result = cartService.setAdd(cartVO);
+		cartVO.setId(memberVO.getId());
+		
+		mv.addObject("result",result);
 		mv.setViewName("common/result");
 		
-		
 		return mv;
+		
 
 	}
 	
