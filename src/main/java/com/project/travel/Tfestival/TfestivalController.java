@@ -1,5 +1,9 @@
 package com.project.travel.Tfestival;
 
+import java.lang.reflect.Member;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.travel.member.MemberVO;
 import com.project.travel.util.FileManager;
 import com.project.travel.util.Pager;
 
@@ -51,7 +56,7 @@ public class TfestivalController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView add(TfestivalVO tfestivalVO, MultipartFile[] files)throws Exception{
+	public ModelAndView add(TfestivalVO tfestivalVO, MultipartFile[] files, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//업로드시 파일명을 출력
 		
@@ -60,6 +65,8 @@ public class TfestivalController {
 		//}
 		
 		int result = tfestivalService.add(tfestivalVO, files);
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		tfestivalVO.setId(memberVO.getId());
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

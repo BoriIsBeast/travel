@@ -16,6 +16,7 @@ public class TfestivalVO {
 	private String homePage;
 	private String age;
 	private String phone;
+	private String id;
 	
 	private List<TfestivalVO> filesVOs;
 

@@ -15,6 +15,11 @@
 </div>
 
 <form action="./add" method="post" enctype="multipart/form-data">
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">아이디</label>
+<input class="form-control" name="id" type="text" value="${member.id}" readonly="readonly" aria-label="default input example">
+</div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">축제이름</label>
 <input class="form-control" name="name" type="text" aria-label="default input example">
