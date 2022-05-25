@@ -1,9 +1,12 @@
 package com.project.travel.pay;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -16,12 +19,12 @@ public class PayController {
 	private PayService payService;
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(PayVO payVO,Long[] cartNum)throws Exception{
+	public ModelAndView setAdd(PayVO payVO, @RequestParam(value="cartNum[]") Long[] cartNum)throws Exception{
 		ModelAndView mv=new ModelAndView();
 		
-//		for(String cn:cartNum) {
-//			System.out.println(cn);
-//		}
+		for(Long cn:cartNum) {
+			System.out.println("CARTNUM????"+cn);
+		}
 		
 		int result = payService.setAdd(payVO,cartNum);
 		

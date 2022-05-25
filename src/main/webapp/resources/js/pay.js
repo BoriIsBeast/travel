@@ -11,24 +11,24 @@ const cart=document.getElementsByClassName("cartNum");
 $("#pay").click(function(){
     console.log("click")
     let price =0;
-    let cartNum=0;
+    let cartNum=[];
     let id = $(this).attr("data-id");  
 
     for(t of total){ 
         price =Number(price)+ Number(t.value);
     }
     for(c of cart){
-        cartNum=c.value;
-        
-       
+        cartNum.push(c.value);
     }
+    console.log(cartNum)
         
     $.ajax({
         type:"POST",
         url:"../pay/add",
         data:{
             id:id,
-            price:price
+            price:price,
+            cartNum:cartNum
         },
         success:function(data){
             if(data.trim()=='1'){
