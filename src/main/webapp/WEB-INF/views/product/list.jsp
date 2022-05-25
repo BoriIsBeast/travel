@@ -10,7 +10,7 @@
 
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
-
+<c:import url="../temp/header.jsp"></c:import>
 <style type="text/css">
 .card-img-top {
 	height: 30rem;

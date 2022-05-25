@@ -24,6 +24,10 @@
 		LIMIT #{startRow}, #{perPage}
 	</select>
 	
+	<select id="prList" resultType="TReviewVO" parameterType="Pager">
+		SELECT * FROM TREVIEW WHERE PRODUCTNUM=#{productNum}		
+	</select>
+	
 
 	<select id="getTotalCount" resultType="java.lang.Long" parameterType="Pager">
 		SELECT COUNT(NUM) FROM TREVIEW

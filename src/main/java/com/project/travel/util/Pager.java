@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class Pager {
 	private String id;
+	private String productNum;
 	
 	
 	//DB에서 몇개씩 조회

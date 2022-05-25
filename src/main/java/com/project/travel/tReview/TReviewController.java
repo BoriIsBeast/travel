@@ -33,14 +33,23 @@ public class TReviewController {
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<TReviewVO> ar = tReviewService.getList(pager);
-		mv.setViewName("product/detail");
+		List<TReviewVO> ar = tReviewService.getList(pager);		
+		//mv.setViewName("product/detail");
 		mv.setViewName("tReview/list");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		return mv;
 	}
 
+	@GetMapping("list2")
+	public ModelAndView prList(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<TReviewVO> ar= tReviewService.prList(pager);		
+		mv.setViewName("product/detail");
+		mv.addObject("list2",ar);
+		mv.addObject("pager",pager);
+		return mv;
+	}
 
 	@GetMapping("add")
 	public ModelAndView setAdd(TReviewVO tReviewVO) throws Exception {

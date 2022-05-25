@@ -33,20 +33,14 @@
 
 	<nav aria-label="Page navigation example">
 		<ul class="pagination">
-			<li class="page-item"><a data-pn="${pager.pre?pager.startNum-1:0}" class="page-link pager"
-				href="#"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-			</a></li>
+			
 
 			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 				<li class="page-item"><a  data-pn="${i}" class="page-link pager"
 					href="#">${i}</a></li>
 			</c:forEach>
 
-			<li class="page-item"><a data-pn="${pager.next?pager.lastNum+1:0}" class="page-link pager"
-				href="#"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
+			
 		</ul>
 	</nav>
 </div>

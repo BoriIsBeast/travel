@@ -15,6 +15,9 @@ public interface TReviewMapper {
 	//list
 	public List<TReviewVO> getList(Pager pager) throws Exception;
 	
+	//list2
+	public List<TReviewVO> prList(Pager pager) throws Exception;
+	
 	//totalCount
 	public Long getTotalCount (Pager pager) throws Exception;
 	

@@ -36,6 +36,12 @@ public class TReviewService {
 		return tReviewMapper.getList(pager);
 	}
 	
+	public List<TReviewVO> prList(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.makeNum(tReviewMapper.getTotalCount(pager));
+		return tReviewMapper.prList(pager);
+	}
+	
 	
 	public int setAdd(TReviewVO tReviewVO, MultipartFile[]files) throws Exception{
 		int result = tReviewMapper.setAdd(tReviewVO);
