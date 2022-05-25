@@ -1,9 +1,9 @@
 //여행지 detail 페이지에서 장바구니에 추가할 때
 function cartAdd(){
     $("#cartBtn").click(function(){
-        let id=cartBtn.getAttribute("data-id");
+        let id=$(this).attr("data-id");
         // console.log(id);
-        let productNum = cartBtn.getAttribute("data-num");
+        let productNum = $(this).attr("data-num");
         //console.log(productNum); 
         let amount = $("#amount").val();
         //console.log(amount);
@@ -173,6 +173,7 @@ for(b of btn){
                 if(data.trim()=='1'){
                     $(selector).parent().parent().remove();
                     alert("삭제 되었습니다.");
+                    window.location.reload();
                 }
             },
             error:function(){
@@ -206,7 +207,8 @@ for(b of btn){
             if(data.trim()=='1'){
                 $('#date'+cartNum).parent().parent().remove();
                 alert("이전 날짜가 삭제되었습니다.");
-            }
+                
+            }window.location.reload();
         },
         error:function(){
             alert("실패");
@@ -265,18 +267,27 @@ $('.checkbox').on("click",function(){
 $('#payment').click(function(){ 
     let price=$("#totalPrice").val();
     console.log(price)
+
+    let c=0;
+    let cn='';
+
     if(price==0){
         alert("결제할 내역이 없습니다.")
     }else{
+        
         $(".checkbox").each(function(idx,item){
-            if($(item).prop("checked")){
-    
-                let c = $(item).attr("data-check");
-                console.log(c);
+            if($(item).prop("checked")){ 
+                            
+                c = $(item).attr("data-check");
+                cn=cn+'&cartNum='+c;
             }
-        })
-        window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?");
+        }) 
+        let id = $("#payment").attr("data-id"); 
+        let p= window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?");
 
+        if(p){
+            location.href='./payment?id='+id+cn;
+        }
     }
 })
 

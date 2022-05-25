@@ -57,5 +57,16 @@
 		AND PRODUCTNUM=#{productNum} AND PAYCHECK=0
 	</select> 
 	
+	<select id ="getCartList" parameterType="CartVO" resultMap="cartResult">
+		SELECT C.*,P.NAME,P.PRODUCTNUM
+			FROM TCART C
+			LEFT JOIN
+			TPRODUCT P
+			USING(PRODUCTNUM)
+		WHERE C.CARTNUM=#{cartNum} AND C.ID=#{id}
+		
+		 
+	</select>
+	
 	
 </mapper>

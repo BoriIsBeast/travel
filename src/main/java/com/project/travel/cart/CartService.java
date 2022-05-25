@@ -1,5 +1,6 @@
 package com.project.travel.cart;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,20 @@ public class CartService {
 	public CartVO getCheck(CartVO cartVO) throws Exception{
 		return cartMapper.getCheck(cartVO);
 	}
+	
+	public List<CartVO> getCartList(CartVO cartVO, Long[] cartNum)throws Exception{
+		
+		List<CartVO> ar = new ArrayList<>();
+		
+		for(Long cn : cartNum) {
+			
+			cartVO.setCartNum(cn);
+			CartVO cart = cartMapper.getCartList(cartVO);
+			ar.add(cart);	
+			
+		}
+		return ar;
+	}
+	
 	
 }

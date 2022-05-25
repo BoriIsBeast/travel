@@ -22,4 +22,6 @@ public interface CartMapper {
 	
 	public CartVO getCheck(CartVO cartVO)throws Exception;
 	
+	public CartVO getCartList(CartVO cartVO)throws Exception;
+	
 }

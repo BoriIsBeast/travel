@@ -83,5 +83,19 @@ public class CartController {
 		return mv;
 	}
 	
+	@GetMapping
+	public ModelAndView getCartList(ModelAndView mv,CartVO cartVO,Long[] cartNum)throws Exception{
+		//int result = payService.setAdd(payVO, cartPayVO);
+		
+		List<CartVO> ar= cartService.getCartList(cartVO, cartNum);
+	
+		mv.addObject("vo",ar);
+		mv.setViewName("cart/payment");
+		
+		System.out.println("list는?????????"+ar);
+		
+		return mv;
+	}
+	
 
 }

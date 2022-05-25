@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
-
+<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
 	<div class="container">
@@ -29,7 +29,7 @@
 			<c:forEach items="${vo}" var="list">
 				<tbody>
 					<tr>
-						<th><input type="checkbox" data-check="${list.cartNum}" class="checkbox"></th>
+						<th><input type="checkbox" data-check="${list.cartNum}" data-productNum="${list.productVOs.productNum}" class="checkbox"></th>
 						<th scope="row">${list.productVOs.name}</th>
 						<td><input type="date" id="date${list.cartNum}" value="${list.regDate}" readonly></td>
 						<td>
@@ -71,7 +71,7 @@
 					
 				</tbody>
 		</table>
-		<button type="button" id="payment">결제</button>
+		<button type="button" id="payment" data-id="${member.id}" >결제</button>
 		<!-- pager -->
 		<div class="col-4 mt-3">
 			<nav aria-label="Page navigation example">

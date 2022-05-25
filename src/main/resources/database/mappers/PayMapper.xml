@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.project.travel.pay.PayMapper">
+	<insert id="setAdd" parameterType="PayVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO TPAY(NUM, ID, PRICE, REGDATE)
+		VALUES(#{num},#{id},#{price}, now())
+	</insert>
+
+</mapper>
