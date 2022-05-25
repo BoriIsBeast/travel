@@ -110,7 +110,7 @@
                                         <a href="./testimonial" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div>
-                                <a href="./contact" class="nav-item nav-link">Contact</a>
+                                <a href="./Tfestival/list" class="nav-item nav-link">FESTIVAL</a>
                             </div>
                             
                             <c:if test="${member.getTType() == 1 || member.getTType() == 2}">

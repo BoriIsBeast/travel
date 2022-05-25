@@ -1,5 +1,8 @@
 package com.project.travel.Tbest;
 
+import lombok.Data;
+
+@Data
 public class TbestVO {
 	
 	private Long num;
