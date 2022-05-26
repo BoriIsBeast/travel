@@ -34,7 +34,7 @@ public class TReviewController {
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<TReviewVO> ar = tReviewService.getList(pager);		
-		//mv.setViewName("product/detail");
+		mv.setViewName("product/detail");
 		mv.setViewName("tReview/list");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);

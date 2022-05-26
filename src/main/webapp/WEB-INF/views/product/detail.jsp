@@ -159,11 +159,13 @@
 		});
 		getList(1);
 		function getList(pn){
+			let productNum=$("#productNum").val();
 			console.log("start");
 			$.ajax({
 				type : "GET",
 				url : "./ajaxList",
-				data:{
+				data:{ 
+					productNum:productNum,
 					pn:pn,
 					perPage:5
 				},
