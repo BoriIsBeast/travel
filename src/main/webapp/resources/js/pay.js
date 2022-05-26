@@ -4,7 +4,7 @@ $("#gotocart").click(function(){
     window.location="./list?id="+id;
 })
 
-//결제
+//결제페이지 이동 시 tpay, tcartPay 테이블에 insert
 const total=document.getElementsByClassName("total");
 const cart=document.getElementsByClassName("cartNum");
 
@@ -12,6 +12,8 @@ $("#pay").click(function(){
     console.log("click")
     let price =0;
     let cartNum=[];
+   
+    
     let id = $(this).attr("data-id");  
 
     for(t of total){ 
@@ -21,6 +23,7 @@ $("#pay").click(function(){
         cartNum.push(c.value);
     }
     console.log(cartNum)
+
         
     $.ajax({
         type:"POST",
@@ -33,6 +36,7 @@ $("#pay").click(function(){
         success:function(data){
             if(data.trim()=='1'){
                 alert("결제성공")
+                location.href="../cart/list?id="+id;
             }
         },
         error:function(){
@@ -41,3 +45,15 @@ $("#pay").click(function(){
     })
      
 })
+
+//결제 페이지 이동 후 총 금액 계산
+let count = $(".count");
+let totalSum = 0;
+
+for (cn of count) {
+    let cartNum = cn.getAttribute("data-cartNum");
+    let total = $("#total" + cartNum).val();
+    totalSum += parseInt(total);
+    $("#totalPrice").val(totalSum);   
+}
+

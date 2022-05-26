@@ -22,10 +22,6 @@ public class PayController {
 	public ModelAndView setAdd(PayVO payVO, @RequestParam(value="cartNum[]") Long[] cartNum)throws Exception{
 		ModelAndView mv=new ModelAndView();
 		
-		for(Long cn:cartNum) {
-			System.out.println("CARTNUM????"+cn);
-		}
-		
 		int result = payService.setAdd(payVO,cartNum);
 		
 		mv.addObject("result",result);

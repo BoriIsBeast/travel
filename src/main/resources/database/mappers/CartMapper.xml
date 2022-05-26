@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="getTotal" parameterType="Pager" resultType="Long">
-		SELECT COUNT(CARTNUM) FROM TCART
+		SELECT COUNT(CARTNUM) FROM TCART WHERE ID=#{id} AND PAYCHECK=0
 	</select>
 	
 	<select id="getList" parameterType="Pager" resultMap="cartResult">
@@ -19,7 +19,7 @@
 			LEFT JOIN 
 			TPRODUCT P 
 			USING (PRODUCTNUM)
-		WHERE C.ID=#{id}
+		WHERE C.ID=#{id} AND C.PAYCHECK=0
 		
 		ORDER BY REGDATE ASC, CARTNUM DESC
 		LIMIT #{startRow} ,#{perPage}
@@ -63,9 +63,15 @@
 			LEFT JOIN
 			TPRODUCT P
 			USING(PRODUCTNUM)
-		WHERE C.CARTNUM=#{cartNum} AND C.ID=#{id}
-		
-		 
+		WHERE C.CARTNUM=#{cartNum} AND C.ID=#{id}	 
+	</select>
+	
+	<update id="update" parameterType="CartVO">
+		UPDATE TCART SET PAYCHECK=1 WHERE CARTNUM=#{cartNum}
+	</update>
+	
+	<select id="getDetail" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM TCART WHERE CARTNUM=#{cartNum}
 	</select>
 	
 	

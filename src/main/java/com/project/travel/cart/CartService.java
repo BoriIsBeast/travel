@@ -27,10 +27,13 @@ public class CartService {
 	}
 
 	public List<CartVO> getList(Pager pager) throws Exception{
+		CartVO cartVO =new CartVO();
+		
+		pager.setPerPage(5);
 		pager.makeRow();
 		pager.makeNum(cartMapper.getTotal(pager));
 		
-		pager.setPerPage(5);
+		
 		
 		return cartMapper.getList(pager);
 	}
@@ -62,5 +65,11 @@ public class CartService {
 		return ar;
 	}
 	
+	public int update(CartVO cartVO)throws Exception{
+		return cartMapper.update(cartVO);
+	}
+	public CartVO getDetail(CartVO cartVO)throws Exception{
+		return cartMapper.getDetail(cartVO);
+	}
 	
 }

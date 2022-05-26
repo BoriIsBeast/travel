@@ -11,29 +11,52 @@
 <c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
+<div class="container">
 <h1>결제 page</h1>
 
-<c:forEach items="${vo}" var="list">
+<!-- 회원이 장바구니 list 에서 check한 cartNum들 결제 전 출력 page -->
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="row">${list.productVOs.name}</th>
-				<td><input type="date" value="${list.regDate}" readonly></td>
-				<td><input type="number" value="${list.amount}" readonly></td>
-				<td><input type="text" value="${list.cartNum}" class="cartNum" readonly></td>
-				<td><input type="text" value="${list.total}" class="total" readonly></td>
+				<th>NO.</th>
+				<th scope="row">여행지</th>
+				<td>선택 날짜</td>
+				<td>수량</td>
+				<td>가격</td>
 			</tr>
-		</thead>		
+		</thead>
+		<tbody>
+		<c:forEach  items="${vo}" var="list" varStatus="status">	
+		<input type="hidden" value="${list.cartNum}" class="cartNum" readonly>
+		<tr>
+			
+			<td>${status.index+1}</td>
+			<th scope="row">${list.productVOs.name}</th>
+			<td><input type="date" value="${list.regDate}" readonly></td>
+			<td><input type="number" value="${list.amount}" readonly></td>
+			<td><input type="text" value="${list.total}" class="total" id="total${list.cartNum}" readonly></td>
+		</tr>
+			
+		</c:forEach>
+		<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					
+					<th>총 금액</th>
+					<td><input type="text" id="totalPrice" readonly></td>
+				</tr>
+		</tbody>
+				
 	</table>				
-</c:forEach>	
 
 
-
-<div>
-	<button type="button" id="gotocart" data-id="${member.id}">장바구니 이동</button>
-</div>
-<div>
-	<button type="button" id="pay" data-id="${member.id}">결제하기</button>
+	<div>
+		<button type="button" id="gotocart" data-id="${member.id}">장바구니 이동</button>
+	</div>
+	<div>
+		<button type="button" id="pay" data-id="${member.id}">결제하기</button>
+	</div>
 </div>
 
 <script type="text/javascript" src="../resources/js/pay.js"></script>

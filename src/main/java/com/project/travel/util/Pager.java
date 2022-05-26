@@ -6,7 +6,7 @@ import lombok.Data;
 public class Pager {
 	private String id;
 	
-	
+
 	//DB에서 몇개씩 조회
 	private Integer perPage;
 	//DB에서 조회할 시작 인덱스 번호
@@ -42,7 +42,6 @@ public class Pager {
 		//pn : 3, perPage :10, startRow :20
 		this.startRow =(this.getPn()-1)*this.getPerPage();
 		this.lastRow =this.getPn()*this.getPerPage();
-		
 	}
 	
 	public Integer getPn() {
@@ -51,6 +50,7 @@ public class Pager {
 		}
 		return this.pn;
 	}
+	
 	
 	
 	public Integer getPerPage() {

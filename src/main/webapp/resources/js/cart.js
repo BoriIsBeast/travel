@@ -283,7 +283,7 @@ $('#payment').click(function(){
             }
         }) 
         let id = $("#payment").attr("data-id"); 
-        let p= window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?");
+        let p= window.confirm("총 결제금액은 "+price+"원 입니다. 결제 page로 이동하시겠습니까?");
 
         if(p){
             location.href='./payment?id='+id+cn;
