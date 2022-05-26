@@ -16,8 +16,8 @@
 
 <form action="./add" method="post" enctype="multipart/form-data">
 <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">ID</label>
-<input class="form-control" name="id" type="text" aria-label="default input example">
+  <label for="exampleFormControlTextarea1" class="form-label">아이디</label>
+<input class="form-control" name="id" type="text" value="${member.id}" readonly="readonly" aria-label="default input example">
 </div>
 
 <div class="mb-3">

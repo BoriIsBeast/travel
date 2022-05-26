@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../temp/header.jsp"></c:import>
 	<h1>코스 추천</h1>
 	
 		<div class="row justify-content-between">
@@ -16,8 +17,8 @@
 			<form class="d-flex" action="./list" method="get">
 				<div class="col-4 me-2">
 				<select name="kind" class="form-select " aria-label="Default select example">
-				  <option value="col1">축제이름</option>
-				  <option value="col2">장소</option>
+				  <option value="col1">카테고리</option>
+				  <option value="col2">코스명</option>
 				</select>
 				</div>
 				<div class="col-6 me-2">
@@ -30,19 +31,24 @@
 		</div>
 	</div>
 	
-	<c:forEach items="${list}" var="vo">
-	<div class="card col-3 detail" data-num="${vo.num}">
-  <img src="../resources/upload/festival/${vo.filesVOs[0].fileName}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${vo.name}</h5>
-    <p class="card-text">${vo.location}</p>
-    <a href="./detail?num=${vo.num}" class="btn btn-primary">더보기..</a>
-    <div class="card-footer">
-    ${vo.startDate} ~ ${vo.finishDate}
-  </div>
-  </div>
-</div>
-	</c:forEach>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">번호</th>
+				<th scope="col">아이디</th>
+				<th scope="col">카테고리</th>
+				<th scope="col">코스명</th>
+			</tr>
+		</thead>
+		<c:forEach items="${list}" var="vo">
+			<tr>
+				<td>${vo.num}</td>
+				<td>${vo.id}</td>
+				<td>${dto.category}</td>
+				<td>${dto.title}</td>
+			</tr>
+		</c:forEach>
+	</table>
 	
 <nav aria-label="Page navigation example">
   <ul class="pagination">

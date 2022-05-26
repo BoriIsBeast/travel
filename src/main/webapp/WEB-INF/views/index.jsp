@@ -101,6 +101,8 @@
                                 <a href="./tQna/list" class="nav-item nav-link">F A Q</a>
                                 <a href="./tNotice/list" class="nav-item nav-link">BOARD</a>
                                 <a href="./product/list" class="nav-item nav-link">여 행 지</a>
+                                <a href="./Tbest/list" class="nav-item nav-link">BEST COURSE</a>
+                                <a href="./Tfestival/list" class="nav-item nav-link">FESTIVAL</a>
 
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -110,7 +112,6 @@
                                         <a href="./testimonial" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div>
-                                <a href="./Tfestival/list" class="nav-item nav-link">FESTIVAL</a>
                             </div>
                             
                             <c:if test="${member.getTType() == 1 || member.getTType() == 2}">
