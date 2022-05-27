@@ -30,45 +30,23 @@
 	        	 </form>
 		</div>
 	</div>
-	
-	<table class="table">
-		<thead>
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">아이디</th>
-				<th scope="col">카테고리</th>
-				<th scope="col">코스명</th>
-			</tr>
-		</thead>
-		<c:forEach items="${list}" var="vo">
-			<tr>
-				<td>${vo.num}</td>
-				<td>${vo.id}</td>
-				<td>${dto.category}</td>
-				<td>${dto.title}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="./list?pn=${pager.pre?pager.startNum-1:1}&kind=${pager.kind}$search=${pager.search}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-    <li class="page-item"><a class="page-link" href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
-    </c:forEach>
 
-    <li class="page-item">
-      <a class="page-link" href="href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&nind=${pager.kind}&search=${pager.search}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-	
+<c:forEach items="${list}" var="vo">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="..." class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="./detail?num=${vo.num}">${vo.title}</a></h5>
+        <p class="card-text">내용 : ${vo.detail}</p>
+        <p class="card-text"><small class="text-muted">#${vo.category}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</c:forEach>	
 	<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
 	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>	

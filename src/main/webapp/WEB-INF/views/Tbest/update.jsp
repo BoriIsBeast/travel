@@ -16,10 +16,10 @@
 <body>
 
 <div class="alert alert-success" role="alert">
- 	<h1>코스 추천 등록</h1>
+ 	<h1>코스 추천 업데이트</h1>
 </div>
 
-<form action="./add" method="post" enctype="multipart/form-data">
+<form action="./update" method="post" enctype="multipart/form-data">
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">아이디</label>
 <input class="form-control" name="id" type="text" id="id" value="${member.id}" readonly="readonly" aria-label="default input example">

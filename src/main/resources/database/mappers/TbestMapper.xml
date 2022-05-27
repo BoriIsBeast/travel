@@ -7,13 +7,24 @@
 <mapper namespace="com.project.travel.Tbest.TbestMapper">
 
 <select id="list" parameterType="TbestVO" resultType="TbestVO">
-	SELECT * FROM TBEST WHERE NUM = #{num}
+	SELECT * FROM TBEST
 </select>
 
 <insert id="add" parameterType="TbestVO" useGeneratedKeys="true" keyProperty="num">
-	INSERT INTO TBEST (NUM, PRODUCTNUM, ID, CATEGORY, TITLE, DETAIL)
-	VALUES(#{num}, #{productNum}, #{id}, #{category}, #{title}, #{detail})
+	INSERT INTO TBEST (NUM, ID, CATEGORY, TITLE, DETAIL)
+	VALUES(#{num}, #{id}, #{category}, #{title}, #{detail})
 </insert>
 
+<select id="detail" parameterType="TbestVO" resultType="TbestVO">
+	SELECT * FROM TBEST WHERE NUM = #{num}
+</select>
+
+<update id="update" parameterType="TbestVO">
+	UPDATE TBEST SET CATEGORY = #{category}, TITLE = #{title}, DETAIL = #{detail} WHERE NUM = #{num}
+</update>
+
+<delete id="delete" parameterType="TbestVO">
+DELETE FROM TBEST WHERE NUM = #{num}
+</delete>
 
 </mapper>
