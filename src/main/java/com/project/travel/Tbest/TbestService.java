@@ -59,7 +59,13 @@ public class TbestService {
 	
 	//delete
 	public int delete(TbestVO tbestVO) throws Exception{
-		return tbestMapper.delete(tbestVO);
+		List<TbestFilesVO> ar = tbestMapper.fileList(tbestVO);
+		int result = tbestMapper.delete(tbestVO);
+		System.out.println("file size : " + ar.size());
+		for(TbestFilesVO f : ar) {
+			fileManager.fileDelete(f.getFileName(), "resources/upload/Tbest");
+		}
+		return result;
 	}
 	
 	//update

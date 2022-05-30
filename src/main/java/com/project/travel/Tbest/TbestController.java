@@ -73,6 +73,10 @@ public class TbestController {
 	
 	@PostMapping("update")
 	public ModelAndView update(TbestVO tbestVO, ModelAndView mv)throws Exception{
+		System.out.println(tbestVO.getNum());
+		System.out.println(tbestVO.getCategory());
+		System.out.println(tbestVO.getTitle());
+		System.out.println(tbestVO.getDetail());
 		int result = tbestService.update(tbestVO);
 		mv.setViewName("redirect:./list");
 		return mv;
@@ -85,5 +89,26 @@ public class TbestController {
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
+	
+	 @PostMapping("summerFileUpload")
+	 public ModelAndView summerFileUpload(MultipartFile file)throws Exception{
+		 ModelAndView mv = new ModelAndView();
+		 String fileName = tbestService.SummerFileupload(file);
+		 System.out.println(fileName);
+		 mv.setViewName("common/result");
+		 mv.addObject("result", fileName);
+		 return mv;
+	 }
+	 
+	 @GetMapping("summerFileDelete") 
+	  public ModelAndView summerFileDelete(String fileName) throws Exception{ 
+		  ModelAndView mv = new ModelAndView(); 
+		  System.out.println(fileName); 
+		  boolean result = tbestService.SummerFileDelete(fileName);
+		  mv.setViewName("common/result"); 
+		  mv.addObject("result",result); 
+		  return mv; 
+		  }
+	 
 
 }

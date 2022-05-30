@@ -34,7 +34,7 @@
 </div>
  <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">상세정보</label>
-<input class="form-control" name="detail" id="detail" type="text" aria-label="default input example">
+<textarea name="detail" class="form-control" id="detail"></textarea>
 </div>	
 
 <button type="submit" class="btn btn-outline-secondary">등록</button>
