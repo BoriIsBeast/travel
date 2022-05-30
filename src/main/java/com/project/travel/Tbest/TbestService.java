@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.travel.util.FileManager;
+import com.project.travel.util.Pager;
 
 @Service
 public class TbestService {
@@ -19,8 +20,12 @@ public class TbestService {
 	private FileManager fileManager;
 	
 	//list
-	public List<TbestVO> list()throws Exception{
-		return tbestMapper.list();
+	public List<TbestVO> list(Pager pager)throws Exception{
+		pager.makeRow();
+		pager.makeNum(tbestMapper.totalCount(pager));
+		System.out.println("start : " + pager.getStartNum());
+		System.out.println("perPer : " + pager.getPerPage());
+		return tbestMapper.list(pager);
 	}
 	
 	//detail

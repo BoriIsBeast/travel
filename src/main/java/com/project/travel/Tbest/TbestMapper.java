@@ -4,11 +4,16 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.travel.util.Pager;
+
 @Mapper
 public interface TbestMapper {
 	
 	//list
-	public List<TbestVO> list() throws Exception;
+	public List<TbestVO> list(Pager pager) throws Exception;
+	
+	//totalCount
+	public Long totalCount(Pager pager)throws Exception;
 	
 	//detail
 	public TbestVO detail(TbestVO tfTbestVO) throws Exception;

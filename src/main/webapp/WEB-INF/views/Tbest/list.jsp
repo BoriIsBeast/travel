@@ -32,10 +32,11 @@
 	</div>
 
 <c:forEach items="${list}" var="vo">
+<div class="card col-3 detail" data-num="${vo.num}">
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
+      <img src="../resources/upload/Tbest/${vo.filesVOs[0].fileName}" class="card-img-top" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -44,6 +45,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </c:forEach>	
 	<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>

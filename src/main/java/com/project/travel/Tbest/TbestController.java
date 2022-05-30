@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.member.MemberVO;
+import com.project.travel.util.Pager;
 
 @Controller
 @RequestMapping("/Tbest/*")
@@ -29,11 +30,12 @@ public class TbestController {
 	}
 	
 	@GetMapping("list")
-	public ModelAndView list(TbestVO tbestVO)throws Exception{
-	List<TbestVO> ar = tbestService.list();
+	public ModelAndView list(Pager pager)throws Exception{
+	List<TbestVO> ar = tbestService.list(pager);
 	ModelAndView mv = new ModelAndView();
 	mv.addObject("list", ar);
 	mv.setViewName("Tbest/list");
+	mv.addObject("pager", pager);
 	return mv;
 	}
 	

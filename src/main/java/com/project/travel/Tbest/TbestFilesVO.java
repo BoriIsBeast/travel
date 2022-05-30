@@ -10,4 +10,5 @@ import lombok.EqualsAndHashCode;
 public class TbestFilesVO extends FileVO {
 
 	private Long num;
+	private String id;
 }

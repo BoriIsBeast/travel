@@ -10,4 +10,5 @@ import lombok.EqualsAndHashCode;
 public class TfestivalFilesVO extends FileVO {
 
 	private Long num;
+	
 }

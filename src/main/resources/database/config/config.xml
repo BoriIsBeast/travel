@@ -31,6 +31,7 @@
   		<typeAlias type="com.project.travel.Tfestival.TfestivalFilesVO" alias="TfestivalFilesVO"/>
   		
   		<typeAlias type="com.project.travel.Tbest.TbestVO" alias="TbestVO"/>
+  		<typeAlias type="com.project.travel.Tbest.TbestFilesVO" alias="TbestFilesVO"/>
 
 
   		<typeAlias type="com.project.travel.member.MemberVO" alias="MemberVO"/>
