@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="../temp/header.jsp"></c:import>
+
 	<h1>코스 추천</h1>
 	
 		<div class="row justify-content-between">
@@ -41,7 +41,7 @@
       <div class="card-body">
         <h5 class="card-title"><a href="./detail?num=${vo.num}">${vo.title}</a></h5>
         <p class="card-text">내용 : ${vo.detail}</p>
-        <p class="card-text"><small class="text-muted">#${vo.category}</small></p>
+        <p class="card-text"><small class="text-muted">${vo.category}</small></p>
       </div>
     </div>
   </div>

@@ -1,15 +1,22 @@
 package com.project.travel.Tbest;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.project.travel.util.FileManager;
 
 @Service
 public class TbestService {
 	
 	@Autowired
 	private TbestMapper tbestMapper;
+	
+	@Autowired
+	private FileManager fileManager;
 	
 	//list
 	public List<TbestVO> list()throws Exception{
@@ -22,8 +29,32 @@ public class TbestService {
 	}
 	
 	//add
-	public int add(TbestVO tbestVO)throws Exception{
-		return tbestMapper.add(tbestVO);
+	public int add(TbestVO tbestVO, MultipartFile[] files)throws Exception{
+		System.out.println("Insert 전 :" + tbestVO.getNum());
+		int result = tbestMapper.add(tbestVO);
+		System.out.println("Insert 후 :" + tbestVO.getNum());
+		
+		if(files != null && result > 0) {
+			for(MultipartFile mf : files) {
+				if(mf.isEmpty()) {
+					continue;
+				}
+				// 1. File을 HDD에 저장
+				String fileName = fileManager.fileSave(mf, "resources/upload/Tbest/");
+				System.out.println(fileName);
+				// 2. 저장된 정보를 DB에 저장
+				TbestFilesVO tbestFilesVO = new TbestFilesVO();
+				tbestFilesVO.setNum(tbestVO.getNum());
+				tbestFilesVO.setFileName(mf.getOriginalFilename());
+				result = tbestMapper.fileAdd(tbestFilesVO);
+				
+				if(result < 1) {
+					throw new SQLException();
+				}
+			}
+		}
+		
+		return result;
 	}
 	
 	//delete
@@ -34,6 +65,24 @@ public class TbestService {
 	//update
 	public int update(TbestVO tbestVO) throws Exception{
 		return tbestMapper.update(tbestVO);
+	}
+	
+	//fileDetail
+	public TbestFilesVO fileDetail(TbestFilesVO tbestFilesVO)throws Exception{
+		return tbestMapper.fileDetail(tbestFilesVO);
+	}
+	
+	public String SummerFileupload(MultipartFile files)throws Exception{
+		//file HDD에 저장하고 저장된 파일명을 return
+		String fileName = fileManager.fileSave(files, "resources/upload/Tbest");
+		fileName = "/resources/upload/Tbest/"+fileName;
+		return fileName;
+	}
+	
+	public boolean SummerFileDelete(String fileName)throws Exception{
+		fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+		System.out.println(fileName);
+		return fileManager.fileDelete(fileName, "resources/upload/Tbest/");
 	}
 
 }

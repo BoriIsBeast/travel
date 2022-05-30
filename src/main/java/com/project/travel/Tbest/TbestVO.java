@@ -1,5 +1,7 @@
 package com.project.travel.Tbest;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -11,5 +13,7 @@ public class TbestVO {
 	private String category;
 	private String title;
 	private String detail;
+	
+	private List<TbestFilesVO> filesVOs;
 
 }

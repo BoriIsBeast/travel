@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.member.MemberVO;
@@ -43,9 +44,9 @@ public class TbestController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView add(TbestVO tbestVO, HttpSession session) throws Exception{
+	public ModelAndView add(TbestVO tbestVO, HttpSession session, MultipartFile[] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = tbestService.add(tbestVO);
+		int result = tbestService.add(tbestVO,files);
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		tbestVO.setId(memberVO.getId());
 		mv.setViewName("redirect:./list");
