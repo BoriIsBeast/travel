@@ -88,7 +88,7 @@
                     </div>
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
                         <a href="index.html" class="navbar-brand d-block d-lg-none">
-                            <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+                            <h1 class="m-0 text-primary text-uppercase">Traveler</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
@@ -168,7 +168,7 @@
 
 
         <!-- Booking Start -->
-        <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+        <!-- <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
                 <div class="bg-white shadow" style="padding: 35px;">
                     <div class="row g-2">
@@ -210,7 +210,7 @@
                 </div>
             </div>
         </div>
-        <!-- Booking End -->
+        Booking End -->
 
 
         <!-- About Start -->
@@ -219,15 +219,16 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
-                        <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Hotelier</span></h1>
+                        <h1 class="mb-4">어서오세요</h1>
+                        <h1 class="text-primary text-uppercase">Traveler <span class="mb-4" style="color: black">입니다</span></h1>
                         <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <div class="row g-3 pb-4">
                             <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">123</h2>
-                                        <p class="mb-0">Rooms</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">${countProduct}</h2>
+                                        <p class="mb-0">Location</p>
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +236,7 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">456</h2>
+                                        <h2 class="mb-1" data-toggle="counter-up">${countManager}</h2>
                                         <p class="mb-0">Staffs</p>
                                     </div>
                                 </div>
@@ -244,8 +245,8 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <i class="fa fa-users fa-2x text-primary mb-2"></i>
-                                        <h2 class="mb-1" data-toggle="counter-up">789</h2>
-                                        <p class="mb-0">Clients</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">${countMember}</h2>
+                                        <p class="mb-0">Members</p>
                                     </div>
                                 </div>
                             </div>
@@ -383,16 +384,18 @@
             <div class="row g-0">
                 <div class="col-md-6 bg-dark d-flex align-items-center">
                     <div class="p-5">
-                        <h6 class="section-title text-start text-white text-uppercase mb-3">Luxury Living</h6>
-                        <h1 class="text-white mb-4">Discover A Brand Luxurious Hotel</h1>
+                        <h6 class="section-title text-start text-primary text-uppercase mb-3">국내여행 정보</h6>
+                        <h1 class="mb-4 text-white text-uppercase">외국같은</h1>
+                        <h1 class="text-white mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;한국 여행지의 <span class="text-primary">발견</span></h1> 
+                        
                         <p class="text-white mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Our Rooms</a>
-                        <a href="" class="btn btn-light py-md-3 px-md-5">Book A Room</a>
+                        <a href="./product/list" class="btn btn-primary py-md-3 px-md-5 me-3">여행지 확인</a>
+                        <a href="" class="btn btn-light py-md-3 px-md-5">축제정보 확인</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="video">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/aVzHCksOJ4M" data-bs-target="#videoModal">
                             <span></span>
                         </button>
                     </div>

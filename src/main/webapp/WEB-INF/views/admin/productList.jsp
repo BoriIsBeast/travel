@@ -178,7 +178,7 @@
 	<script type="text/javascript">
 		$(".listDetail").click(function() {
 			let productNum = $(this).attr("data-num");
-			location.href = href = "./detail?productNum=" + productNum;
+			location.href = href = "../product/detail?productNum=" + productNum;
 		})
 	</script>
 </body>
