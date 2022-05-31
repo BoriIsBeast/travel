@@ -39,6 +39,8 @@
   		<typeAlias type="com.project.travel.member.MemberVO" alias="MemberVO"/>
   		
   		<typeAlias type="com.project.travel.cart.CartVO" alias="CartVO"/>
+  		<typeAlias type="com.project.travel.cartPay.CartPayVO" alias="CartPayVO"/>
+  		<typeAlias type="com.project.travel.pay.PayVO" alias="PayVO"/>
 
   	</typeAliases>
   </configuration>

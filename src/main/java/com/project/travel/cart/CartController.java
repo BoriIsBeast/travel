@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.member.MemberVO;
@@ -23,28 +24,24 @@ public class CartController {
 
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(CartVO cartVO,HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		
+	@ResponseBody
+	public Long setAdd(CartVO cartVO,HttpSession session,Long check) throws Exception{
+	
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
-			
+		//로그인 확인	
 		if(memberVO == null) {
-			mv.addObject("result",2);
-			mv.setViewName("common/result");
-			
-			return mv;
+			return 2L;
+		}
+		//중복방지
+		int result = cartService.setAdd(cartVO,check);
+		if(result ==3) {
+			return 3L;
 		}
 		
-		int result = cartService.setAdd(cartVO);
 		cartVO.setId(memberVO.getId());
+		Long cartNum =cartVO.getCartNum();
 		
-		mv.addObject("result",result);
-		mv.setViewName("common/result");
-		
-		return mv;
-		
-
+		return cartNum;
 	}
 	
 	@GetMapping("list")
@@ -82,6 +79,22 @@ public class CartController {
 		
 		return mv;
 	}
+	
+	@GetMapping
+	public ModelAndView getCartList(ModelAndView mv,CartVO cartVO,Long[] cartNum)throws Exception{
+		//int result = payService.setAdd(payVO, cartPayVO);
+		
+		List<CartVO> ar= cartService.getCartList(cartVO, cartNum);
+		
+	
+	
+		mv.addObject("vo",ar);
+		mv.setViewName("cart/payment");
+				
+		return mv;
+	}
+	
+	
 	
 
 }

@@ -1,9 +1,9 @@
 //여행지 detail 페이지에서 장바구니에 추가할 때
 function cartAdd(){
     $("#cartBtn").click(function(){
-        let id=cartBtn.getAttribute("data-id");
+        let id=$(this).attr("data-id");
         // console.log(id);
-        let productNum = cartBtn.getAttribute("data-num");
+        let productNum = $(this).attr("data-num");
         //console.log(productNum); 
         let amount = $("#amount").val();
         //console.log(amount);
@@ -24,21 +24,21 @@ function cartAdd(){
                 total:total
             },
             success:function(data){
-                if(data.trim()=='1'){
+                if(data==2){
+                    alert("로그인이 필요합니다.");  
+                    location.href="../member/login";
+
+                }else if(data==3){
+                    let check=confirm("이미 장바구니에 담은 날짜입니다. 장바구니로 이동하시겠습니까?");
+                    if(check){
+                        $(location).attr('href', '../cart/list?id='+id);
+                    }
+                }else{
                     let c = confirm("장바구니 추가 성공! 장바구니로 이동하시겠습니까?");
                     if(c){
                         $(location).attr('href', '../cart/list?id='+id);
                     }
                    
-                }else if(data.trim()=='2'){
-                    alert("로그인이 필요합니다.");  
-                    location.href="../member/login";
-
-                }else if(data.trim()=='3'){
-                    let check=confirm("이미 장바구니에 담은 날짜입니다. 장바구니로 이동하시겠습니까?");
-                    if(check){
-                        $(location).attr('href', '../cart/list?id='+id);
-                    }
                 }
 
                 
@@ -173,6 +173,7 @@ for(b of btn){
                 if(data.trim()=='1'){
                     $(selector).parent().parent().remove();
                     alert("삭제 되었습니다.");
+                    window.location.reload();
                 }
             },
             error:function(){
@@ -206,7 +207,8 @@ for(b of btn){
             if(data.trim()=='1'){
                 $('#date'+cartNum).parent().parent().remove();
                 alert("이전 날짜가 삭제되었습니다.");
-            }
+                
+            }window.location.reload();
         },
         error:function(){
             alert("실패");
@@ -261,22 +263,70 @@ $('.checkbox').on("click",function(){
     $("#totalCheckbox").prop("checked",check);
 });
 
-//결제 페이지 이동
+//장바구니->결제 페이지 이동
 $('#payment').click(function(){ 
     let price=$("#totalPrice").val();
     console.log(price)
+
+    let c=0;
+    let cn='';
+
     if(price==0){
         alert("결제할 내역이 없습니다.")
     }else{
+        
         $(".checkbox").each(function(idx,item){
-            if($(item).prop("checked")){
-    
-                let c = $(item).attr("data-check");
-                console.log(c);
+            if($(item).prop("checked")){ 
+                            
+                c = $(item).attr("data-check");
+                cn=cn+'&cartNum='+c;
             }
-        })
-        window.confirm("총 결제금액은 "+price+"원 입니다. 결제하시겠습니까?");
+        }) 
+        let id = $("#payment").attr("data-id"); 
+        let p= window.confirm("총 결제금액은 "+price+"원 입니다. 결제 page로 이동하시겠습니까?");
 
+        if(p){
+            location.href='./payment?id='+id+cn;
+        }
     }
 })
 
+//----------------------------------------바로결제-------------------------------
+$("#directPay").click(function(){
+    console.log("click");
+    let check = window.confirm("결제창으로 이동 하시겠습니까?");
+    let id = $("#directPay").attr("data-id"); 
+    let productNum = $("#directPay").attr("data-num"); 
+    let amount = $("#amount").val();
+    let date = $("#dateResult").val();
+    let total = $("#total").val();
+
+    if(check){
+        $.ajax({
+            type:"POST",
+            url:"../cart/add",
+            data:{
+                id:id,
+                productNum:productNum,
+                amount:amount,
+                regDate:date,
+                total:total,
+                check:2 //바로결제로 장바구니 테이블에 insert 한 경우라는걸 알려주기 위함 (payCheck)
+            },
+            success:function(data){
+                if(data==2){
+                   alert("로그인이 필요합니다.");  
+                   location.href="../member/login";
+                    
+                }else if(data<0) {
+                    alert("다시 시도해주세요.")
+                }else{
+                     location.href='../cart/payment?id='+id+'&cartNum='+data;
+                }
+            },
+            error:function(){
+                alert("실패");
+            }
+        })
+    }
+})

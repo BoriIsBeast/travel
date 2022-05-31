@@ -5,12 +5,8 @@
     
 <mapper namespace="com.project.travel.product.ProductMapper">
 	<insert id="setAdd" parameterType="ProductVO" useGeneratedKeys="true" keyProperty="productNum">
-
-
 		INSERT INTO TPRODUCT(PRODUCTNUM, ID, LARGECATEGORY, MEDIUMCATEGORY, SMALLCATEGORY, NAME, PRICE, CONTENTS, ADDRESS, HOMEPAGE, MAXCOUNT)
 		VALUES(#{productNum}, #{id}, #{largeCategory},#{mediumCategory},#{smallCategory},#{name},#{price},#{contents},#{address},#{homePage},#{maxCount})
-
-
 	</insert>
 	
 	<select id="getList" parameterType="Pager" resultMap="productResult">
@@ -112,5 +108,11 @@
 		INSERT INTO TPRODUCTFILE
 		VALUES(NULL,#{productNum},#{fileName},#{oriName})
 	</insert>
+
+	<update id="setMaxCountUpdate" parameterType="CartVO">
+		UPDATE TPRODUCT SET 
+		MAXCOUNT = MAXCOUNT-(SELECT AMOUNT FROM TCART WHERE CARTNUM=#{cartNum})
+		WHERE PRODUCTNUM=(SELECT PRODUCTNUM FROM TCART WHERE CARTNUM=#{cartNum})
+	</update>
 
 </mapper>

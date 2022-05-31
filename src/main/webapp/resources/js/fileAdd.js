@@ -44,7 +44,7 @@ function fileAdd(c){
             }
             let f = ' <div class="row">';
                                    
-            f = f + '<div class="col-sm-10">';
+            f = f + '<div class="col-sm">';
             f = f + '<div class="input-group">';
             f = f + '<input type="file" class="form-control files" id="files" name="files" aria-describedby="inputGroupFileAddon04" aria-label="Upload">';
             f = f + '<button class="btn btn-outline-secondary del" type="button" id="inputGroupFileAddon04">X</button>';

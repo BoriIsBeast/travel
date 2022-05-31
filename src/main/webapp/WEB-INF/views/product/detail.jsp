@@ -10,6 +10,7 @@
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
 <c:import url="../temp/header.jsp"></c:import>
+
 <!-- //제이쿼리 ui css -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -51,7 +52,7 @@
 						</div>
 						<div>
 							<button type="button" class="btn btn-primary" id="cartBtn" data-id="${member.id}" data-num="${vo.productNum}">장바구니</button>
-							<button type="button" class="btn btn-primary">바로결제</button>
+							<button type="button" class="btn btn-primary" id="directPay"data-id="${member.id}" data-num="${vo.productNum}">바로결제</button>
 							<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
 						</div>
 					</div>
@@ -149,7 +150,7 @@
 			
 		});
 		
-	$("#list").on("click",".pager",function(){
+		$("#list").on("click",".pager",function(){
 			let checkPn=$(this).attr("data-pn");
 			if(checkPn >0){
 				getList(checkPn);
@@ -176,7 +177,7 @@
 		} 
 
 	
-    	cartAdd();
+		cartAdd();
 
 	
 		

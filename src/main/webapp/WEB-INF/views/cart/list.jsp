@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
-
+<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
 	<div class="container">
@@ -18,60 +18,69 @@
 			<thead>
 				<tr>
 					<th scope="col"><input type="checkbox" id="totalCheckbox"></th>
+					<th>NO.</th>
 					<th scope="col">여행지</th>
 					<th scope="col">선택 날짜</th>
 					<th width ="30%" scope="col">입장권 수</th>
-					<th scope="col">총 가격</th>
+					<th scope="col">가격</th>
 					<th scope="col">결제 여부</th>
 					<th scope="col">삭제</th>
 				</tr>
 			</thead>
-			<c:forEach items="${vo}" var="list">
-				<tbody>
-					<tr>
-						<th><input type="checkbox" data-check="${list.cartNum}" class="checkbox"></th>
-						<th scope="row">${list.productVOs.name}</th>
-						<td><input type="date" id="date${list.cartNum}" value="${list.regDate}" readonly></td>
-						<td>
-						
+			
+		<c:choose>
+		<c:when test="${not empty vo}">
+			
+			<c:forEach items="${vo}" var="list" varStatus="status">
+			<tbody>
+				<tr>
+					<th><input type="checkbox" data-check="${list.cartNum}" data-productNum="${list.productVOs.productNum}" class="checkbox"></th>
+					<th>${status.index +1}</th>
+					<th scope="row">${list.productVOs.name}</th>
+					<td><input type="date" id="date${list.cartNum}" value="${list.regDate}" readonly></td>
+					<td>
 						<div class="btnCart" data-num="${list.cartNum}">
 							<button type="button" class ="minus" data-num="${list.cartNum}" id="minus${list.cartNum}" >-</button> 
 							<input class ="col-2" id="amount${list.cartNum}"  type="number" value="${list.amount}" readonly>
 							<button type="button" class="plus" data-num="${list.cartNum}" id="plus${list.cartNum}">+</button>
-						</div>
-						</td>
-						
-						<td><%-- <fmt:formatNumber type="currency" id="total" value="${list.total}" /> --%>
-							<input type="hidden"  id="price${list.cartNum}" value="${list.productVOs.price}">
-							<input type="text" id="total${list.cartNum}" value="${list.total}"  readonly>
-							
-						</td>
-						<c:if test="${list.payCheck ne 1}">
-							<td>결제 전</td>
-						</c:if>
-						<c:if test="${list.payCheck eq 1}">
-							<td>결제 완료</td>
-						</c:if>
-						<td><button type="button" id="deleteBtn${list.cartNum}">x</button></td>
-					</tr>
-						
-			</c:forEach>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				
-				<th>총 금액</th>
-				<td><input type="text" id="totalPrice" readonly></td>
-			</tr>
-			
-			
-			
+						</div>											
+					</td>
 					
-				</tbody>
+					<td>
+					<%-- <fmt:formatNumber type="currency" id="total" value="${list.total}" /> --%>
+						<input type="hidden"  id="price${list.cartNum}" value="${list.productVOs.price}">
+						<input type="text" id="total${list.cartNum}" value="${list.total}"  readonly>	
+					</td>
+					<c:if test="${list.payCheck ne 1}">
+						<td>결제 전</td>
+					</c:if>
+					<td><button type="button" id="deleteBtn${list.cartNum}">x</button></td>
+				</tr>		
+			</c:forEach>
+			
+			
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					
+					<th>총 금액</th>
+					<td><input type="text" id="totalPrice" readonly></td>
+				</tr>
+			</tbody>
+			</c:when>
+			<c:otherwise>
+				<td></td>
+			 	<th>장바구니 내역이 없습니다.</th>
+			</c:otherwise>
+			</c:choose>
 		</table>
-		<button type="button" id="payment">결제</button>
+		<c:if test="${not empty vo}">
+			<button type="button" id="payment" data-id="${member.id}" >주문하기</button>
+		
+		
+		
 		<!-- pager -->
 		<div class="col-4 mt-3">
 			<nav aria-label="Page navigation example">
@@ -93,6 +102,9 @@
 				</ul>
 			</nav>
 		</div>
+		</c:if>
+		
+			
 	</div>
 	
 	<script type="text/javascript" src="../resources/js/cart.js"></script> 

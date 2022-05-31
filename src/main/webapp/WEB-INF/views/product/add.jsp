@@ -9,6 +9,8 @@
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
 <c:import url="../temp/summernote.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
+
 	
 </head>
 <body>
@@ -85,10 +87,10 @@
 		</div>
 		
 		<div>
-			<button type="button" id="fileAddBtn" class="col-1 btn btn-primary ">FileAdd</button>
+			<button type="button" id="fileAddBtn" class="col-1 btn btn-primary mt-3">FileAdd</button>
 		</div>
 		<div class="row justify-content-end mt-5">
-			<button type="submit" class="col-1 btn btn-primary ">Submit</button>
+			<button type="submit" class="col-1 btn btn-primary ">Update</button>
 		</div>
 	</form>
 	</div>

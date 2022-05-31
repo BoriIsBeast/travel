@@ -99,6 +99,9 @@ public class ProductService {
 		return check;		
 	}
 	
+//	public int setMaxCountUpdate(ProductVO productVO)throws Exception{
+//		int result = productMapper.setMaxCountUpdte(productVO);
+//	}
 
 }
 

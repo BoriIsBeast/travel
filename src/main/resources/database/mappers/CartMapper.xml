@@ -4,13 +4,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.project.travel.cart.CartMapper">
-	<insert id="setAdd" parameterType="CartVO">
+	<insert id="setAdd" parameterType="CartVO" useGeneratedKeys="true" keyProperty="cartNum">
 		INSERT INTO TCART(CARTNUM, ID, PRODUCTNUM, AMOUNT, PAYCHECK, REGDATE, TOTAL)
-		VALUES(NULL, #{id}, #{productNum},#{amount},0,#{regDate},#{total})
+		VALUES(#{cartNum}, #{id}, #{productNum},#{amount},#{payCheck},#{regDate},#{total})
 	</insert>
 	
 	<select id="getTotal" parameterType="Pager" resultType="Long">
-		SELECT COUNT(CARTNUM) FROM TCART
+		SELECT COUNT(CARTNUM) FROM TCART WHERE ID=#{id} AND PAYCHECK=0
 	</select>
 	
 	<select id="getList" parameterType="Pager" resultMap="cartResult">
@@ -19,7 +19,7 @@
 			LEFT JOIN 
 			TPRODUCT P 
 			USING (PRODUCTNUM)
-		WHERE C.ID=#{id}
+		WHERE C.ID=#{id} AND C.PAYCHECK=0
 		
 		ORDER BY REGDATE ASC, CARTNUM DESC
 		LIMIT #{startRow} ,#{perPage}
@@ -56,6 +56,23 @@
 		WHERE ID=#{id} AND REGDATE=#{regDate} 
 		AND PRODUCTNUM=#{productNum} AND PAYCHECK=0
 	</select> 
+	
+	<select id ="getCartList" parameterType="CartVO" resultMap="cartResult">
+		SELECT C.*,P.NAME,P.PRODUCTNUM
+			FROM TCART C
+			LEFT JOIN
+			TPRODUCT P
+			USING(PRODUCTNUM)
+		WHERE C.CARTNUM=#{cartNum} AND C.ID=#{id}	 
+	</select>
+	
+	<update id="update" parameterType="CartVO">
+		UPDATE TCART SET PAYCHECK=1 WHERE CARTNUM=#{cartNum}
+	</update>
+	
+	<select id="getDetail" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM TCART WHERE CARTNUM=#{cartNum}
+	</select>
 	
 	
 </mapper>
