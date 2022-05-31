@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +18,29 @@
 
 		<div>
 			아이디
-			<form:input path="id" />
+			<form:input path="id" id="id" />
+			<div>
+			<form:errors path="id"></form:errors>
+			</div>
 		</div>
+		
 
 		<div>
 			비밀번호
-			<form:password path="pw" />
+			<form:password path="pw" id="pw" />
+			<div>
+			<form:errors path="pw"></form:errors>
+		</div>
 		</div>
 
 		<%-- 비밀번호확인<form:password path="pwCheck"/> --%>
 
 		<div>
 			이름
-			<form:input path="name" />
+			<form:input path="name" id="name" />
+			<div>
+			<form:errors path="name"></form:errors>
+		</div>
 		</div>
 
 		<div>
@@ -40,6 +51,9 @@
 			
 			<div>
 				<form:input path="birth" id="birth" readonly="readonly"/>
+				<div>
+			<form:errors path="birth"></form:errors>
+		</div>
 				<!-- <input type="text" id="birth" name="birth" readonly="readonly"> -->
 			</div>
 		</div>
@@ -68,16 +82,25 @@
 		        
         	</table>
 		        	<form:hidden path="address" id="address"/>
+		        	<div>
+			<form:errors path="address"></form:errors>
+		</div>
 		        	
     	</div>
 
 		<div>
 			전화번호
-			<form:input path="phone" placeholder="ex)010-0000-0000"/>
+			<form:input path="phone" placeholder="ex)010-0000-0000" id="phone"/>
+			<div>
+			<form:errors path="phone"></form:errors>
+		</div>
 		</div>
 		
 		<div>
-			이메일<form:input path="email" placeholer="ex)travel@naver.com"/>
+			이메일<form:input path="email" placeholer="ex)travel@naver.com" id="email"/>
+			<div>
+			<form:errors path="email"></form:errors>
+		</div>
 		</div>
 
 		<button type="submit">회원가입</button>

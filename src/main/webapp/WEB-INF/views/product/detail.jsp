@@ -111,10 +111,14 @@
 			</ul>
 			<!-- 지도생성 -->
 			<div id="map" style="width: 100%; height: 400px;"></div>
-
-			<a href="/product/list">List</a> 
+	
+			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
+			<!-- add 버튼 -->
 			<a	href="./update?productNum=${vo.productNum}">Update</a> 
 			<a	href="./delete?productNum=${vo.productNum}">Delete</a>	
+			</c:if>
+			<a href="/product/list">List</a> 
+			
 			
 		
 

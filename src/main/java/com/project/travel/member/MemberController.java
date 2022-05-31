@@ -169,7 +169,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("login")
-	public ModelAndView login(MemberVO memberVO,BindingResult bindingResult, HttpSession session)throws Exception{
+	public ModelAndView login(@Valid MemberVO memberVO,BindingResult bindingResult, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		memberVO = memberService.login(memberVO);
@@ -190,7 +190,7 @@ public class MemberController {
 	
 	
 	@PostMapping("join")
-	public ModelAndView setJoin(MemberVO memberVO,BindingResult bindingResult)throws Exception{
+	public ModelAndView setJoin(@Valid MemberVO memberVO,BindingResult bindingResult)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		int result = memberService.setJoin(memberVO);
@@ -204,7 +204,10 @@ public class MemberController {
 	
 	
 	@GetMapping("join")
-	public void setJoin(@ModelAttribute MemberVO memberVO)throws Exception{
+	public ModelAndView setJoin(@ModelAttribute MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/join");
 		
+		return mv;
 	}
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.travel.index.IndexMapper">
+	<select id="getCountMember" resultType="Integer">
+		SELECT COUNT(*) FROM TMEMBER WHERE TTYPE = 0
+	</select>
+
+	<select id="getCountManager" resultType="Integer">
+		SELECT COUNT(*) FROM TMEMBER WHERE NOT TTYPE = 0
+	</select>
+	
+	<select id="getCountProduct" resultType="Integer">
+		SELECT COUNT(*) FROM TPRODUCT
+	</select>
+</mapper>

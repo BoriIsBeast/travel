@@ -201,12 +201,16 @@
 			</nav>
 		</div>
 
-		<!-- add 버튼 -->
-		<div class="row mt-4">
-			<a href="/product/add">Add</a>
-		</div>
-	
-		
+		<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
+			<!-- add 버튼 -->
+			<div class="row mt-4">
+				<a href="/product/add">Add</a>
+			</div>
+		</c:if>
+
+
+
+
 	</div>
 
 
