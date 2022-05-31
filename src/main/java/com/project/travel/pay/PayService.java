@@ -2,6 +2,10 @@ package com.project.travel.pay;
 
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +13,7 @@ import com.project.travel.cart.CartMapper;
 import com.project.travel.cart.CartVO;
 import com.project.travel.cartPay.CartPayMapper;
 import com.project.travel.cartPay.CartPayVO;
+import com.project.travel.member.MemberVO;
 import com.project.travel.product.ProductMapper;
 import com.project.travel.product.ProductVO;
 
@@ -50,7 +55,15 @@ public class PayService {
 		}
 		return result;	
 	}
+	
+	public List<PayVO> orderList(PayVO payVO) throws Exception{
+		
+		return payMapper.orderList(payVO);
+	}
 
+	public List<CartVO> getOrderDetail(PayVO payVO) throws Exception{
+		return payMapper.getOrderDetail(payVO);
+	}
 	
 	
 }

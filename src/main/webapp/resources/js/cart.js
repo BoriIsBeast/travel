@@ -24,21 +24,21 @@ function cartAdd(){
                 total:total
             },
             success:function(data){
-                if(data.trim()=='1'){
+                if(data==2){
+                    alert("로그인이 필요합니다.");  
+                    location.href="../member/login";
+
+                }else if(data==3){
+                    let check=confirm("이미 장바구니에 담은 날짜입니다. 장바구니로 이동하시겠습니까?");
+                    if(check){
+                        $(location).attr('href', '../cart/list?id='+id);
+                    }
+                }else{
                     let c = confirm("장바구니 추가 성공! 장바구니로 이동하시겠습니까?");
                     if(c){
                         $(location).attr('href', '../cart/list?id='+id);
                     }
                    
-                }else if(data.trim()=='2'){
-                    alert("로그인이 필요합니다.");  
-                    location.href="../member/login";
-
-                }else if(data.trim()=='3'){
-                    let check=confirm("이미 장바구니에 담은 날짜입니다. 장바구니로 이동하시겠습니까?");
-                    if(check){
-                        $(location).attr('href', '../cart/list?id='+id);
-                    }
                 }
 
                 
@@ -263,7 +263,7 @@ $('.checkbox').on("click",function(){
     $("#totalCheckbox").prop("checked",check);
 });
 
-//결제 페이지 이동
+//장바구니->결제 페이지 이동
 $('#payment').click(function(){ 
     let price=$("#totalPrice").val();
     console.log(price)
@@ -291,3 +291,42 @@ $('#payment').click(function(){
     }
 })
 
+//----------------------------------------바로결제-------------------------------
+$("#directPay").click(function(){
+    console.log("click");
+    let check = window.confirm("결제창으로 이동 하시겠습니까?");
+    let id = $("#directPay").attr("data-id"); 
+    let productNum = $("#directPay").attr("data-num"); 
+    let amount = $("#amount").val();
+    let date = $("#dateResult").val();
+    let total = $("#total").val();
+
+    if(check){
+        $.ajax({
+            type:"POST",
+            url:"../cart/add",
+            data:{
+                id:id,
+                productNum:productNum,
+                amount:amount,
+                regDate:date,
+                total:total,
+                check:2 //바로결제로 장바구니 테이블에 insert 한 경우라는걸 알려주기 위함 (payCheck)
+            },
+            success:function(data){
+                if(data==2){
+                   alert("로그인이 필요합니다.");  
+                   location.href="../member/login";
+                    
+                }else if(data<0) {
+                    alert("다시 시도해주세요.")
+                }else{
+                     location.href='../cart/payment?id='+id+'&cartNum='+data;
+                }
+            },
+            error:function(){
+                alert("실패");
+            }
+        })
+    }
+})

@@ -3,6 +3,7 @@ package com.project.travel.cart;
 import java.sql.Date;
 import java.util.List;
 
+import com.project.travel.cartPay.CartPayVO;
 import com.project.travel.product.ProductVO;
 
 import lombok.Data;
@@ -19,5 +20,9 @@ public class CartVO {
 	private Long total;
 	
 	private ProductVO productVOs;
-
+	
+	//주문상세
+	private CartPayVO cartPayVOs;
+	private ProductVO product;
+	
 }

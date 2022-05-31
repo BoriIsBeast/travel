@@ -8,5 +8,43 @@
 		INSERT INTO TPAY(NUM, ID, PRICE, REGDATE)
 		VALUES(#{num},#{id},#{price}, now())
 	</insert>
+	
+	<select id="orderList" parameterType ="PayVO" resultType="PayVO">
+		SELECT * FROM TPAY WHERE ID=#{id}
+	</select>	
+		
+	<select id="getOrderDetail" parameterType="PayVO" resultMap="orderDetail">
+		SELECT C.*,CP.*,P.NAME
+			FROM TCART C
+			LEFT JOIN 
+			TCARTPAY CP
+			USING (CARTNUM)
+			LEFT JOIN
+			TPRODUCT P
+			ON(C.PRODUCTNUM = P.PRODUCTNUM)
+		WHERE NUM=#{num}
+	</select>
+	
+	<resultMap type="CartVO" id="orderDetail" >
+	 	<id column="cartNum" property="cartNum"/>
+		<result column="productNum" property="productNum"/>
+		<result column="amount" property="amount"/>
+		<result column="payCheck" property="payCheck"/>
+		<result column="regDate" property="regDate"/>
+		<result column="total" property="total"/>
+		<collection property="cartPayVOs" resultMap="cartPayVO"/>
+ 		<collection property="product" resultMap="productVO"/>
+ 	</resultMap>
+ 	
+	<resultMap type="CartPayVO" id="cartPayVO" >
+	 	<id column="payNum" property="payNum"/>
+		<result column="cartNum" property="cartNum"/>
+		<result column="num" property="num"/>
+	</resultMap>
+	<resultMap type="ProductVO" id="productVO" >
+	 	<id column="productNum" property="productNum"/>
+		<result column="name" property="name"/>	
+	</resultMap>
 
+ 
 </mapper>

@@ -63,7 +63,7 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView();
 
 		productVO = productService.getDetail(productVO);
-		System.out.println(productVO.getProductNum());
+		//System.out.println(productVO.getProductNum());
 		mv.addObject("vo", productVO);
 		mv.setViewName("product/detail");
 

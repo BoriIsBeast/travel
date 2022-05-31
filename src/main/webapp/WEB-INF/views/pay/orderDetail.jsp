@@ -12,33 +12,32 @@
 </head>
 <body>
 <div class="container">
-<h1>주문내역 페이지</h1>
-<input type="hidden" value="${member.id}">
-<table class="table table-hover">
+	<h5>주문상세 페이지</h5>
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>NO.</th>
-				<td>주문번호</td>
+				<td>여행지 이름</td>
+				<td>선택 날짜</td>
+				<td>수량</td>
 				<td>가격</td>
-				<td>결제일</td>
-				<td>취소/환불</td>
+				
 			</tr>
 		</thead>
 		<tbody>
 		<c:forEach items="${list}" var="vo" varStatus="status">
 		<tr>
-			<td><a href="./detailOrder?num=${vo.num}">${status.index+1}</a></td>
-			<td></td>
-			<td>${vo.price }</td>
-			<td>${vo.regDate}</td>
-			<td><button type="button">X</button></td>
+			<td>${status.index+1}</td>
+			<td>${vo.product.name}</td>
+			<td>${vo.regDate }</td>
+			<td>${vo.amount }</td>
+			<td>${vo.total }</td>
 		</tr>
 		</c:forEach>
 		</tbody>
 				
 	</table>	
+	
 </div>
-
-
 </body>
 </html>

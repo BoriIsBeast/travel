@@ -10,12 +10,20 @@
 
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
 
 <style type="text/css">
 .card-img-top {
 	height: 30rem;
 	object-fit: cover;
 }
+.list{
+	color:black;
+}
+.navbar-dark .navbar-nav .nav-link.active {
+    color: black;
+}
+
 </style>
 </head>
 <body>
@@ -52,53 +60,53 @@
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=서울">서울</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=서울&search2=마포구">마포구</a></li>
-								<li class="sub1"><a href="./list?search1=서울&search2=강남구">강남구</a></li>
-								<li class="sub1"><a href="./list?search1=서울&search2=동대문구">동대문구</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=서울&search2=마포구">마포구</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=서울&search2=강남구">강남구</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=서울&search2=동대문구">동대문구</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?search1=경기">경기</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=경기&search2=인천">인천</a></li>
-								<li class="sub1"><a href="./list?search1=경기&search2=수원">수원</a></li>
-								<li class="sub1"><a href="./list?search1=경기&search2=파주">파주</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=경기&search2=인천">인천</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=경기&search2=수원">수원</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=경기&search2=파주">파주</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=강원">강원</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=강원&search2=강릉">강릉</a></li>
-								<li class="sub1"><a href="./list?search1=강원&search2=동해">동해</a></li>
-								<li class="sub1"><a href="./list?search1=강원&search2=속초">속초</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=강원&search2=강릉">강릉</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=강원&search2=동해">동해</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=강원&search2=속초">속초</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?search1=경상">경상</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=경상&search2=부산">부산</a></li>
-								<li class="sub1"><a href="./list?search1=경상&search2=경주">경주</a></li>
-								<li class="sub1"><a href="./list?search1=경상&search2=문경">문경</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=경상&search2=부산">부산</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=경상&search2=경주">경주</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=경상&search2=문경">문경</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=전라">전라</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=전라&search2=광주">광주</a></li>
-								<li class="sub1"><a href="./list?search1=전라&search2=목포">목포</a></li>
-								<li class="sub1"><a href="./list?search1=전라&search2=여수">여수</a></li>	
+								<li class="sub1"><a class ="list" href="./list?search1=전라&search2=광주">광주</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=전라&search2=목포">목포</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=전라&search2=여수">여수</a></li>	
 							</ul>
 						</li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=충청">충청</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=충청&search2=대전">대전</a></li>
-								<li class="sub1"><a href="./list?search1=충청&search2=단양">단양</a></li>
-								<li class="sub1"><a href="./list?search1=충청&search2=제천">제천</a></li>	
+								<li class="sub1"><a class ="list" href="./list?search1=충청&search2=대전">대전</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=충청&search2=단양">단양</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=충청&search2=제천">제천</a></li>	
 							</ul>	
 						</li>
 						<li class="nav-item"><a class="nav-link active"
 							href="./list?kind=col1&search=제주">제주</a>
 							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=제주&search2=광주">제주시</a></li>
-								<li class="sub1"><a href="./list?search1=제주&search2=목포">서귀포시</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=제주&search2=광주">제주시</a></li>
+								<li class="sub1"><a class ="list" href="./list?search1=제주&search2=목포">서귀포시</a></li>
 								
 							</ul>	
 						</li>
@@ -170,9 +178,11 @@
 							class="card-img-top" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">${list.name}</h5>
-							<p class="card-text">${list.address}</p>
-							<fmt:formatNumber type="currency" value="${list.price}" />
-							원
+						<%-- 	<p class="card-text">${list.address}</p> --%>
+						
+								<fmt:formatNumber type="currency" value="${list.price}" />원
+							
+							
 						</div>
 					</div>
 				</div>
