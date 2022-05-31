@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../temp/header.jsp"></c:import>
 
 	<h1>코스 추천</h1>
 	
@@ -33,14 +34,14 @@
 
 <c:forEach items="${list}" var="vo">
 <div class="card col-3 detail" data-num="${vo.num}">
+<a href="./detail?num=${vo.num}"><img src="../resources/upload/Tbest/${vo.filesVOs[0].fileName}" class="card-img-top" alt="..."></a>
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="../resources/upload/Tbest/${vo.filesVOs[0].fileName}" class="card-img-top" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><a href="./detail?num=${vo.num}">${vo.title}</a></h5>    
+        <h5 class="card-title">${vo.title}</h5>    
         <p class="card-text"><small class="text-muted">${vo.category}</small></p>
       </div>
     </div>

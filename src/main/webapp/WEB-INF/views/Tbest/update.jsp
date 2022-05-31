@@ -37,6 +37,10 @@
   <label for="exampleFormControlTextarea1" class="form-label">상세정보</label>
 <textarea name="detail" class="form-control" id="detail" ></textarea>
 </div>	
+<div class="mb-3">
+  <label for="files" class="form-label">파일 추가</label>
+  <input class="form-control" type="file" id="files" name="files">
+</div>	
 
 <button type="submit" class="btn btn-outline-secondary">등록</button>
 </form>

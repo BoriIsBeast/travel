@@ -50,7 +50,8 @@ public class TbestService {
 				// 2. 저장된 정보를 DB에 저장
 				TbestFilesVO tbestFilesVO = new TbestFilesVO();
 				tbestFilesVO.setNum(tbestVO.getNum());
-				tbestFilesVO.setFileName(mf.getOriginalFilename());
+				tbestFilesVO.setFileName(fileName);
+				tbestFilesVO.setOriName(mf.getOriginalFilename());
 				result = tbestMapper.fileAdd(tbestFilesVO);
 				
 				if(result < 1) {
@@ -81,6 +82,16 @@ public class TbestService {
 	//fileDetail
 	public TbestFilesVO fileDetail(TbestFilesVO tbestFilesVO)throws Exception{
 		return tbestMapper.fileDetail(tbestFilesVO);
+	}
+	
+	//fileDelete
+	public int fileDelete(TbestFilesVO tbestFilesVO)throws Exception{
+		tbestFilesVO = tbestMapper.fileDetail(tbestFilesVO);
+		int check = tbestMapper.fileDelete(tbestFilesVO);
+		if(check > 0) {
+			boolean result = fileManager.fileDelete(tbestFilesVO.getFileName(), "/resources/upload/Tbest");
+		}
+		return check;
 	}
 	
 	public String SummerFileupload(MultipartFile files)throws Exception{

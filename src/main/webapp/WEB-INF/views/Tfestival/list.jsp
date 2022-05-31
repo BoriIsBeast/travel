@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../temp/header.jsp"></c:import>
 
 	<h1>축제 정보</h1>
 	

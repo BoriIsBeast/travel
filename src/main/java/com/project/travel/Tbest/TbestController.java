@@ -48,6 +48,12 @@ public class TbestController {
 	@PostMapping("add")
 	public ModelAndView add(TbestVO tbestVO, HttpSession session, MultipartFile[] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		///업로드시 파일명 출력
+		// for(MultipartFile f : files) {
+		//	System.out.println(f.getOriginalFilename());
+		// }
+		
 		int result = tbestService.add(tbestVO,files);
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		tbestVO.setId(memberVO.getId());
