@@ -24,6 +24,12 @@
 		LIMIT #{startRow}, #{perPage}
 	</select>
 	
+	<select id="prList" resultType="TReviewVO" parameterType="Pager">
+		SELECT * FROM TREVIEW WHERE PRODUCTNUM=#{productNum}
+		ORDER BY PRODUCTNUM DESC
+		LIMIT #{startRow}, #{perPage}		
+	</select>
+	
 
 	<select id="getTotalCount" resultType="java.lang.Long" parameterType="Pager">
 		SELECT COUNT(NUM) FROM TREVIEW
@@ -64,7 +70,7 @@
 		SELECT R.*, F.*
 		FROM TREVIEW R
 			LEFT JOIN
-			TREVIEW F
+			TREVIEWFILE F
 			USING(NUM)
 		WHERE NUM=#{num}
 	</select>
@@ -100,5 +106,9 @@
 	<select id="getFileDetail" parameterType="TReviewFilesVO" resultType="TReviewFilesVO">
 		SELECT * FROM TREVIEWFILE WHERE FILENUM=#{fileNum}
 	</select>
+	
+	<update id="updateCount">
+		UPDATE TREVIEW SET HIT = HIT+1 WHERE NUM=#{num}
+	</update>
 	
 </mapper>

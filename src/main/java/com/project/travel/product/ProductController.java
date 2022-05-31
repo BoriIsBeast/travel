@@ -115,7 +115,9 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView();
 //		MemberVO memberVO=(MemberVO)session.getAttribute("member");, HttpSession session
 //		pager.setId(memberVO.getId());
-		List<TReviewVO> ar = tReviewService.getList(pager);
+		System.out.println(pager.getProductNum());
+		System.out.println(pager.getPerPage());
+		List<TReviewVO> ar = tReviewService.prList(pager);
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		mv.setViewName("common/tReviewList2");

@@ -13,9 +13,10 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <title>Insert title here</title>
+<c:import url="../temp/header_script.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
-<c:import url="../temp/header.jsp"></c:import>
 	<div class="container mt-4">
 		<div class="row mt-4">
 			<div class="alert alert-primary" role="alert">
@@ -53,8 +54,7 @@
 					<c:forEach items="${list}" var="vo">
 						<tr>
 							<td>${vo.num}</td>
-							<td><a class="link-success text-decoration-none"
-								href="./detail?num=${vo.num}">${vo.title}</a></td>
+							<td><a class="link-success text-decoration-none" href="./detail?num=${vo.num}">${vo.title}</a></td>
 							<td><input type="hidden" name="productNum" value="${vo.productNum}" readonly class="form-control" id="productNum">${vo.name}</td>							
 							<td>${vo.id}</td>		
 							<td>${vo.regDate}</td>

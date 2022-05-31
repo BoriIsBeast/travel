@@ -80,7 +80,7 @@
 		INSERT INTO TNOTICEFILE (FILENUM, NUM, FILENAME, ORINAME)
 		VALUES (NULL, #{num}, #{fileName}, #{oriName})
 	</insert>
-	
+	 
 	<select id="getFileList" parameterType="TNoticeVO" resultType="TNoticeFilesVO">
 		SELECT*FROM TNOTICEFILE WHERE NUM=#{num}
 	</select>

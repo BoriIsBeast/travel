@@ -36,6 +36,12 @@ public class TReviewService {
 		return tReviewMapper.getList(pager);
 	}
 	
+	public List<TReviewVO> prList(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.makeNum(tReviewMapper.getTotalCount(pager));
+		return tReviewMapper.prList(pager);
+	}
+	
 	
 	public int setAdd(TReviewVO tReviewVO, MultipartFile[]files) throws Exception{
 		int result = tReviewMapper.setAdd(tReviewVO);
@@ -96,5 +102,10 @@ public class TReviewService {
 		return fileManager.fileDelete(fileName, "resources/upload/TReview/");
 	}
 	
+	//조회수 증가
+	public int updateCount(String num) throws Exception{
+		return tReviewMapper.updateCount(num);
+	}
+
 	
 }

@@ -96,4 +96,7 @@
 		SELECT * FROM TQNAFILE WHERE FILENUM=#{fileNum}
 	</select>
 	
+	<update id="updateCount">
+		UPDATE TQNA SET HIT = HIT+1 WHERE NUM=#{num}
+	</update>
 </mapper>	

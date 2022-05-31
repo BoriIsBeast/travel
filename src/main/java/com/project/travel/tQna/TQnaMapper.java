@@ -40,6 +40,7 @@ public interface TQnaMapper {
 	//fileDelete
 	public int setFileDelete(TQnaFilesVO tQnaFilesVO) throws Exception;
 
-	
+	//조회수
+	public int updateCount(String num) throws Exception;
 
 }

@@ -15,15 +15,15 @@
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	
 	<title>Insert title here</title>
+<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
-<c:import url="../temp/header.jsp"></c:import>
 
 
 <div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">${board} Write</h4>
+	  		<h4 style="text-transform: uppercase;">F A Q 작성</h4>
 		</div>
 	</div>
 	

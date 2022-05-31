@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
-
+<c:import url="../temp/header.jsp"></c:import>
 <!-- //제이쿼리 ui css -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -159,11 +159,13 @@
 		});
 		getList(1);
 		function getList(pn){
+			let productNum=$("#productNum").val();
 			console.log("start");
 			$.ajax({
 				type : "GET",
 				url : "./ajaxList",
-				data:{
+				data:{ 
+					productNum:productNum,
 					pn:pn,
 					perPage:5
 				},

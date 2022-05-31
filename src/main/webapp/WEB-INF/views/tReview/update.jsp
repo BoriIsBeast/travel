@@ -21,7 +21,7 @@
 <div class="container mt-4">
 	<div class="row mt-4">
 		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">리뷰 수정</h4>
+	  		<h4 style="text-transform: uppercase;">${board} Update</h4>
 		</div>
 	</div>
 	
