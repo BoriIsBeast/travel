@@ -102,7 +102,10 @@ public class TReviewService {
 		return fileManager.fileDelete(fileName, "resources/upload/TReview/");
 	}
 	
-
+	//조회수 증가
+	public int updateCount(String num) throws Exception{
+		return tReviewMapper.updateCount(num);
+	}
 
 	
 }

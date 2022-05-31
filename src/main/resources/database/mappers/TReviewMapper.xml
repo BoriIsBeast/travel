@@ -107,5 +107,8 @@
 		SELECT * FROM TREVIEWFILE WHERE FILENUM=#{fileNum}
 	</select>
 	
-
+	<update id="updateCount">
+		UPDATE TREVIEW SET HIT = HIT+1 WHERE NUM=#{num}
+	</update>
+	
 </mapper>

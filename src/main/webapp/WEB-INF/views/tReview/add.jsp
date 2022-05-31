@@ -15,9 +15,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	
 	<title>Insert title here</title>
+	<c:import url="../temp/header_script.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
-<c:import url="../temp/header.jsp"></c:import>
 
 
 <div class="container mt-4">
@@ -27,10 +28,10 @@
 		</div>
 	</div>
 	
-	<div class="row" id="list">
-		<!-- 리뷰 ajax, 제목, 작성자, 내용, 여행지 이름 -->
+	<!-- <div class="row" id="list">
+		리뷰 ajax, 제목, 작성자, 내용, 여행지 이름
 	</div>
-	
+	 -->
 	
 	<div class="row mt-4">
 		<form action="add" method="post" enctype="multipart/form-data">

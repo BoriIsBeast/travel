@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,11 +48,12 @@ public class TQnaController {
 		return mv;
 	}
 	@GetMapping("detail")
-	public ModelAndView getDetail(TQnaVO tQnaVO) throws Exception{
+	public ModelAndView getDetail(@RequestParam("num")String num, TQnaVO tQnaVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		tQnaService.updateCount(num);
 		tQnaVO = tQnaService.getDetail(tQnaVO);
 		mv.setViewName("tQna/detail");
-		tQnaVO= tQnaService.getDetail(tQnaVO);
+		
 		mv.addObject("vo",tQnaVO);
 		return mv;
 	}

@@ -96,4 +96,10 @@ public class TQnaService {
 		return fileManager.fileDelete(fileName, "resources/upload/TQna/");
 		
 	}
+	
+	//조회수
+	public int updateCount(String num) throws Exception{
+		return tQnaMapper.updateCount(num);		
+	}
+	
 }

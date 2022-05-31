@@ -48,7 +48,7 @@ public interface TReviewMapper {
 	public TReviewVO productDetail(TReviewVO tReviewVO) throws Exception;
 	
 	//조회수 증가
-	public int hit(int num) throws Exception;
+	public int updateCount(String num) throws Exception;
 	
 
 

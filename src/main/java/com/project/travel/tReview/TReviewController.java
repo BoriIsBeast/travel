@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import com.project.travel.member.MemberVO;
 import com.project.travel.product.ProductVO;
@@ -24,12 +27,16 @@ public class TReviewController {
 
 	@Autowired
 	private TReviewService tReviewService;
+	
+	
 
 	@ModelAttribute("tReview")
 	public String getTReview() {
 		return "tReview";
 	}
 
+
+	
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -70,9 +77,13 @@ public class TReviewController {
 	}
 
 	@GetMapping("detail")
-	public ModelAndView getDetail(TReviewVO tReviewVO) throws Exception{
+	public ModelAndView getDetail(@RequestParam("num")String num, TReviewVO tReviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		tReviewVO = tReviewService.getDetail(tReviewVO);
+		tReviewService.updateCount(num);	
+				
+			
+		tReviewVO = tReviewService.getDetail(tReviewVO);	
+		
 		mv.setViewName("tReview/detail");		
 		mv.addObject("vo", tReviewVO);
 		return mv;		
