@@ -74,11 +74,12 @@ public class TNoticeController {
 		return mv;
 	}
 
-	@GetMapping("delete")
+	@PostMapping("delete")
 	public ModelAndView setDelete(TNoticeVO tNoticeVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = tNoticeService.setDelete(tNoticeVO);
-		mv.setViewName("redirect:./list");
+		mv.addObject("result",result);
+		mv.setViewName("common/result");
 		return mv;
 	}
 

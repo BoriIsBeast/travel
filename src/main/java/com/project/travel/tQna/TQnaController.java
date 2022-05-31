@@ -74,11 +74,12 @@ public class TQnaController {
 		return mv;
 	}
 	
-	@GetMapping("delete")
+	@PostMapping("delete")	
 	public ModelAndView setDelete(TQnaVO tQnaVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = tQnaService.setDelete(tQnaVO);
-		mv.setViewName("redirect:./list");
+		mv.addObject("result",result);
+		mv.setViewName("common/result");
 		return mv;
 	}
 	

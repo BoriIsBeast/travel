@@ -42,13 +42,13 @@
 
 		<div class="col-2 d-flex">
 			<c:if test="${member.id eq vo.id}">
-			<a href="update?num=${vo.num}" role="button" class="btn btn-success mx-1">Update</a>
+			<a href="update?num=${vo.num}" role="button" class="btn btn-success mx-1">수정</a>
 			
 			<td><button type="button" class="btn btn-danger mx-1" id="deleteBtn${vo.num}">삭제</button></td>
 			</c:if>
 		</div>	
 	</div>
-<script type="text/javascript" src="../resources/js/review.js"></script>
+<script type="text/javascript" src="../resources/js/notice.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </body>
