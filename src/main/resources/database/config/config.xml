@@ -19,6 +19,7 @@
   		
   		<typeAlias type="com.project.travel.tQna.TQnaVO" alias="TQnaVO"/>
   		<typeAlias type="com.project.travel.tQna.TQnaFilesVO" alias="TQnaFilesVO"/>
+  		<typeAlias type="com.project.travel.tQna.tQnaReply.TQnaReplyVO" alias="TQnaReplyVO"/>
   		
   		<typeAlias type="com.project.travel.tReview.TReviewVO" alias="TReviewVO"/>
   		<typeAlias type="com.project.travel.tReview.TReviewFilesVO" alias="TReviewFilesVO"/>

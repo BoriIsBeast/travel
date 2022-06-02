@@ -41,6 +41,7 @@
 	<div class="container my-4">
 
 		<div class="col-2 d-flex">
+		<a href="./list"role="button" class="btn btn-success mx-1">목록</a>
 			<c:if test="${member.id eq vo.id}">
 			<a href="update?num=${vo.num}" role="button" class="btn btn-success mx-1">수정</a>
 			

@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.tNotice.TNoticeVO;
+import com.project.travel.tQna.tQnaReply.TQnaReplyService;
+import com.project.travel.tQna.tQnaReply.TQnaReplyVO;
 import com.project.travel.util.Pager;
 
 @Controller
@@ -20,6 +22,9 @@ import com.project.travel.util.Pager;
 public class TQnaController {
 	@Autowired
 	private TQnaService tQnaService;
+	
+	@Autowired
+	private TQnaReplyService tQnaReplyService;
 
 	@ModelAttribute("board")
 	public String getBoard() {
@@ -52,6 +57,8 @@ public class TQnaController {
 		ModelAndView mv = new ModelAndView();
 		tQnaService.updateCount(num);
 		tQnaVO = tQnaService.getDetail(tQnaVO);
+		
+		
 		mv.setViewName("tQna/detail");
 		
 		mv.addObject("vo",tQnaVO);
