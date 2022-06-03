@@ -35,6 +35,7 @@
   		
   		<typeAlias type="com.project.travel.Tbest.TbestVO" alias="TbestVO"/>
   		<typeAlias type="com.project.travel.Tbest.TbestFilesVO" alias="TbestFilesVO"/>
+  		<typeAlias type="com.project.travel.Tbest.TbestReply.TbestReplyVO" alias="TbestReplyVO"/>
 
 
   		<typeAlias type="com.project.travel.member.MemberVO" alias="MemberVO"/>
