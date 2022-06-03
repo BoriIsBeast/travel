@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<table class="table table-success table-striped">
+<div class="container mt-5">
+<table class="table table-success table-striped" style="width:798px;">
 	<thead>
 		<tr>
 			<th>No.</th>
@@ -15,7 +15,8 @@
 		</tr>
 	</thead>
 
-<tbody>
+
+
 
 <c:forEach items="${list}" var="vo">
 		<tr>
@@ -28,6 +29,7 @@
 			<td>${vo.rec}</td>
 		</tr>
 </c:forEach>
+</table>
 	
 <div class="row my-4">
 
@@ -43,4 +45,5 @@
 			
 		</ul>
 	</nav>
+</div>
 </div>

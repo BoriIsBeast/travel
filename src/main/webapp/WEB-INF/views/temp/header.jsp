@@ -90,15 +90,15 @@
 								<a href="../Tbest/list" class="nav-item nav-link">BEST COURSE</a>
                                 <a href="../Tfestival/list" class="nav-item nav-link">FESTIVAL</a>
 
-                                <div class="nav-item dropdown">
+                                <!-- <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="../booking" class="dropdown-item">Booking</a>
                                         <a href="../team" class="dropdown-item">Our Team</a>
                                         <a href="../testimonial" class="dropdown-item">Testimonial</a>
                                     </div>
-                                </div>
-                                <a href="./contact" class="nav-item nav-link">Contact</a>
+                                </div> -->
+                                
                             </div>
                             
                             <c:if test="${member.getTType() == 1 || member.getTType() == 2}">

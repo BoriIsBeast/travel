@@ -18,7 +18,7 @@
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
-
+<div class="container">
 <form action="./update" method="post" enctype="multipart/form-data">
 <div class="mb-3">
 <input class="form-control" name="num" value="${vo.num}" type="hidden" aria-label="default input example">
@@ -43,7 +43,9 @@
 </div>	
 
 <button type="submit" class="btn btn-outline-secondary">등록</button>
+</div>
 </form>
+</div>
 
 <script type="text/javascript" src="../resources/js/fileAdd.js"></script>
 <script type="text/javascript" src="../js/summernote.js"></script>	

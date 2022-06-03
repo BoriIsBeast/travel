@@ -55,7 +55,12 @@
 							<button type="button" class="btn btn-primary" id="directPay"data-id="${member.id}" data-num="${vo.productNum}">바로결제</button>
 							<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
 						</div>
+		
 					</div>
+					
+					
+					
+					
 					</div>
 				</c:if>
 		<div class="card" style="width: 50rem;">
@@ -115,22 +120,30 @@
 	
 			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
 			<!-- add 버튼 -->
-			<a	href="./update?productNum=${vo.productNum}">Update</a> 
-			<a	href="./delete?productNum=${vo.productNum}">Delete</a>	
+		
+			<%-- <a href="./update?productNum=${vo.productNum}">Update</a> 
+			<a href="./delete?productNum=${vo.productNum}">Delete</a>	 --%>
+				<div>
+					<button type="button" class="col-2  btn btn-primary" data-num="${vo.productNum}" id="update">Update</button>
+				</div>
+				<div>
+					<button type="button" class="col-2 btn btn-primary" data-num="${vo.productNum}" id="delete">Delete</button>
+				</div>
 			</c:if>
-			<a href="/product/list">List</a> 
-			
+			<div>
+				<button type="button" class="col-1 btn btn-primary" id="gotolist">List</button>
+			</div>
 			
 		
 
 		</div>
-	</div>
-
 	
-	<div class="row" id="list" style="width: 50%; height: 350px;">
-		<!-- 리뷰 ajax, 제목, 작성자, 내용, 여행지 이름 -->
-	</div>
 
+	<div class="row" id="list" style="width: 50%; height: 350px;">
+		리뷰 ajax, 제목, 작성자, 내용, 여행지 이름
+	</div>
+	
+</div>
 	
 
 	<!-- kakao map js -->
@@ -182,8 +195,18 @@
 
 	
 		cartAdd();
-
 	
+		$("#gotolist").click(function(){
+			window.location="./list";
+		})	
+		$("#update").click(function(){
+			alert("게시물 수정 하시겠습니까?")
+			window.location="./update?productNum="+${vo.productNum};
+		})	
+		$("#delete").click(function(){
+			alert("게시물 삭제 하시겠습니까?")
+			window.location="./delete?productNum="+${vo.productNum};
+		})	
 		
 	</script>
 

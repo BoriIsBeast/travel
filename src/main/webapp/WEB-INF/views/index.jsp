@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -98,20 +99,20 @@
                                 <a href="./" class="nav-item nav-link active">Home</a>
 
                                 <a href="./tReview/list" class="nav-item nav-link">REVIEW</a>
-                                <a href="./tQna/list" class="nav-item nav-link">F A Q</a>
-                                <a href="./tNotice/list" class="nav-item nav-link">BOARD</a>
+                                <a href="./tQna/list" class="nav-item nav-link">Q&A</a>
+                                <a href="./tNotice/list" class="nav-item nav-link">공지사항</a>
                                 <a href="./product/list" class="nav-item nav-link">여 행 지</a>
                                 <a href="./Tbest/list" class="nav-item nav-link">BEST COURSE</a>
                                 <a href="./Tfestival/list" class="nav-item nav-link">FESTIVAL</a>
 
-                                <div class="nav-item dropdown">
+                                <!-- <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="./booking" class="dropdown-item">Booking</a>
                                         <a href="./team" class="dropdown-item">Our Team</a>
                                         <a href="./testimonial" class="dropdown-item">Testimonial</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             
                             <c:if test="${member.getTType() == 1 || member.getTType() == 2}">
@@ -432,13 +433,14 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="service-item rounded" href="">
+                        <a class="service-item rounded" href="./product/list?search1=${param.search1}&search2=${param.search2}&category=가족과 함께"
+							data-cat="가족과 함께">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-hotel fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Rooms & Appartment</h5>
+                            <h5 class="mb-3">가족과 함께</h5>
                             <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                         </a>
                     </div>

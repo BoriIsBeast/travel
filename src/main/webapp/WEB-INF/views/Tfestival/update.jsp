@@ -14,7 +14,7 @@
  	<h1>축제 업데이트</h1>
 </div>
 
-<form action="./update" method="post">
+<form action="./update" method="post" enctype="multipart/form-data">
 <div class="mb-3">
 <input class="form-control" name="num" value="${vo.num}" type="hidden" aria-label="default input example">
   <label for="exampleFormControlTextarea1" class="form-label">축제이름</label>

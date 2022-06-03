@@ -10,6 +10,7 @@
 <c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>	
+<div class="container">
 	<c:if test="${member.getTType() == 1}">
 	<h1>셀러 페이지</h1>
 	<div>
@@ -33,6 +34,6 @@
        		</div>
        <div><a href="#">매출</a></div> 
     </c:if>
-	
+	</div>
 </body>
 </html>

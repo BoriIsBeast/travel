@@ -18,7 +18,7 @@
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
-
+<div class="container">
 <form action="./add" method="post" enctype="multipart/form-data">
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">아이디</label>
@@ -40,9 +40,11 @@
   <label for="files" class="form-label">파일 추가</label>
   <input class="form-control" type="file" id="files" name="files">
 </div>	
+</div>
 
 <button type="submit" class="btn btn-outline-secondary">등록</button>
 </form>
+</div>
 
 <script type="text/javascript" src="../resources/js/fileAdd.js"></script>
 <script type="text/javascript" src="../js/summernote.js"></script>	

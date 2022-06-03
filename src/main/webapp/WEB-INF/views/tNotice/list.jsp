@@ -15,9 +15,9 @@
 <body>
 	<div class="container mt-4">
 	<div class="row mt-4">
-		<div class="alert alert-primary" role="alert">
-	  		<h4 class="text-center" style="text-transform: uppercase;">공지사항</h4>
-		</div>
+		<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">공지사항</h4>
+			</div>
 	</div>
 	
 		<div class="row justify-content-between">

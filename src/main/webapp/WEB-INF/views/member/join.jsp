@@ -7,11 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../temp/header.jsp"></c:import>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
+<div class="container">
 	<h1>회원가입 페이지</h1>
 
 	<form:form method="POST" modelAttribute="memberVO">
@@ -106,6 +108,7 @@
 		<button type="submit">회원가입</button>
 
 	</form:form>
+	</div>
 	<script type="text/javascript" src="../resources/js/join.js"></script>
 </body>
 </html>

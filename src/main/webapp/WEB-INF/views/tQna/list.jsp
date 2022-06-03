@@ -14,11 +14,11 @@
 </head>
 <body>
 		<div class="container mt-4">
-	<div class="row mt-4">
-		<div class="alert alert-primary" role="alert">
-	  		<h4 class="text-center" style="text-transform: uppercase;">F A Q</h4>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">Q&A</h4>
+			</div>
 		</div>
-	</div>
 	
 		<div class="row justify-content-between">
 		<div class="col-5">

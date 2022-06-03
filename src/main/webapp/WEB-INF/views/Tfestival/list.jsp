@@ -10,13 +10,16 @@
 </head>
 <body>
 	<c:import url="../temp/header.jsp"></c:import>
-
-	<h1>축제 정보</h1>
-	
-		<div class="row justify-content-between">
-		<div class="col-5">
+	<div class="container">
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">축제 정보</h4>
+				
+				
+				<div class="row justify-content-end">
+		
 			<form class="d-flex" action="./list" method="get">
-				<div class="col-4 me-2">
+				<div class="col-4 mb-3 ">
 				<select name="kind" class="form-select " aria-label="Default select example">
 				  <option value="col1">축제이름</option>
 				  <option value="col2">장소</option>
@@ -26,11 +29,17 @@
 	        	<input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 	        	</div>
 	        	<div class="col-2">
-	        	<button class="btn btn-outline-success" type="submit">Search</button>
+	        	<button class="btn btn-outline-primary" type="submit">Search</button>
+	        
 	        	</div>
 	        	 </form>
-		</div>
+		
 	</div>
+			</div>
+		</div>
+	<h1>축제 정보</h1>
+	
+		
 	
 	<c:forEach items="${list}" var="vo">
 	<div class="card col-3 detail" data-num="${vo.num}">
@@ -66,6 +75,7 @@
 </nav>
 	
 	<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
+	</div>
 	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>	
 </body>

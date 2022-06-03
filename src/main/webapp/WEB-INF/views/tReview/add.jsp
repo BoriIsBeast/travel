@@ -28,10 +28,10 @@
 		</div>
 	</div>
 	
-	<!-- <div class="row" id="list">
-		리뷰 ajax, 제목, 작성자, 내용, 여행지 이름
-	</div>
-	 -->
+ 	<!--  <div class="row" id="list">
+		 리뷰 ajax, 제목, 작성자, 내용, 여행지 이름 
+	</div> -->
+	
 	
 	<div class="row mt-4">
 		<form action="add" method="post" enctype="multipart/form-data">
