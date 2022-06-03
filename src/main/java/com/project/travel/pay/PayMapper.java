@@ -15,6 +15,7 @@ public interface PayMapper {
 	
 	public List<CartVO> getOrderDetail(PayVO payVO) throws Exception;
 	
+	public int setDelete(PayVO payVO) throws Exception;
 
 
 

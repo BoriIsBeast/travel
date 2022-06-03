@@ -21,24 +21,34 @@
 				<td>주문번호</td>
 				<td>가격</td>
 				<td>결제일</td>
-				<td>취소/환불</td>
+				
 			</tr>
 		</thead>
 		<tbody>
 		<c:forEach items="${list}" var="vo" varStatus="status">
 		<tr>
-			<td><a href="./detailOrder?num=${vo.num}">${status.index+1}</a></td>
-			<td></td>
+			<td>${status.index+1}</td>
+			<td><a href="./detailOrder?num=${vo.num}">${vo.regDate}${vo.num}</a></td>
 			<td>${vo.price }</td>
 			<td>${vo.regDate}</td>
-			<td><button type="button">X</button></td>
+			
 		</tr>
 		</c:forEach>
 		</tbody>
 				
 	</table>	
+	<div>
+		<button type="button"  id="gotocart" data-id="${member.id}" class="col-2 btn btn-primary ">장바구니 이동</button>
+	</div>
 </div>
+<script type="text/javascript" src="../resources/js/pay.js"></script>
+<script type="text/javascript">
+	$("#gotocart").click(function(){
+		 let id=$(this).attr("data-id");
+		 window.location="../cart/list?id="+id;
+	})
 
+</script>
 
 </body>
 </html>

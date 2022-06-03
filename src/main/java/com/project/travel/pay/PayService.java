@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.travel.cart.CartMapper;
 import com.project.travel.cart.CartVO;
@@ -18,6 +19,7 @@ import com.project.travel.product.ProductMapper;
 import com.project.travel.product.ProductVO;
 
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class PayService {
 	
 	@Autowired
@@ -35,7 +37,7 @@ public class PayService {
 	public int  setAdd(PayVO payVO, Long[] cartNum)throws Exception{
 		//결제테이블 insert
 		int result =payMapper.setAdd(payVO);
-		
+			
 		for(Long cn :cartNum) {
 			//결제참조테이블 insert
 			CartPayVO cartPay = new CartPayVO();
@@ -65,5 +67,8 @@ public class PayService {
 		return payMapper.getOrderDetail(payVO);
 	}
 	
+	public int setDelete(PayVO payVO) throws Exception{
+		return payMapper.setDelete(payVO);
+	}
 	
 }

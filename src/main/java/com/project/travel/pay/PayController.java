@@ -35,7 +35,7 @@ public class PayController {
 		List<CartVO> ar = payService.getOrderDetail(payVO);
 		
 		mv.addObject("list",ar);
-		mv.setViewName("pay/orderDetail");
+		mv.setViewName("pay/detailOrder");
 		
 		
 		return mv;
@@ -65,6 +65,17 @@ public class PayController {
 		mv.addObject("list",ar);
 		mv.setViewName("pay/orderList");
 		return mv;
+	}
+	
+	@PostMapping("delete")
+	@ResponseBody
+	public Long setDelete(PayVO payVO) throws Exception{
+		
+		int result = payService.setDelete(payVO);
+		
+		Long num=payVO.getNum();
+		
+		return num;
 	}
 
 

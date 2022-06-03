@@ -16,5 +16,6 @@ public class PayVO {
 	private String id;
 	private Long price;
 	private Date regDate;
+	private String orderNum;
 
 }

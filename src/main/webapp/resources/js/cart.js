@@ -21,7 +21,8 @@ function cartAdd(){
                 productNum:productNum,
                 amount:amount,
                 regDate:date,
-                total:total
+                total:total,
+                check:0
             },
             success:function(data){
                 if(data==2){
@@ -182,20 +183,20 @@ for(b of btn){
         })
     })
 
-    //장바구니에 담겨 있는 목록 중 현재 날짜 보다 이전 날짜 삭제 (schedule 이용해보기)
+    //장바구니에 담겨 있는 목록 중 현재 날짜 보다 이전 날짜 삭제 
     let today = new Date();   
 
     let year = today.getFullYear(); // 년도
     let month = today.getMonth() + 1;  // 월
     let date = today.getDate();  // 날짜
-    let day= year + '-' +0 + month + '-' + date;
+    let day= year + '-' +0 + month + '-' +0+ date;
 
-    //console.log(day);
-    //console.log($('#date'+cartNum).val());
+    console.log(day);
+    console.log($('#date'+cartNum).val());
 
     if($('#date'+cartNum).val()<day){
-        //console.log($('#date'+cartNum).val());
-        //console.log("지난날짜");
+        console.log($('#date'+cartNum).val());
+        console.log("지난날짜");
 
        $.ajax({
         type:"POST",

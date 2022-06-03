@@ -45,6 +45,10 @@
 	 	<id column="productNum" property="productNum"/>
 		<result column="name" property="name"/>	
 	</resultMap>
+	
+	<delete id="setDelete" parameterType="PayVO">
+		DELETE FROM TPAY WHERE NUM=#{num}
+	</delete>
 
  
 </mapper>

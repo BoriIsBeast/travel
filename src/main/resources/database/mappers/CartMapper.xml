@@ -74,5 +74,9 @@
 		SELECT * FROM TCART WHERE CARTNUM=#{cartNum}
 	</select>
 	
+	<delete id="cartCheckDelete" parameterType="CartVO">
+		DELETE FROM TCART WHERE PAYCHECK=2
+	</delete>
+	
 	
 </mapper>

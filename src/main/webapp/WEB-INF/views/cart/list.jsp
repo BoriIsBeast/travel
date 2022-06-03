@@ -40,9 +40,9 @@
 					<td><input type="date" id="date${list.cartNum}" value="${list.regDate}" readonly></td>
 					<td>
 						<div class="btnCart" data-num="${list.cartNum}">
-							<button type="button" class ="minus" data-num="${list.cartNum}" id="minus${list.cartNum}" >-</button> 
+							<button type="button"  class="btn btn-primary minus" data-num="${list.cartNum}" id="minus${list.cartNum}" >-</button> 
 							<input class ="col-2" id="amount${list.cartNum}"  type="number" value="${list.amount}" readonly>
-							<button type="button" class="plus" data-num="${list.cartNum}" id="plus${list.cartNum}">+</button>
+							<button type="button" class="btn btn-primary plus" data-num="${list.cartNum}" id="plus${list.cartNum}">+</button>
 						</div>											
 					</td>
 					
@@ -54,7 +54,7 @@
 					<c:if test="${list.payCheck ne 1}">
 						<td>결제 전</td>
 					</c:if>
-					<td><button type="button" id="deleteBtn${list.cartNum}">x</button></td>
+					<td><button type="button" class="btn btn-primary" id="deleteBtn${list.cartNum}">x</button></td>
 				</tr>		
 			</c:forEach>
 			
@@ -77,7 +77,7 @@
 			</c:choose>
 		</table>
 		<c:if test="${not empty vo}">
-			<button type="button" id="payment" data-id="${member.id}" >주문하기</button>
+			<button type="button" id="payment" data-id="${member.id}" class="col-1 btn btn-primary ">주문하기</button>
 		
 		
 		

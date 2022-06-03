@@ -54,5 +54,31 @@ for (cn of count) {
     $("#totalPrice").val(totalSum);   
 }
 
+$("#orderDel").click(function(){
+    let num=$("#num").val();
+    let id=$(this).attr("data-id");
+    console.log("결제취소");
+    let check = confirm("결제 취소 하시겠습니까?");
 
+    if(check){
+        console.log(num);
+        console.log(id);
+        $.ajax({
+            type:"POST",
+            url:"./delete",
+            data:{
+                num:num
+            },
+            success:function(data){
+                if(data>0){
+                    alert("결제가 취소되었습니다.")
+                    location.href="./orderList?id="+id;
+                }
+            },
+            error:function(){
+                alert("실패")
+            }
+        })
+    }
+})
 

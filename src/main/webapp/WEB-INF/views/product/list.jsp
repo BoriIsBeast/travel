@@ -20,7 +20,7 @@
 .list{
 	color:black;
 }
-.navbar-dark .navbar-nav .nav-link.active {
+.navbar-dark .ul .nav-link.active {
     color: black;
 }
 
@@ -51,7 +51,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 ul">
 
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="./list">지역 List - </a></li>
@@ -120,8 +120,8 @@
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link active"
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 ul">
+						<li class="nav-item "><a class="nav-link active"
 							aria-current="page" href="./list">카테고리 - </a></li>
 						<li class="nav-item"><a class="nav-link active category"
 							aria-current="page"

@@ -34,7 +34,7 @@
 		</select>
 		
 		<select id="login" parameterType="MemberVO" resultType="MemberVO">
-			SELECT ID,NAME,TTYPE FROM TMEMBER 
+			SELECT ID,NAME,TTYPE,LOCATION FROM TMEMBER 
 				WHERE ID=#{id} and PW=#{pw}
 		</select>
 		

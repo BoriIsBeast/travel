@@ -28,4 +28,7 @@ public interface CartMapper {
 	
 	public CartVO getDetail(CartVO cartVO) throws Exception;
 	
+	public int cartCheckDelete(CartVO cartVO) throws Exception;
+
+	
 }

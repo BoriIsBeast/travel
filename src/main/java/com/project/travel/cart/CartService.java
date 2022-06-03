@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.travel.member.MemberVO;
 import com.project.travel.util.Pager;
 
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class CartService {
 	
 	@Autowired
@@ -30,7 +32,7 @@ public class CartService {
 		}
 		//장바구니 담기로 insert 하고, 중복도 아닐 때 paycheck 0으로 insert
 		else {
-			cartVO.setPayCheck(0L);
+			cartVO.setPayCheck(check);
 		}
 		
 		return  cartMapper.setAdd(cartVO);
@@ -80,6 +82,10 @@ public class CartService {
 	}
 	public CartVO getDetail(CartVO cartVO)throws Exception{
 		return cartMapper.getDetail(cartVO);
+	}
+	
+	public int cartCheckDelete(CartVO cartVO) throws Exception{
+		return cartMapper.cartCheckDelete(cartVO);
 	}
 	
 }
