@@ -21,7 +21,7 @@
 	<div class="row">
 		<div class="card btnQn" data-num="${vo.num}">
 			<ul class="list-group list-group-flush">				
-				<li><input id="num" type="text" value="${vo.num}">${vo.num}</li>
+				<input class="list-group-item" id="num" type="text" hidden="hidden" value="${vo.num}">
 			   	<li class="list-group-item">제 목 : ${vo.title}</li>
 		   		<li class="list-group-item" id="id">작 성 자 : ${vo.id} </li>
 			</ul>
@@ -37,6 +37,16 @@
 	
 	</div>
 	
+		<div>
+			<input type="hidden" name="num" value="${vo.num}" id="num">
+			<input type="text" name="id" id="id1" value="${member.id}" readonly >
+			<input type="text" name="contents" id="contents1">
+			<!-- <textarea rows="" cols="" name="contents" id="contents"></textarea> -->
+			<button type="button" id="reply" class="btn btn-success mx-1">댓글</button>
+			
+		</div>
+		
+	
 	<table id="replyResult">
 	
 	
@@ -49,7 +59,7 @@
 			<a href="update?num=${vo.num}" role="button" class="btn btn-success mx-1">수정</a>
 			<td><button type="button" class="btn btn-danger mx-1" id="deleteBtn${vo.num}">삭제</button></td>			
 			</c:if>
-			<button type="button" class="btn btn-success mx-1" id="reply">댓글</button>
+			
 		</div>
 	</div>
 	<script type="text/javascript" src="../resources/js/qna.js"></script>

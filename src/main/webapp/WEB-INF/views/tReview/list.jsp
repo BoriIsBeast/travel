@@ -41,7 +41,7 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>No.</th>
+						<th>No.</th>						
 						<th>제 목</th>
 						<th>여 행 지</th>	
 						<th>작 성 자</th>						
@@ -53,7 +53,7 @@
 				<tbody>
 					<c:forEach items="${list}" var="vo">
 						<tr>
-							<td>${vo.num}</td>
+							<td>${vo.num}</td>							
 							<td><a class="link-success text-decoration-none" href="./detail?num=${vo.num}">${vo.title}</a></td>
 							<td><input type="hidden" name="productNum" value="${vo.productNum}" readonly class="form-control" id="productNum">${vo.name}</td>							
 							<td>${vo.id}</td>		

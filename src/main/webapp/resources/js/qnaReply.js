@@ -5,6 +5,8 @@ const contents = document.querySelector("#contents");
 const replyResult = document.querySelector("#replyResult");
 const del = document.querySelectorAll(".del");
 const update = document.querySelectorAll(".update");
+const id1= document.getElementById("id1");
+const contents1=document.getElementById("contents1");
 
 
 // list 가져오기
@@ -29,7 +31,9 @@ function getList(){
 
 // ------------------------add------------------
 reply.addEventListener("click",function(){
-     
+    console.log(num.value);
+    console.log(id1.value);
+    console.log(contents1.value);
  
     
      const xhttp = new XMLHttpRequest();
@@ -43,7 +47,7 @@ reply.addEventListener("click",function(){
      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
  
      
-     xhttp.send("num="+num.value+"&id="+id.value+"&contents="+contents.value);
+     xhttp.send("num="+num.value+"&id="+id1.value+"&contents="+contents1.value);
  
      
      xhttp.onreadystatechange = function(){
@@ -51,8 +55,7 @@ reply.addEventListener("click",function(){
              console.log(this.responseText);
              let result = this.responseText.trim();
              if(result=='1'){
-                 alert('댓글이 등록 되었습니다');
-                 
+                 alert('댓글이 등록 되었습니다');                 
                  getList();
              }else {
                  alert('댓글 등록이 실패');
@@ -123,13 +126,14 @@ replyResult.addEventListener("change",function(event){
 replyResult.addEventListener("click",function(event){
 
     if(event.target.classList.contains('del')){
+		console.log("삭제합니까?")
         let replyNum = event.target.getAttribute("data-num");
         
         
         const xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "../tQnaReply/delete");//포스트기 때문에 뒤에 ? 안씀
+        xhttp.open("POST", "../tQnaReply/delete");
 		
-        //요청 header 정보 Post로 할때는 이걸 넣어줄것 !
+        
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         
         xhttp.send("replyNum="+replyNum);

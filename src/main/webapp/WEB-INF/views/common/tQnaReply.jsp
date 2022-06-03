@@ -2,20 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:forEach items="${list}" var="vo">
-	<tr class="bgg">
-		<td id="up${vo.replyNum}">
-			<div style="font-size: medium; white-space:pre-wrap"><c:out value="${vo.contents}" /></div>
+
+
+<c:forEach items="${list}" var="vo" varStatus="i">
+	<tr>
+		<%--<td id="up${i.index}">${dto.contents}</td>--%>
+		<td id="up${vo.replyNum}">${vo.contents}</td>
+		<td>${vo.id}</td>
+		<td>
+		<c:if test="${member.id eq vo.id}">
+			<button class="update btn-success mx-1" type="button" data-index="${vo.replyNum}">수정</button>
+            <button class="del btn-danger mx-1" type="button" data-num="${vo.replyNum}">삭제</button>
+		</c:if>
 		</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.id}</td>
-
-        <td>
-            <c:if test="${member.id eq vo.id}">
-
-                <button class="update site-btn" type="button" data-index="${vo.replyNum}">UPDATE</button>
-                <button class="del site-btn" type="button" data-num="${vo.replyNum}">DELETE</button>
-            </c:if>
-
-        </td>
+		
 	</tr>
 </c:forEach>

@@ -17,7 +17,7 @@
 	</insert>
 	
 	<delete id="setDelete" parameterType="TQnaReplyVO">
-		DELETE TQNAREPLY WHERE REPLYNUM=#{replyNum}
+		DELETE FROM TQNAREPLY WHERE REPLYNUM=#{replyNum}
 	</delete>
 	
 	<update id="setUpdate" parameterType="TQnaReplyVO">

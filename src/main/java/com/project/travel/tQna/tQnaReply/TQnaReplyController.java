@@ -36,6 +36,7 @@ public class TQnaReplyController {
 	@PostMapping("add")
 	public ModelAndView setAdd(TQnaReplyVO tQnaReplyVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		System.out.println(tQnaReplyVO.getContents());
 		int result = tQnaReplyService.setAdd(tQnaReplyVO);
 		System.out.println("ADD!!!");
 		System.out.println(result);
