@@ -13,6 +13,9 @@ public class TbestVO {
 	private String category;
 	private String title;
 	private String detail;
+	private Long rec;
+	private Long step;
+	private Long depth;
 	
 	private List<TbestFilesVO> filesVOs;
 
