@@ -93,8 +93,7 @@ public class TReviewController {
 	public ModelAndView setUpdate(TReviewVO tReviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		tReviewVO = tReviewService.getDetail(tReviewVO);
-		mv.setViewName("tReview/update");
-		tReviewVO = tReviewService.getDetail(tReviewVO);
+		mv.setViewName("tReview/update");		
 		mv.addObject("vo",tReviewVO);
 		return mv;
 	}
@@ -106,11 +105,12 @@ public class TReviewController {
 		return mv;
 	}
 	
-	@GetMapping("delete")
+	@PostMapping("delete")
 	public ModelAndView setDelete(TReviewVO tReviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = tReviewService.setDelete(tReviewVO);
-		mv.setViewName("redirect:./list");
+		mv.addObject("result",result);
+		mv.setViewName("common/result");
 		return mv;
 	}
 	

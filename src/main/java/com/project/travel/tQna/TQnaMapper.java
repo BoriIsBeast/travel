@@ -42,5 +42,9 @@ public interface TQnaMapper {
 
 	//조회수
 	public int updateCount(String num) throws Exception;
+	
+	public int reply(TQnaVO tQnaVO)throws Exception;
+	
+	public int stepUpdate(TQnaVO tQnaVO) throws Exception;
 
 }

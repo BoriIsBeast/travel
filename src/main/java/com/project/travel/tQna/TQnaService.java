@@ -102,4 +102,9 @@ public class TQnaService {
 		return tQnaMapper.updateCount(num);		
 	}
 	
+	
+		
+		
+	
+	
 }
