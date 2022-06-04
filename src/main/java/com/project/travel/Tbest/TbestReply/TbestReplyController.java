@@ -12,17 +12,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/TbestReply/*")
 public class TbestReplyController {
-	
+
 	@Autowired
 	private TbestReplyService tbestReplyService;
-	
+
 	@ModelAttribute("TbestReply")
 	public String getTbestReply() {
 		return "TbestReply";
 	}
-	
+
 	@GetMapping("list")
-	public ModelAndView getList(TbestReplyVO tbestReplyVO)throws Exception{
+	public ModelAndView getList(TbestReplyVO tbestReplyVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("List!");
 		System.out.println(tbestReplyVO.getNum());

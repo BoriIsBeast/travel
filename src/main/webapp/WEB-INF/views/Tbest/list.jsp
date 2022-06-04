@@ -20,7 +20,8 @@
 			<div class="alert alert-primary" role="alert"
 				style="background-color: #0F172B !important;">
 				<h4 class="text-center"
-					style="text-transform: uppercase; color: #FEA116 !important;"> 코스 추천</h4>
+					style="text-transform: uppercase; color: #FEA116 !important;">
+					여행지 목록</h4>
 
 
 				<!-- 검색 -->
@@ -29,7 +30,7 @@
 						<select name="kind">
 							<option value="col1">카테고리</option>
 							<option value="col2">코스명</option>
-							
+
 
 						</select> <input class="form-control me-2" type="search"
 							placeholder="입력하세요." aria-label="Search" name="search">
@@ -40,10 +41,11 @@
 		</div>
 
 		<c:forEach items="${list}" var="vo">
-			<div class="card col-3 detail" data-num="${vo.num}">
+			<div class="card col-3 detail" data-num="${vo.num}"
+				style="display: inline-block; margin: 20px;">
 				<a href="./detail?num=${vo.num}"><img
 					src="../resources/upload/Tbest/${vo.filesVOs[0].fileName}"
-					class="card-img-top" alt="..."></a>
+					width="100%" height="400px" class="card-img-top" alt="..."></a>
 				<div class="card mb-3" style="max-width: 540px;">
 					<div class="row g-0">
 						<div class="col-md-4"></div>

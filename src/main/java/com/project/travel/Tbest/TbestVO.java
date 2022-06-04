@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class TbestVO {
-	
+
 	private Long num;
 	private Long productNum;
 	private String id;
@@ -16,7 +16,7 @@ public class TbestVO {
 	private Long rec;
 	private Long step;
 	private Long depth;
-	
+
 	private List<TbestFilesVO> filesVOs;
 
 }

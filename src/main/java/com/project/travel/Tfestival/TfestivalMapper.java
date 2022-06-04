@@ -8,36 +8,34 @@ import com.project.travel.util.Pager;
 
 @Mapper
 public interface TfestivalMapper {
-	
-	//list
+
+	// list
 	public List<TfestivalVO> list(Pager pager) throws Exception;
 
-	
-	//totalCount
-	public Long totalCount(Pager pager)throws Exception;
-	
-	//detail
+	// totalCount
+	public Long totalCount(Pager pager) throws Exception;
+
+	// detail
 	public TfestivalVO detail(TfestivalVO tfestivalVO) throws Exception;
-	
-	//add
+
+	// add
 	public int add(TfestivalVO tfestivalVO) throws Exception;
-	
-	//delete
+
+	// delete
 	public int delete(TfestivalVO tfestivalVO) throws Exception;
-	
-	//update
+
+	// update
 	public int update(TfestivalVO tfestivalVO) throws Exception;
 
-	
-	//fileAdd
+	// fileAdd
 	public int fileAdd(TfestivalFilesVO tfestivalFilesVO) throws Exception;
-	
-	//fileDelete
+
+	// fileDelete
 	public int fileDelete(TfestivalFilesVO tfestivalFilesVO) throws Exception;
-	
-	//fileDetail
+
+	// fileDetail
 	public TfestivalFilesVO fileDetail(TfestivalFilesVO tfestivalFilesVO) throws Exception;
-	
-	//fileList
+
+	// fileList
 	public List<TfestivalFilesVO> fileList(TfestivalVO tfestivalVO) throws Exception;
 }

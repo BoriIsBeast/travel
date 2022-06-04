@@ -12,36 +12,36 @@ import com.project.travel.util.Pager;
 
 @Service
 public class TbestService {
-	
+
 	@Autowired
 	private TbestMapper tbestMapper;
-	
+
 	@Autowired
 	private FileManager fileManager;
-	
-	//list
-	public List<TbestVO> list(Pager pager)throws Exception{
+
+	// list
+	public List<TbestVO> list(Pager pager) throws Exception {
 		pager.makeRow();
 		pager.makeNum(tbestMapper.totalCount(pager));
 		System.out.println("start : " + pager.getStartNum());
 		System.out.println("perPer : " + pager.getPerPage());
 		return tbestMapper.list(pager);
 	}
-	
-	//detail
-	public TbestVO detail(TbestVO tbestVO)throws Exception{
+
+	// detail
+	public TbestVO detail(TbestVO tbestVO) throws Exception {
 		return tbestMapper.detail(tbestVO);
 	}
-	
-	//add
-	public int add(TbestVO tbestVO, MultipartFile[] files)throws Exception{
+
+	// add
+	public int add(TbestVO tbestVO, MultipartFile[] files) throws Exception {
 		System.out.println("Insert 전 :" + tbestVO.getNum());
 		int result = tbestMapper.add(tbestVO);
 		System.out.println("Insert 후 :" + tbestVO.getNum());
-		
-		if(files != null && result > 0) {
-			for(MultipartFile mf : files) {
-				if(mf.isEmpty()) {
+
+		if (files != null && result > 0) {
+			for (MultipartFile mf : files) {
+				if (mf.isEmpty()) {
 					continue;
 				}
 				// 1. File을 HDD에 저장
@@ -53,56 +53,56 @@ public class TbestService {
 				tbestFilesVO.setFileName(fileName);
 				tbestFilesVO.setOriName(mf.getOriginalFilename());
 				result = tbestMapper.fileAdd(tbestFilesVO);
-				
-				if(result < 1) {
+
+				if (result < 1) {
 					throw new SQLException();
 				}
 			}
 		}
-		
+
 		return result;
 	}
-	
-	//delete
-	public int delete(TbestVO tbestVO) throws Exception{
+
+	// delete
+	public int delete(TbestVO tbestVO) throws Exception {
 		List<TbestFilesVO> ar = tbestMapper.fileList(tbestVO);
 		int result = tbestMapper.delete(tbestVO);
 		System.out.println("file size : " + ar.size());
-		for(TbestFilesVO f : ar) {
+		for (TbestFilesVO f : ar) {
 			fileManager.fileDelete(f.getFileName(), "resources/upload/Tbest");
 		}
 		return result;
 	}
-	
-	//update
-	public int update(TbestVO tbestVO) throws Exception{
+
+	// update
+	public int update(TbestVO tbestVO) throws Exception {
 		return tbestMapper.update(tbestVO);
 	}
-	
-	//fileDetail
-	public TbestFilesVO fileDetail(TbestFilesVO tbestFilesVO)throws Exception{
+
+	// fileDetail
+	public TbestFilesVO fileDetail(TbestFilesVO tbestFilesVO) throws Exception {
 		return tbestMapper.fileDetail(tbestFilesVO);
 	}
-	
-	//fileDelete
-	public int fileDelete(TbestFilesVO tbestFilesVO)throws Exception{
+
+	// fileDelete
+	public int fileDelete(TbestFilesVO tbestFilesVO) throws Exception {
 		tbestFilesVO = tbestMapper.fileDetail(tbestFilesVO);
 		int check = tbestMapper.fileDelete(tbestFilesVO);
-		if(check > 0) {
+		if (check > 0) {
 			boolean result = fileManager.fileDelete(tbestFilesVO.getFileName(), "/resources/upload/Tbest");
 		}
 		return check;
 	}
-	
-	public String SummerFileupload(MultipartFile files)throws Exception{
-		//file HDD에 저장하고 저장된 파일명을 return
+
+	public String SummerFileupload(MultipartFile files) throws Exception {
+		// file HDD에 저장하고 저장된 파일명을 return
 		String fileName = fileManager.fileSave(files, "resources/upload/Tbest");
-		fileName = "/resources/upload/Tbest/"+fileName;
+		fileName = "/resources/upload/Tbest/" + fileName;
 		return fileName;
 	}
-	
-	public boolean SummerFileDelete(String fileName)throws Exception{
-		fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+	public boolean SummerFileDelete(String fileName) throws Exception {
+		fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
 		System.out.println(fileName);
 		return fileManager.fileDelete(fileName, "resources/upload/Tbest/");
 	}

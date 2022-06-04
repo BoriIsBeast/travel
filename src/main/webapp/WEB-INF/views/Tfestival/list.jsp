@@ -20,7 +20,8 @@
 			<div class="alert alert-primary" role="alert"
 				style="background-color: #0F172B !important;">
 				<h4 class="text-center"
-					style="text-transform: uppercase; color: #FEA116 !important;">축제 정보</h4>
+					style="text-transform: uppercase; color: #FEA116 !important;">축제
+					정보</h4>
 
 
 				<!-- 검색 -->
@@ -29,7 +30,7 @@
 						<select name="kind">
 							<option value="col1">축제이름</option>
 							<option value="col2">장소</option>
-							
+
 
 						</select> <input class="form-control me-2" type="search"
 							placeholder="입력하세요." aria-label="Search" name="search">
@@ -42,14 +43,15 @@
 
 
 		<c:forEach items="${list}" var="vo">
-			<div class="card col-3 detail" data-num="${vo.num}">
+			<div class="card col-3 detail" data-num="${vo.num}"
+				style="display: inline-block; margin: 20px;">
 				<img src="../resources/upload/festival/${vo.filesVOs[0].fileName}"
-					class="card-img-top" alt="...">
+					width="100%" height="400px" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">${vo.name}</h5>
 					<p class="card-text">${vo.location}</p>
 					<a href="./detail?num=${vo.num}" class="btn btn-primary">더보기..</a>
-					<div class="card-footer">${vo.startDate} ~ ${vo.finishDate}</div>
+					<div class="card-footer">${vo.startDate}~${vo.finishDate}</div>
 				</div>
 			</div>
 		</c:forEach>
