@@ -29,22 +29,23 @@
 				<h4 class="text-center"
 					style="text-transform: uppercase; color: #FEA116 !important;">여행지
 					목록</h4>
-			
-		
-		<!-- 검색 -->
-		<div class="d-flex justify-content-end">
-			<form class="d-flex col-4 mb-3 ">
-				<select name="kind">
-					<option value="col1">지역(도)</option>
-					<option value="col2">지역(시)</option>
-					<option value="col3">여행지 이름</option>
 
-				</select> <input class="form-control me-2" type="search" placeholder="입력하세요."
-					aria-label="Search" name="search">
-				<button class="btn btn-outline-primary" type="submit">Search</button>
-			</form>
+
+				<!-- 검색 -->
+				<div class="d-flex justify-content-end">
+					<form class="d-flex col-4 mb-3 ">
+						<select name="kind">
+							<option value="col1">지역(도)</option>
+							<option value="col2">지역(시)</option>
+							<option value="col3">여행지 이름</option>
+
+						</select> <input class="form-control me-2" type="search"
+							placeholder="입력하세요." aria-label="Search" name="search">
+						<button class="btn btn-outline-primary" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
 		</div>
-</div></div>
 
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary"
