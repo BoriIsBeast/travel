@@ -15,8 +15,6 @@
 <body>
 	<c:import url="../temp/header.jsp"></c:import>
 
-		<h1>코스 추천</h1>
-
 	<div class="container mt-4">
 		<div class="row mt-4">
 			<div class="alert alert-primary" role="alert"
