@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.project.travel.cart.CartVO;
+import com.project.travel.cartPay.CartPayVO;
 
 @Mapper
 public interface PayMapper {
@@ -16,7 +17,12 @@ public interface PayMapper {
 	public List<CartVO> getOrderDetail(PayVO payVO) throws Exception;
 	
 	public int setDelete(PayVO payVO) throws Exception;
-
+	
+	public int payCheckUpdate(Long cartNum)throws Exception;
+	
+	public List<CartVO> getRefundList(CartVO cartVO)throws Exception;
+	
+	public int maxCountUpdate(Long cartNum)throws Exception;
 
 
 	

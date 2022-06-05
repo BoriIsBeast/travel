@@ -12,7 +12,11 @@
 </head>
 <body>
 <div class="container">
-	<h5>주문상세 페이지</h5>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">주문 상세 페이지</h4>
+			</div>
+		</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -37,6 +41,7 @@
 			
 		</tr>
 			<input type="hidden" id="num" value="${vo.cartPayVOs.num}">
+			<input type="hidden" class="cartNum" value="${vo.cartPayVOs.cartNum}">
 		</c:forEach>
 		<tr>
 		<td></td>

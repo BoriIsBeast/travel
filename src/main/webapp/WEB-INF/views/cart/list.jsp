@@ -13,7 +13,12 @@
 </head>
 <body>
 	<div class="container">
-		<h1>${member.id}'s cart List page</h1>
+	<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${member.id} 장바구니 내역</h4>
+			</div>
+		</div>
+
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -73,6 +78,7 @@
 			<c:otherwise>
 				<td></td>
 			 	<th>장바구니 내역이 없습니다.</th>
+			 	
 			</c:otherwise>
 			</c:choose>
 		</table>
@@ -102,6 +108,9 @@
 				</ul>
 			</nav>
 		</div>
+		</c:if>
+		<c:if test="${empty vo}">
+			<a href="../product/list">여행지 둘러보기</a>
 		</c:if>
 		
 			

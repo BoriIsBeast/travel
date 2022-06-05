@@ -36,7 +36,7 @@
 		</div>
 	
 	</div>
-	
+	<c:if test="${member.id ne null}">	
 		<div>
 			<input type="hidden" name="num" value="${vo.num}" id="num">
 			<input type="text" name="id" id="id1" value="${member.id}" readonly >
@@ -45,7 +45,7 @@
 			<button type="button" id="reply" class="btn btn-success mx-1">댓글</button>
 			
 		</div>
-		
+		</c:if>
 	
 	<table id="replyResult">
 	

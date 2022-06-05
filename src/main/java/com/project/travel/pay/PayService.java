@@ -67,8 +67,21 @@ public class PayService {
 		return payMapper.getOrderDetail(payVO);
 	}
 	
-	public int setDelete(PayVO payVO) throws Exception{
-		return payMapper.setDelete(payVO);
+	public int setDelete(PayVO payVO, Long[] cartNum) throws Exception{
+		
+		int result =0;
+		for(Long cn: cartNum) {		
+			
+			result= payMapper.payCheckUpdate(cn);
+			result=payMapper.maxCountUpdate(cn);
+		}
+		result= payMapper.setDelete(payVO);
+	
+		return result;
 	}
+	public List<CartVO> getRefundList(CartVO cartVO) throws Exception{
+		return payMapper.getRefundList(cartVO);
+	}
+
 	
 }

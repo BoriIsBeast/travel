@@ -69,13 +69,24 @@ public class PayController {
 	
 	@PostMapping("delete")
 	@ResponseBody
-	public Long setDelete(PayVO payVO) throws Exception{
+	public Long setDelete(PayVO payVO,@RequestParam(value="cartNum[]") Long[] cartNum)throws Exception{
 		
-		int result = payService.setDelete(payVO);
+		int result = payService.setDelete(payVO,cartNum);
 		
-		Long num=payVO.getNum();
+		Long num1=payVO.getNum();
 		
-		return num;
+		return num1;
+	}
+
+	@GetMapping("refund")
+	public ModelAndView getRefundList(CartVO cartVO) throws Exception{
+		ModelAndView mv=new ModelAndView();
+		
+		List<CartVO> ar=payService.getRefundList(cartVO);
+		
+		mv.addObject("list",ar);
+		mv.setViewName("pay/refund");
+		return mv;
 	}
 
 

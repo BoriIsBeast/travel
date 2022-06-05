@@ -17,6 +17,10 @@
 	height: 30rem;
 	object-fit: cover;
 }
+
+.submenu {
+	list-style: none;
+}
 </style>
 </head>
 <body>
@@ -29,23 +33,23 @@
 				<h4 class="text-center"
 					style="text-transform: uppercase; color: #FEA116 !important;">여행지
 					목록</h4>
-			
-		
-		<!-- 검색 -->
-		<div class="d-flex justify-content-end">
-			<form class="d-flex col-4 mb-3 ">
-				<select name="kind">
-					<option value="col1">지역(도)</option>
-					<option value="col2">지역(시)</option>
-					<option value="col3">여행지 이름</option>
 
-				</select> <input class="form-control me-2" type="search" placeholder="입력하세요."
-					aria-label="Search" name="search">
-				<button class="btn btn-outline-primary" type="submit">Search</button>
-			</form>
+
+				<!-- 검색 -->
+				<div class="d-flex justify-content-end">
+					<form class="d-flex col-4 mb-3 ">
+						<select name="kind">
+							<option value="col1">지역(도)</option>
+							<option value="col2">지역(시)</option>
+							<option value="col3">여행지 이름</option>
+
+						</select> <input class="form-control me-2" type="search"
+							placeholder="입력하세요." aria-label="Search" name="search">
+						<button class="btn btn-outline-primary" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
 		</div>
-</div></div>
-
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary"
 			style="background-color: #0F172B !important;">
@@ -55,12 +59,127 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 ul">
 
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="./list">지역 List - </a></li>
+							aria-current="page" href="./list">지역 - </a></li>
+						<li>
+						<div class="dropdown">	<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false">서울</a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item"
+										href="./list?search1=서울&search2=마포구">마포구</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=서울&search2=강남구">강남구</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=서울&search2=동대문구">동대문구</a></li>
+								</ul>
+							</div></li>
+							
+							<li><div class="dropdown">
+								<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false"> 경기 </a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item"
+									href="./list?search1=경기&search2=인천">인천</a></li>
+								<li><a class="dropdown-item"
+									href="./list?search1=경기&search2=수원">수원</a></li>
+								<li><a class="dropdown-item"
+									href="./list?search1=경기&search2=파주">파주</a></li>
+								</ul>
+							</div></li>
+							
+							<li><div class="dropdown">
+								<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false">강원</a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item"
+									href="./list?search1=강원&search2=강릉">강릉</a></li>
+								<li><a class="dropdown-item"
+									href="./list?search1=강원&search2=동해">동해</a></li>
+								<li><a class="dropdown-item"
+									href="./list?search1=강원&search2=속초">속초</a></li>
+								</ul>
+							</div></li>
+							
+							<li><div class="dropdown">
+								<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false">경상</a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item"
+									href="./list?search1=경상&search2=부산">부산</a></li>
+								<li><a class="dropdown-item"
+									href="./list?search1=경상&search2=경주">경주</a></li>
+								<li><a class="dropdown-item"
+									href="./list?search1=경상&search2=문경">문경</a></li>
+								
+								</ul>
+							</div></li>
+							
+							<li><div class="dropdown">
+								<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false">전라</a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item"
+										href="./list?search1=전라&search2=광주">광주</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=전라&search2=목포">목포</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=전라&search2=여수">여수</a></li>
+								</ul>
+							</div></li>
+							
+							<li><div class="dropdown">
+								<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false">충청</a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item"
+										href="./list?search1=충청&search2=대전">대전</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=충청&search2=제천">제천</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=충청&search2=단양">단양</a></li>
+								</ul>
+							</div></li>
+							
+							<li><div class="dropdown">
+								<a style="color: #FEA116 !important"
+									class="btn  dropdown-toggle nav-link active" href="#" role="button"
+									id="dropdownMenuLink" data-bs-toggle="dropdown"
+									aria-expanded="false">제주</a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item"
+										href="./list?search1=제주&search2=제주시">제주시</a></li>
+									<li><a class="dropdown-item"
+										href="./list?search1=제주&search2=서귀포시">서귀포시</a></li>
+								</ul>
+							</div></li> 
+							
 
 
-						<li class="nav-item"><a class="nav-link active"
+
+						<!-- ///////////////////////////////////////////////////// -->
+
+
+<!-- 		 <li class="nav-item"><a class="nav-link active" 
 							href="./list?kind=col1&search=서울">서울</a>
-							<ul class="submenu">
+						<ul class="submenu">
 								<li class="sub1"><a class="list"
 									href="./list?search1=서울&search2=마포구">마포구</a></li>
 								<li class="sub1"><a class="list"
@@ -69,8 +188,7 @@
 									href="./list?search1=서울&search2=동대문구">동대문구</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?search1=경기">경기</a>
-							<ul class="submenu">
+							href="./list?search1=경기">경기</a> <ul class="submenu">
 								<li class="sub1"><a class="list"
 									href="./list?search1=경기&search2=인천">인천</a></li>
 								<li class="sub1"><a class="list"
@@ -79,8 +197,7 @@
 									href="./list?search1=경기&search2=파주">파주</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=강원">강원</a>
-							<ul class="submenu">
+							href="./list?kind=col1&search=강원">강원</a> <ul class="submenu">
 								<li class="sub1"><a class="list"
 									href="./list?search1=강원&search2=강릉">강릉</a></li>
 								<li class="sub1"><a class="list"
@@ -89,8 +206,7 @@
 									href="./list?search1=강원&search2=속초">속초</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?search1=경상">경상</a>
-							<ul class="submenu">
+							href="./list?search1=경상">경상</a> <ul class="submenu">
 								<li class="sub1"><a class="list"
 									href="./list?search1=경상&search2=부산">부산</a></li>
 								<li class="sub1"><a class="list"
@@ -99,8 +215,8 @@
 									href="./list?search1=경상&search2=문경">문경</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=전라">전라</a>
-							<ul class="submenu">
+							href="./list?kind=col1&search=전라">전라</a> <ul class="submenu">
+							
 								<li class="sub1"><a class="list"
 									href="./list?search1=전라&search2=광주">광주</a></li>
 								<li class="sub1"><a class="list"
@@ -109,8 +225,7 @@
 									href="./list?search1=전라&search2=여수">여수</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=충청">충청</a>
-							<ul class="submenu">
+							href="./list?kind=col1&search=충청">충청</a> <ul class="submenu">
 								<li class="sub1"><a class="list"
 									href="./list?search1=충청&search2=대전">대전</a></li>
 								<li class="sub1"><a class="list"
@@ -119,16 +234,16 @@
 									href="./list?search1=충청&search2=제천">제천</a></li>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=제주">제주</a>
-							<ul class="submenu">
+							href="./list?kind=col1&search=제주">제주</a> <ul class="submenu">
 								<li class="sub1"><a class="list"
-									href="./list?search1=제주&search2=광주">제주시</a></li>
+									href="./list?search1=제주&search2=제주시">제주시</a></li>
 								<li class="sub1"><a class="list"
-									href="./list?search1=제주&search2=목포">서귀포시</a></li>
+									href="./list?search1=제주&search2=서귀포시">서귀포시</a></li>
 
-							</ul></li>
+							</ul></li> -->
+				
 
-					</ul>
+					</ul> 
 				</div>
 			</div>
 		</nav>
@@ -250,8 +365,10 @@
 	<script type="text/javascript">
 		$(".listDetail").click(function() {
 			let productNum = $(this).attr("data-num");
-			location.href = href = "./detail?productNum=" + productNum;
+			location.href = "./detail?productNum=" + productNum;
 		})
+
+		
 	</script>
 </body>
 </html>

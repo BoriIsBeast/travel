@@ -12,7 +12,11 @@
 </head>
 <body>
 <div class="container">
-<h1>결제 page</h1>
+	<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">결제 페이지</h4>
+			</div>
+		</div>
 
 <!-- 회원이 장바구니 list 에서 check한 cartNum들 결제 전 출력 page -->
 	<table class="table table-hover">
