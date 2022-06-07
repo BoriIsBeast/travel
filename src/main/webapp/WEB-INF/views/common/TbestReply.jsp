@@ -2,19 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<h5>댓글</h5>
+<c:forEach items="${list}" var="vo">
+		<tr class="bg">
+			<td id="up${vo.replyNum}">${vo.contents}</td>
+			<td>${vo.id}</td>
 
-<c:forEach items="${list}" var="vo" varStatus="i">
-	<tr>
-
-		<td id="up${vo.replyNum}">${vo.contents}</td>
-		<td>${vo.id}</td>
 		<td>
-		<c:if test="${member.id eq vo.id}">
-			<button class="update btn-success mx-1" type="button" data-index="${vo.replyNum}">수정</button>
-            <button class="del btn-danger mx-1" type="button" data-num="${vo.replyNum}">삭제</button>
+			<c:if test="${member.id eq vo.id}">
+				<button class="update" type="button" data-index="${vo.replyNum}">수정</button>
+				<button class="del" type="button" data-num="${vo.replyNum}">삭제</button>
 		</c:if>
 		</td>
-		
-	</tr>
-</c:forEach>
+		</tr>
+	</c:forEach>

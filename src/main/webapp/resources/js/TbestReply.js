@@ -3,153 +3,136 @@ const num = document.querySelector("#num");
 const id = document.querySelector("#id");
 const contents = document.querySelector("#contents");
 const replyResult = document.querySelector("#replyResult");
-const del = document.querySelectorAll(".del");
-const update = document.querySelectorAll(".update");
-const id1= document.getElementById("id1");
-const contents1=document.getElementById("contents1");
+const del = document.querySelector(".del");
 
 
-// list 가져오기
-getList();
-// -------------------list ajax ------------------
-function getList(){
-    const xhttp = new XMLHttpRequest();
-    console.log("List 가져오는중");
-    xhttp.open("GET", "../TbestReply/list?num="+num.value);
 
-    xhttp.send();
+//update
+replyResult.addEventListener("click", function(event){
+if(event.target.classList.contains('update')){
+    //event.target.classList.replace('update', reply);
+    let num = event.target.getAttribute('data-index'); // num
+    let replyNum = document.querySelector("#up"+num); //td
 
-    xhttp.onreadystatechange = function(){
-        if(this.readyState==4 && this.status==200){
-            console.log(this.responseText);
-            replyResult.innerHTML = this.responseText.trim();
-            console.log("List 가져오는거 성공");
-        }
-    }
+    let text = replyNum.innerText;
+    replyNum.innerText='';
 
-}
+    let tx = document.createElement('textarea');
+    tx.setAttribute("id", "update"+num);
+    tx.classList.add("reply");
+    tx.setAttribute("data-num", num);
+    tx.value=text;
 
-// ------------------------add------------------
-reply.addEventListener("click",function(){
-    console.log(num.value);
-    console.log(id1.value);
-    console.log(contents1.value);
- 
+    //console.log(tx);
+    replyNum.append(tx);
     
-     const xhttp = new XMLHttpRequest();
- 
-  
-     
-     xhttp.open("POST", "../TbestReply/add");
- 
- 
-     
-     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
- 
-     
-     xhttp.send("num="+num.value+"&id="+id1.value+"&contents="+contents1.value);
- 
-     
-     xhttp.onreadystatechange = function(){
-         if(this.readyState == 4 && this.status == 200){
-             console.log(this.responseText);
-             let result = this.responseText.trim();
-             if(result=='1'){
-                 alert('댓글이 등록 되었습니다');                 
-                 getList();
-             }else {
-                 alert('댓글 등록이 실패');
-             }
-         }
-     }
-
-});
-// ----------------update 
-replyResult.addEventListener("click",function(event){
-    if(event.target.classList.contains('update')){
-
-        let num = event.target.getAttribute('data-index');
-        let replyNum = document.querySelector("#up"+num);
-
-        let text = replyNum.innerText;
-        
-
-        let tx = document.createElement('textarea');
-        tx.setAttribute("id", "update"+num);
-        tx.classList.add('reply');
-        tx.setAttribute("data-num", num);
-        tx.value = text;
-        console.log(tx);
-        replyNum.append(tx);
-    }
+}
 });
 
-// -----------------update 실행 ------------------
-replyResult.addEventListener("change",function(event){
+replyResult.addEventListener("change", function(event){
     if(event.target.classList.contains('reply')){
-        let contents = event.target.value;
-        let replyNum = event.target.getAttribute("data-num");
-        
-
-        let check = window.confirm("수정 하시겠습니까?");
+        let replyNum = event.target.getAttribute('data-num'); // num
+        console.log(replyNum);
+        let contents = event.target.value
+        console.log("contents", contents);
+        console.log(event.target);
+        let check = window.confirm("수정하시겠습니까?"); // 확인 true 취소 false
 
         if(check){
             let xhttp = new XMLHttpRequest();
-
             xhttp.open("POST", "../TbestReply/update");
-
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
             xhttp.send("replyNum="+replyNum+"&contents="+contents);
-
-            xhttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    console.log(this.responseText);
                     if(this.responseText.trim()=='1'){
-                        alert('수정완료');
+                        alert('댓글 수정 성공');
                         document.querySelector("#up"+replyNum).innerHTML=contents;
-                    }else {
-                        alert('수정실패');
+                    }else{
+                        alert('댓글 수정 실패');
                     }
                 }
-
             }
-
-
         }
-
     }
-
 });
 
-
-//   ---------------------delete ----------------------
-replyResult.addEventListener("click",function(event){
+// delete
+replyResult.addEventListener("click", function(event){
 
     if(event.target.classList.contains('del')){
-		console.log("삭제합니까?")
-        let replyNum = event.target.getAttribute("data-num");
-        
-        
+        console.log("del click");
+      let replyNum = event.target.getAttribute("data-num");
+        console.log(replyNum);  
+
         const xhttp = new XMLHttpRequest();
         xhttp.open("POST", "../TbestReply/delete");
-		
-        
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
         xhttp.send("replyNum="+replyNum);
-
-
-        xhttp.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
+        xhttp.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200){
+                console.log(this.responseText);
                 if(this.responseText.trim()=='1'){
-                    alert('삭제성공');
-                    getList();
-                }else {
-                    alert('삭제실패');
-                }
+                alert('댓글 삭제 성공');
+                getList();
+            }else{
+                alert('댓글 삭제 실패');
             }
+        }
+    }
+}
+});
 
+    //list
+    getList();
+
+    function getList(){
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "../TbestReply/list?num="+num.value);
+        xhttp.send();
+        xhttp.onreadystatechange=function(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+            replyResult.innerHTML = this.responseText.trim();
+        }    
+        }
+
+    }
+
+// add
+reply.addEventListener("click", function(){
+
+    console.log(num.value);
+    console.log(id.value);
+    console.log(contents.value);
+
+   // 1. JS에서 요청 객체 생성(준비)
+   const xhttp = new XMLHttpRequest();
+
+   // 요청 정보 입력
+   //open("method형식", "URL주소")
+  xhttp.open("POST", "../TbestReply/add");
+
+   // 요청 header 정보
+   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+   //요청 정보
+   xhttp.send("num="+num.value+"&id="+id.value+"&contents="+contents.value);
+
+   //응답처리
+    xhttp.onreadystatechange=function(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+            let result = this.responseText.trim();
+            if(result == '1'){
+                alert('댓글 등록 성공');
+                getList();
+            }else{
+                alert('댓글 등록 실패');
+            }
         }
     }
 
+   
 });

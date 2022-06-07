@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class TfestivalVO {
-	
+
 	private Long num;
 	private String name;
 	private String startDate;
@@ -17,7 +17,7 @@ public class TfestivalVO {
 	private String age;
 	private String phone;
 	private String id;
-	
+
 	private List<TfestivalVO> filesVOs;
 
 }

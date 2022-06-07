@@ -39,29 +39,29 @@ public class TfestivalService {
 		int result = tfestivalMapper.add(tfestivalVO);
 		System.out.println("Insert 후 :" + tfestivalVO.getNum());
 
-		if(files != null & result > 0) {
-		
-		for (MultipartFile mf : files) {
+		if (files != null & result > 0) {
 
-			if (mf.isEmpty()) {
-				continue;
-			}
+			for (MultipartFile mf : files) {
 
-			// 1. File을 HDD에 저장
-			String fileName = fileManager.fileSave(mf, "resources/upload/festival");
-			System.out.println(fileName);
-			// 2. 저장된 정보를 DB에 저장
-			TfestivalFilesVO tfestivalFilesVO = new TfestivalFilesVO();
-			tfestivalFilesVO.setNum(tfestivalVO.getNum());
-			tfestivalFilesVO.setFileName(fileName);
-			tfestivalFilesVO.setOriName(mf.getOriginalFilename());
-			result = tfestivalMapper.fileAdd(tfestivalFilesVO);
-			if (result < 1) {
-				throw new SQLException();
+				if (mf.isEmpty()) {
+					continue;
+				}
+
+				// 1. File을 HDD에 저장
+				String fileName = fileManager.fileSave(mf, "resources/upload/festival");
+				System.out.println(fileName);
+				// 2. 저장된 정보를 DB에 저장
+				TfestivalFilesVO tfestivalFilesVO = new TfestivalFilesVO();
+				tfestivalFilesVO.setNum(tfestivalVO.getNum());
+				tfestivalFilesVO.setFileName(fileName);
+				tfestivalFilesVO.setOriName(mf.getOriginalFilename());
+				result = tfestivalMapper.fileAdd(tfestivalFilesVO);
+				if (result < 1) {
+					throw new SQLException();
+				}
 			}
 		}
-	}
-		
+
 		return result;
 
 	}
@@ -88,13 +88,13 @@ public class TfestivalService {
 	public TfestivalFilesVO fileDetail(TfestivalFilesVO tfestivalFilesVO) throws Exception {
 		return tfestivalMapper.fileDetail(tfestivalFilesVO);
 	}
-	
-	//fileDelete
-	public int fileDelete(TfestivalFilesVO tfestivalFilesVO)throws Exception{
+
+	// fileDelete
+	public int fileDelete(TfestivalFilesVO tfestivalFilesVO) throws Exception {
 		tfestivalFilesVO = tfestivalMapper.fileDetail(tfestivalFilesVO);
-		
+
 		int check = tfestivalMapper.fileDelete(tfestivalFilesVO);
-		if(check > 0) {
+		if (check > 0) {
 			boolean result = fileManager.fileDelete(tfestivalFilesVO.getFileName(), "/resources/upload/festival");
 		}
 		return check;

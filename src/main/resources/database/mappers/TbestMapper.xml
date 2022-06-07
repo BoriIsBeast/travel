@@ -6,84 +6,88 @@
 
 <mapper namespace="com.project.travel.Tbest.TbestMapper">
 
-<select id="list" parameterType="Pager" resultMap="bestResult">
-	SELECT B.NUM, B.CATEGORY, B.TITLE, B.DETAIL, BF.*
-	FROM (SELECT * FROM TBEST
-	WHERE NUM> 0 AND
-	<choose>
-		<when test="kind == 'col1'">
-			CATEGORY
-		</when>
-		<otherwise>
-			TITLE
-		</otherwise>
-	</choose>
-	LIKE CONCAT('%', #{search}, '%')
-	
-	ORDER BY NUM DESC
-	LIMIT #{startRow}, #{perPage}	
-	)B
-	LEFT JOIN
-	TBESTFILE BF
-	USING(NUM)
-	ORDER BY BF.FILENUM ASC
-</select>
+	<select id="list" parameterType="Pager" resultMap="bestResult">
+		SELECT B.NUM, B.CATEGORY, B.TITLE, B.DETAIL, BF.*
+		FROM (SELECT * FROM TBEST
+		WHERE NUM> 0 AND
+		<choose>
+			<when test="kind == 'col1'">
+				CATEGORY
+			</when>
+			<otherwise>
+				TITLE
+			</otherwise>
+		</choose>
+		LIKE CONCAT('%', #{search}, '%')
 
-<resultMap type="TbestVO" id="bestResult">
-<id column="num" property="num"/>
-<result column="productNum" property="productNum"/>
-<result column="id" property="id"/>
-<result column="category" property="category"/>
-<result column="title" property="title"/>
-<result column="detail" property="detail"/>
-<collection property="filesVOs" javaType="List" ofType="TbestFilesVO">
-<id column="fileNum" property="fileNum"/>
-<result column="num" property="num"/>
-<result column="productNum" property="productNum"/>
-<result column="id" property="id"/>
-<result column="fileName" property="fileName"/>
-<result column="oriName" property="oriName"/>
-</collection>
-</resultMap>
+		ORDER BY NUM DESC
+		LIMIT #{startRow}, #{perPage}
+		)B
+		LEFT JOIN
+		TBESTFILE BF
+		USING(NUM)
+		ORDER BY BF.FILENUM ASC
+	</select>
 
-<select id="totalCount" parameterType="Pager" resultType="Long">
-SELECT COUNT(NUM) FROM TBEST
-	WHERE
-	<choose>
-		<when test="kind == 'col1'">
-			CATEGORY
-		</when>
-		<otherwise>
-			TITLE
-		</otherwise>
-	</choose>
-	LIKE CONCAT('%', #{search}, '%')
-</select>
+	<resultMap type="TbestVO" id="bestResult">
+		<id column="num" property="num" />
+		<result column="productNum" property="productNum" />
+		<result column="id" property="id" />
+		<result column="category" property="category" />
+		<result column="title" property="title" />
+		<result column="detail" property="detail" />
+		<collection property="filesVOs" javaType="List"
+			ofType="TbestFilesVO">
+			<id column="fileNum" property="fileNum" />
+			<result column="num" property="num" />
+			<result column="productNum" property="productNum" />
+			<result column="id" property="id" />
+			<result column="fileName" property="fileName" />
+			<result column="oriName" property="oriName" />
+		</collection>
+	</resultMap>
 
-<insert id="add" parameterType="TbestVO" useGeneratedKeys="true" keyProperty="num">
-	INSERT INTO TBEST (NUM, ID, CATEGORY, TITLE, DETAIL)
-	VALUES(#{num}, #{id}, #{category}, #{title}, #{detail})
-</insert>
+	<select id="totalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM TBEST
+		WHERE
+		<choose>
+			<when test="kind == 'col1'">
+				CATEGORY
+			</when>
+			<otherwise>
+				TITLE
+			</otherwise>
+		</choose>
+		LIKE CONCAT('%', #{search}, '%')
+	</select>
 
-<select id="detail" parameterType="TbestVO" resultType="TbestVO">
-	SELECT * FROM TBEST WHERE NUM = #{num}
-</select>
+	<insert id="add" parameterType="TbestVO" useGeneratedKeys="true"
+		keyProperty="num">
+		INSERT INTO TBEST (NUM, ID, CATEGORY, TITLE, DETAIL)
+		VALUES(#{num}, #{id}, #{category}, #{title}, #{detail})
+	</insert>
 
-<update id="update" parameterType="TbestVO">
-	UPDATE TBEST SET CATEGORY = #{category}, TITLE = #{title}, DETAIL = #{detail} WHERE NUM = #{num}
-</update>
+	<select id="detail" parameterType="TbestVO" resultType="TbestVO">
+		SELECT * FROM TBEST WHERE NUM = #{num}
+	</select>
 
-<delete id="delete" parameterType="TbestVO">
-	DELETE FROM TBEST WHERE NUM = #{num}
-</delete>
+	<update id="update" parameterType="TbestVO">
+		UPDATE TBEST SET CATEGORY = #{category}, TITLE = #{title}, DETAIL =
+		#{detail} WHERE NUM = #{num}
+	</update>
 
-<select id="fileList" parameterType="TbestVO" resultType="TbestFilesVO">
-	SELECT * FROM TBESTFILE WHERE NUM = #{num}
-</select>
+	<delete id="delete" parameterType="TbestVO">
+		DELETE FROM TBEST WHERE NUM = #{num}
+	</delete>
 
-<insert id="fileAdd" parameterType="TbestFilesVO">
-	INSERT INTO TBESTFILE (FILENUM, NUM, FILENAME, ORINAME)
-	VALUES (NULL, #{num}, #{fileName}, #{oriName})
-</insert>
+	<select id="fileList" parameterType="TbestVO"
+		resultType="TbestFilesVO">
+		SELECT * FROM TBESTFILE WHERE NUM = #{num}
+	</select>
+
+	<insert id="fileAdd" parameterType="TbestFilesVO">
+		INSERT INTO TBESTFILE (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES (NULL, #{num}, #{fileName}, #{oriName})
+	</insert>
 
 </mapper>

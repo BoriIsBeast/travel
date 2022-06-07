@@ -6,111 +6,120 @@
 
 <mapper namespace="com.project.travel.Tfestival.TfestivalMapper">
 
-<select id="fileList" parameterType="TfestivalVO" resultType="TfestivalFilesVO">
-	SELECT * FROM TFESTIVALFILE WHERE NUM = #{num}
-</select>
+	<select id="fileList" parameterType="TfestivalVO"
+		resultType="TfestivalFilesVO">
+		SELECT * FROM TFESTIVALFILE WHERE NUM = #{num}
+	</select>
 
-<insert id="fileAdd" parameterType="TfestivalFilesVO">
-	INSERT INTO TFESTIVALFILE (FILENUM, NUM, FILENAME, ORINAME)
-	VALUES (NULL, #{num}, #{fileName}, #{oriName})
-</insert>
+	<insert id="fileAdd" parameterType="TfestivalFilesVO">
+		INSERT INTO TFESTIVALFILE (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES (NULL, #{num}, #{fileName}, #{oriName})
+	</insert>
 
-<select id="fileDetail" parameterType="TfestivalFilesVO" resultType="TfestivalFilesVO">
-	SELECT * FROM TFESTIVALFILE WHERE FILENUM = #{fileNum}
-</select>
+	<select id="fileDetail" parameterType="TfestivalFilesVO"
+		resultType="TfestivalFilesVO">
+		SELECT * FROM TFESTIVALFILE WHERE FILENUM = #{fileNum}
+	</select>
 
-<select id="list" parameterType="Pager" resultMap="festivalResult">
-	SELECT F.NUM, F.NAME, F.LOCATION, F.STARTDATE, F.FINISHDATE, FF.*
-	FROM (SELECT * FROM TFESTIVAL
-	WHERE NUM > 0 AND
-	<choose>
-		<when test="kind == 'col1'">
-			NAME
-		</when>
-		<otherwise>
-			LOCATION
-		</otherwise>
-	</choose>
-	LIKE concat('%', #{search}, '%')
-	
-	ORDER BY NUM DESC
-	LIMIT #{startRow}, #{perPage}	
-	)F
-	LEFT JOIN
-	TFESTIVALFILE FF
-	USING(NUM)
-	ORDER BY FF.FILENUM ASC
-</select>
+	<select id="list" parameterType="Pager"
+		resultMap="festivalResult">
+		SELECT F.NUM, F.NAME, F.LOCATION, F.STARTDATE, F.FINISHDATE, FF.*
+		FROM (SELECT * FROM TFESTIVAL
+		WHERE NUM > 0 AND
+		<choose>
+			<when test="kind == 'col1'">
+				NAME
+			</when>
+			<otherwise>
+				LOCATION
+			</otherwise>
+		</choose>
+		LIKE concat('%', #{search}, '%')
 
-<resultMap type="TfestivalVO" id="festivalResult">
-<id column="num" property="num"/>
-	<result column="name" property="name"/>
-	<result column="startDate" property="startDate"/>
-	<result column="finishDate" property="finishDate"/>
-	<result column="location" property="location"/>
-	<result column="detail" property="detail"/>
-	<result column="homePage" property="homePage"/>
-	<result column="age" property="age"/>
-	<result column="phone" property="phone"/>
-	<collection property="filesVOs" javaType="java.util.List" ofType="TfestivalFilesVO">
-	<id column="fileNum" property="fileNum"/>
- 	<result column="fileName" property="fileName"/>
- 	<result column="oriName" property="oriName"/>
-	</collection>
-</resultMap>
+		ORDER BY NUM DESC
+		LIMIT #{startRow}, #{perPage}
+		)F
+		LEFT JOIN
+		TFESTIVALFILE FF
+		USING(NUM)
+		ORDER BY FF.FILENUM ASC
+	</select>
 
- <select id="totalCount" parameterType="Pager" resultType="Long">
-SELECT COUNT(NUM) FROM TFESTIVAL
-	WHERE
-	<choose>
-		<when test="kind == 'col1'">
-			NAME
-		</when>
-		<otherwise>
-			LOCATION
-		</otherwise>
-	</choose>
-	LIKE concat('%', #{search}, '%')
-</select>
+	<resultMap type="TfestivalVO" id="festivalResult">
+		<id column="num" property="num" />
+		<result column="name" property="name" />
+		<result column="startDate" property="startDate" />
+		<result column="finishDate" property="finishDate" />
+		<result column="location" property="location" />
+		<result column="detail" property="detail" />
+		<result column="homePage" property="homePage" />
+		<result column="age" property="age" />
+		<result column="phone" property="phone" />
+		<collection property="filesVOs" javaType="java.util.List"
+			ofType="TfestivalFilesVO">
+			<id column="fileNum" property="fileNum" />
+			<result column="fileName" property="fileName" />
+			<result column="oriName" property="oriName" />
+		</collection>
+	</resultMap>
 
-<select id="detail" parameterType="TfestivalVO" resultMap="detailResult">
-	SELECT F.* , FF.*
-	FROM TFESTIVAL F
-	LEFT JOIN
-	TFESTIVALFILE FF
-	USING(NUM)
-	WHERE NUM= #{num}
-</select>
+	<select id="totalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM TFESTIVAL
+		WHERE
+		<choose>
+			<when test="kind == 'col1'">
+				NAME
+			</when>
+			<otherwise>
+				LOCATION
+			</otherwise>
+		</choose>
+		LIKE concat('%', #{search}, '%')
+	</select>
 
-<resultMap type="TfestivalVO" id="detailResult">
-	<id column="num" property="num"/>
-	<result column="name" property="name"/>
-	<result column="startDate" property="startDate"/>
-	<result column="finishDate" property="finishDate"/>
-	<result column="location" property="location"/>
-	<result column="detail" property="detail"/>
-	<result column="homePage" property="homePage"/>
-	<result column="age" property="age"/>
-	<result column="phone" property="phone"/>
-	<collection property="filesVOs" javaType="java.util.List" ofType="TfestivalFilesVO">
-	<id column="fileNum" property="fileNum"/>
-	<result column="fileName" property="fileName"/>
-	<result column="oriName" property="oriName"/>
-	</collection>
-	
-</resultMap>
+	<select id="detail" parameterType="TfestivalVO"
+		resultMap="detailResult">
+		SELECT F.* , FF.*
+		FROM TFESTIVAL F
+		LEFT JOIN
+		TFESTIVALFILE FF
+		USING(NUM)
+		WHERE NUM= #{num}
+	</select>
 
-<insert id="add" parameterType="TfestivalVO" useGeneratedKeys="true" keyProperty="num">
-      INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
-  	  VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age}, #{phone})
-</insert>
+	<resultMap type="TfestivalVO" id="detailResult">
+		<id column="num" property="num" />
+		<result column="name" property="name" />
+		<result column="startDate" property="startDate" />
+		<result column="finishDate" property="finishDate" />
+		<result column="location" property="location" />
+		<result column="detail" property="detail" />
+		<result column="homePage" property="homePage" />
+		<result column="age" property="age" />
+		<result column="phone" property="phone" />
+		<collection property="filesVOs" javaType="java.util.List"
+			ofType="TfestivalFilesVO">
+			<id column="fileNum" property="fileNum" />
+			<result column="fileName" property="fileName" />
+			<result column="oriName" property="oriName" />
+		</collection>
 
-<delete id="delete" parameterType="TfestivalVO">
- 	DELETE FROM TFESTIVAL WHERE NUM = #{num}
-</delete>
+	</resultMap>
 
-<update id="update" parameterType="TfestivalVO">
-	 UPDATE TFESTIVAL SET NAME = #{name}, STARTDATE = #{startDate}, FINISHDATE = #{finishDate}, LOCATION = #{location}, DETAIL = #{detail}, HOMEPAGE = #{homePage}, AGE = #{age}, PHONE = #{phone} WHERE NUM = #{num}
-</update>
+	<insert id="add" parameterType="TfestivalVO"
+		useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
+		VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age}, #{phone})
+	</insert>
+
+	<delete id="delete" parameterType="TfestivalVO">
+		DELETE FROM TFESTIVAL WHERE NUM = #{num}
+	</delete>
+
+	<update id="update" parameterType="TfestivalVO">
+		UPDATE TFESTIVAL SET NAME = #{name}, STARTDATE = #{startDate}, FINISHDATE = #{finishDate},
+		LOCATION = #{location}, DETAIL = #{detail} HOMEPAGE = #{homePage}, AGE = #{age}, PHONE = #{phone}
+		WHERE NUM = #{num}
+	</update>
 
 </mapper>

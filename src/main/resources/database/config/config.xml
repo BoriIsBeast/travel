@@ -6,25 +6,22 @@
   <configuration>
   	<typeAliases>
 
-
   		<typeAlias type="com.project.travel.tNotice.TNoticeVO" alias="TNoticeVO"/>
   		<typeAlias type="com.project.travel.tNotice.TNoticeFilesVO" alias="TNoticeFilesVO"/>
 
   		<typeAlias type="com.project.travel.product.ProductVO" alias="ProductVO"/>
   		<typeAlias type="com.project.travel.product.ProductFilesVO" alias="ProductFilesVO"/>
   		
-  		<typeAlias type = "java.lang.Long" alias="Long" />
-  		
-
+  		<typeAlias type = "java.lang.Long" alias="Long" />  		
   		
   		<typeAlias type="com.project.travel.tQna.TQnaVO" alias="TQnaVO"/>
   		<typeAlias type="com.project.travel.tQna.TQnaFilesVO" alias="TQnaFilesVO"/>
   		<typeAlias type="com.project.travel.tQna.tQnaReply.TQnaReplyVO" alias="TQnaReplyVO"/>
   		
   		<typeAlias type="com.project.travel.tReview.TReviewVO" alias="TReviewVO"/>
+
   		<typeAlias type="com.project.travel.tReview.TReviewFilesVO" alias="TReviewFilesVO"/>
   		<typeAlias type="com.project.travel.tReview.TReviewReply.TReviewReplyVO" alias="TReviewReplyVO"/>
-  		
   		
   		<typeAlias type="com.project.travel.util.Pager" alias="Pager"/>
   		<typeAlias type="java.util.List" alias="List"/>
@@ -36,7 +33,6 @@
   		<typeAlias type="com.project.travel.Tbest.TbestVO" alias="TbestVO"/>
   		<typeAlias type="com.project.travel.Tbest.TbestFilesVO" alias="TbestFilesVO"/>
   		<typeAlias type="com.project.travel.Tbest.TbestReply.TbestReplyVO" alias="TbestReplyVO"/>
-
 
   		<typeAlias type="com.project.travel.member.MemberVO" alias="MemberVO"/>
   		

@@ -4,24 +4,27 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.project.travel.tQna.tQnaReply.TQnaReplyMapper">
-	<select id="getList" parameterType="TQnaReplyVO" resultType="TQnaReplyVO">
-		SELECT*FROM TQNAREPLY
+<mapper namespace="com.project.travel.Tbest.TbestReply.TbestReplyMapper">
+	<select id="getList" parameterType="TbestReplyVO" resultType="TbestReplyVO">
+		SELECT*FROM TBESTREPLY
 		WHERE NUM=#{num}
 		ORDER BY REPLYNUM DESC
 	</select>
 	
-	<insert id="setAdd" parameterType="TQnaReplyVO" useGeneratedKeys="true" keyProperty="replyNum">
-		INSERT INTO TQNAREPLY (REPLYNUM, NUM, ID, CONTENTS, REGDATE)
+	<insert id="setAdd" parameterType="TbestReplyVO" useGeneratedKeys="true" keyProperty="replyNum">
+		INSERT INTO TBESTREPLY (REPLYNUM, NUM, ID, CONTENTS, REGDATE)
 		VALUES (#{replyNum}, #{num}, #{id}, #{contents}, now())
 	</insert>
 	
-	<delete id="setDelete" parameterType="TQnaReplyVO">
-		DELETE FROM TQNAREPLY WHERE REPLYNUM=#{replyNum}
+	<delete id="setDelete" parameterType="TbestReplyVO">
+		DELETE FROM TBESTREPLY
+		WHERE REPLYNUM=#{replyNum}
 	</delete>
 	
-	<update id="setUpdate" parameterType="TQnaReplyVO">
-		UPDATE TQNAREPLY SET CONTENTS=#{contents} WHERE REPLYNUM=#{replyNum}
+	<update id="setUpdate" parameterType="TbestReplyVO">
+		UPDATE TBESTREPLY
+		SET CONTENTS=#{contents}
+		WHERE REPLYNUM=#{replyNum}
 	</update>
 	
 </mapper>
