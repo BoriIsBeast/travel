@@ -42,6 +42,7 @@
 
 
 
+
 		<c:forEach items="${list}" var="vo">
 			<div class="card col-3 detail" data-num="${vo.num}"
 				style="display: inline-block; margin: 20px;">
@@ -67,14 +68,18 @@
 						href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
 				</c:forEach>
 
-				<li class="page-item"><a class="page-link" href="href="
-					./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&nind=${pager.kind}&search=${pager.search}
-					" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				<li class="page-item"><a class="page-link" href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&nind=${pager.kind}&search=${pager.search}" 
+				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
 		</nav>
-		<a href="./add"><button type="submit"
-				class="btn btn-outline-secondary">ADD</button></a>
+		<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
+			<!-- add 버튼 -->
+			<div class="row mt-4">
+				<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
+			</div>
+		</c:if>
+
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

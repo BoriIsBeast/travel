@@ -19,6 +19,7 @@
 			class="card-img-top" alt="...">
 	</div>
 
+
 	<div class="accordion" id="accordionPanelsStayOpenExample">
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -80,12 +81,18 @@
 	</div>
 
 	<a href="./list"role="button" class="btn btn-outline-danger">목록</a>
-	<a href="./delete?num=${vo.num}"><button type="button" class="btn btn-outline-danger">삭제</button></a>
-	<a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>
+	<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
+			<!-- add 버튼 -->
+			<div class="row mt-4">
+				<a href="./delete?num=${vo.num}"><button type="button" class="btn btn-outline-danger">삭제</button></a>
+				<a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>	
+			</div>
+		</c:if>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -4,12 +4,18 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.travel.Tbest.TbestVO;
+import com.project.travel.cart.CartVO;
 import com.project.travel.member.MemberVO;
 import com.project.travel.product.ProductVO;
 import com.project.travel.util.Pager;
 
 @Mapper
 public interface AdminMapper {
+	
+	public List<TbestVO> getBestList(Pager pager) throws Exception;
+	
+	public List<CartVO> getSellList(Pager pager)throws Exception;
 	
 	public MemberVO getMemberDetail(MemberVO memberVO)throws Exception;
 	

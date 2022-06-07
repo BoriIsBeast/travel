@@ -11,7 +11,7 @@ import lombok.Data;
 public class MemberVO {
 	@NotBlank(message = "반드시 입력하세요.")
 	private String id;
-	@Size(min = 4 ,max = 8)
+	@Size(min = 3 ,max = 8)
 	private String pw;
 	@NotBlank(message = "반드시 입력하세요.")
 	private String name;

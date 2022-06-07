@@ -193,6 +193,11 @@ public class MemberController {
 	public ModelAndView setJoin(@Valid MemberVO memberVO,BindingResult bindingResult)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
+		if(memberService.memberError(memberVO, bindingResult)) {
+			 mv.setViewName("member/join"); 
+			 return mv; 
+		}
+		
 		int result = memberService.setJoin(memberVO);
 		
 		mv.setViewName("redirect:../");

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.travel.Tbest.TbestVO;
+import com.project.travel.cart.CartVO;
 import com.project.travel.member.MemberVO;
 import com.project.travel.product.ProductMapper;
 import com.project.travel.product.ProductVO;
@@ -16,6 +18,17 @@ public class AdminService {
 	private ProductMapper productMapper;
 	@Autowired
 	private AdminMapper adminMapper;
+	
+	public List<TbestVO> getBestList(Pager pager)throws Exception{
+		
+		
+		return adminMapper.getBestList(pager);
+	}
+	
+	public List<CartVO> getSellList(Pager pager)throws Exception{
+		
+		return adminMapper.getSellList(pager);
+	}
 	
 	public MemberVO getMemberDetail(MemberVO memberVO)throws Exception{
 		
