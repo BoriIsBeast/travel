@@ -62,20 +62,26 @@
 				class="accordion-collapse collapse"
 				aria-labelledby="panelsStayOpen-headingThree">
 				<div class="accordion-body">
-					<strong> 시작일 : ${vo.startDate} <br> 종료일 :
-						${vo.finishDate} <br> 장소 : ${vo.location} <br> 홈페이지 :
-						${vo.homePage} <br> 관람가능연령 : ${vo.age} <br> 전화번호 :
-						${vo.phone}
+					<strong> 시작일 : ${vo.startDate}
+					<br>
+					종료일 : ${vo.finishDate}
+					<br>
+					장소 : ${vo.location}
+					<br>
+					홈페이지 : ${vo.homePage}
+					<br>
+					관람가능연령 : ${vo.age}
+					<br>
+					전화번호 : ${vo.phone}
 					</strong>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<a href="./delete?num=${vo.num}"><button type="button"
-			class="btn btn-outline-danger">삭제</button></a>
-	<a href="./update?num=${vo.num}"><button type="button"
-			class="btn btn-outline-danger">수정</button></a>
+	<a href="./delete?num=${vo.num}">
+	<button type="button" class="btn btn-outline-danger">삭제</button></a>
+	<a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

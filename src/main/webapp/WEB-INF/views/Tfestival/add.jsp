@@ -49,8 +49,7 @@
 					aria-label="default input example">
 			</div>
 			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label">상세
-					정보</label>
+				<label for="exampleFormControlTextarea1" class="form-label">상세정보</label>
 				<textarea class="form-control" name="detail"
 					id="exampleFormControlTextarea1" rows="3"></textarea>
 			</div>

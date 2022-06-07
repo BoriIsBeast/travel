@@ -49,7 +49,7 @@ public class TbestController {
 	public ModelAndView add(TbestVO tbestVO, HttpSession session, MultipartFile[] files) throws Exception {
 		ModelAndView mv = new ModelAndView();
 
-		/// 업로드시 파일명 출력
+		/// 업로드시 파일명 출력 확인
 		// for(MultipartFile f : files) {
 		// System.out.println(f.getOriginalFilename());
 		// }

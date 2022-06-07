@@ -39,7 +39,7 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- list -->
 		<c:forEach items="${list}" var="vo">
 			<div class="card col-3 detail" data-num="${vo.num}"
 				style="display: inline-block; margin: 20px;">
@@ -62,6 +62,7 @@
 			</div>
 		</c:forEach>
 
+		<!-- 페이징처리 -->
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">
 				<li class="page-item"><a class="page-link"
@@ -79,6 +80,8 @@
 				</a></li>
 			</ul>
 		</nav>
+		
+		<!-- 글쓰기 버튼 -->
 		<a href="./add"><button type="submit"
 				class="btn btn-outline-secondary">ADD</button></a>
 	</div>

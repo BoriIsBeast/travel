@@ -22,20 +22,20 @@
 		<div class="mb-3">
 			<input class="form-control" name="num" value="${vo.num}"
 				type="hidden" aria-label="default input example"> <label
-				for="exampleFormControlTextarea1" class="form-label">축제이름</label> <input
-				class="form-control" name="name" value="${vo.name}" type="text"
+				for="exampleFormControlTextarea1" class="form-label">축제이름</label>
+				<input class="form-control" name="name" value="${vo.name}" type="text"
 				aria-label="default input example">
 		</div>
 
 		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">축제
-				시작일</label> <input class="form-control" name="startDate"
+			<label for="exampleFormControlTextarea1" class="form-label">축제시작일</label>
+			<input class="form-control" name="startDate"
 				value="${vo.startDate}" type="text"
 				aria-label="default input example">
 		</div>
 		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">축제
-				종료일</label> <input class="form-control" name="finishDate"
+			<label for="exampleFormControlTextarea1" class="form-label">축제종료일</label>
+			<input class="form-control" name="finishDate"
 				value="${vo.finishDate}" type="text"
 				aria-label="default input example">
 		</div>
@@ -45,8 +45,7 @@
 				type="text" aria-label="default input example">
 		</div>
 		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">상세
-				정보</label>
+			<label for="exampleFormControlTextarea1" class="form-label">상세정보</label>
 			<textarea class="form-control" name="detail" value="${vo.detail}"
 				id="exampleFormControlTextarea1" rows="3"></textarea>
 		</div>
@@ -56,8 +55,8 @@
 				type="text" aria-label="default input example">
 		</div>
 		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">관람가능
-				연령</label> <input class="form-control" name="age" value="${vo.age}"
+			<label for="exampleFormControlTextarea1" class="form-label">관람가능 연령</label>
+			<input class="form-control" name="age" value="${vo.age}"
 				type="text" aria-label="default input example">
 		</div>
 		<div class="mb-3">

@@ -108,10 +108,8 @@
 
 	<insert id="add" parameterType="TfestivalVO"
 		useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL,
-		HOMEPAGE, AGE, PHONE)
-		VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location},
-		#{detail}, #{homePage}, #{age}, #{phone})
+		INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
+		VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age}, #{phone})
 	</insert>
 
 	<delete id="delete" parameterType="TfestivalVO">
@@ -119,9 +117,9 @@
 	</delete>
 
 	<update id="update" parameterType="TfestivalVO">
-		UPDATE TFESTIVAL SET NAME = #{name}, STARTDATE = #{startDate}, FINISHDATE =
-		#{finishDate}, LOCATION = #{location}, DETAIL = #{detail}, HOMEPAGE =
-		#{homePage}, AGE = #{age}, PHONE = #{phone} WHERE NUM = #{num}
+		UPDATE TFESTIVAL SET NAME = #{name}, STARTDATE = #{startDate}, FINISHDATE = #{finishDate},
+		LOCATION = #{location}, DETAIL = #{detail} HOMEPAGE = #{homePage}, AGE = #{age}, PHONE = #{phone}
+		WHERE NUM = #{num}
 	</update>
 
 </mapper>
