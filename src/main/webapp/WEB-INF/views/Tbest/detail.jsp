@@ -23,17 +23,21 @@
 	<hr>
 
 	<div>
-		<input type="hidden" name="num" value="${vo.num}" id="num">
-		아이디 : <input type="text" readonly="readonly" name="id"
-			value="${member.id}" id="id"> 내용 :
-		<textarea rows="" cols="50" name="contents" id="contents"></textarea>
-		<button type="button" id="reply" class="btn btn-outline-warning">댓글추가</button>
-	</div>
-	<hr>
-
-	<!-- 	<table id="replyResult">
-	</table> -->
-
+			<input type="hidden" name="num" value="${vo.num}" id="num">
+			<input type="text" name="id" id="id1" value="${member.id}" readonly >
+			<input type="text" name="contents" id="contents1">
+			<!-- <textarea rows="" cols="" name="contents" id="contents"></textarea> -->
+			<button type="button" id="reply" class="btn btn-success mx-1">댓글</button>
+			
+		</div>
+		
+	
+	<table id="replyResult">
+	
+	</table>
+	<div class="col-2 d-flex">	
+	
+	<a href="./list"role="button" class="btn btn-outline-danger">목록</a>
 	<a href="./delete?num=${vo.num}"><button type="button"
 			class="btn btn-outline-danger">삭제</button></a>
 	<a href="./update?num=${vo.num}"><button type="button"

@@ -21,6 +21,7 @@ public class TbestReplyController {
 		return "TbestReply";
 	}
 
+	//댓글 list
 	@GetMapping("list")
 	public ModelAndView getList(TbestReplyVO tbestReplyVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -29,6 +30,36 @@ public class TbestReplyController {
 		List<TbestReplyVO> ar = tbestReplyService.getList(tbestReplyVO);
 		mv.addObject("list", ar);
 		mv.setViewName("common/TbestReply");
+		return mv;
+	}
+	
+	//댓글 add
+	public ModelAndView setAdd(TbestReplyVO tbestReplyVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(tbestReplyVO.getContents());
+		int result = tbestReplyService.setAdd(tbestReplyVO);
+		System.out.println("add!");
+		System.out.println(result);
+		mv.addObject("result", result);
+		mv.setViewName("common/result");
+		return mv;
+	}
+	
+	//댓글 삭제
+	public ModelAndView setDelete(TbestReplyVO tbestReplyVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = tbestReplyService.setDelete(tbestReplyVO);
+		mv.addObject("result", result);
+		mv.setViewName("common/result");
+		return mv;
+	}
+	
+	//댓글 수정
+	public ModelAndView setUpdate(TbestReplyVO tbestReplyVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = tbestReplyService.setUpdate(tbestReplyVO);
+		mv.addObject("result", result);
+		mv.setViewName("common/result");
 		return mv;
 	}
 

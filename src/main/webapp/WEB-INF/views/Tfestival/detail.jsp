@@ -79,8 +79,8 @@
 		</div>
 	</div>
 
-	<a href="./delete?num=${vo.num}">
-	<button type="button" class="btn btn-outline-danger">삭제</button></a>
+	<a href="./list"role="button" class="btn btn-outline-danger">목록</a>
+	<a href="./delete?num=${vo.num}"><button type="button" class="btn btn-outline-danger">삭제</button></a>
 	<a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>
 
 	<script
