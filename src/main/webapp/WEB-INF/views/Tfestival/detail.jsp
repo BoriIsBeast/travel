@@ -11,9 +11,15 @@
 	crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<c:import url="../temp/header_script.jsp"></c:import>
+	<c:import url="../temp/header_css.jsp"></c:import>
+	<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
-	<h1>축제 상세정보</h1>
+	
+	<div class="container">
+	
+	&nbsp;
 	<div class="col-sm-4">
 		<img src="../resources/upload/festival/${vo.filesVOs[0].fileName}"
 			class="card-img-top" alt="...">
@@ -88,6 +94,7 @@
 				<a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>	
 			</div>
 		</c:if>
+		</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
