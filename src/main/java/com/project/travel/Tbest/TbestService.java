@@ -89,7 +89,7 @@ public class TbestService {
 		tbestFilesVO = tbestMapper.fileDetail(tbestFilesVO);
 		int check = tbestMapper.fileDelete(tbestFilesVO);
 		if (check > 0) {
-			boolean result = fileManager.fileDelete(tbestFilesVO.getFileName(), "/resources/upload/Tbest");
+			boolean result = fileManager.fileDelete(tbestFilesVO.getFileName(), "/resources/upload/Tbest/");
 		}
 		return check;
 	}
