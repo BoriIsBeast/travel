@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,6 +35,7 @@ public class TbestReplyController {
 	}
 	
 	//댓글 추가
+	@PostMapping("add")
 	public ModelAndView setAdd(TbestReplyVO tbestReplyVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println(tbestReplyVO.getContents());
@@ -46,6 +48,7 @@ public class TbestReplyController {
 	}
 	
 	//댓글 삭제
+	@PostMapping("delete")
 	public ModelAndView setDelete(TbestReplyVO tbestReplyVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = tbestReplyService.setDelete(tbestReplyVO);
