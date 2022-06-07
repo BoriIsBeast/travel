@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.travel.tReview.TReviewReply.TRevivewReplyMapper">
+	<select id="getList" parameterType="TReviewReplyVO" resultType="TReviewReplyVO">
+		SELECT*FROM TREVIEWREPLY
+		WHERE NUM=#{num}
+		ORDER BY REPLYNUM DESC
+	</select>
+	
+	<insert id="setAdd" parameterType="TReviewReplyVO" useGeneratedKeys="true" keyProperty="replyNum">
+		INSERT INTO TREVIEWREPLY (REPLYNUM, NUM, ID, CONTENTS, REGDATE)
+		VALUES (#{replyNum}, #{num}, #{id}, #{contents}, now())
+	</insert>
+	
+	<delete id="setDelete" parameterType="TReviewReplyVO">
+		DELETE FROM TREVIEWREPLY WHERE REPLYNUM=#{replyNum}
+	</delete>
+	
+	<update id="setUpdate" parameterType="TReviewReplyVO">
+		UPDATE TREVIEWREPLY SET CONTENTS=#{contents} WHERE REPLYNUM=#{replyNum}
+	</update>
+</mapper>
