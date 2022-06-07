@@ -17,11 +17,14 @@
 	</insert>
 	
 	<delete id="setDelete" parameterType="TbestReplyVO">
-		DELETE FROM TBESTREPLY WHERE REPLYNUM=#{replyNum}
+		DELETE FROM TBESTREPLY
+		WHERE REPLYNUM=#{replyNum}
 	</delete>
 	
 	<update id="setUpdate" parameterType="TbestReplyVO">
-		UPDATE TBESTREPLY SET CONTENTS=#{contents} WHERE REPLYNUM=#{replyNum}
+		UPDATE TBESTREPLY
+		SET CONTENTS=#{contents}
+		WHERE REPLYNUM=#{replyNum}
 	</update>
 	
 </mapper>

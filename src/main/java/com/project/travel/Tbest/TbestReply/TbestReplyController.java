@@ -21,7 +21,7 @@ public class TbestReplyController {
 		return "TbestReply";
 	}
 
-	//댓글 list
+	//댓글 리스트
 	@GetMapping("list")
 	public ModelAndView getList(TbestReplyVO tbestReplyVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -33,7 +33,7 @@ public class TbestReplyController {
 		return mv;
 	}
 	
-	//댓글 add
+	//댓글 추가
 	public ModelAndView setAdd(TbestReplyVO tbestReplyVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println(tbestReplyVO.getContents());
