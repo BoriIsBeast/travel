@@ -20,11 +20,13 @@
 	<div class="container">
 	
 	&nbsp;
+	<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${vo.name}</h4>
+	</div>
 	<div class="col-sm-4">
 		<img src="../resources/upload/festival/${vo.filesVOs[0].fileName}"
 			class="card-img-top" alt="...">
 	</div>
-
 
 	<div class="accordion" id="accordionPanelsStayOpenExample">
 		<div class="accordion-item">

@@ -20,8 +20,9 @@
 	&nbsp;
 	<div class="container">
 
-	<h5>태그 : ${vo.category}</h5>
-	<hr>
+	<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${vo.category}</h4>
+	</div>
 	${vo.detail}
 	<hr>
 
