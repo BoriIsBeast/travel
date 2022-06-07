@@ -20,13 +20,29 @@
 			</div>
 		</div>
 
-	<form:form action="./updatePw" modelAttribute="memberVO">
+	<form:form action="./updatePw" id="form" modelAttribute="memberVO">
 	<form:hidden path="id" value="${vo.id}"/>
-
-		<form:password path="pw" id="pw"/>
-		<button type="submit" class="btn btn-primary">변경하기</button>
-	
+	<div style="width:600px">
+	<label>새 비밀번호</label>
+		<input type="password" class="form-control"  id="pwpw"/>
+	<label>비밀번호 확인</label>
+		<form:password path="pw" class="form-control"  id="pw"/>
+	</div>
+		<button type="button" id="btn" class="btn btn-primary mt-3 col-3">변경하기</button>
 	</form:form>
 </div>
+<script type="text/javascript">
+const form = document.getElementById("form");
+$("#btn").click(function(){
+	let pwpw=$("#pwpw").val();
+	let pw=$("#pw").val();
+	if(pwpw==pw){
+		form.submit();
+	}else{
+		alert("비밀번호를 확인하세요");
+		
+	}
+	})
+</script>
 </body>
 </html>

@@ -67,6 +67,8 @@
 									aria-expanded="false">서울</a>
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item"
+										href="./list?search1=서울">서울 전체</a></li>
 									<li><a class="dropdown-item"
 										href="./list?search1=서울&search2=마포구">마포구</a></li>
 									<li><a class="dropdown-item"
@@ -84,6 +86,8 @@
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 									<li><a class="dropdown-item"
+										href="./list?search1=경기">경기 전체</a></li>
+									<li><a class="dropdown-item"
 									href="./list?search1=경기&search2=인천">인천</a></li>
 								<li><a class="dropdown-item"
 									href="./list?search1=경기&search2=수원">수원</a></li>
@@ -99,6 +103,8 @@
 									aria-expanded="false">강원</a>
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item"
+										href="./list?search1=강원">강원 전체</a></li>
 									<li><a class="dropdown-item"
 									href="./list?search1=강원&search2=강릉">강릉</a></li>
 								<li><a class="dropdown-item"
@@ -116,6 +122,8 @@
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<li><a class="dropdown-item"
+										href="./list?search1=경상">경상 전체</a></li>
+								<li><a class="dropdown-item"
 									href="./list?search1=경상&search2=부산">부산</a></li>
 								<li><a class="dropdown-item"
 									href="./list?search1=경상&search2=경주">경주</a></li>
@@ -132,6 +140,8 @@
 									aria-expanded="false">전라</a>
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item"
+										href="./list?search1=전라">전라 전체</a></li>
 									<li><a class="dropdown-item"
 										href="./list?search1=전라&search2=광주">광주</a></li>
 									<li><a class="dropdown-item"
@@ -148,6 +158,8 @@
 									aria-expanded="false">충청</a>
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item"
+										href="./list?search1=충청">충청 전체</a></li>
 									<li><a class="dropdown-item"
 										href="./list?search1=충청&search2=대전">대전</a></li>
 									<li><a class="dropdown-item"
@@ -164,6 +176,8 @@
 									aria-expanded="false">제주</a>
 
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item"
+										href="./list?search1=제주">제주 전체</a></li>
 									<li><a class="dropdown-item"
 										href="./list?search1=제주&search2=제주시">제주시</a></li>
 									<li><a class="dropdown-item"

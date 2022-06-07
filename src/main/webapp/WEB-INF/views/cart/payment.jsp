@@ -55,14 +55,13 @@
 	</table>				
 
 
-	<div>
-		<button type="button" id="gotocart" data-id="${member.id}">장바구니 이동</button>
+	<div class="mb-3">
+		<button type="button" id="gotocart" class="btn btn-primary" data-id="${member.id}">장바구니 이동</button>
 	</div>
 	<div>
-		<button type="button" id="pay" data-id="${member.id}">결제하기</button>
-	</div>
-	<div>
-		<button type="button" id="kakaoPay" data-id="${member.id}" data-name="${member.name}" >KAKAOPAY</button>
+		<button type="button" id="pay"  class="btn btn-primary" data-id="${member.id}">결제하기</button>
+	
+		<button type="button" id="kakaoPay"  class="btn btn-primary" data-id="${member.id}" data-name="${member.name}" >KAKAOPAY</button>
 	</div>
 </div>
 

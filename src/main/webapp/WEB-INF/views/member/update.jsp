@@ -56,7 +56,7 @@
 		    <label class="form-label" for="form3Example4">상세주소</label>
 		        	<input type="text"  id="detailAddress" class="form-control" size="70">
         	</div>
-		       <form:hidden path="address" id="address"/>
+		      
 		       		<label class="form-label" for="form3Example4">현재주소</label>
 		        	<input size="70" class="form-control" value="${vo.address}" readonly="readonly" />
 		       
@@ -117,7 +117,7 @@
 	</form:form>
 	</div>
 	</div>
-	<script type="text/javascript" src="../resources/js/join.js"></script>
+	<script type="text/javascript" src="../resources/js/update.js"></script>
 
 </body>
 </html>
