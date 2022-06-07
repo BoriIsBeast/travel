@@ -9,6 +9,8 @@ import com.project.travel.cart.CartVO;
 @Mapper
 public interface PayMapper {
 	
+	
+	
 	public int setAdd(PayVO payVO) throws Exception;
 	
 	public List<PayVO> orderList(PayVO payVO) throws Exception;

@@ -6,7 +6,9 @@
 
 <mapper namespace="com.project.travel.member.MemberMapper">
 
-		
+		<select id="getId" parameterType="MemberVO" resultType="MemberVO">
+		SELECT ID FROM TMEMBER WHERE ID=#{id}
+		</select>
 
 		<update id="setUpdatePw" parameterType="MemberVO">
 			UPDATE TMEMBER SET PW=#{pw} WHERE ID = #{id}

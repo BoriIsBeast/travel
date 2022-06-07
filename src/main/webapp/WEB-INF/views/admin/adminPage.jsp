@@ -14,25 +14,33 @@
 	<c:if test="${member.getTType() == 1}">
 	<h1>셀러 페이지</h1>
 	<div>
-	<a href="../product/list">상품 리스트</a>
+	<a href="./productList">상품 리스트</a>
 	</div>
 	
 	<div>
 	<a href="./festivalList">여행지관리</a>
 	</div>
+	<div>
+    <a href="./bestList">코스관리</a>
+    </div>
 	</c:if>
 	<c:if test="${member.getTType() == 2}">
 	   <h1> 총 관리자 페이지</h1>
             <div>
-       			<a href="./productList">관리자 상품관리</a>
+       			<a href="../product/list">관리자 상품관리</a>
        	    </div>
        	    <div>
        	    <a href="./festivalList">여행지관리</a>
        		</div>
        		<div>
-       			<a href="./memberList">회원관리</a>
+       	    <a href="./festivalList">여행지관리</a>
        		</div>
-       <div><a href="#">매출</a></div> 
+       		<div>
+       			<a href="./memberList">코스관리</a>
+       		</div>
+	       <div>
+	       <a href="./sellList">매출</a>
+	       </div> 
     </c:if>
 	</div>
 </body>

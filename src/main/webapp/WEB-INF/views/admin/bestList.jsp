@@ -11,50 +11,46 @@
 <body>
 	<c:import url="../temp/header.jsp"></c:import>
 	<div class="container">
-		<div class="row mt-4">
-			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
-				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">축제 정보</h4>
-				
-				
-				<div class="row justify-content-end">
-		
+
+	<h1>코스 추천</h1>
+	
+		<div class="row justify-content-between">
+		<div class="col-5">
 			<form class="d-flex" action="./list" method="get">
-				<div class="col-4 mb-3 ">
+				<div class="col-4 me-2">
 				<select name="kind" class="form-select " aria-label="Default select example">
-				  <option value="col1">축제이름</option>
-				  <option value="col2">장소</option>
+				  <option value="col1">카테고리</option>
+				  <option value="col2">코스명</option>
 				</select>
 				</div>
 				<div class="col-6 me-2">
 	        	<input name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 	        	</div>
 	        	<div class="col-2">
-	        	<button class="btn btn-outline-primary" type="submit">Search</button>
-	        
+	        	<button class="btn btn-outline-success" type="submit">Search</button>
 	        	</div>
 	        	 </form>
-		
-	</div>
-			</div>
 		</div>
-	<h1>축제 정보</h1>
-	
-		
-	
-	<c:forEach items="${list}" var="vo">
-	<div class="card col-3 detail" data-num="${vo.num}">
-  <img src="../resources/upload/festival/${vo.filesVOs[0].fileName}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${vo.name}</h5>
-    <p class="card-text">${vo.location}</p>
-    <a href="./detail?num=${vo.num}" class="btn btn-primary">더보기..</a>
-    <div class="card-footer">
-    ${vo.startDate} ~ ${vo.finishDate}
-  </div>
+	</div>
+
+<c:forEach items="${list}" var="vo">
+<div class="card col-3 detail" data-num="${vo.num}">
+<a href="./detail?num=${vo.num}"><img src="../resources/upload/Tbest/${vo.filesVOs[0].fileName}" class="card-img-top" alt="..."></a>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${vo.title}</h5>    
+        <p class="card-text"><small class="text-muted">${vo.category}</small></p>
+      </div>
+    </div>
   </div>
 </div>
-	</c:forEach>
-	
+</div>
+</c:forEach>	
+
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item">
@@ -73,13 +69,8 @@
     </li>
   </ul>
 </nav>
-	<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
-			<!-- add 버튼 -->
-			<div class="row mt-4">
-				<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
-			</div>
-		</c:if>
-	
+
+	<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
 	</div>
 	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>	

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.project.travel.cartPay.CartPayVO;
+import com.project.travel.pay.PayVO;
 import com.project.travel.product.ProductVO;
 
 import lombok.Data;
@@ -24,5 +25,6 @@ public class CartVO {
 	//주문상세
 	private CartPayVO cartPayVOs;
 	private ProductVO product;
+	
 	
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import com.project.travel.util.SendEmail;
 
@@ -17,6 +18,28 @@ public class MemberService {
 	MemberMapper memberMapper;
 	@Autowired
 	SendEmail sendEmail;
+	
+	public boolean memberError(MemberVO memberVO,BindingResult bindingResult)throws Exception{
+		boolean check = false;
+		//check= false : 검증 성공 (error 없음)
+		//check= true : 검증 실패 (error 있음)
+
+		//1. annotation 기본 검증 결과
+		check = bindingResult.hasErrors();
+
+		//2. Password가 일치하는지 수동 검증
+
+
+		//3. ID 중복 검사
+		MemberVO idCheck = memberMapper.getId(memberVO);
+		if(idCheck != null) {
+			check = true;
+			bindingResult.rejectValue("id", "member.id.equal");
+		}
+
+		return check;
+	}
+
 	
 	public int setUpdatePw(MemberVO memberVO)throws Exception{
 		
