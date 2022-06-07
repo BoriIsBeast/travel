@@ -48,7 +48,7 @@ public class TfestivalService {
 				}
 
 				// 1. File을 HDD에 저장
-				String fileName = fileManager.fileSave(mf, "resources/upload/festival");
+				String fileName = fileManager.fileSave(mf, "resources/upload/festival/");
 				System.out.println(fileName);
 				// 2. 저장된 정보를 DB에 저장
 				TfestivalFilesVO tfestivalFilesVO = new TfestivalFilesVO();

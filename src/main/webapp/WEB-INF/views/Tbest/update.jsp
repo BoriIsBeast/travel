@@ -60,7 +60,6 @@
 		</form>
 	</div>
 
-	<script type="text/javascript" src="../resources/js/fileAdd.js"></script>
 	<script type="text/javascript" src="../js/summernote.js"></script>
 
 	<script type="text/javascript">
