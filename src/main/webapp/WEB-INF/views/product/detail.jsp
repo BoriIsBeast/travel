@@ -20,9 +20,11 @@
 
 <div class="container">
 
-	
-	
-		<h4>detail page</h4>
+<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${vo.name}</h4>
+			</div>
+		</div>
 		
 		<c:if test="${vo.price ne 0}">
 		<div class="row float-end" >
@@ -123,10 +125,8 @@
 		
 			<%-- <a href="./update?productNum=${vo.productNum}">Update</a> 
 			<a href="./delete?productNum=${vo.productNum}">Delete</a>	 --%>
-				<div>
-					<button type="button" class="col-2  btn btn-primary" data-num="${vo.productNum}" id="update">Update</button>
-				</div>
-				<div>
+				<div class="d-flex justify-content-end">
+					<button type="button" class="col-2 btn btn-primary " data-num="${vo.productNum}" id="update">Update</button>
 					<button type="button" class="col-2 btn btn-primary" data-num="${vo.productNum}" id="delete">Delete</button>
 				</div>
 			</c:if>

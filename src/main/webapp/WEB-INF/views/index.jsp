@@ -131,24 +131,24 @@
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="w-100" src="../resources/img/carousel-1.jpg" alt="Image">
+                        <img class="w-100" src="../resources/img/a.jpg" alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
-                                <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious Hotel</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">국내여행의 시작</h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">대한민국 구석구석</h1>
+                                <a href="./product/list" class="btn btn-primary py-md-3 px-md-5 me-3">여행지 확인</a>
+                        <a href="./Tfestival/list" class="btn btn-light py-md-3 px-md-5">축제정보 확인</a>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="w-100" src="../resources/img/carousel-2.jpg" alt="Image">
+                        <img class="w-100" src="../resources/img/b.jpg" alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
-                                <h1 class="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious Hotel</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">국내여행의 시작</h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">대한민국 요기조기</h1>
+                                <a href="./product/list" class="btn btn-primary py-md-3 px-md-5 me-3">여행지 확인</a>
+                        		<a href="./Tfestival/list" class="btn btn-light py-md-3 px-md-5">축제정보 확인</a>
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                         </div>
                         <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
                     </div>
-                    <div class="col-lg-6">
+                     <div class="col-lg-6">
                         <div class="row g-3">
                             <div class="col-6 text-end">
                                 <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="../resources/img/about-1.jpg" style="margin-top: 25%;">
@@ -269,7 +269,9 @@
                                 <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="../resources/img/about-4.jpg">
                             </div>
                         </div>
-                    </div>
+                    </div>  
+                    
+              
                 </div>
             </div>
         </div>
@@ -445,57 +447,57 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <a class="service-item rounded" href="">
+                        <a class="service-item rounded" href="./product/list?search1=${param.search1}&search2=${param.search2}&category=연인과 함께">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-utensils fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Food & Restaurant</h5>
+                            <h5 class="mb-3">연인과 함께</h5>
                             <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="service-item rounded" href="">
+                        <a class="service-item rounded" href="./product/list?search1=${param.search1}&search2=${param.search2}&category=나홀로 여행">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-spa fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Spa & Fitness</h5>
+                            <h5 class="mb-3">나홀로 여행</h5>
                             <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <a class="service-item rounded" href="">
+                        <a class="service-item rounded" href="./product/list?search1=${param.search1}&search2=${param.search2}&category=자연친화적인">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-swimmer fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Sports & Gaming</h5>
+                            <h5 class="mb-3">자연친화적인</h5>
                             <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="service-item rounded" href="">
+                        <a class="service-item rounded" href="./product/list?search1=${param.search1}&search2=${param.search2}&category=힐링 여행">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-glass-cheers fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Event & Party</h5>
+                            <h5 class="mb-3">힐링 여행</h5>
                             <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <a class="service-item rounded" href="">
+                        <a class="service-item rounded" href="./product/list?search1=${param.search1}&search2=${param.search2}&category=기타">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
                                     <i class="fa fa-dumbbell fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">GYM & Yoga</h5>
+                            <h5 class="mb-3">기타</h5>
                             <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                         </a>
                     </div>
@@ -510,33 +512,44 @@
             <div class="container">
                 <div class="owl-carousel testimonial-carousel py-5">
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>가을 하늘 아래 선선한 바람과 함께 산책을 하기에 너무 좋은 장소임. 갈대, 꽃도 좋고 새들도 많아서 점심 먹고 산책하면 기분도 아주 상쾌해져요!</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="../resources/img/testimonial-1.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
+                                <h6 class="fw-bold mb-1">채린</h6>
                                 <small>Profession</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>“힐링하기 좋은 바다” 오랜만에 부산에 내려가서 해운대 요트투어를 하며 시간을 보냈어요. 근처에 미포철길도 있고 맛집도 많아서 휴가 가서 힐링하고 오기 좋은 바다였습니다.</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="../resources/img/testimonial-2.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
+                                <h6 class="fw-bold mb-1">경환</h6>
                                 <small>Profession</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
                     <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd et erat magna eos</p>
+                        <p>우리나라 최남단에 제일높은산 한라산 설경이 좋은산 사계절 어느때나 오셔도 구경과 힐링이 함께 할수 있는곳 ! 제주도가 한눈에 담아갈수 있는산 제주도 핝라산 구경한번 오세요!</p>
                         <div class="d-flex align-items-center">
                             <img class="img-fluid flex-shrink-0 rounded" src="../resources/img/testimonial-3.jpg" style="width: 45px; height: 45px;">
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">Client Name</h6>
+                                <h6 class="fw-bold mb-1">진우</h6>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>날씨 좋은 날 종종 산책하러 경복궁에 가는데 마음이 편안해지는 기분이라고 할까요? 특히 봄이나 가을에 산책가는 걸 추천해요!</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="../resources/img/testimonial-3.jpg" style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">해민</h6>
                                 <small>Profession</small>
                             </div>
                         </div>
@@ -651,16 +664,16 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-4">
                         <div class="bg-primary rounded p-4">
-                            <a href="./index.html"><h1 class="text-white text-uppercase mb-3">Hotelier</h1></a>
+                            <a href="./index.html"><h1 class="text-white text-uppercase mb-3">Traveler</h1></a>
                             <p class="text-white mb-0">
 								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">Hotelier – Premium Version</a>, build a professional website for your hotel business and grab the attention of new visitors upon your site’s launch.
 							</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <h6 class="section-title text-start text-primary text-uppercase mb-4">Contact</h6>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <h6 class="section-title text-start text-primary text-uppercase mb-4">오시는길</h6>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>서울 마포구 월드컵북로 21</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>02 336 8546</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>

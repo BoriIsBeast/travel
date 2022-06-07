@@ -12,7 +12,11 @@
 </head>
 <body>
 <div class="container">
-<h1>주문내역 페이지</h1>
+	<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${member.id} 주문 내역</h4>
+			</div>
+		</div>
 <input type="hidden" value="${member.id}">
 <table class="table table-hover">
 		<thead>

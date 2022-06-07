@@ -40,6 +40,10 @@
 
 		</div>
 
+	
+	</div>
+	<c:if test="${member.id ne null}">	
+
 		<div>
 			<input type="hidden" name="num" value="${vo.num}" id="num"> <input
 				type="text" name="id" id="id1" value="${member.id}" readonly>
@@ -50,11 +54,16 @@
 		</div>
 
 
-		<table id="replyResult">
 
 
-		</table>
-	</div>
+		</c:if>
+	
+	<table id="replyResult">
+	
+	
+	</table>
+
+
 	<div class="container my-4">
 		<div class="col-2 d-flex">
 			<a href="./list" role="button" class="btn btn-success mx-1">목록</a>

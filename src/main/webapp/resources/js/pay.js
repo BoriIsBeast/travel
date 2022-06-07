@@ -53,12 +53,18 @@ for (cn of count) {
     totalSum += parseInt(total);
     $("#totalPrice").val(totalSum);   
 }
-
 $("#orderDel").click(function(){
     let num=$("#num").val();
     let id=$(this).attr("data-id");
     console.log("결제취소");
     let check = confirm("결제 취소 하시겠습니까?");
+    
+    const c = document.getElementsByClassName("cartNum");
+    let cartNum=[];
+    for(cn of c){
+        cartNum.push(cn.value);
+    }
+
 
     if(check){
         console.log(num);
@@ -67,12 +73,14 @@ $("#orderDel").click(function(){
             type:"POST",
             url:"./delete",
             data:{
-                num:num
+                num:num,
+                cartNum:cartNum
             },
             success:function(data){
                 if(data>0){
                     alert("결제가 취소되었습니다.")
                     location.href="./orderList?id="+id;
+                  
                 }
             },
             error:function(){

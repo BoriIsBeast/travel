@@ -19,8 +19,10 @@
 <body>
 
 	<div class="container mt-4">
-		<div class="mb-3">
-			<h4>여행지 add</h4>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">여행지 등록</h4>
+			</div>
 		</div>
 
 		<form action="./add" method="post" enctype="multipart/form-data">
@@ -139,7 +141,7 @@
 				<option value="힐링 여행">#힐링 여행</option>
 				<option value="기타">#기타</option>
 			</select>
-			<div class="mb-3">
+			<div class="mb-3 mt-3">
 				<label for="exampleInputPassword1" class="form-label mg">Name</label> <input
 					type="text" class="form-control" id="name" name="name">
 			</div>
@@ -147,21 +149,14 @@
 				<label for="exampleInputPassword1" class="form-label">Address</label>
 				<input type="text" class="form-control" id="address" name="address">
 			</div> -->
-			<table border="1">
-		        <tr>     
-		    		<td>
-		                <input type="button" value="우편번호찾기" id="post">
-		            </td>
-		        </tr>
-		        <tr>
-		            <td>주소</td>
-		            <td><input type="text"  id="mainAddress" name="address" size="70" readonly></td>
-		           
-		        </tr>
-
-        	</table>
-      
-			<div class="mb-3">
+		
+		                <input type="button" value="주소찾기" id="post">
+		         
+		   
+		   <!-- 	<label for="exampleInputPassword1" class="form-label">주소</label> -->
+		       <input type="text"  id="mainAddress" class="form-control" name="address" size="70" readonly>
+		
+			<div class="mb-3 mt-3">
 				<label for="exampleInputPassword1" class="form-label">Price</label>
 				<select class="form-select" aria-label="Default select example"
 					name="price1" id="price">

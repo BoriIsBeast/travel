@@ -16,72 +16,82 @@
 
 	<form action="./update" method="post" enctype="multipart/form-data">
 		<div class="container">
+			<div class="row mt-4">
+				<div class="alert alert-primary" role="alert"
+					style="background-color: #0F172B !important;">
+					<h4 class="text-center"
+						style="text-transform: uppercase; color: #FEA116 !important;">여행지
+						수정</h4>
+				</div>
+			</div>
 			<div class="container mt-4">
 				<div class="mb-3">
-					<input type="hidden" class="form-control" id="productNum" name="productNum" value="${vo.productNum}">
-					<label for="exampleInputPassword1" class="form-label">Name</label>
-					<input type="text" class="form-control" id="name" name="name" value="${vo.name}">
+					<input type="hidden" class="form-control" id="productNum"
+						name="productNum" value="${vo.productNum}"> <label
+						for="exampleInputPassword1" class="form-label">Name</label> <input
+						type="text" class="form-control" id="name" name="name"
+						value="${vo.name}">
 				</div>
 				<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Price</label>
-			
-			<input type="text" class="form-control" name="price" id="price"  value="${vo.price}">
-				
+					<label for="exampleInputPassword1" class="form-label">Price</label>
+
+					<input type="text" class="form-control" name="price" id="price"
+						value="${vo.price}">
+
 				</div>
-			
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">!!!가격 변동!!!</label>
-				<input type="checkbox" id ="changePrice" data-maxCount="${vo.maxCount}"/>
-			</div>
-		<div id="selectBox">
-		
-		
-		</div>
-		
-			
-		<div id="changePriceResult">
-		
-		
-		</div>
-		
-			<c:if test="${vo.maxCount ne null }">
+
 				<div class="mb-3">
-					<label for="exampleInputPassword1" class="form-label">판매 수량</label>
-					<input type="text" class="form-control" id="maxCount" name="maxCount" value="${vo.maxCount}">
+					<label for="exampleInputPassword1" class="form-label">!!!가격
+						변동!!!</label> <input type="checkbox" id="changePrice"
+						data-maxCount="${vo.maxCount}" />
 				</div>
+				<div id="selectBox"></div>
+
+
+				<div id="changePriceResult"></div>
+
+				<c:if test="${vo.maxCount ne null }">
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">판매
+							수량</label> <input type="text" class="form-control" id="maxCount"
+							name="maxCount" value="${vo.maxCount}">
+					</div>
 				</c:if>
-				
+
 				<div class="mb-3">
 					<label for="exampleInputPassword1" class="form-label">Contents</label>
 					<textarea class="form-control" id="contents" name="contents"> ${vo.contents}</textarea>
 				</div>
 				<div class="mb-3">
 					<label for="exampleInputPassword1" class="form-label">Homepage</label>
-					<input type="text" class="form-control" id="homePage" name="homePage" value="${vo.homePage}">
+					<input type="text" class="form-control" id="homePage"
+						name="homePage" value="${vo.homePage}">
 				</div>
-				
+
 				<div>
 					<c:forEach items="${vo.filesVOs}" var="fileVO">
-						<h4>${fileVO.oriName}<button type="button" class="btn btn-primary del"  data-num="${fileVO.fileNum}">X</button></h4>
+						<h4>${fileVO.oriName}<button type="button"
+								class="btn btn-primary del" data-num="${fileVO.fileNum}">X</button>
+						</h4>
 					</c:forEach>
 				</div>
-				<div id="fileResult">
-					
-				</div>
-				
+				<div id="fileResult"></div>
+
 				<div>
 					<button type="button" id="fileAddBtn" class="btn btn-primary mt-3">FileAdd</button>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			
-		</div>
+
+				<div class="d-grid gap-2 col-4 mx-auto" style="padding-top: 50px;">
+					<button type="submit" class="btn btn-primary">수정하기</button>
+				</div>
+			</div>
 		</div>
 	</form>
 
 	<script type="text/javascript" src="../resources/js/fileAdd.js"></script>
 	<script type="text/javascript" src="../resources/js/summernote.js"></script>
 	<script type="text/javascript" src="../resources/js/product.js"></script>
-	
+
 
 	<script type="text/javascript">
 		fileAdd(${vo.filesVOs.size()});

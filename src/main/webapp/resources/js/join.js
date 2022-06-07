@@ -71,5 +71,6 @@ function kakaopost() {
 
 $("#detailAddress").blur(function(){
 	document.querySelector("#address").value = mainAddress.value +" "+ detailAddress.value;
+    console.log(document.querySelector("#address").value);
 });
 
