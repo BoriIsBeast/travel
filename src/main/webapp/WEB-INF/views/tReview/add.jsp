@@ -23,9 +23,11 @@
 
 <div class="container mt-4">
 	<div class="row mt-4">
-		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">${board} Write</h4>
-		</div>
+			<div class="alert alert-primary" role="alert"
+				style="background-color: #0F172B !important;">
+				<h4 class="text-center"
+					style="text-transform: uppercase; color: #FEA116 !important;">리
+					뷰 작성</h4>
 	</div>
 	
 

@@ -7,7 +7,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 import com.project.travel.interceptor.AdminInterceptor;
+import com.project.travel.interceptor.LoginInterceptor;
+import com.project.travel.interceptor.NoticeInterceptor;
 import com.project.travel.interceptor.SellerInterceptor;
+import com.project.travel.interceptor.QNAInterceptor;
+import com.project.travel.interceptor.ReviewInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
@@ -16,6 +20,14 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		private SellerInterceptor sellerInterceptor;
 		@Autowired
 		private AdminInterceptor adminInterceptor;
+		@Autowired
+		private QNAInterceptor qnaInterceptor;
+		@Autowired
+		private NoticeInterceptor noticeInterceptor;
+		@Autowired
+		private ReviewInterceptor reviewInterceptor;
+		@Autowired
+		private LoginInterceptor loginInterceptor;
 		
 		
 		
@@ -28,13 +40,36 @@ public class InterceptorConfig implements WebMvcConfigurer {
 					.addPathPatterns("/admin/*")
 					.addPathPatterns("/product/add")
 					.addPathPatterns("/product/update")
-					.addPathPatterns("/product/delete");
+					.addPathPatterns("/product/delete")
+					.addPathPatterns("/tNotice/add");
 			
 			//registry.addInterceptor(adminInterceptor)
 			//		.addPathPatterns(""); // 매출페이지 등록
 		
 			
+			registry.addInterceptor(qnaInterceptor)	
 			
+					.addPathPatterns("/admin/*")
+					.addPathPatterns("/tQna/update")
+					.addPathPatterns("/tQna/delete");
+			
+			registry.addInterceptor(noticeInterceptor)
+					
+					.addPathPatterns("/admin/*")
+					.addPathPatterns("/tNotice/update")
+					.addPathPatterns("/tNotice/delete");
+			
+			registry.addInterceptor(reviewInterceptor)
+					
+					.addPathPatterns("/admin/*")
+					.addPathPatterns("/tReview/update")
+					.addPathPatterns("/tReview/delete");
+			
+			registry.addInterceptor(loginInterceptor)
+					
+					.addPathPatterns("/admin/*")
+					.addPathPatterns("/tQna/add")
+					.addPathPatterns("/tReview/add");
 			
 			
 			//WebMvcConfigurer.super.addInterceptors(registry);

@@ -19,10 +19,11 @@
 </head>
 <body>
 <div class="container mt-4">
-	<div class="row mt-4">
-		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">내용 수정</h4>
-		</div>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert"
+				style="background-color: #0F172B !important;">
+				<h4 class="text-center"
+					style="text-transform: uppercase; color: #FEA116 !important;">Q&A 수정</h4>
 	</div>
 	
 	

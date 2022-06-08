@@ -42,7 +42,10 @@ public class TQnaController {
 	}
 	
 	@GetMapping("add")
-	public void setAdd() throws Exception{		
+	public ModelAndView setAdd() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("tQna/add");
+		return mv;
 	}
 	
 	@PostMapping("add")

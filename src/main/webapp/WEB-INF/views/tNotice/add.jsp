@@ -20,12 +20,12 @@
 <body>
 
 <div class="container mt-4">
-	<div class="row mt-4">
-		<div class="alert alert-light" role="alert">
-	  		<h4 style="text-transform: uppercase;">공지사항 작성</h4>
-		</div>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert"
+				style="background-color: #0F172B !important;">
+				<h4 class="text-center"
+					style="text-transform: uppercase; color: #FEA116 !important;">공지 사항 작성</h4>
 	</div>
-	
 	
 	<div class="row mt-4">
 		<form action="add" method="post" enctype="multipart/form-data">

@@ -222,7 +222,10 @@
                         <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
                         <h1 class="mb-4">어서오세요</h1>
                         <h1 class="text-primary text-uppercase">Traveler <span class="mb-4" style="color: black">입니다</span></h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="mb-4">이 사이트는 한국의 지역별 관광지, 축제에 대해 알려드리고 입장권을 예매할수 있는 곳 입니다.또한 여러분에게 최적의 여행지 코스를 알려드리고 있습니다.
+                        This site is a place where you can book tickets and inform you about local tourist attractions and festivals in Korea.
+                        We also inform you of the best travel destinations for you.
+                        </p>
                         <div class="row g-3 pb-4">
                             <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                                 <div class="border rounded p-1">
@@ -282,19 +285,19 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
-                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Travel Destination</h6>
+                    <h1 class="mb-5"><span class="text-primary text-uppercase">여 행 지</span></h1>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="../resources/img/room-1.jpg" alt="">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                                <img class="img-fluid" src="../resources/img/해동 용궁사.jpg" alt="">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$Free/Daytime</small>
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Junior Suite</h5>
+                                    <h5 class="mb-0">부산 해동 용궁사</h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -303,15 +306,12 @@
                                         <small class="fa fa-star text-primary"></small>
                                     </div>
                                 </div>
-                                <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <div class="d-flex mb-3">                                   
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">우리나라 양양 낙산사, 남해 보리암, 강화도 보문사와 더불어 유명한 관음성지 중의 하나이다. 동해 최남단에 위치한 해동용궁사는 고려 우왕 2년(1376)에 공민왕의 왕사였던 나옹(懶翁) 대사가 창건하였다.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="../product/detail?productNum=5">여행지 정보</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">무 료</a>
                                 </div>
                             </div>
                         </div>
@@ -319,12 +319,12 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="../resources/img/room-2.jpg" alt="">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                                <img class="img-fluid" src="../resources/img/독립기념관.jpg" alt="">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$Free/Daytime</small>
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Executive Suite</h5>
+                                    <h5 class="mb-0">천안 독립 기념관</h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -333,15 +333,12 @@
                                         <small class="fa fa-star text-primary"></small>
                                     </div>
                                 </div>
-                                <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <div class="d-flex mb-3">                                    
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">한국은 국난을 극복하고 민족의 자주와 독립을 위해 헌신한 조상들이 남긴 자취와 자료를 수집·전시함으로써 후손들에게 민족의 얼과 긍지를 심어 주기 위하여 1982년 8월 23일 독립기념관 건립 발기 대회를 개최하고 8월 31일 국민의 성금모금을 시작하였으며, 10월 5일 독립기념관 건립추진위원회를 설립하였다. 1986년 5월 9일 독립기념관법(법률 제3820호)을 공포·시행하였고, 1987년 8월 15일 충청남도 천안시 동남구 목천면(木川面) 흑성산록(黑城山麓)의 120만 8135평의 대지에 37동(1만 6959평)의 독립기념관을 세웠다. 1995년 8월 15일 ‘통일염원의 동산’을 준공하였고, 1998년 8월 11일 구(舊) 조선총독부 부재공원을 개막하였다.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="../product/detail?productNum=6">여행지 정보</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">무 료</a>
                                 </div>
                             </div>
                         </div>
@@ -349,12 +346,12 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="../resources/img/room-3.jpg" alt="">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                                <img class="img-fluid" src="../resources/img/첨성대.jpg" alt="">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$1/Daytime</small>
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Super Deluxe</h5>
+                                    <h5 class="mb-0">첨 성 대</h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -363,15 +360,12 @@
                                         <small class="fa fa-star text-primary"></small>
                                     </div>
                                 </div>
-                                <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                    <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                <div class="d-flex mb-3">                                    
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">1962년 12월 20일 국보 제31호로 지정되었다. 경상북도 경주시 인왕동에 소재하며 높이 9.17m, 밑지름 4.93m, 윗지름 2.85m이다. 밑에서부터 4.16m 되는 곳의 남쪽 허리에 한 변이 1m인 정사각형 문이 달려 있다. 모양은 원통형으로 남쪽 문에 사다리를 걸었던 자리가 있다. 30cm 높이의 돌 362개로 27단을 쌓아 만들었다.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="http://localhost/product/detail?productNum=3">여행지 정보</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">1000Won</a>
                                 </div>
                             </div>
                         </div>
@@ -391,7 +385,10 @@
                         <h1 class="mb-4 text-white text-uppercase">외국같은</h1>
                         <h1 class="text-white mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;한국 여행지의 <span class="text-primary">발견</span></h1> 
                         
-                        <p class="text-white mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="text-white mb-4">외국 같은 한국 여행지의 발견!!다양한 한국의 여행지에서 느껴질수 있는 멋, 분위기를 느껴보세요!
+                        Discovering Korean travel destinations like foreign countries!!
+                        Feel the fashion and atmosphere that can be felt in various travel destinations in Korea!
+                        </p>
                         <a href="./product/list" class="btn btn-primary py-md-3 px-md-5 me-3">여행지 확인</a>
                         <a href="" class="btn btn-light py-md-3 px-md-5">축제정보 확인</a>
                     </div>
@@ -666,7 +663,7 @@
                         <div class="bg-primary rounded p-4">
                             <a href="./index.html"><h1 class="text-white text-uppercase mb-3">Traveler</h1></a>
                             <p class="text-white mb-0">
-								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">Hotelier – Premium Version</a>, build a professional website for your hotel business and grab the attention of new visitors upon your site’s launch.
+								어서오세요! <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">Traveler에서만 느낄 수 있는 한국의 문화</a>, 이 사이트는 한국의 지역별 관광지, 축제에 대해 알려드리고 입장권을 예매할수 있는 곳 입니다.또한 여러분에게 최적의 여행지 코스를 알려드리고 있습니다. This site is a place where you can book tickets and inform you about local tourist attractions and festivals in Korea. We also inform you of the best travel destinations for you.
 							</p>
                         </div>
                     </div>

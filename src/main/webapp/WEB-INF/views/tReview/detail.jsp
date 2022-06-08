@@ -20,36 +20,42 @@
 <body>
 
 	<div class="container">
-		<h1>리 뷰</h1>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert"
+				style="background-color: #0F172B !important;">
+				<h4 class="text-center"
+					style="text-transform: uppercase; color: #FEA116 !important;">리
+					뷰</h4>
 
 		<div class="row">
 			<div class="card btnRe" data-num="${vo.num}">
 				<ul class="list-group list-group-flush">
-				<input class="list-group-item" id="num" type="text" hidden="hidden"	value="${vo.num}">
+					<input class="list-group-item" id="num" type="text" hidden="hidden"
+						value="${vo.num}">
 					<li class="list-group-item">제 목: ${vo.title}</li>
 					<li class="list-group-item">작 성 자 : ${vo.id}</li>
 				</ul>
 
 				<div class="card-body">${vo.contents}</div>
 
-	<div class="container my-4">
-		<div class="col-2 d-flex">
-			<a href="./list" role="button" class="btn btn-success mx-1">목록</a>
-			<c:if test="${member.id eq vo.id}">
-				<a href="update?num=${vo.num}" role="button"
-					class="btn btn-success mx-1">수정</a>
-				<td><button type="button" class="btn btn-danger mx-1"
-						id="deleteBtn${vo.num}">삭제</button></td>
-			</c:if>
-		</div>
+				<div class="container my-4">
+					<div class="col-2 d-flex">
+						<a href="./list" role="button" class="btn btn-success mx-1">목록</a>
+						<c:if test="${member.id eq vo.id}">
+							<a href="update?num=${vo.num}" role="button"
+								class="btn btn-success mx-1">수정</a>
+							<td><button type="button" class="btn btn-danger mx-1"
+									id="deleteBtn${vo.num}">삭제</button></td>
+						</c:if>
+					</div>
 
 
 
-	</div>
-	
+				</div>
+
 			</div>
 
-	<%-- 	<div class="comment">
+			<%-- 	<div class="comment">
 			<input type="hidden" name="num" value="${vo.num}" id="num"> 
 			<input	type="text" class="nick" name="id" id="id2" value="${member.id}" readonly>
 			<input type="text" placeholder="댓글을 남겨보세요." name="contents" id="contents2" class="contents">
@@ -57,35 +63,35 @@
 			<button type="button" id="reply" class="btn btn-success mx-1">댓글 등록</button>
 
 		</div> --%>
-<div class="card mb-2">
-	<div class="card-header bg-light">
-	        <i class="fa fa-comment fa"></i>댓글
-	</div>
-	<div class="card-body">
-		<ul class="list-group list-group-flush">
-		    <li class="list-group-item">
-			<div class="form-inline mb-2">
-				<label for="replyId"><i  class="fa fa-user-circle-o fa-2x"></i></label>
-				<input type="text" class="form-control ml-2" name="id" id="id2" value="${member.id}" readonly>						
+			<div class="card mb-2">
+				<div class="card-header bg-light">
+					<i class="fa fa-comment fa"></i>댓글
+				</div>
+				<div class="card-body">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<div class="form-inline mb-2">
+								<label for="replyId"><i	class="fa fa-user-circle-o fa-2x"></i></label> 
+								<input type="text" class="form-control ml-2" name="id" id="id2"	value="${member.id}" readonly>
+							</div> 
+							<textarea placeholder="댓글을 남겨보세요." name="contents"class="form-control" id="contents2" rows="3"></textarea>
+							<button type="button" id="reply" class="btn btn-dark mt-3"	onClick="javascript:addReply();">댓글 등록</button>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<textarea placeholder="댓글을 남겨보세요." name="contents" class="form-control" id="contents2" rows="3"></textarea>
-			<button type="button" id="reply" class="btn btn-dark mt-3" onClick="javascript:addReply();">댓글 등록</button>
-		    </li>
-		</ul>
-	</div>
-</div>
-		</div>
-		
+		<table id="replyResult" class="col-sm-6">
 
-
-		<table id="replyResult" class="row justify-content-between">
-		
 
 		</table>
 
-	</div>
-	
+		</div>
 
+
+
+	</div>
+
+</div>
 	<script type="text/javascript" src="../resources/js/review.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
