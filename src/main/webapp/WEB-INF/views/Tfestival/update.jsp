@@ -46,8 +46,8 @@
 		</div>
 		<div class="mb-3">
 			<label for="exampleFormControlTextarea1" class="form-label">상세정보</label>
-			<textarea class="form-control" name="detail" value="${vo.detail}"
-				id="exampleFormControlTextarea1" rows="3"></textarea>
+			<textarea class="form-control" name="detail"
+				id="exampleFormControlTextarea1" rows="3" >${vo.detail}</textarea>
 		</div>
 		<div class="mb-3">
 			<label for="exampleFormControlTextarea1" class="form-label">홈페이지</label>

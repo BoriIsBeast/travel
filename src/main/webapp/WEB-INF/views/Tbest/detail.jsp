@@ -26,33 +26,49 @@
 				style="text-transform: uppercase; color: #FEA116 !important;">${vo.category}</h4>
 		</div>
 		${vo.detail}
-		<hr>
+		
+		<div class="card mb-2">
+				<div class="card-header bg-light">
+					<i class="fa fa-comment fa"></i>댓글
+				</div>
+				<div class="card-body">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<div class="form-inline mb-2">
+								<input type="hidden" name="num" value="${vo.num}" id="num">
+								<label for="replyId"><i	class="fa fa-user-circle-o fa-2x"></i></label> 
+								<input type="text" class="form-control ml-2" name="id" id="id"	value="${member.id}" readonly>
+							</div> 
+							<textarea placeholder="댓글을 남겨주세요." name="contents"class="form-control" id="contents" rows="3"></textarea>
+							<button type="button" id="reply" class="btn btn-dark mt-3"	onClick="javascript:addReply();">댓글 등록</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		<table id="replyResult" class="col-sm-6">
 
-		<div>
-			<input type="hidden" name="num" value="${vo.num}" id="num">
-			아이디 : <input type="text" readonly="readonly" name="id"
-				value="${member.id}" id="id"> 내용 : <input type="text"
-				name="contents" id="contents">
-			<button type="button" id="reply" class="btn btn-outline-warning">댓글</button>
+
+		</table>
+
 		</div>
-		&nbsp;
 
 		<table id="replyResult">
 		</table>
 		&nbsp;
 		<div style="display: block;">
-			<a href="./list" role="button" class="btn btn-outline-danger">목록</a>
-			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
-		</div>
 
-		<!-- add 버튼 -->
-		<div class="row mt-4">
-			<a href="./delete?num=${vo.num}"><button type="button"
-					class="btn btn-outline-danger">삭제</button></a> <a
-				href="./update?num=${vo.num}"><button type="button"
-					class="btn btn-outline-danger">수정</button></a>
+			<div class="container my-4">
+				<div class="col-2 d-flex">
+					<a href="./list" role="button" class="btn btn-success mx-1">목록</a>
+					<c:if test="${member.id eq vo.id}">
+						<a href="./update?num=${vo.num}" role="button"
+							class="btn btn-outline-danger">수정</a>
+						<a href="./delete?num=${vo.num}"><button type="button"
+								class="btn btn-outline-danger">삭제</button></a>
+					</c:if>
+				</div>
+			</div>
 		</div>
-		</c:if>
 	</div>
 
 	<script type="text/javascript" src="../resources/js/TbestReply.js"></script>
