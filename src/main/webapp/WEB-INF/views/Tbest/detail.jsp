@@ -41,18 +41,19 @@
 		</table>
 		&nbsp;
 		<div style="display: block;">
-			<a href="./list" role="button" class="btn btn-outline-danger">목록</a>
-			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
-		</div>
 
-		<!-- add 버튼 -->
-		<div class="row mt-4">
-			<a href="./delete?num=${vo.num}"><button type="button"
-					class="btn btn-outline-danger">삭제</button></a> <a
-				href="./update?num=${vo.num}"><button type="button"
-					class="btn btn-outline-danger">수정</button></a>
+			<div class="container my-4">
+				<div class="col-2 d-flex">
+					<a href="./list" role="button" class="btn btn-success mx-1">목록</a>
+					<c:if test="${member.id eq vo.id}">
+						<a href="./update?num=${vo.num}" role="button"
+							class="btn btn-outline-danger">수정</a>
+						<a href="./delete?num=${vo.num}"><button type="button"
+								class="btn btn-outline-danger">삭제</button></a>
+					</c:if>
+				</div>
+			</div>
 		</div>
-		</c:if>
 	</div>
 
 	<script type="text/javascript" src="../resources/js/TbestReply.js"></script>

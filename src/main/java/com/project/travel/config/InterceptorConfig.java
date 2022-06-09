@@ -10,6 +10,8 @@ import com.project.travel.interceptor.AdminInterceptor;
 import com.project.travel.interceptor.LoginInterceptor;
 import com.project.travel.interceptor.NoticeInterceptor;
 import com.project.travel.interceptor.SellerInterceptor;
+import com.project.travel.interceptor.TbestInterceptor;
+import com.project.travel.interceptor.TfestivalInterceptor;
 import com.project.travel.interceptor.QNAInterceptor;
 import com.project.travel.interceptor.ReviewInterceptor;
 
@@ -28,7 +30,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		private ReviewInterceptor reviewInterceptor;
 		@Autowired
 		private LoginInterceptor loginInterceptor;
-		
+		@Autowired
+		private TbestInterceptor tbestInterceptor;
+		@Autowired
+		private TfestivalInterceptor tfestivalInterceptor;
 		
 		
 		
@@ -42,6 +47,14 @@ public class InterceptorConfig implements WebMvcConfigurer {
 					.addPathPatterns("/product/update")
 					.addPathPatterns("/product/delete")
 					.addPathPatterns("/tNotice/add");
+			
+			registry.addInterceptor(sellerInterceptor)
+					.addPathPatterns("/Tbest/add");
+			
+			registry.addInterceptor(sellerInterceptor)
+					.addPathPatterns("/Tfestival/add");
+					
+					
 			
 			//registry.addInterceptor(adminInterceptor)
 			//		.addPathPatterns(""); // 매출페이지 등록
@@ -64,6 +77,18 @@ public class InterceptorConfig implements WebMvcConfigurer {
 					
 					.addPathPatterns("/tReview/update")
 					.addPathPatterns("/tReview/delete");
+			
+			
+			registry.addInterceptor(tbestInterceptor)
+			
+					.addPathPatterns("/Tbest/update")
+					.addPathPatterns("/Tbest/delete");
+			
+			registry.addInterceptor(tfestivalInterceptor)
+			
+					.addPathPatterns("/Tfestival/update")
+					.addPathPatterns("/Tfestival/delete");
+				
 			
 			registry.addInterceptor(loginInterceptor)
 					
