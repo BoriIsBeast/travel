@@ -73,9 +73,9 @@
 						<li class="list-group-item">
 							<div class="form-inline mb-2">
 								<label for="replyId"><i	class="fa fa-user-circle-o fa-2x"></i></label> 
-								<input type="text" class="form-control ml-2" name="id" id="id2"	value="${member.id}" readonly>
+								<input type="text" class="form-control ml-2" name="id" id="id1"	value="${member.id}" readonly>
 							</div> 
-							<textarea placeholder="댓글을 남겨보세요." name="contents"class="form-control" id="contents2" rows="3"></textarea>
+							<textarea placeholder="댓글을 남겨보세요." name="contents"class="form-control" id="contents1" rows="3"></textarea>
 							<button type="button" id="reply" class="btn btn-dark mt-3"	onClick="javascript:addReply();">댓글 등록</button>
 						</li>
 					</ul>
@@ -94,12 +94,12 @@
 
 </div>
 </div>
-	<script type="text/javascript" src="../resources/js/review.js"></script>
+	<script type="text/javascript" src="../resources/js/qna.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../resources/js/reviewReply.js"></script>
+	<script type="text/javascript" src="../resources/js/qnaReply.js"></script>
 
 </body>
 </body>
