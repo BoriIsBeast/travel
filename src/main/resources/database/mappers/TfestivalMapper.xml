@@ -96,20 +96,22 @@
 		<result column="detail" property="detail" />
 		<result column="homePage" property="homePage" />
 		<result column="age" property="age" />
+		<result column="id" property="id" />
 		<result column="phone" property="phone" />
 		<collection property="filesVOs" javaType="java.util.List"
 			ofType="TfestivalFilesVO">
 			<id column="fileNum" property="fileNum" />
 			<result column="fileName" property="fileName" />
 			<result column="oriName" property="oriName" />
+			<result column="id" property="id" />
 		</collection>
 
 	</resultMap>
 
 	<insert id="add" parameterType="TfestivalVO"
 		useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE)
-		VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age}, #{phone})
+		INSERT INTO TFESTIVAL(NUM, NAME, STARTDATE, FINISHDATE, LOCATION, DETAIL, HOMEPAGE, AGE, PHONE , ID)
+		VALUES (#{num}, #{name}, #{startDate}, #{finishDate}, #{location}, #{detail}, #{homePage}, #{age}, #{phone}, #{id})
 	</insert>
 
 	<delete id="delete" parameterType="TfestivalVO">

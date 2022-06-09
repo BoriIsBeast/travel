@@ -9,14 +9,15 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
 <c:import url="../temp/header.jsp"></c:import>
+<title>Insert title here</title>
 </head>
 <body>
-
+	&nbsp;
 	<div class="container">
 		&nbsp;		
 		<div class="alert alert-primary" role="alert"
@@ -72,7 +73,9 @@
 					class="accordion-collapse collapse"
 					aria-labelledby="panelsStayOpen-headingThree">
 					<div class="accordion-body">
+
 						<strong>
+						아이디 : ${vo.id} <br>
 						시작일 : ${vo.startDate} <br>
 						종료일 :${vo.finishDate} <br>
 						장소 : ${vo.location} <br>
@@ -86,18 +89,19 @@
 		</div>
 		&nbsp;
 		<div style="display: block;">
-			<a href="./list" role="button" class="btn btn-outline-danger">목록</a>
-			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
-		</div>
 
-		<!-- add 버튼 -->
-		<div class="row mt-4">
-			<a href="./delete?num=${vo.num}">
-			<button type="button" class="btn btn-outline-danger">삭제</button></a>
-			<a href="./update?num=${vo.num}">
-			<button type="button" class="btn btn-outline-danger">수정</button></a>
+			<div class="container my-4">
+				<div class="col-2 d-flex">
+					<a href="./list" role="button" class="btn btn-success mx-1">목록</a>
+					<c:if test="${member.id eq vo.id}">
+						<a href="./update?num=${vo.num}" role="button"
+							class="btn btn-outline-danger">수정</a>
+						<a href="./delete?num=${vo.num}"><button type="button"
+								class="btn btn-outline-danger">삭제</button></a>
+					</c:if>
+				</div>
+			</div>
 		</div>
-		</c:if>
 	</div>
 
 	<script

@@ -31,8 +31,8 @@
 		<div>
 			<input type="hidden" name="num" value="${vo.num}" id="num">
 			아이디 : <input type="text" readonly="readonly" name="id"
-				value="${member.id}" id="id"> 내용 : <input type="text"
-				name="contents" id="contents">
+				value="${member.id}" id="id">
+				내용 : <input type="text" name="contents" id="contents">
 			<button type="button" id="reply" class="btn btn-outline-warning">댓글</button>
 		</div>
 		&nbsp;
