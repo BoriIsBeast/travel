@@ -33,10 +33,10 @@
        	    <a href="./festivalList">여행지관리</a>
        		</div>
        		<div>
-       	    <a href="./festivalList">여행지관리</a>
+       	    <a href="../Tbest/list">코스관리</a>
        		</div>
        		<div>
-       			<a href="./memberList">코스관리</a>
+       			<a href="./memberList">멤버관리</a>
        		</div>
 	       <div>
 	       <a href="./sellList">매출</a>

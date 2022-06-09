@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.travel.Tbest.TbestVO;
+import com.project.travel.Tfestival.TfestivalVO;
 import com.project.travel.cart.CartVO;
 import com.project.travel.member.MemberVO;
 import com.project.travel.product.ProductMapper;
@@ -19,8 +20,16 @@ public class AdminService {
 	@Autowired
 	private AdminMapper adminMapper;
 	
-	public List<TbestVO> getBestList(Pager pager)throws Exception{
+	public List<TfestivalVO> getFestivalList(Pager pager)throws Exception{
+		pager.makeRow();
+		pager.makeNum(adminMapper.festivalTotalCount(pager));
 		
+		return adminMapper.getFestivalList(pager);
+	}
+	
+	public List<TbestVO> getBestList(Pager pager)throws Exception{
+		pager.makeRow();
+		pager.makeNum(adminMapper.bestTotalCount(pager));
 		
 		return adminMapper.getBestList(pager);
 	}
@@ -37,7 +46,7 @@ public class AdminService {
 
 	public List<ProductVO> getProductList(Pager pager)throws Exception{
 		pager.makeRow();
-		pager.makeNum(productMapper.getTotal(pager));
+		pager.makeNum(adminMapper.productTotalCount(pager));
 		return adminMapper.getProductList(pager);
 	}
 	

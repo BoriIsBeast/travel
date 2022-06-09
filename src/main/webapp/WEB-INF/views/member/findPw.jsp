@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+   rel="stylesheet">
+<%-- <c:import url="../temp/header.jsp"></c:import> --%> 
 </head>
 <body>
 	<h3>비밀번호 찾기</h3>

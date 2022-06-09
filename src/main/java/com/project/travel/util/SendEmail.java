@@ -22,12 +22,12 @@ public class SendEmail {
 		//email.setSmtpPort(587);
 		
 		String charSet = "utf-8";
-		String hostSMTP = "smtp.gmail.com"; //네이버 이용시 smtp.naver.com
+		String hostSMTP = "smtp.naver.com"; //네이버 이용시 smtp.naver.com
 		String hostSMTPid = hoswId;//보내는사람 이메일주소 ==================== properties 에 등록해놨음 ! 반드시 등록하고 실행 =======
 		String hostSMTPpwd = hostPw;//보내는사람 이메일 비번 ==================== properties 에 등록해놨음 ! 반드시 등록하고 실행 =======
 
 		// 보내는 사람 EMail, 제목, 내용
-		String fromEmail = "jinu743211@gmail.com";// 보내는 사람 이메일 주소
+		String fromEmail = "wlsdn147@naver.com";// 보내는 사람 이메일 주소
 		String fromName = "Traveler 관리자"; // 보내는사람 이름
 		String subject = "";
 		String msg = "";
@@ -49,7 +49,7 @@ public class SendEmail {
 			email.setCharset(charSet);
 			email.setSSL(true);
 			email.setHostName(hostSMTP);
-			email.setSmtpPort(465); //네이버 이용시 587
+			email.setSmtpPort(587); //네이버 이용시 587
 
 			email.setAuthentication(hostSMTPid, hostSMTPpwd);
 			email.setTLS(true);
