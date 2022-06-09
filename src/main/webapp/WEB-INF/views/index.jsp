@@ -440,7 +440,8 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">가족과 함께</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0">가족과 함께 보고, 느낄 수 있는 여행지를 확인해 보세요!
+                            Check out the travel destinations that you and your family can see and feel!</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
@@ -451,7 +452,10 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">연인과 함께</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0">연인과 함께 다양한 경험을 해볼수 있는 여행지를 확인해 보세요!
+                            
+                            Check out the travel destinations where you can experience various experiences with your lover!
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -462,7 +466,9 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">나홀로 여행</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0">혼자서 고독을 즐기고 싶을때 갈만한 여행지를 확인해 보세요!
+                            Check out some of the best places to go when you want to enjoy solitude on your own!
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
@@ -473,7 +479,9 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">자연친화적인</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0">4계절이 뚜렷한 한국에서 풍부한 자연을 느낄수 있는 여행지를 확인해보세요!
+                            Check out the travel destinations where you can feel the abundant nature in Korea, which has four distinct seasons!
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -484,7 +492,9 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">힐링 여행</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0">심신의 안정을 찾기 위해 도움을 줄수있는 여행지를 확인해 보세요!
+                            Check out the travel destinations that can help you find peace of mind!
+                            </p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
@@ -495,7 +505,7 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">기타</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0">Etc</p>
                         </a>
                     </div>
                 </div>
@@ -585,7 +595,7 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="rounded shadow overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="../resources/img/team-2.jpg" alt="">
+                                <img class="img-fluid" src="../resources/img/DOG1.jpg" alt="">
                                 <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
                                     <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
