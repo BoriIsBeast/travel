@@ -37,7 +37,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		
 			registry.addInterceptor(sellerInterceptor)
 				
-					//.addPathPatterns("/admin/*")
+					.addPathPatterns("/admin/*")
 					.addPathPatterns("/product/add")
 					.addPathPatterns("/product/update")
 					.addPathPatterns("/product/delete")
@@ -49,25 +49,25 @@ public class InterceptorConfig implements WebMvcConfigurer {
 			
 			registry.addInterceptor(qnaInterceptor)	
 			
-					.addPathPatterns("/admin/*")
+					
 					.addPathPatterns("/tQna/update")
 					.addPathPatterns("/tQna/delete");
 			
 			registry.addInterceptor(noticeInterceptor)
 					
-					.addPathPatterns("/admin/*")
+					
 					.addPathPatterns("/tNotice/update")
 					.addPathPatterns("/tNotice/delete");
 			
 			registry.addInterceptor(reviewInterceptor)
 					
-					.addPathPatterns("/admin/*")
+					
 					.addPathPatterns("/tReview/update")
 					.addPathPatterns("/tReview/delete");
 			
 			registry.addInterceptor(loginInterceptor)
 					
-					.addPathPatterns("/admin/*")
+					
 					.addPathPatterns("/tQna/add")
 					.addPathPatterns("/tReview/add");
 			

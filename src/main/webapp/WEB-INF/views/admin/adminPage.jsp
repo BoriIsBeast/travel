@@ -60,7 +60,7 @@
        	    <a href="./festivalList">여행지관리</a>
        		</div>
        		<div>
-       	    <a href="./festivalList">여행지관리</a>
+       	    <a href="../Tbest/list">코스관리</a>
        		</div>
        		<div>
        			<a href="./memberList">멤버관리</a>
@@ -121,12 +121,7 @@
 										href="./memberList">멤버 관리 페이지</a>
 								</h6>
 							</div>
-							<div>
-								<h6>
-									<i class="material-icons"> expand_circle_down </i><a
-										href="./sellList">매출</a>
-								</h6>
-							</div>
+							
 
 						</c:if>
 					</div>

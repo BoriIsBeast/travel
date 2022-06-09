@@ -6,9 +6,43 @@
 
 <mapper namespace="com.project.travel.admin.AdminMapper">
 
-	<select id="getBestList" parameterType="Pager" resultMap="bestResult">
-		SELECT B.NUM, B.CATEGORY, B.TITLE, B.DETAIL, BF.*
-		FROM (SELECT * FROM TBEST
+<select id="productTotalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(PRODUCTNUM) FROM TPRODUCT
+		WHERE ID=#{id} AND
+		 <choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<otherwise>
+       			NAME
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%') 
+       	AND LARGECATEGORY LIKE CONCAT('%',#{search1},'%')
+       	AND MEDIUMCATEGORY LIKE CONCAT('%',#{search2},'%')
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
+		
+	</select>
+
+<select id="festivalTotalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM TFESTIVAL
+		WHERE ID=#{id} AND
+		<choose>
+			<when test="kind == 'col1'">
+				NAME
+			</when>
+			<otherwise>
+				LOCATION
+			</otherwise>
+		</choose>
+		LIKE concat('%', #{search}, '%')
+	</select>
+
+<select id="bestTotalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM TBEST
 		WHERE ID=#{id} AND
 		<choose>
 			<when test="kind == 'col1'">
@@ -19,32 +53,48 @@
 			</otherwise>
 		</choose>
 		LIKE CONCAT('%', #{search}, '%')
-		
-		ORDER BY NUM DESC
-			
-		)B
-		LEFT JOIN
-		TBESTFILE BF
-		USING(NUM)
-		ORDER BY BF.FILENUM ASC
 	</select>
+
+<select id="getBestList" parameterType="Pager" resultMap="bestResult">
+	SELECT B.NUM, B.CATEGORY, B.TITLE, B.DETAIL, BF.*
+	FROM (SELECT * FROM TBEST
+	WHERE ID=#{id} AND
+	<choose>
+		<when test="kind == 'col1'">
+			CATEGORY
+		</when>
+		<otherwise>
+			TITLE
+		</otherwise>
+	</choose>
+	LIKE CONCAT('%', #{search}, '%')
 	
-	<resultMap type="TbestVO" id="bestResult">
-		<id column="num" property="num"/>
-		<result column="productNum" property="productNum"/>
-		<result column="id" property="id"/>
-		<result column="category" property="category"/>
-		<result column="title" property="title"/>
-		<result column="detail" property="detail"/>
-		<collection property="filesVOs" javaType="List" ofType="TbestFilesVO">
-			<id column="fileNum" property="fileNum"/>
-			<result column="num" property="num"/>
-			<result column="productNum" property="productNum"/>
-			<result column="id" property="id"/>
-			<result column="fileName" property="fileName"/>
-			<result column="oriName" property="oriName"/>
-		</collection>
-	</resultMap>
+	ORDER BY NUM DESC
+		
+	)B
+	LEFT JOIN
+	TBESTFILE BF
+	USING(NUM)
+	ORDER BY BF.FILENUM ASC
+</select>
+
+<resultMap type="TbestVO" id="bestResult">
+<id column="num" property="num"/>
+<result column="productNum" property="productNum"/>
+<result column="id" property="id"/>
+<result column="category" property="category"/>
+<result column="title" property="title"/>
+<result column="detail" property="detail"/>
+<collection property="filesVOs" javaType="List" ofType="TbestFilesVO">
+<id column="fileNum" property="fileNum"/>
+<result column="num" property="num"/>
+<result column="productNum" property="productNum"/>
+<result column="id" property="id"/>
+<result column="fileName" property="fileName"/>
+<result column="oriName" property="oriName"/>
+</collection>
+</resultMap>
+
 
 	<select id="getSellList" parameterType ="PayVO" resultType="PayVO">
 		SELECT * FROM TPAY
@@ -77,6 +127,24 @@
 	ORDER BY NUM DESC
 	LIMIT #{startRow}, #{perPage}	
 	</select>
+	
+	<resultMap type="TfestivalVO" id="festivalResult">
+		<id column="num" property="num" />
+		<result column="name" property="name" />
+		<result column="startDate" property="startDate" />
+		<result column="finishDate" property="finishDate" />
+		<result column="location" property="location" />
+		<result column="detail" property="detail" />
+		<result column="homePage" property="homePage" />
+		<result column="age" property="age" />
+		<result column="phone" property="phone" />
+		<collection property="filesVOs" javaType="java.util.List"
+			ofType="TfestivalFilesVO">
+			<id column="fileNum" property="fileNum" />
+			<result column="fileName" property="fileName" />
+			<result column="oriName" property="oriName" />
+		</collection>
+	</resultMap>
 
 	<select id="getMemberDetail" parameterType="MemberVO" resultType="MemberVO">
 		SELECT * FROM TMEMBER WHERE ID =#{id}

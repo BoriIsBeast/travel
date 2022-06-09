@@ -27,7 +27,9 @@ public class SendEmail {
 		String hostSMTPpwd = hostPw;//보내는사람 이메일 비번 ==================== properties 에 등록해놨음 ! 반드시 등록하고 실행 =======
 
 		// 보내는 사람 EMail, 제목, 내용
+
 		String fromEmail = "cofls3928@naver.com";// 보내는 사람 이메일 주소
+
 		String fromName = "Traveler 관리자"; // 보내는사람 이름
 		String subject = "";
 		String msg = "";

@@ -7,11 +7,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.travel.Tbest.TbestVO;
+import com.project.travel.Tfestival.TfestivalVO;
 import com.project.travel.cart.CartVO;
 import com.project.travel.member.MemberVO;
 import com.project.travel.product.ProductVO;
@@ -61,8 +63,19 @@ public class AdminController {
 	}
 	
 	@GetMapping("festivalList")
-	public void getfestivalList()throws Exception{
+	public ModelAndView getfestivalList(HttpSession session,Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO = new MemberVO();
 		
+		memberVO=(MemberVO)session.getAttribute("member");
+		pager.setId(memberVO.getId());
+		
+		List<TfestivalVO> ar = adminService.getFestivalList(pager);
+		
+		mv.setViewName("admin/festivalList");
+		mv.addObject("vo", ar);
+		
+		return mv;
 	}
 	
 //	@GetMapping("memberDetail")
