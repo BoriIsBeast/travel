@@ -33,7 +33,7 @@ $("#pay").click(function(){
             if(data<0){
                 alert("다시 시도해주세요.")
             }else{
-                alert("결제성공")
+                alert("결제가 완료되었습니다.")
                 location.href="../pay/detailOrder?num="+data;
             }
         },

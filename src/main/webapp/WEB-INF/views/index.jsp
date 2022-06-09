@@ -310,7 +310,7 @@
                                 </div>
                                 <p class="text-body mb-3">우리나라 양양 낙산사, 남해 보리암, 강화도 보문사와 더불어 유명한 관음성지 중의 하나이다. 동해 최남단에 위치한 해동용궁사는 고려 우왕 2년(1376)에 공민왕의 왕사였던 나옹(懶翁) 대사가 창건하였다.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="../product/detail?productNum=5">여행지 정보</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="../product/detail?productNum=133">여행지 정보</a>
                                     <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">무 료</a>
                                 </div>
                             </div>
@@ -364,7 +364,7 @@
                                 </div>
                                 <p class="text-body mb-3">1962년 12월 20일 국보 제31호로 지정되었다. 경상북도 경주시 인왕동에 소재하며 높이 9.17m, 밑지름 4.93m, 윗지름 2.85m이다. 밑에서부터 4.16m 되는 곳의 남쪽 허리에 한 변이 1m인 정사각형 문이 달려 있다. 모양은 원통형으로 남쪽 문에 사다리를 걸었던 자리가 있다. 30cm 높이의 돌 362개로 27단을 쌓아 만들었다.</p>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="http://localhost/product/detail?productNum=3">여행지 정보</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="http://localhost/product/detail?productNum=126">여행지 정보</a>
                                     <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">1000Won</a>
                                 </div>
                             </div>

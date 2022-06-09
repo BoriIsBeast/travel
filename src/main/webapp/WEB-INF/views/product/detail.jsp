@@ -20,13 +20,13 @@
 
 <div class="container">
 
-<div class="row mt-4">
-			<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
-				<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${vo.name}</h4>
-			</div>
+	<div class="row mt-4">
+		<div class="alert alert-primary" role="alert" style="background-color: #0F172B !important;">
+			<h4 class="text-center" style="text-transform: uppercase;color: #FEA116 !important;">${vo.name}</h4>
 		</div>
+	</div>
 		
-		<c:if test="${vo.price ne 0}">
+		<c:if test="${vo.price ne 0 && member.getTType()==0}">
 		<div class="row float-end" >
 			<h4>입장권 구매</h4>
 					<div class="carousel-inner" >
@@ -34,10 +34,14 @@
 						<div id="datepicker1"></div>
 						선택날짜 : <input type="date" id="dateResult" readonly/>
 						<div>
-							입장료 : <fmt:formatNumber type="currency" value="${vo.price}" />원
-														
+						<c:if test="${vo.price eq 0 }">
+								무료 입장
+							</c:if>
+							<c:if test="${vo.price ne 0 }">
+							<fmt:formatNumber type="currency" value="${vo.price}" />
+							원
+							</c:if>
 						</div>
-
 						<div>
 							구입 매수 : <select name="amount" id="amount" style="margin: 0 0.5rem 0 0.5rem">
 								<option>선택해주세요</option>
@@ -57,14 +61,10 @@
 							<button type="button" class="btn btn-primary" id="directPay"data-id="${member.id}" data-num="${vo.productNum}">바로결제</button>
 							
 						</div>
-		
 					</div>
-					
-					
-					
-					
 					</div>
 				</c:if>
+				
 		<div class="card" style="width: 50rem;">
 		
 			<div id="carouselExampleControls" class="carousel slide"
@@ -116,20 +116,22 @@
 				<li class="list-group-item">입장료 : <fmt:formatNumber
 						type="currency" value="${vo.price}" />원
 				</li>
+				<c:if test="${member.getTType() == 1 && member.id eq vo.id && vo.price ne 0 || member.getTType() == 2}">
+				<li class="list-group-item" style="color:red;">티켓 잔여 수량 : ${vo.maxCount}</li>
+				</c:if>
+				
 			</ul>
 			<!-- 지도생성 -->
 			<div id="map" style="width: 100%; height: 400px;"></div>
 	
-			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
-			<!-- add 버튼 -->
-		
-			<%-- <a href="./update?productNum=${vo.productNum}">Update</a> 
-			<a href="./delete?productNum=${vo.productNum}">Delete</a>	 --%>
+			<!--버튼 -->
+			<c:if test="${member.getTType() == 1 && member.id eq vo.id || member.getTType()==2}">
 				<div class="d-flex justify-content-end">
 					<button type="button" class="col-2 btn btn-primary " data-num="${vo.productNum}" id="update">Update</button>
 					<button type="button" class="col-2 btn btn-primary" data-num="${vo.productNum}" id="delete">Delete</button>
 				</div>
 			</c:if>
+			
 			<div>
 					<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
 				<button type="button" class="col-1 btn btn-primary" id="gotolist">List</button>
@@ -141,7 +143,7 @@
 	
 
 	<div class="row" id="list" style="width: 50%; height: 350px;">
-		리뷰 ajax, 제목, 작성자, 내용, 여행지 이름
+		<!-- 리뷰 ajax, 제목, 작성자, 내용, 여행지 이름 -->
 	</div>
 	
 </div>

@@ -20,7 +20,7 @@ public class ProductVO {
 	@NotBlank(message = "반드시 입력하세요.")
 	private String contents;
 	private String address;
-	@NotBlank(message = "반드시 입력하세요.")
+
 	private String homePage;
 	private Long maxCount;
 	

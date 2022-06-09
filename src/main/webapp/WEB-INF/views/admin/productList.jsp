@@ -81,12 +81,15 @@
          </nav>
       </div>
 
-      <!-- add 버튼 -->
-      <div class="row mt-4">
-         <a href="/product/add">Add</a>
-      </div>
+     <!-- add 버튼 -->
+				<div>
+				<button type="button" class="col-2 btn btn-primary mt-4" id="productAdd">여행지 추가하기</button>
+			</div>
+	
+</div>
+	
 
-   </div>
+
 
 
    <script type="text/javascript">
@@ -94,6 +97,10 @@
          let productNum = $(this).attr("data-num");
          location.href = href = "../product/detail?productNum=" + productNum;
       })
+
+		$("#productAdd").click(function(){
+			location.href = "/product/add";
+		})
    </script>
 </body>
 </html>

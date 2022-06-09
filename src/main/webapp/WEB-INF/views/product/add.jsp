@@ -41,7 +41,7 @@
 					<select class="form-select" aria-label="Default select example"
 						name="mediumCategory" id="mediumCategory">
 						<option>선택해주세요</option>
-						<option value="마포구">마포구</option>
+						<option value="종로구">종로구</option>
 						<option value="강남구">강남구</option>
 						<option value="동대문구">동대문구</option>
 					</select>
@@ -172,7 +172,7 @@
 
 			<div id="priceResult"></div>
 
-			<div class="mb-3">
+			<div class="mb-3 mt-3">
 				<label for="exampleInputPassword1" class="form-label">Contents</label>
 				<form:textarea path="contents" class="form-control" id="contents"></form:textarea>
 		
