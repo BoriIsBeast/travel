@@ -30,13 +30,12 @@
 		<div class="row">
 			<div class="card btnRe" data-num="${vo.num}">
 				<ul class="list-group list-group-flush">
-					<input class="list-group-item" id="num" type="text" hidden="hidden"
-						value="${vo.num}">
+					<input class="list-group-item" id="num" type="text" hidden="hidden"	value="${vo.num}">
 					<li class="list-group-item">제 목: ${vo.title}</li>
 					<li class="list-group-item">작 성 자 : ${vo.id}</li>
 				</ul>
 
-				<div class="card-body">${vo.contents}</div>
+				<div class="card-body">내용 : ${vo.contents}</div>
 
 				<div class="container my-4">
 					<div class="col-2 d-flex">
@@ -55,14 +54,7 @@
 
 			</div>
 
-			<%-- 	<div class="comment">
-			<input type="hidden" name="num" value="${vo.num}" id="num"> 
-			<input	type="text" class="nick" name="id" id="id2" value="${member.id}" readonly>
-			<input type="text" placeholder="댓글을 남겨보세요." name="contents" id="contents2" class="contents">
-					
-			<button type="button" id="reply" class="btn btn-success mx-1">댓글 등록</button>
-
-		</div> --%>
+			
 			<div class="card mb-2">
 				<div class="card-header bg-light">
 					<i class="fa fa-comment fa"></i>댓글
@@ -92,6 +84,8 @@
 	</div>
 
 </div>
+</div>
+
 	<script type="text/javascript" src="../resources/js/review.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

@@ -45,7 +45,7 @@
 		    </div>
 		  </div>
 		<div class="row mb-3">
-		    <label for="contents" class="col-sm-2 col-form-label">Contents</label>
+		    <label for="contents" class="col-sm-2 col-form-label">내 용</label>
 		    <div class="col-sm-10">
 		      <textarea name="contents" class="form-control" id="contents"></textarea>
 		    </div>

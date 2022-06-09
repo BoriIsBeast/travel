@@ -32,9 +32,7 @@
 		   		<li class="list-group-item">작 성 자 : ${vo.id} </li>
 			</ul>
 		  
-			<div class="card-body">
-				${vo.contents}
-	    	</div>
+			<div class="card-body">내 용 :${vo.contents}</div>
 	    	
 	    	
 

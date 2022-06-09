@@ -55,7 +55,7 @@
 						<div>
 							<button type="button" class="btn btn-primary" id="cartBtn" data-id="${member.id}" data-num="${vo.productNum}">장바구니</button>
 							<button type="button" class="btn btn-primary" id="directPay"data-id="${member.id}" data-num="${vo.productNum}">바로결제</button>
-							<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
+							
 						</div>
 		
 					</div>
@@ -131,6 +131,7 @@
 				</div>
 			</c:if>
 			<div>
+					<a href="../tReview/add?productNum=${vo.productNum}"><button type="button" class="btn btn-primary" id="reBtn" data-num="${vo.productNum}">리뷰 쓰기</button></a>
 				<button type="button" class="col-1 btn btn-primary" id="gotolist">List</button>
 			</div>
 			
@@ -209,7 +210,6 @@
 		})	
 		
 	</script>
-
 
 </body>
 </html>

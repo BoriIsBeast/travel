@@ -1,4 +1,4 @@
-const btn = document.getElementsByClassName('btnQn')
+const btn = document.getElementsByClassName('btnRe')
 for(b of btn){
     let num=b.getAttribute("data-num");
 

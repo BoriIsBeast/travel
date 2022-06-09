@@ -37,7 +37,7 @@
 					<li class="list-group-item">작 성 자 : ${vo.id}</li>
 				</ul>
 
-				<div class="card-body">${vo.contents}</div>
+				<div class="card-body">내용: ${vo.contents}</div>
 
 				<div class="container my-4">
 					<div class="col-2 d-flex">
@@ -55,15 +55,7 @@
 				</div>
 
 			</div>
-
-			<%-- 	<div class="comment">
-			<input type="hidden" name="num" value="${vo.num}" id="num"> 
-			<input	type="text" class="nick" name="id" id="id2" value="${member.id}" readonly>
-			<input type="text" placeholder="댓글을 남겨보세요." name="contents" id="contents2" class="contents">
-					
-			<button type="button" id="reply" class="btn btn-success mx-1">댓글 등록</button>
-
-		</div> --%>
+			
 			<div class="card mb-2">
 				<div class="card-header bg-light">
 					<i class="fa fa-comment fa"></i>댓글
