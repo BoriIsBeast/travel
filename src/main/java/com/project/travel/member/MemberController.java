@@ -123,6 +123,8 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 			
 		memberService.findPw(response, memberVO);
+		
+		mv.setViewName("/member/findPw");
 		return mv;
 	}
 	

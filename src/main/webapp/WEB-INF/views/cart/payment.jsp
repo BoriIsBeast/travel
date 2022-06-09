@@ -60,8 +60,8 @@
 	</div>
 	<div>
 		<button type="button" id="pay"  class="btn btn-primary" data-id="${member.id}">결제하기</button>
-	
-		<button type="button" id="kakaoPay"  class="btn btn-primary" data-id="${member.id}" data-name="${member.name}" >KAKAOPAY</button>
+	 
+		<button type="button" id="kakaoPay" style ="border-style: none"data-id="${member.id}" data-name="${member.name}" ><img src="../resources/img/kakaopay.jpg" style="width:150px;" alt="Image"></button>
 	</div>
 </div>
 

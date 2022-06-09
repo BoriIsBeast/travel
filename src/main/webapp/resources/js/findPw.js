@@ -13,6 +13,7 @@
 				},
 				success : function(result) {
 					alert(result);
+					window.location.replace('./login');
 				},
 			})
 		});

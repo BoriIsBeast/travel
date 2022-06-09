@@ -34,7 +34,7 @@
 		LEFT JOIN 
 		TPRODUCTFILE PF
 		USING(PRODUCTNUM)
-		ORDER BY PF.FILENUM ASC
+		<!-- ORDER BY PF.FILENUM ASC -->
 	</select>
 	
 	<resultMap type="ProductVO" id="productResult">
@@ -57,7 +57,7 @@
 		</resultMap>
 		
 	<select id="getDetail" parameterType="ProductVO" resultMap="productResult"> 
-		SELECT P.PRODUCTNUM, P.NAME, P.PRICE,P.CONTENTS, P.ADDRESS, P.HOMEPAGE,P.MAXCOUNT, PF.*
+		SELECT P.PRODUCTNUM, P.ID, P.NAME, P.PRICE,P.CONTENTS, P.ADDRESS, P.HOMEPAGE,P.MAXCOUNT, PF.*
 		FROM TPRODUCT P
 		LEFT JOIN 
 		TPRODUCTFILE PF

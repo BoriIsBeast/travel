@@ -5,9 +5,9 @@ function priceSelect(){
         let p = $(this).val();
 
        if(p==1){
-           let f = '<label for="exampleInputPassword1" class="form-label">가격</label>'
+           let f = '<label for="exampleInputPassword1" class="form-label mt-3">가격</label>'
            f=f+'<input type="text" class="form-control" id="price" name="price" ></input>'
-           f=f+'<label for="exampleInputPassword1" class="form-label">판매 수량</label>'
+           f=f+'<label for="exampleInputPassword1" class="form-label mt-3">판매 수량</label>'
            f=f+'<input type="number" class="form-control" id="maxCount" name="maxCount"></input>'
 
            $("#priceResult").append(f);

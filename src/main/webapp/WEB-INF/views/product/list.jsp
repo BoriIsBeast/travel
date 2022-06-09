@@ -268,10 +268,13 @@
 						<div class="card-body">
 							<h5 class="card-title">${list.name}</h5>
 							<%-- 	<p class="card-text">${list.address}</p> --%>
-
+							<c:if test="${list.price eq 0 }">
+								무료 입장
+							</c:if>
+							<c:if test="${list.price ne 0 }">
 							<fmt:formatNumber type="currency" value="${list.price}" />
 							원
-
+							</c:if>
 
 						</div>
 					</div>
@@ -304,8 +307,8 @@
 
 		<c:if test="${member.getTType() == 1}">
 			<!-- add 버튼 -->
-			<div class="row mt-4">
-				<a href="/product/add">여행지 추가하기</a>
+				<div>
+				<button type="button" class="col-2 btn btn-primary mt-4" id="productAdd">여행지 추가하기</button>
 			</div>
 		</c:if>
 </div>
@@ -316,7 +319,9 @@
 			location.href = "./detail?productNum=" + productNum;
 		})
 
-		
+		$("#productAdd").click(function(){
+			location.href = "./add";
+		})
 	</script>
 </body>
 </html>

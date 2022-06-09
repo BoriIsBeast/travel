@@ -81,7 +81,7 @@
 					</ul>
 				</div>
 			</div>
-		<table id="replyResult" class="col-sm-6">
+		<table id="replyResult"  ><!-- class="col-6" -->
 
 
 		</table>
