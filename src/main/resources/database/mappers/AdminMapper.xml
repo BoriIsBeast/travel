@@ -6,47 +6,47 @@
 
 <mapper namespace="com.project.travel.admin.AdminMapper">
 
-<select id="getBestList" parameterType="Pager" resultMap="bestResult">
-	SELECT B.NUM, B.CATEGORY, B.TITLE, B.DETAIL, BF.*
-	FROM (SELECT * FROM TBEST
-	WHERE ID=#{id} AND
-	<choose>
-		<when test="kind == 'col1'">
-			CATEGORY
-		</when>
-		<otherwise>
-			TITLE
-		</otherwise>
-	</choose>
-	LIKE CONCAT('%', #{search}, '%')
-	
-	ORDER BY NUM DESC
+	<select id="getBestList" parameterType="Pager" resultMap="bestResult">
+		SELECT B.NUM, B.CATEGORY, B.TITLE, B.DETAIL, BF.*
+		FROM (SELECT * FROM TBEST
+		WHERE ID=#{id} AND
+		<choose>
+			<when test="kind == 'col1'">
+				CATEGORY
+			</when>
+			<otherwise>
+				TITLE
+			</otherwise>
+		</choose>
+		LIKE CONCAT('%', #{search}, '%')
 		
-	)B
-	LEFT JOIN
-	TBESTFILE BF
-	USING(NUM)
-	ORDER BY BF.FILENUM ASC
-</select>
+		ORDER BY NUM DESC
+			
+		)B
+		LEFT JOIN
+		TBESTFILE BF
+		USING(NUM)
+		ORDER BY BF.FILENUM ASC
+	</select>
+	
+	<resultMap type="TbestVO" id="bestResult">
+		<id column="num" property="num"/>
+		<result column="productNum" property="productNum"/>
+		<result column="id" property="id"/>
+		<result column="category" property="category"/>
+		<result column="title" property="title"/>
+		<result column="detail" property="detail"/>
+		<collection property="filesVOs" javaType="List" ofType="TbestFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="num" property="num"/>
+			<result column="productNum" property="productNum"/>
+			<result column="id" property="id"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 
-<resultMap type="TbestVO" id="bestResult">
-<id column="num" property="num"/>
-<result column="productNum" property="productNum"/>
-<result column="id" property="id"/>
-<result column="category" property="category"/>
-<result column="title" property="title"/>
-<result column="detail" property="detail"/>
-<collection property="filesVOs" javaType="List" ofType="TbestFilesVO">
-<id column="fileNum" property="fileNum"/>
-<result column="num" property="num"/>
-<result column="productNum" property="productNum"/>
-<result column="id" property="id"/>
-<result column="fileName" property="fileName"/>
-<result column="oriName" property="oriName"/>
-</collection>
-</resultMap>
-
-<select id="getSellList" parameterType ="PayVO" resultType="PayVO">
+	<select id="getSellList" parameterType ="PayVO" resultType="PayVO">
 		SELECT * FROM TPAY
 		WHERE NUM > 0 AND
 		<choose>
@@ -61,7 +61,7 @@
 		
 	</select>
 
-<select id="getFestivalList" parameterType="Pager" resultType="TfestivalVO">
+	<select id="getFestivalList" parameterType="Pager" resultType="TfestivalVO">
 	SELECT * FROM TFESTIVAL
 	WHERE NUM > 0 AND
 	<choose>
@@ -127,8 +127,17 @@
  			<result column="oriName" property="oriName"/>
  		</collection>
 		</resultMap>
+		
+	<select id="getProductCount" parameterType="MemberVO" resultType="Long">
+		SELECT COUNT(PRODUCTNUM) FROM TPRODUCT WHERE ID=#{id}
+	</select>
 
-	<select id="getMemberList" resultType="MemberVO">
-		SELECT * FROM TMEMBER
+	<select id="getMemberList" parameterType="Pager" resultType="MemberVO">
+		SELECT * FROM TMEMBER ORDER BY REGDATE ASC
+		LIMIT #{startRow},#{perPage}
+	</select>
+	
+	<select id ="getMemberCount" resultType="Long">
+		SELECT COUNT(ID) FROM TMEMBER
 	</select>
 </mapper>

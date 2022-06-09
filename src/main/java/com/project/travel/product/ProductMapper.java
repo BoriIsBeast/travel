@@ -25,6 +25,8 @@ public interface ProductMapper {
 	public Long getTotal(Pager pager) throws Exception;
 	//maxCount UPDATE
 	public int setMaxCountUpdate(CartVO cartVO) throws Exception;
+	//count
+	public Long getCount(Pager pager) throws Exception;
 	
 	//------------------------------------------------------------------------
 	

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.travel.product.ProductVO;
+
 @Controller
 @RequestMapping("/member/*")
 public class MemberController {
@@ -206,13 +208,28 @@ public class MemberController {
 		
 	}
 	
-	
-	
 	@GetMapping("join")
 	public ModelAndView setJoin(@ModelAttribute MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/join");
 		
+		return mv;
+	}
+	@GetMapping("delete")
+	public ModelAndView setDelelte(MemberVO memberVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setDelete(memberVO);
+		if(result == 0) {
+			mv.addObject("msg", "회원 삭제 실패");
+			mv.addObject("path", "./");
+			mv.setViewName("common/getResult");
+		}else {
+			mv.addObject("msg", "회원 삭제 성공");
+			mv.addObject("path", "/admin/memberList");
+			mv.setViewName("common/getResult");
+			
+		}
+
 		return mv;
 	}
 }

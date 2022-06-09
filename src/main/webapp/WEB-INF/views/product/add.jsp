@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		<form action="./add" method="post" enctype="multipart/form-data">
+		<form:form action="./add" method="post" enctype="multipart/form-data"  modelAttribute="productVO">
 			<div class="mb-3">
 				<label for="exampleInputPassword1" class="form-label">id</label> <input
 					type="text" class="form-control" id="id" name="id"
@@ -142,8 +142,10 @@
 				<option value="기타">#기타</option>
 			</select>
 			<div class="mb-3 mt-3">
-				<label for="exampleInputPassword1" class="form-label mg">Name</label> <input
-					type="text" class="form-control" id="name" name="name">
+				<label for="exampleInputPassword1" class="form-label mg">Name</label> 
+				<form:input path="name" cssClass="form-control" id="name" ></form:input>
+			
+				<form:errors path="name" cssStyle="color:red;"></form:errors>
 			</div>
 			<!--  <div class="mb-3">
 				<label for="exampleInputPassword1" class="form-label">Address</label>
@@ -154,7 +156,7 @@
 		         
 		   
 		   <!-- 	<label for="exampleInputPassword1" class="form-label">주소</label> -->
-		       <input type="text"  id="mainAddress" class="form-control" name="address" size="70" readonly>
+		       <input name="address" type="text"  id="mainAddress" class="form-control" size="70" readonly/>
 		
 			<div class="mb-3 mt-3">
 				<label for="exampleInputPassword1" class="form-label">Price</label>
@@ -172,13 +174,17 @@
 
 			<div class="mb-3">
 				<label for="exampleInputPassword1" class="form-label">Contents</label>
-				<textarea class="form-control" id="contents" name="contents"></textarea>
+				<form:textarea path="contents" class="form-control" id="contents"></form:textarea>
+		
+				<form:errors path="contents" cssStyle="color:red;"></form:errors>
 			</div>
 
 			<div class="mb-3">
 				<label for="exampleInputPassword1" class="form-label">HomePage</label>
-				<input type="text" class="form-control" id="homePage"
-					name="homePage">
+				<form:input path="homePage" type="text" class="form-control" id="homePage"
+					></form:input>
+			
+				<form:errors path="homePage" cssStyle="color:red;"></form:errors>
 			</div>
 
 			<div id="fileResult"></div>
@@ -190,7 +196,7 @@
 			<div class="row justify-content-end mt-5">
 				<button type="submit" class="col-1 btn btn-primary ">Submit</button>
 			</div>
-		</form>
+		</form:form>
 	</div>
 	
 	<script type="text/javascript" src="../resources/js/product.js"></script>

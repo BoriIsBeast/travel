@@ -4,12 +4,13 @@ import java.util.List;
 
 
 import javax.servlet.http.HttpSession;
-
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,26 +34,37 @@ public class ProductController {
 	private TReviewService tReviewService;
 
 	@GetMapping("add")
-	public ModelAndView setAdd(ProductVO productVO, ModelAndView mv) throws Exception {
-
+	public ModelAndView setAdd(@ModelAttribute ProductVO productVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("product/add");
 
 		return mv;	
 	}
 	@PostMapping("add")
-	public String setAdd(ProductVO productVO,MultipartFile[] files,HttpSession session)throws Exception{
+	public ModelAndView setAdd(@Valid ProductVO productVO,BindingResult bindingResult,MultipartFile[] files,HttpSession session)throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		if(bindingResult.hasErrors()) {
+			mv.setViewName("/product/add");
+		return mv;
+			
+		}
 		int result = productService.setAdd(productVO,files);
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		productVO.setId(memberVO.getId());
-		return "redirect:./list";
+		mv.setViewName("redirect:./list");
+		return mv;
 	}
 	
 
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager, ModelAndView mv) throws Exception {
 		List<ProductVO> ar = productService.getList(pager);
+		
+		Long count = productService.getCount(pager);
 
 		mv.addObject("vo", ar);
+		mv.addObject("count",count);
 		mv.setViewName("product/list");
 
 		return mv;

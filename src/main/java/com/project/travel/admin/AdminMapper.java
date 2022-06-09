@@ -17,10 +17,14 @@ public interface AdminMapper {
 	
 	public List<CartVO> getSellList(Pager pager)throws Exception;
 	
-	public MemberVO getMemberDetail(MemberVO memberVO)throws Exception;
+	//public MemberVO getMemberDetail(MemberVO memberVO)throws Exception;
 	
 	public List<ProductVO> getProductList(Pager pager) throws Exception;
 	
-	public List<MemberVO> getMemberList() throws Exception;
+	public List<MemberVO> getMemberList(Pager pager) throws Exception;
+	
+	public Long getProductCount(MemberVO memberVO) throws Exception;
+	
+	public Long getMemberCount() throws Exception;
 
 }

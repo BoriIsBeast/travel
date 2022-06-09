@@ -18,4 +18,6 @@ public interface MemberMapper {
 	public MemberVO getMypage(MemberVO memberVO)throws Exception;
 	
 	public MemberVO login(MemberVO memberVO)throws Exception;
+	
+	public int setDelete(MemberVO memberVO)throws Exception;
 }

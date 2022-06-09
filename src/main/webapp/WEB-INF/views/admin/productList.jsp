@@ -10,123 +10,37 @@
 <link href="../resources/css/listCategory.css" rel="stylesheet">
 <c:import url="../temp/header_script.jsp"></c:import>
 <c:import url="../temp/header_css.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
+
+<style type="text/css">
+.card-img-top {
+	height: 30rem;
+	object-fit: cover;
+}
+
+.submenu {
+	list-style: none;
+}
+</style>
 </head>
 <body>
-	<h1>푸로덕트ㅡㅡㅡㅡㅡㅡㅡㅡ</h1>
 
 <div class="container">
-		<h1>ListPage</h1>
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert"
+				style="background-color: #0F172B !important;">
+				<h4 class="text-center"
+					style="text-transform: uppercase; color: #FEA116 !important;">${member.id} 여행지
+					목록</h4>
+					</div>
+					</div>
+					
+					
 
-		<!-- 검색 -->
-		<div class="d-flex justify-content-end">
-			<form class="d-flex col-4 mb-3 ">
-				<select name="kind">
-					<option value="col1">지역(도)</option>
-					<option value="col2">지역(시)</option>
-					<option value="col3">여행지 이름</option>
-
-				</select> <input class="form-control me-2" type="search" placeholder="입력하세요."
-					aria-label="Search" name="search">
-				<button class="btn btn-outline-primary" type="submit">Search</button>
-			</form>
+		<div>
+		
+			<h5>총 ${count}건</h5>
 		</div>
-
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="./productList">지역 List - </a></li>
-
-						<li class="nav-item"><a class="nav-link active"
-							href="./list?kind=col1&search=서울">서울</a>
-							<ul class="submenu">
-								<li class="sub1"><a href="./productList?kind=col2&search=마포구">마포구</a></li>
-								<li class="sub1"><a href="./productList?kind=col2&search=강남구">강남구</a></li>
-								<li class="sub1"><a href="./productList?kind=col2&search=동대문구">동대문구</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link active"
-							href="./list?search1=경기">경기</a>
-							<ul class="submenu">
-								<li class="sub1"><a href="./productList?search1=경기&search2=인천">인천</a></li>
-								<li class="sub1"><a href="./productList?search1=경기&search2=수원">수원</a></li>
-								<li class="sub1"><a href="./productList?search1=경기&search2=파주">파주</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link active"
-							href="./productList?kind=col1&search=강원">강원</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							href="./productList?search1=경상">경상</a>
-							<ul class="submenu">
-								<li class="sub1"><a href="./list?search1=경상&search2=부산">부산</a></li>
-								<li class="sub1"><a href="./list?search1=경상&search2=경주">경주</a></li>
-								<li class="sub1"><a href="./list?search1=경상&search2=문경">문경</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link active"
-							href="./productList?kind=col1&search=전라">전라</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							href="./productList?kind=col1&search=충청">충청</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							href="./productList?kind=col1&search=제주">제주</a></li>
-
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<!-- 카테고리 -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="./list">카테고리 - </a></li>
-						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page"
-							href="./productList?search1=${param.search1}&search2=${param.search2}&category=가족과 함께"
-							data-cat="가족과 함께">#가족과 함께</a></li>
-						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page"
-							href="./productList?search1=${param.search1}&search2=${param.search2}&category=연인과 함께"
-							data-cat="연인과 함께">#연인과 함께</a></li>
-						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page"
-							href="./productList?search1=${param.search1}&search2=${param.search2}&category=나홀로 여행"
-							data-cat="나홀로 여행">#나홀로 여행</a></li>
-						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page"
-							href="./productList?search1=${param.search1}&search2=${param.search2}&category=자연친화적인"
-							data-cat="자연친화적인">#자연친화적인</a></li>
-						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page"
-							href="./productList?search1=${param.search1}&search2=${param.search2}&category=힐링 여행"
-							data-cat="힐링 여행">#힐링 여행</a></li>
-						<li class="nav-item"><a class="nav-link active category"
-							aria-current="page"
-							href="./productList?search1=${param.search1}&search2=${param.search2}&category=기타"
-							data-cat="기타">#기타</a></li>
-
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<h4>${param.search1}</h4>
-					<h4>${param.search2}</h4>
-					<h4>${param.category}</h4>
-
-					<c:if test="${param.search ne null}">
-						검색어 : <h4>${param.search}</h4>
-					</c:if>
-
-				</div>
-			</div>
-		</nav>
-
 		<!-- card list -->
 		<div class="row row-cols-5 row-cols-md-5 g-4">
 			<c:forEach items="${vo}" var="list">
@@ -146,7 +60,7 @@
 		</div>
 
 		<!-- pager -->
-		<div class="col-4">
+		<div class="col-4 mt-3">
 			<nav aria-label="Page navigation example">
 				<ul class="pagination align-self-center">
 					<li class="page-item"><a class="page-link"

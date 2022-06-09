@@ -100,7 +100,10 @@ public class MemberService {
 
 			out.print("이메일로 임시 비밀번호를 발송하였습니다.");
 			out.close();
-		}
+		}	
+	}
 	
-}
+	public int setDelete(MemberVO memberVO)throws Exception{
+		return memberMapper.setDelete(memberVO);
+	}
 }
