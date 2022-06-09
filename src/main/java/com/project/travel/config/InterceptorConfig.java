@@ -54,7 +54,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
 			registry.addInterceptor(sellerInterceptor)
 					.addPathPatterns("/Tfestival/add");
 					
-					
 			
 			//registry.addInterceptor(adminInterceptor)
 			//		.addPathPatterns(""); // 매출페이지 등록

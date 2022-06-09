@@ -75,7 +75,6 @@
 					<div class="accordion-body">
 
 						<strong>
-						아이디 : ${vo.id} <br>
 						시작일 : ${vo.startDate} <br>
 						종료일 :${vo.finishDate} <br>
 						장소 : ${vo.location} <br>

@@ -44,7 +44,7 @@ public class TfestivalInterceptor implements HandlerInterceptor {
 		}
 
 		if (!check) {
-			request.setAttribute("msg", "관리자&작성자만 가능합니다!");
+			request.setAttribute("msg", "관리자와 작성자만 가능합니다.");
 			request.setAttribute("path", "../");
 
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/getResult.jsp");

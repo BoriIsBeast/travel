@@ -26,16 +26,31 @@
 				style="text-transform: uppercase; color: #FEA116 !important;">${vo.category}</h4>
 		</div>
 		${vo.detail}
-		<hr>
+		
+		<div class="card mb-2">
+				<div class="card-header bg-light">
+					<i class="fa fa-comment fa"></i>댓글
+				</div>
+				<div class="card-body">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							<div class="form-inline mb-2">
+								<input type="hidden" name="num" value="${vo.num}" id="num">
+								<label for="replyId"><i	class="fa fa-user-circle-o fa-2x"></i></label> 
+								<input type="text" class="form-control ml-2" name="id" id="id"	value="${member.id}" readonly>
+							</div> 
+							<textarea placeholder="댓글을 남겨주세요." name="contents"class="form-control" id="contents" rows="3"></textarea>
+							<button type="button" id="reply" class="btn btn-dark mt-3"	onClick="javascript:addReply();">댓글 등록</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		<table id="replyResult" class="col-sm-6">
 
-		<div>
-			<input type="hidden" name="num" value="${vo.num}" id="num">
-			아이디 : <input type="text" readonly="readonly" name="id"
-				value="${member.id}" id="id">
-				내용 : <input type="text" name="contents" id="contents">
-			<button type="button" id="reply" class="btn btn-outline-warning">댓글</button>
+
+		</table>
+
 		</div>
-		&nbsp;
 
 		<table id="replyResult">
 		</table>
