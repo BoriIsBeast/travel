@@ -13,16 +13,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<c:import url="../temp/header_script.jsp"></c:import>
+	<c:import url="../temp/header_css.jsp"></c:import>
 	<c:import url="../temp/header.jsp"></c:import>
 
 	<div class="container mt-4">
 		<div class="row mt-4">
 			<div class="alert alert-primary" role="alert"
 				style="background-color: #0F172B !important;">
-				<h4 class="text-center"
-					style="text-transform: uppercase; color: #FEA116 !important;">축제
-					정보</h4>
-
+				<h4 class="text-center" style="text-transform: uppercase; color: #FEA116 !important;">축제 정보</h4>
 
 				<!-- 검색 -->
 				<div class="d-flex justify-content-end">
@@ -40,12 +40,9 @@
 			</div>
 		</div>
 
-
-
-
 		<c:forEach items="${list}" var="vo">
 			<div class="card col-3 detail" data-num="${vo.num}"
-				style="display: inline-block; margin: 20px;">
+				style="display: inline-block; margin: 20px; vertical-align: top;">
 				<img src="../resources/upload/festival/${vo.filesVOs[0].fileName}"
 					width="100%" height="400px" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -68,15 +65,18 @@
 						href="./list?pn=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
 				</c:forEach>
 
-				<li class="page-item"><a class="page-link" href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&nind=${pager.kind}&search=${pager.search}" 
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				<li class="page-item"><a class="page-link"
+					href="./list?pn=${pager.next?pager.lastNum+1:pager.lastNum}&nind=${pager.kind}&search=${pager.search}"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
 		</nav>
 		<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
+
 			<!-- add 버튼 -->
 			<div class="row mt-4">
-				<a href="./add"><button type="submit" class="btn btn-outline-secondary">ADD</button></a>
+				<a href="./add"><button type="submit"
+						class="btn btn-outline-secondary">ADD</button></a>
 			</div>
 		</c:if>
 

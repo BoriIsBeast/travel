@@ -13,7 +13,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="../temp/header.jsp"></c:import>
+
+<c:import url="../temp/header_script.jsp"></c:import>
+<c:import url="../temp/header_css.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
+	
 
 	<div class="container mt-4">
 		<div class="row mt-4">
@@ -43,10 +47,10 @@
 		<!-- list -->
 		<c:forEach items="${list}" var="vo">
 			<div class="card col-3 detail"  data-num="${vo.num}"
-				style="display: inline-block; margin: 20px;">
+				style="display: inline-block; margin: 20px; vertical-align: top;" >
 				<a href="./detail?num=${vo.num}"><img
 					src="../resources/upload/Tbest/${vo.filesVOs[0].fileName}"
-					width="100%" height="400px" class="card-img-top" alt="..."></a>
+					width="100%" height="400px" class="card-img-top"  alt="..."></a>
 				<div class="card mb-3" style="max-width: 540px;">
 					<div class="row g-0">
 						<div class="col-md-4"></div>
