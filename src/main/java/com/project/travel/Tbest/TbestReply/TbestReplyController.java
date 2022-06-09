@@ -58,6 +58,7 @@ public class TbestReplyController {
 	}
 	
 	//댓글 수정
+	@PostMapping("update")
 	public ModelAndView setUpdate(TbestReplyVO tbestReplyVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = tbestReplyService.setUpdate(tbestReplyVO);

@@ -31,7 +31,6 @@
 
 	<resultMap type="TbestVO" id="bestResult">
 		<id column="num" property="num" />
-		<result column="productNum" property="productNum" />
 		<result column="id" property="id" />
 		<result column="category" property="category" />
 		<result column="title" property="title" />
@@ -40,7 +39,6 @@
 			ofType="TbestFilesVO">
 			<id column="fileNum" property="fileNum" />
 			<result column="num" property="num" />
-			<result column="productNum" property="productNum" />
 			<result column="id" property="id" />
 			<result column="fileName" property="fileName" />
 			<result column="oriName" property="oriName" />

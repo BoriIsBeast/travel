@@ -9,8 +9,8 @@
 
 		<td>
 			<c:if test="${member.id eq vo.id}">
-				<button class="update" type="button" data-index="${vo.replyNum}">수정</button>
-				<button class="del" type="button" data-num="${vo.replyNum}">삭제</button>
+			<button class="update btn-success mx-1" type="button" data-index="${vo.replyNum}">수정</button>
+            <button class="del btn-danger mx-1" type="button" data-num="${vo.replyNum}">삭제</button>
 		</c:if>
 		</td>
 		</tr>

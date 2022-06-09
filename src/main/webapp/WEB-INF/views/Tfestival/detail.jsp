@@ -11,83 +11,94 @@
 	crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../temp/header_script.jsp"></c:import>
+<c:import url="../temp/header_css.jsp"></c:import>
+<c:import url="../temp/header.jsp"></c:import>
 </head>
 <body>
-	<h1>축제 상세정보</h1>
-	<div class="col-sm-4">
-		<img src="../resources/upload/festival/${vo.filesVOs[0].fileName}"
-			class="card-img-top" alt="...">
-	</div>
 
+	<div class="container">
+		&nbsp;		
+		<div class="alert alert-primary" role="alert"
+			style="background-color: #0F172B !important;">
+			<h4 class="text-center"
+				style="text-transform: uppercase; color: #FEA116 !important;">${vo.name}</h4>
+		</div>
+		<div class="col-sm-4">
+			<img src="../resources/upload/festival/${vo.filesVOs[0].fileName}"
+				class="card-img-top" alt="...">
+		</div>
 
-	<div class="accordion" id="accordionPanelsStayOpenExample">
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-				<button class="accordion-button" type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-					aria-controls="panelsStayOpen-collapseOne">#1 제목</button>
-			</h2>
-			<div id="panelsStayOpen-collapseOne"
-				class="accordion-collapse collapse show"
-				aria-labelledby="panelsStayOpen-headingOne">
-				<div class="accordion-body">
-					<strong>${vo.name}</strong>
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+					<button class="accordion-button" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseOne">#1 제목</button>
+				</h2>
+				<div id="panelsStayOpen-collapseOne"
+					class="accordion-collapse collapse show"
+					aria-labelledby="panelsStayOpen-headingOne">
+					<div class="accordion-body">
+						<strong>${vo.name}</strong>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+					<button class="accordion-button collapsed" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+						aria-controls="panelsStayOpen-collapseTwo">#2 축제 설명</button>
+				</h2>
+				<div id="panelsStayOpen-collapseTwo"
+					class="accordion-collapse collapse"
+					aria-labelledby="panelsStayOpen-headingTwo">
+					<div class="accordion-body">
+						<strong> ${vo.detail} </strong>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="panelsStayOpen-headingThree">
+					<button class="accordion-button collapsed" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseThree"
+						aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+						#3 상세정보</button>
+				</h2>
+				<div id="panelsStayOpen-collapseThree"
+					class="accordion-collapse collapse"
+					aria-labelledby="panelsStayOpen-headingThree">
+					<div class="accordion-body">
+						<strong>
+						시작일 : ${vo.startDate} <br>
+						종료일 :${vo.finishDate} <br>
+						장소 : ${vo.location} <br>
+						홈페이지 : ${vo.homePage} <br>
+						관람가능연령 : ${vo.age} <br>
+						전화번호 : ${vo.phone}
+						</strong>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-				<button class="accordion-button collapsed" type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-					aria-controls="panelsStayOpen-collapseTwo">#2 축제 설명</button>
-			</h2>
-			<div id="panelsStayOpen-collapseTwo"
-				class="accordion-collapse collapse"
-				aria-labelledby="panelsStayOpen-headingTwo">
-				<div class="accordion-body">
-					<strong> ${vo.detail} </strong>
-				</div>
-			</div>
+		&nbsp;
+		<div style="display: block;">
+			<a href="./list" role="button" class="btn btn-outline-danger">목록</a>
+			<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
 		</div>
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-				<button class="accordion-button collapsed" type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#panelsStayOpen-collapseThree"
-					aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-					#3 상세정보</button>
-			</h2>
-			<div id="panelsStayOpen-collapseThree"
-				class="accordion-collapse collapse"
-				aria-labelledby="panelsStayOpen-headingThree">
-				<div class="accordion-body">
-					<strong> 시작일 : ${vo.startDate}
-					<br>
-					종료일 : ${vo.finishDate}
-					<br>
-					장소 : ${vo.location}
-					<br>
-					홈페이지 : ${vo.homePage}
-					<br>
-					관람가능연령 : ${vo.age}
-					<br>
-					전화번호 : ${vo.phone}
-					</strong>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<a href="./list"role="button" class="btn btn-outline-danger">목록</a>
-	<c:if test="${member.getTType() == 1 || member.getTType() == 2}">
-			<!-- add 버튼 -->
-			<div class="row mt-4">
-				<a href="./delete?num=${vo.num}"><button type="button" class="btn btn-outline-danger">삭제</button></a>
-				<a href="./update?num=${vo.num}"><button type="button" class="btn btn-outline-danger">수정</button></a>	
-			</div>
+		<!-- add 버튼 -->
+		<div class="row mt-4">
+			<a href="./delete?num=${vo.num}">
+			<button type="button" class="btn btn-outline-danger">삭제</button></a>
+			<a href="./update?num=${vo.num}">
+			<button type="button" class="btn btn-outline-danger">수정</button></a>
+		</div>
 		</c:if>
+	</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

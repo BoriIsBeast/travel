@@ -27,6 +27,8 @@ public interface TbestMapper {
 	// update
 	public int update(TbestVO tbestVO) throws Exception;
 
+	//-----------------------------------------------------------------------
+	
 	// fileList
 	public List<TbestFilesVO> fileList(TbestVO tbestVO) throws Exception;
 
