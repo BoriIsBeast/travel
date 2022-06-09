@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,17 +65,17 @@ public class AdminController {
 		
 	}
 	
-	@GetMapping("memberDetail")
-	public ModelAndView getmemberDetail(MemberVO memberVO)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		memberVO= adminService.getMemberDetail(memberVO);
-		
-		mv.setViewName("admin/memberDetail");
-		mv.addObject("list", memberVO);
-				
-		
-		return mv;
-	}
+//	@GetMapping("memberDetail")
+//	public ModelAndView getmemberDetail(MemberVO memberVO)throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		memberVO= adminService.getMemberDetail(memberVO);
+//		
+//		mv.setViewName("admin/memberDetail");
+//		mv.addObject("list", memberVO);
+//				
+//		
+//		return mv;
+//	}
 	
 	@GetMapping("productList")
 	public ModelAndView getProductList(HttpSession session,Pager pager)throws Exception{
@@ -85,23 +86,28 @@ public class AdminController {
 		pager.setId(memberVO.getId());
 		
 		List<ProductVO> ar = adminService.getProductList(pager);
-				
+		Long count = adminService.getProductCount(memberVO);
 		
 		mv.setViewName("admin/productList");
 		mv.addObject("vo", ar);
+		mv.addObject("count",count);
 		
 		
 		 return mv;
 	}
 	@GetMapping("memberList")
-	public ModelAndView getMemberList(MemberVO memberVO)throws Exception{
+	public ModelAndView getMemberList(MemberVO memberVO,Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<MemberVO> ar = adminService.getMemberList();
+		List<MemberVO> ar = adminService.getMemberList(pager);
+		
+		Long count =adminService.getMemberCount();
+		
+		
 		
 		mv.setViewName("admin/memberList");
 		mv.addObject("vo", ar);
-		
+		mv.addObject("count",count);
 		return mv;
 	}
 }

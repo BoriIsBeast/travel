@@ -114,5 +114,25 @@
 		MAXCOUNT = MAXCOUNT-(SELECT AMOUNT FROM TCART WHERE CARTNUM=#{cartNum})
 		WHERE PRODUCTNUM=(SELECT PRODUCTNUM FROM TCART WHERE CARTNUM=#{cartNum})
 	</update>
+	
+	<select id="getCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(PRODUCTNUM) FROM TPRODUCT
+		WHERE
+		<choose>
+       		<when test="kind=='col1'">
+       			 LARGECATEGORY
+       		</when>
+       		<when test="kind=='col2'">
+       			 MEDIUMCATEGORY
+       		</when>
+       		<otherwise>
+       			NAME
+       		</otherwise>
+       	</choose>
+       	LIKE CONCAT('%', #{search},'%') 
+       	AND LARGECATEGORY LIKE CONCAT('%',#{search1},'%')
+       	AND MEDIUMCATEGORY LIKE CONCAT('%',#{search2},'%')
+       	AND SMALLCATEGORY LIKE CONCAT('%',#{category},'%')
+	</select>
 
 </mapper>

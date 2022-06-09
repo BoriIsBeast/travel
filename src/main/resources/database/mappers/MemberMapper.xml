@@ -36,9 +36,13 @@
 		</select>
 		
 		<select id="login" parameterType="MemberVO" resultType="MemberVO">
-			SELECT ID,NAME,TTYPE,LOCATION FROM TMEMBER 
+			SELECT * FROM TMEMBER 
 				WHERE ID=#{id} and PW=#{pw}
 		</select>
+		
+		<delete id="setDelete" parameterType="MemberVO">
+			DELETE FROM TMEMBER WHERE ID=#{id}
+		</delete>
 		
 		
 

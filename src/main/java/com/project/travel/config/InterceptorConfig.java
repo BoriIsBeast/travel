@@ -25,7 +25,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		
 			registry.addInterceptor(sellerInterceptor)
 				
-					.addPathPatterns("/admin/*")
+					//.addPathPatterns("/admin/*")
 					.addPathPatterns("/product/add")
 					.addPathPatterns("/product/update")
 					.addPathPatterns("/product/delete");

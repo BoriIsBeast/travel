@@ -36,7 +36,7 @@
 				</div>
 				
 			
-				<form:input path="birth" id="birth" readonly="readonly" value="${vo.birth}" class="form-control mt-3 mb-2"/>
+				<form:input path="birth" id="birth" readonly="true" value="${vo.birth}" class="form-control mt-3 mb-2"/>
 				<div>
 			<form:errors path="birth"></form:errors>
 		</div>
@@ -61,8 +61,8 @@
 		        	<input size="70" class="form-control" value="${vo.address}" readonly="readonly" />
 		       
 		 
-		    		    <label class="form-label" for="form3Example4">변경 후 주소</label>
-		        	<form:input path="address" id="address" class="form-control" size="70" value="${vo.address}" readonly="readonly" />
+		    		    <label class="form-label mt-2" for="form3Example4">변경 후 주소</label>
+		        	<form:input path="address" id="address" class="form-control" size="70" value="${vo.address}" readonly="true" />
 		   
 		        
 		       <div>

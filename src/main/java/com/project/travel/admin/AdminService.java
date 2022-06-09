@@ -30,10 +30,10 @@ public class AdminService {
 		return adminMapper.getSellList(pager);
 	}
 	
-	public MemberVO getMemberDetail(MemberVO memberVO)throws Exception{
-		
-		return adminMapper.getMemberDetail(memberVO);
-	}
+//	public MemberVO getMemberDetail(MemberVO memberVO)throws Exception{
+//		
+//		return adminMapper.getMemberDetail(memberVO);
+//	}
 
 	public List<ProductVO> getProductList(Pager pager)throws Exception{
 		pager.makeRow();
@@ -41,8 +41,16 @@ public class AdminService {
 		return adminMapper.getProductList(pager);
 	}
 	
-	public List<MemberVO> getMemberList()throws Exception{
-		
-		return adminMapper.getMemberList();
+	public List<MemberVO> getMemberList(Pager pager)throws Exception{
+		pager.makeRow();
+		pager.makeNum(adminMapper.getMemberCount());
+		return adminMapper.getMemberList(pager);
+	}
+	public Long getProductCount(MemberVO memberVO) throws Exception{
+		return adminMapper.getProductCount(memberVO);
+	}
+	
+	public Long getMemberCount() throws Exception{
+		return adminMapper.getMemberCount();
 	}
 }

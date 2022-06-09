@@ -21,7 +21,7 @@
 				style="background-color: #0F172B !important;">
 				<h4 class="text-center"
 					style="text-transform: uppercase; color: #FEA116 !important;">
-					여행지 목록</h4>
+					추천 코스</h4>
 
 
 				<!-- 검색 -->

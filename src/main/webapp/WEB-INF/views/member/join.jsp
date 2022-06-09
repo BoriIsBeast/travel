@@ -23,9 +23,6 @@
 			</div>
 		</div>
 
-		<!-- ///////////////////////////////////////// -->
-
-
 		<!-- Section: Design Block -->
 		<section class="">
 			<!-- Jumbotron -->
@@ -111,7 +108,7 @@
 											</div>
 
 
-											<form:input path="birth" id="birth" readonly="readonly"
+											<form:input path="birth" id="birth" readonly="true"
 												class="form-control mt-3 mb-2" />
 											<div>
 												<form:errors path="birth"></form:errors>
@@ -173,11 +170,9 @@
 					</div>
 				</div>
 			</div>
-			<!-- Jumbotron -->
 		</section>
 
-		<!-- Section: Design Block -->
-		<!-- //////////////////////////////////////// -->
+	
 
 
 		<!--<form:form method="POST" modelAttribute="memberVO">

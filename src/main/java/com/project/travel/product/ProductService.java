@@ -104,6 +104,10 @@ public class ProductService {
 //	public int setMaxCountUpdate(ProductVO productVO)throws Exception{
 //		int result = productMapper.setMaxCountUpdte(productVO);
 //	}
+	
+	public Long getCount(Pager pager) throws Exception{
+		return productMapper.getCount(pager);
+	}
 
 }
 
