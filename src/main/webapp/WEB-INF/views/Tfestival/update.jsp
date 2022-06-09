@@ -13,9 +13,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<div class="alert alert-success" role="alert">
-		<h1>축제 업데이트</h1>
+<c:import url="../temp/header.jsp"></c:import>
+<div class="container mt-4">
+		<div class="row mt-4">
+			<div class="alert alert-primary" role="alert"
+				style="background-color: #0F172B !important;">
+				<h4 class="text-center" style="text-transform: uppercase; color: #FEA116 !important;">축제 업데이트</h4>
+	</div>
 	</div>
 
 	<form action="./update" method="post" enctype="multipart/form-data">
@@ -72,6 +76,7 @@
 		<button type="submit" class="btn btn-outline-secondary">수정완료</button>
 
 	</form>
+	</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
