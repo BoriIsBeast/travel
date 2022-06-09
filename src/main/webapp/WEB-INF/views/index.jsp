@@ -390,7 +390,7 @@
                         Feel the fashion and atmosphere that can be felt in various travel destinations in Korea!
                         </p>
                         <a href="./product/list" class="btn btn-primary py-md-3 px-md-5 me-3">여행지 확인</a>
-                        <a href="" class="btn btn-light py-md-3 px-md-5">축제정보 확인</a>
+                        <a href="./Tbest/list" class="btn btn-light py-md-3 px-md-5">축제정보 확인</a>
                     </div>
                 </div>
                 <div class="col-md-6">
