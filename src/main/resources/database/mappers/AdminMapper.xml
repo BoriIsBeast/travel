@@ -111,23 +111,30 @@
 		
 	</select>
 
-	<select id="getFestivalList" parameterType="Pager" resultType="TfestivalVO">
-	SELECT * FROM TFESTIVAL
-	WHERE NUM > 0 AND
-	<choose>
-		<when test="kind == 'col1'">
-			NAME
-		</when>
-		<otherwise>
-			LOCATION
-		</otherwise>
-	</choose>
-	LIKE concat('%', #{search}, '%')
-	
-	ORDER BY NUM DESC
-	LIMIT #{startRow}, #{perPage}	
+	<select id="getFestivalList" parameterType="Pager"
+		resultMap="festivalResult">
+		SELECT F.NUM, F.NAME, F.LOCATION, F.STARTDATE, F.FINISHDATE, FF.*
+		FROM (SELECT * FROM TFESTIVAL
+		WHERE ID=#{id} AND
+		<choose>
+			<when test="kind == 'col1'">
+				NAME
+			</when>
+			<otherwise>
+				LOCATION
+			</otherwise>
+		</choose>
+		LIKE concat('%', #{search}, '%')
+
+		ORDER BY NUM DESC
+		LIMIT #{startRow}, #{perPage}
+		)F
+		LEFT JOIN
+		TFESTIVALFILE FF
+		USING(NUM)
+		ORDER BY FF.FILENUM ASC
 	</select>
-	
+
 	<resultMap type="TfestivalVO" id="festivalResult">
 		<id column="num" property="num" />
 		<result column="name" property="name" />

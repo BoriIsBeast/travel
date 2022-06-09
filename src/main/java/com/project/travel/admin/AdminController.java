@@ -73,7 +73,7 @@ public class AdminController {
 		List<TfestivalVO> ar = adminService.getFestivalList(pager);
 		
 		mv.setViewName("admin/festivalList");
-		mv.addObject("vo", ar);
+		mv.addObject("list", ar);
 		
 		return mv;
 	}
